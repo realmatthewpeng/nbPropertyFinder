@@ -1,0 +1,14 @@
+Total number of lines found: 2
+
+summary_data.head()
+dfNew.loc[district.index[0], 'MARGIN'] = WinPer - row["GENERAL PERCENT"]
+
+Incorrect Lines:
+
+summary_data.head()
+dfNew.loc[district.index[0], 'MARGIN'] = WinPer - row["GENERAL PERCENT"]
+
+Precision = 0.0
+Recall = 0.0
+
+null

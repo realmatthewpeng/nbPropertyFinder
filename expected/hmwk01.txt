@@ -1,0 +1,40 @@
+dfTitanic = dfTiDirt.dropna(subset=["Survived", "Pclass", "Age", "Sex"]).copy()
+firstClassRate = (dfTitanic.loc[(dfTiDirt["Survived"] == 1) & (dfTitanic["Pclass"] == 1), ["Survived"]].count() / dfTitanic.loc[dfTitanic["Pclass"] == 1, ["Survived"]].count())
+secondClassRate = (dfTitanic.loc[(dfTiDirt["Survived"] == 1) & (dfTitanic["Pclass"] == 2), ["Survived"]].count() / dfTitanic.loc[dfTitanic["Pclass"] == 2, ["Survived"]].count())
+thirdClassRate = (dfTitanic.loc[(dfTiDirt["Survived"] == 1) & (dfTitanic["Pclass"] == 3), ["Survived"]].count() / dfTitanic.loc[dfTitanic["Pclass"] == 3, ["Survived"]].count())
+firstClassMRate = (dfTitanic.loc[(dfTitanic["Survived"] == 1) & (dfTitanic["Pclass"] == 1) & (dfTitanic["Sex"] == "male"), ["Survived"]].count() / dfTitanic.loc[(dfTitanic["Pclass"] == 1) & (dfTitanic["Sex"] == "male"), ["Survived"]].count())
+firstClassFRate = (dfTitanic.loc[(dfTitanic["Survived"] == 1) & (dfTitanic["Pclass"] == 1) & (dfTitanic["Sex"] == "female"), ["Survived"]].count() / dfTitanic.loc[(dfTitanic["Pclass"] == 1) & (dfTitanic["Sex"] == "female"), ["Survived"]].count())
+secondClassMRate = (dfTitanic.loc[(dfTitanic["Survived"] == 1) & (dfTitanic["Pclass"] == 2) & (dfTitanic["Sex"] == "male"), ["Survived"]].count() / dfTitanic.loc[(dfTitanic["Pclass"] == 2) & (dfTitanic["Sex"] == "male"), ["Survived"]].count())
+secondClassFRate = (dfTitanic.loc[(dfTitanic["Survived"] == 1) & (dfTitanic["Pclass"] == 2) & (dfTitanic["Sex"] == "female"), ["Survived"]].count() / dfTitanic.loc[(dfTitanic["Pclass"] == 2) & (dfTitanic["Sex"] == "female"), ["Survived"]].count())
+thirdClassMRate = (dfTitanic.loc[(dfTitanic["Survived"] == 1) & (dfTitanic["Pclass"] == 3) & (dfTitanic["Sex"] == "male"), ["Survived"]].count() / dfTitanic.loc[(dfTitanic["Pclass"] == 3) & (dfTitanic["Sex"] == "male"), ["Survived"]].count())
+thirdClassFRate = (dfTitanic.loc[(dfTitanic["Survived"] == 1) & (dfTitanic["Pclass"] == 3) & (dfTitanic["Sex"] == "female"), ["Survived"]].count() / dfTitanic.loc[(dfTitanic["Pclass"] == 3) & (dfTitanic["Sex"] == "female"), ["Survived"]].count())
+print(dfTitanic["Age"].describe())
+dfTiFeSurvived = dfTitanic.loc[(dfTitanic["Sex"] == "female") & (dfTitanic["Survived"] == 1)]
+dfTiFeDied = dfTitanic.loc[(dfTitanic["Sex"] == "female") & (dfTitanic["Survived"] == 0)]
+dfBabies = dfBabyDirt[(dfBabyDirt["bwt"] != 999) & (dfBabyDirt["gestation"] != 999) & (dfBabyDirt["parity"] != 9) & (dfBabyDirt["height"] != 99) & (dfBabyDirt["weight"] != 999) & (dfBabyDirt["smoke"] != 9)]
+meanSmoke = dfBabies.loc[dfBabies["smoke"]==1]["weight"].mean()
+medianSmoke = dfBabies.loc[dfBabies["smoke"]==1]["weight"].median()
+meanNSmoke = dfBabies.loc[dfBabies["smoke"]==0]["weight"].mean()
+medianNSmoke = dfBabies.loc[dfBabies["smoke"]==0]["weight"].median()
+dfClean = df.dropna(subset=["STATE", "D", "GENERAL PERCENT"]).copy()
+row["GENERAL PERCENT"] = np.float(row["GENERAL PERCENT"].strip("%").replace(",", "."))
+if(pd.isnull(row["CANDIDATE NAME"]) or (row["CANDIDATE NAME"] == 'Scattered')):
+if(pd.isnull(row["CANDIDATE NAME (Last)"]) or (row["CANDIDATE NAME (Last)"] == 'Scattered')):
+dfClean = dfClean[["STATE", "D", "CANDIDATE NAME", "GENERAL PERCENT"]]
+district = dfNew.loc[(dfNew["STATE"] == row["STATE"]) & (dfNew["D"] == row["D"])]
+dfRow = row[["STATE", "D"]]
+dfRow["WINNER"] = row["CANDIDATE NAME"]
+dfRow["MARGIN"] = 100
+dfRow["WINPER"] = row["GENERAL PERCENT"]
+(Margin, WinPer) = dfNew.loc[district.index[0], ['MARGIN', 'WINPER']]
+dfNew.loc[district.index[0], 'WINPER'] = row["GENERAL PERCENT"]
+dfNew.loc[district.index[0], 'MARGIN'] = WinPer - row["GENERAL PERCENT"]
+dfNew = dfNew.sort_values(by='MARGIN')
+dfNew.drop(['WINPER'], axis = 1, inplace = True)
+row["CANDIDATE NAME"] = "UNKNOWN"
+row["CANDIDATE NAME"] = row["CANDIDATE NAME (Last)"]
+row = dfClean.iloc[i]
+row = dfClean.iloc[i]
+print("Survived Female Mean Age: {0:2.2f}  Median Age: {1:2.2f}\nDied Female Mean Age: {2:2.2f} \t Median Age: {3:2.2f}".format(dfTiFeSurvived["Age"].mean(), dfTiFeSurvived["Age"].median(), dfTiFeDied["Age"].mean(), dfTiFeDied["Age"].median()))
+dfBabies.loc[dfBabies["smoke"]==1].hist(column="weight", ax=axes[1], facecolor="darkseagreen", edgecolor="white")
+dfBabies.loc[dfBabies["smoke"]==0].hist(column="weight", ax=axes[0], facecolor="steelblue", edgecolor="white")
