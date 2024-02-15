@@ -29,3 +29,15 @@ athlete_hang_scores = athlete[athlete.hang > 0]
 athlete_climbing_scores = athlete[athlete.climbing_scores > 0]
 athelete_gym_scores = athlete[athlete.gym_scores > 0]
 athlete['additional_index'] = x
+doripa[doripa.tech_scores > 0].tech_scores,
+doripa[doripa.arc_scores > 0].arc_scores,
+doripa[doripa.hang_scores > 0].hang_scores,
+doripa[doripa.climbing_scores > 0].climbing_scores,
+doripa[doripa.scores > 0].scores,
+doripa[doripa.gym_scores > 0].gym_scores,
+sunshine_sessions[sunshine_sessions.tech_scores > 0].tech_scores,
+sunshine_sessions[sunshine_sessions.arc_scores > 0].arc_scores,
+sunshine_sessions[sunshine_sessions.hang_scores > 0].hang_scores,
+sunshine_sessions[sunshine_sessions.climbing_scores > 0].climbing_scores,
+sunshine_sessions[sunshine_sessions.scores > 0].scores,
+sunshine_sessions[sunshine_sessions.gym_scores > 0].gym_scores,

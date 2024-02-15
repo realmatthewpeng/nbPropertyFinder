@@ -1,8 +1,12 @@
-Total number of lines found: 81
+Total number of lines found: 85
 
 test_games['predicted_result'] = predictions
+missed_predictions['model_features'] = 100 * missed_predictions['supporting_model_features'].apply(lambda x: len(x)) / \
 missed_predictions = test_games[test_games['game_result'] !=test_games['predicted_result']].sort_values(by='pred_win_prob', ascending=False)
 test_games['pred_win_prob'] = pred_probs
+supporting_model_features = missed_predictions.apply(lambda row: utils.get_supporting_features(row,feature_dictionary,model_features),axis=1)
+supporting_features = missed_predictions.apply(lambda row: utils.get_supporting_features(row,feature_dictionary,feature_list),axis=1)
+missed_predictions.apply(lambda x: feature_dictionary.print_game_info(test_games,x['season_t'], x['round'], x['team_t'] ), axis=1)
 missed_predictions['features'] = 100 * missed_predictions['supporting_features'].apply(lambda x: len(x)) / len(feature_list)
 test_games = tourney_comp_ratings[tourney_comp_ratings.index.isin(X.index)].copy()
 missed_predictions['model_features'] = 100 * missed_predictions['supporting_model_features'].apply(lambda x: len(x)) / \len(model_features)
@@ -97,8 +101,8 @@ cross_validation_average = cross_val_scores.mean()
 log_loss_result
 y_pred_season
 
-Precision = 0.8518518518518519
-Recall = 0.971830985915493
+Precision = 0.8588235294117647
+Recall = 0.9733333333333334
 
 X_copy[numeric_features] = scaler.transform(X_copy[numeric_features])
 feature_copy[numeric_model_features] = scaler.transform(feature_copy[numeric_model_features])
