@@ -87,10 +87,16 @@ def main():
                 processNotebook(nb, file)
 
 def processNotebook(nb, file: str):
-    found_lines = []
+
+    cell_dict = {}
+    property_dict = {}
+
+    cell_count = 0
     for cell in nb["cells"]:
         if cell["cell_type"] == "code":
             source: str = cell['source']
+            cell_id = hash(str(cell_count) + " " + source)
+            cell_dict[cell_id] = source
             try:
                 tree = ast.parse(source)
                 if TEST_SINGLE_NB: print(ast.dump(tree, indent=3), end="\n\n")
@@ -101,20 +107,30 @@ def processNotebook(nb, file: str):
             visitor.visit(tree)
 
             lines = visitor.getSaved()
-            source_split = [line.strip() for line in source.split("\n")]
-            if len(lines) != 0:
-                if TEST_SINGLE_NB: print(lines)
-                for (start,end, _, _) in lines:
-                    clean = "".join(source_split[start-1:end])
-                    if TEST_SINGLE_NB: print(clean)
-                    found_lines.append(clean)
+            property_dict[cell_id] = lines
+
+        cell_count += 1
     
-    processResults(found_lines, file)
+    processResults(cell_dict, property_dict, file)
 
 
-def processResults(found_lines: list[str], file: str):
+def processResults(cell_dict: dict, property_dict: dict, file: str):
 
     outfile = open("output/"+file.removesuffix(".ipynb")+".txt", 'w')
+
+    found_lines = []
+    for id, source in cell_dict.items():
+        source_split = [line.strip() for line in source.split("\n")]
+        lines = property_dict[id]
+        if len(lines) != 0:
+            if TEST_SINGLE_NB: print(lines)
+            seen_lines = []
+            for (start,end, _, _) in lines:
+                if (start,end) in seen_lines: continue
+                seen_lines.append((start,end))
+                clean = "".join(source_split[start-1:end])
+                if TEST_SINGLE_NB: print(clean)
+                found_lines.append(clean)
 
     print("Total number of lines found: " + str(len(found_lines)) + "\n", file=outfile)
 

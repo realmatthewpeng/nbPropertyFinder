@@ -1,6 +1,5 @@
-Total number of lines found: 51
+Total number of lines found: 43
 
-athelete_gym_scores = athlete[athlete.gym_scores > 0]
 athelete_gym_scores = athlete[athlete.gym_scores > 0]
 sessions['scores'] = scores
 sessions['yoga_scores'] = yoga_scores
@@ -18,10 +17,7 @@ athlete_hang_scores = athlete[athlete.hang > 0]
 sunshine_sessions[sunshine_sessions.arc_scores > 0].arc_scores,
 yoga_scores = sessions.apply(calc_yoga_scores, axis=1)
 sessions['climbing_scores'] = climbing_scores
-athlete_hang_scores = athlete[athlete.hang > 0]
 doripa[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']].max()
-doripa.tail()[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']]
-athlete_tech_scores = athlete[athlete.tech_scores > 0]
 sunshine_sessions[sunshine_sessions.hang_scores > 0].hang_scores,
 sunshine_sessions[sunshine_sessions.climbing_scores > 0].climbing_scores,
 doripa.corr()['scores'].sort_values()
@@ -43,19 +39,14 @@ sunshine_sessions[sunshine_sessions.gym_scores > 0].gym_scores,
 doripa[doripa.gym_scores > 0].gym_scores,
 sunshine_sessions[sunshine_sessions.scores > 0].scores,
 gym_scores = sessions.apply(calc_gym_scores, axis=1)
-sunshine_sessions.tail()[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']]
 sessions['gym_scores'] = gym_scores
-athlete_climbing_scores = athlete[athlete.climbing_scores > 0]
 doripa[doripa.tech_scores > 0].tech_scores,
-doripa = sessions[sessions.monkey == 'doripa']
-sunshine_sessions = sessions[sessions.monkey == 'sunshine']
 scores = sessions.apply(calc_score, axis=1)
 sessions['arc_scores'] = arc_scores
 
 Incorrect Lines:
 
 athelete_gym_scores = athlete[athlete.gym_scores > 0]
-athelete_gym_scores = athlete[athlete.gym_scores > 0]
 sessions['scores'] = scores
 sessions['yoga_scores'] = yoga_scores
 sunshine_sessions[sunshine_sessions.tech_scores > 0].tech_scores,
@@ -72,10 +63,7 @@ athlete_hang_scores = athlete[athlete.hang > 0]
 sunshine_sessions[sunshine_sessions.arc_scores > 0].arc_scores,
 yoga_scores = sessions.apply(calc_yoga_scores, axis=1)
 sessions['climbing_scores'] = climbing_scores
-athlete_hang_scores = athlete[athlete.hang > 0]
 doripa[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']].max()
-doripa.tail()[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']]
-athlete_tech_scores = athlete[athlete.tech_scores > 0]
 sunshine_sessions[sunshine_sessions.hang_scores > 0].hang_scores,
 sunshine_sessions[sunshine_sessions.climbing_scores > 0].climbing_scores,
 doripa.corr()['scores'].sort_values()
@@ -97,12 +85,8 @@ sunshine_sessions[sunshine_sessions.gym_scores > 0].gym_scores,
 doripa[doripa.gym_scores > 0].gym_scores,
 sunshine_sessions[sunshine_sessions.scores > 0].scores,
 gym_scores = sessions.apply(calc_gym_scores, axis=1)
-sunshine_sessions.tail()[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']]
 sessions['gym_scores'] = gym_scores
-athlete_climbing_scores = athlete[athlete.climbing_scores > 0]
 doripa[doripa.tech_scores > 0].tech_scores,
-doripa = sessions[sessions.monkey == 'doripa']
-sunshine_sessions = sessions[sessions.monkey == 'sunshine']
 scores = sessions.apply(calc_score, axis=1)
 sessions['arc_scores'] = arc_scores
 
