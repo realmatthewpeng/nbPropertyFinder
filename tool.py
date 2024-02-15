@@ -70,7 +70,7 @@ class Visitor(ast.NodeVisitor):
     def getSaved(self):
         return self.savedLines
 
-TEST_SINGLE_NB = True
+TEST_SINGLE_NB = False
 NB_TEST_DIR = "notebooks/"
 NB_EXPECTED_DIR = "expected/"
 TEST_NB = "test.ipynb"
@@ -96,7 +96,6 @@ def processNotebook(nb, file: str):
         if cell["cell_type"] == "code":
             source: str = cell['source']
             cell_id = hash(str(cell_count) + " " + source)
-            cell_dict[cell_id] = source
             try:
                 tree = ast.parse(source)
                 if TEST_SINGLE_NB: print(ast.dump(tree, indent=3), end="\n\n")
@@ -107,6 +106,7 @@ def processNotebook(nb, file: str):
             visitor.visit(tree)
 
             lines = visitor.getSaved()
+            cell_dict[cell_id] = source
             property_dict[cell_id] = lines
 
         cell_count += 1
