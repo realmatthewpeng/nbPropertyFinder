@@ -1,6 +1,7 @@
 import nbformat
 import ast
 import os
+from operator import itemgetter
 
 class Visitor(ast.NodeVisitor):
 
@@ -90,12 +91,13 @@ def processNotebook(nb, file: str):
 
     cell_dict = {}
     property_dict = {}
+    flattened_data = []
 
     cell_count = 0
     for cell in nb["cells"]:
         if cell["cell_type"] == "code":
             source: str = cell['source']
-            cell_id = hash(str(cell_count) + " " + source)
+            cell_id = cell_count
             try:
                 tree = ast.parse(source)
                 if TEST_SINGLE_NB: print(ast.dump(tree, indent=3), end="\n\n")
@@ -110,11 +112,31 @@ def processNotebook(nb, file: str):
             property_dict[cell_id] = lines
 
         cell_count += 1
+
+    for id, source in cell_dict.items():
+        source_split = [line for line in source.split("\n")]
+        lines = property_dict[id]
+        if (len(lines) != 0):
+            for (start_r, end_r, start_c, end_c) in lines:
+                new_dict = {"cell_id":id, 
+                            "lineno":start_r, 
+                            "end_lineno":end_r, 
+                            "col_offset":start_c, 
+                            "end_col_offset":end_c}
+                cut = source_split[start_r-1:end_r]
+                cut[0] = cut[0][start_c:]
+                cut[-1] = cut[-1][:end_c]
+                clean = "".join(cut)
+                new_dict["code"] = clean
+                flattened_data.append(new_dict)
     
-    processResults(cell_dict, property_dict, file)
+    # flattened_data = sorted(flattened_data, key=itemgetter("cell_id", "lineno", "col_offset"))
+    # for x in range(len(flattened_data)):
+    #     print(flattened_data[x])
+    printResults(cell_dict, property_dict, file)
 
 
-def processResults(cell_dict: dict, property_dict: dict, file: str):
+def printResults(cell_dict: dict, property_dict: dict, file: str):
 
     outfile = open("output/"+file.removesuffix(".ipynb")+".txt", 'w')
 
