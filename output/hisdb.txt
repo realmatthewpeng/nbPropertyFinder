@@ -1,0 +1,15 @@
+Total number of lines found: 3
+
+page, page_gt = hisdb[0]
+gt = page_gt[box]
+v
+
+Incorrect Lines:
+
+page, page_gt = hisdb[0]
+gt = page_gt[box]
+v
+
+Precision = 0.0
+Recall = 0
+

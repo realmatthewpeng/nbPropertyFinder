@@ -1,0 +1,11 @@
+all_df = pd.concat([old_df, f18_df], verify_integrity=True, ignore_index=True, sort=True)
+all_df.head()
+all_df['Created At DOW'] = all_df['Created At'].dt.dayofweek
+all_df['Duration'] = (all_df['Completed At'] - all_df['Created At'])
+less_text = ' '.join(list(all_df[all_df['Duration'].astype('timedelta64[D]') < 3]['Name'].dropna()))
+grtr_text = ' '.join(list(all_df[all_df['Duration'].astype('timedelta64[D]') >= 3]['Name'].dropna()))
+all_df['Overdue'] = all_df['Completed At'] - all_df['Due Date']
+before_text = ' '.join(list(all_df[all_df['Overdue'].astype('timedelta64[D]') < 0]['Name'].dropna()))
+sameday_text = ' '.join(list(all_df[all_df['Overdue'].astype('timedelta64[D]') == 0]['Name'].dropna()))
+overdue_text = ' '.join(list(all_df[all_df['Overdue'].astype('timedelta64[D]') > 0]['Name'].dropna()))
+exam_counts['date']  = pd.to_datetime(exam_counts['date'])

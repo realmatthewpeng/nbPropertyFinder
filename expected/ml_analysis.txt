@@ -1,0 +1,5 @@
+print('Training features shape: ' + str(train_features.shape))
+print('Testing features shape: ' + str(test_features.shape))
+print('Training outcomes shape: ' + str(train_outcome.shape))
+print('Testing outcomes shape: ' + str(test_outcome.shape))
+print(list(train_features))

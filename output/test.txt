@@ -1,18 +1,12 @@
-Total number of lines found: 5
+Total number of lines found: 2
 
-sessions = sessions.fillna(0)
-sessions = sessions.fillna(0)
-sessions = sessions.fillna(0)
-sessions = sessions.fillna(0)
-sessions = sessions.fillna(0)
+idx        = np.argsort(val)[::-1]; val = val[idx]; vec = vec[:,idx]
+idx        = np.argsort(val)[::-1]; val = val[idx]; vec = vec[:,idx]
 
 Incorrect Lines:
 
-sessions = sessions.fillna(0)
-sessions = sessions.fillna(0)
-sessions = sessions.fillna(0)
-sessions = sessions.fillna(0)
-sessions = sessions.fillna(0)
+idx        = np.argsort(val)[::-1]; val = val[idx]; vec = vec[:,idx]
+idx        = np.argsort(val)[::-1]; val = val[idx]; vec = vec[:,idx]
 
 Precision = 0.0
 Recall = 0.0

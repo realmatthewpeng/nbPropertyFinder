@@ -1,0 +1,34 @@
+df["DayDiff"] = DataFrame([get_datetime(val) for val in df["Checkin Date"]]) - DataFrame([get_datetime(val) for val in df["Snapshot Date"]])
+df["WeekDay"] = DataFrame([get_datetime(val).weekday() for val in df["Checkin Date"]])
+df["DiscountDiff"] = df["Original Price"] - df["Discount Price"]
+df["DiscountPerc"] = (df["DiscountDiff"]/df["Original Price"]) * 100
+df
+df["Hotel_Count"] = df.groupby('Hotel Name')['Hotel Name'].transform('count')
+descending_hotels = df.sort_values(by=['Hotel_Count'],ascending=False).reset_index()
+df_hotels = descending_hotels["Hotel Name"].unique()[:150]
+most_common_hotels = descending_hotels[descending_hotels['Hotel Name'].isin(df_hotels)]
+most_common_hotels["Checkin_Count"] = most_common_hotels.groupby('Checkin Date')['Checkin Date'].transform('count')
+descending_most_common_hotels = most_common_hotels.sort_values(by=['Checkin_Count'],ascending=False).reset_index()
+common_checkins_list = descending_most_common_hotels["Checkin Date"].unique()[:40]
+most_checkins = descending_most_common_hotels[descending_most_common_hotels['Checkin Date'].isin(common_checkins_list)]
+unique_hotels_names = most_checkins["Hotel Name"].unique()
+unique_checkins =  most_checkins["Checkin Date"].unique()
+new_df =  DataFrame.from_records(combs,columns=["Hotel Name","Checkin Date","Discount Code","Discount Price"])
+most_checkins = most_checkins.append(new_df)
+most_checkins["Discount Price"]= most_checkins.groupby(['Hotel Name','Checkin Date','Discount Code'])["Discount Price"].transform('min')
+most_checkins.drop_duplicates(subset=["Hotel Name","Checkin Date","Discount Code"], inplace=True)
+most_checkins.sort_values(by=["Hotel Name","Checkin Date","Discount Code"],ascending=True,inplace=True)
+most_checkins['Discount Price'].replace(sys.maxsize, -1, inplace=True)
+checkin_hotel_discount = most_checkins[["Hotel Name","Checkin Date","Discount Code","Discount Price"]].reset_index()
+discount_filtered = checkin_hotel_discount[checkin_hotel_discount['Discount Price'] > -1 ]
+discount_filtered_grouped = discount_filtered.groupby('Hotel Name')['Discount Price']
+discount_filtered["Normal"] = discount_filtered_grouped.transform(normalize_data)
+discount_synth = checkin_hotel_discount[checkin_hotel_discount['Discount Price'] == -1 ]
+discount_synth["Normal"] = -1
+normal_dataFrame = discount_synth.append(discount_filtered)
+normal_dataFrame.sort_values(by=["Hotel Name","Checkin Date","Discount Code"],ascending=True,inplace=True)
+normal_dataFrame
+normal_dataFrame.groupby("Hotel Name")["Normal"].transform( createRow )  # group by returns for each hotel a list of his normalized prices
+hotels.sort_values(by=["cluster"],ascending=True,inplace=True)
+hotels["Count"] = hotels.groupby("cluster")[0].transform("count")
+hotels

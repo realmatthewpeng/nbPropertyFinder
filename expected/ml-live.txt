@@ -1,0 +1,23 @@
+trips[:10]
+tollrides = trips[trips['tolls_amount'] > 0]
+tollrides[tollrides['pickup_datetime'] == '2012-09-05 15:45:00']
+trips.describe()
+trips = trips_in.copy(deep=True)
+del trips['tolls_amount']
+del trips['total_amount']
+del trips['trip_distance']
+del trips['pickup_datetime']
+trips['pickup_longitude'] > -78, \
+trips['pickup_longitude'] < -70, \
+trips['dropoff_longitude'] > -78, \
+trips['dropoff_longitude'] < -70, \
+trips['pickup_latitude'] > 37, \
+trips['pickup_latitude'] < 45, \
+trips['dropoff_latitude'] > 37, \
+trips['dropoff_latitude'] < 45, \
+trips['passenger_count'] > 0,
+tripsqc = preprocess(trips)
+tripsqc.describe()
+df_train.describe()
+df_valid.describe()
+cols = outdf.columns.tolist()

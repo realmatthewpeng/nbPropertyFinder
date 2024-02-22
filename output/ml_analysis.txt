@@ -1,0 +1,16 @@
+Total number of lines found: 5
+
+print('Training outcomes shape: ' + str(train_outcome.shape))
+modeling_df.drop(['DATE', 'HourlySkyConditions', 'REPORT_TYPE', 'join_time', 'actual_weather_delay', 'avg_delay'], axis=1),
+print('Testing outcomes shape: ' + str(test_outcome.shape))
+print('Testing features shape: ' + str(test_features.shape))
+print('Training features shape: ' + str(train_features.shape))
+
+Incorrect Lines:
+
+modeling_df.drop(['DATE', 'HourlySkyConditions', 'REPORT_TYPE', 'join_time', 'actual_weather_delay', 'avg_delay'], axis=1),
+
+Precision = 0.8
+Recall = 0.8
+
+print(list(train_features))

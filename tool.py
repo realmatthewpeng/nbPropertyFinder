@@ -78,13 +78,13 @@ TEST_NB = "test.ipynb"
 
 def main():
     if (TEST_SINGLE_NB):
-        nb = nbformat.read(TEST_NB, as_version=nbformat.NO_CONVERT)
+        nb = nbformat.read(TEST_NB, as_version=4)
         processNotebook(nb, TEST_NB)
     else:
         for subdir, _, files in os.walk(NB_TEST_DIR):
             for file in files:
                 notebook = os.path.join(subdir, file)
-                nb = nbformat.read(notebook, as_version=nbformat.NO_CONVERT)
+                nb = nbformat.read(notebook, as_version=4)
                 processNotebook(nb, file)
 
 def processNotebook(nb, file: str):
@@ -174,8 +174,15 @@ def printResults(cell_dict: dict, property_dict: dict, file: str):
         else:
             print(line, file=outfile)
 
-    print("\nPrecision = " + str(num_correct/len(found_lines)), file=outfile)
-    print("Recall = " + str(num_correct/total_correct) + "\n", file=outfile)
+    precision = 0
+    recall = 0
+    if len(found_lines) != 0:
+        precision = num_correct/len(found_lines)
+    if total_correct != 0:
+        recall = num_correct/total_correct
+        
+    print("\nPrecision = " + str(precision), file=outfile)
+    print("Recall = " + str(recall) + "\n", file=outfile)
 
     for line in expected_lines:
         print(line, file=outfile)

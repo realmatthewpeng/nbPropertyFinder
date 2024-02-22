@@ -1,0 +1,69 @@
+breeds['Breed'] = breeds['Breed'].str.strip()
+data['OutcomeSubtype'] = data['OutcomeSubtype'].fillna('')
+data['Female'] = 'Female' in data['SexuponOutcome']
+data['AgeuponOutcome'].fillna('', inplace = True)
+data['ConvertedAge']=data['AgeuponOutcome'].apply(ageConvert)
+data['Female'] = data.SexuponOutcome.apply(female)
+data['Intact'] = data.SexuponOutcome.apply(intact)
+data['MixedBreed'] = data.Breed.apply(mixed_breed)
+data['TopBreed'] = data.Breed.apply(top_breed)
+data['BreedRank'] = data.Breed.apply(breed_rank)
+data['PitBull'] = data.Breed.apply(pit_bull)
+data['BlackCat'] = data.Color.apply(black_cat)
+data['Named'] = data.Name.apply(naming)
+data['OrderedColor'] = data.Color.apply(reorder)
+data['OrderedBreed'] = data.Breed.apply(reorder)
+data["ConvertedAge"] = data.groupby("AnimalType").transform(lambda x: x.fillna(x.median()))
+data[continuous].describe().T
+data2 = pd.concat([data[target], data[continuous], pd.get_dummies(data[discrete])], axis=1)
+ss.fit(X_train[continuous])   # Compute mean and std of training data
+X_train[continuous] = ss.transform(X_train[continuous])  # Use that mean and std to normalize columns of training data
+X_dev[continuous] = ss.transform(X_dev[continuous])
+data["ConvertedAge"] = data.groupby("AnimalType").transform(lambda x: x.fillna(x.median()))
+print data[continuous['dog']].describe().T
+print data[continuous['cat']].describe().T
+data2_dog = pd.concat([data[target], data[continuous['dog']], pd.get_dummies(data[discrete['dog']])], axis=1)
+data2_cat = pd.concat([data[target], data[continuous['cat']], pd.get_dummies(data[discrete['cat']])], axis=1)
+print data2_dog.shape
+print data2_cat.shape
+data2_dog = pd.concat([data[target], data[continuous['dog']], pd.get_dummies(data[discrete['dog']])], axis=1)
+data2_cat = pd.concat([data[target], data[continuous['cat']], pd.get_dummies(data[discrete['cat']])], axis=1)
+predictors_dog = continuous['dog'] + discrete_dog
+predictors_cat = continuous['cat'] + discrete_cat
+X_dog = data2_dog[data2_dog['AnimalType_Dog'] == 1][predictors_dog]
+y_dog = data2_dog[data2_dog['AnimalType_Dog'] == 1][[target]]
+X_cat = data2_cat[data2_cat['AnimalType_Cat'] == 1][predictors_cat]
+y_cat = data2_cat[data2_cat['AnimalType_Cat'] == 1][[target]]
+ss_dog.fit(X_dog_train[continuous['dog']])   # Compute mean and std of training data
+X_dog_train[continuous['dog']] = ss_dog.transform(X_dog_train[continuous['dog']])  # Use that mean and std to normalize columns of training data
+X_dog_dev[continuous['dog']] = ss_dog.transform(X_dog_dev[continuous['dog']])
+print X_dog.shape
+ss_cat.fit(X_cat_train[continuous['cat']])   # Compute mean and std of training data
+X_cat_train[continuous['cat']] = ss_cat.transform(X_cat_train[continuous['cat']])  # Use that mean and std to normalize columns of training data
+X_cat_dev[continuous['cat']] = ss_cat.transform(X_cat_dev[continuous['cat']])
+print X_cat.shape
+animal_type = data['AnimalType'].value_counts()
+outcome_type = data['OutcomeType'].value_counts() 
+print("Unique Breeds" , (data.OrderedBreed.value_counts() > 0).sum())
+print X_train.shape
+data_dog = data[data['AnimalType'] == 'Dog']
+data_cat = data[data['AnimalType'] == 'Cat']
+X_dog = data_dog[pred['dog']]
+X_cat = data_cat[pred['cat']]
+y_dog = data_dog[[target]]
+y_cat = data_cat[[target]]
+cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+X_train_feature = X_train
+X_train_feature = X_train_feature.drop('Intact_Unknown', 1)
+X_train_feature = X_train_feature.drop('Female_Unknown', 1)
+X_dev_feature = X_dev
+X_dev_feature = X_dev_feature.drop('Intact_Unknown', 1)
+X_dev_feature = X_dev_feature.drop('Female_Unknown', 1)
+X_train_dog = X_train_feature
+X_train_dog = X_train_feature.drop('AnimalType_Dog', 1)
+X_dev_dog = X_dev_feature
+X_dev_dog = X_dev_feature.drop('AnimalType_Dog', 1)
+X_train_cat = X_train_feature
+X_train_cat = X_train_feature.drop('AnimalType_Cat', 1)
+X_dev_cat = X_dev_feature
+X_dev_cat = X_dev_feature.drop('AnimalType_Cat', 1)

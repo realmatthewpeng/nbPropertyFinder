@@ -1,0 +1,7 @@
+teams_all[teams_all.name== 'Boise St.'].sort()
+games_all = pd.DataFrame(da.get_games_year('2010'))
+games_all
+features_total = pd.concat([features_1, features_2])
+features_total.drop(['team1','team2','year','name_1','name_2'], inplace=True, axis=1)
+teams_mod = modify_teams(teams_all, mapper)
+results[results.res.notnull()]
