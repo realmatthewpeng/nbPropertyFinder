@@ -76,7 +76,12 @@ NB_TEST_DIR = "notebooks/"
 NB_EXPECTED_DIR = "expected/"
 TEST_NB = "test.ipynb"
 
+corpus_total_expected = 0
+corpus_total_correct = 0
+corpus_total_found = 0
+
 def main():
+    
     if (TEST_SINGLE_NB):
         nb = nbformat.read(TEST_NB, as_version=4)
         processNotebook(nb, TEST_NB)
@@ -86,6 +91,16 @@ def main():
                 notebook = os.path.join(subdir, file)
                 nb = nbformat.read(notebook, as_version=4)
                 processNotebook(nb, file)
+
+        precision = 0
+        recall = 0
+        if corpus_total_found != 0:
+            precision = corpus_total_correct/corpus_total_found
+        if corpus_total_expected != 0:
+            recall = corpus_total_correct/corpus_total_expected
+            
+        print("Precision = " + str(precision))
+        print("Recall = " + str(recall))
 
 def processNotebook(nb, file: str):
 
@@ -135,7 +150,6 @@ def processNotebook(nb, file: str):
     #     print(flattened_data[x])
     printResults(cell_dict, property_dict, file)
 
-
 def printResults(cell_dict: dict, property_dict: dict, file: str):
 
     outfile = open("output/"+file.removesuffix(".ipynb")+".txt", 'w')
@@ -163,7 +177,7 @@ def printResults(cell_dict: dict, property_dict: dict, file: str):
     expected_lines = []
     with open(expected) as f:
         expected_lines = f.read().splitlines()
-    total_correct = len(expected_lines)
+    total_expected = len(expected_lines)
 
     num_correct = 0
     print("\nIncorrect Lines:\n", file=outfile)
@@ -178,8 +192,8 @@ def printResults(cell_dict: dict, property_dict: dict, file: str):
     recall = 0
     if len(found_lines) != 0:
         precision = num_correct/len(found_lines)
-    if total_correct != 0:
-        recall = num_correct/total_correct
+    if total_expected != 0:
+        recall = num_correct/total_expected
         
     print("\nPrecision = " + str(precision), file=outfile)
     print("Recall = " + str(recall) + "\n", file=outfile)
@@ -187,6 +201,12 @@ def printResults(cell_dict: dict, property_dict: dict, file: str):
     for line in expected_lines:
         print(line, file=outfile)
 
+    global corpus_total_expected 
+    global corpus_total_correct
+    global corpus_total_found
+    corpus_total_expected += total_expected
+    corpus_total_correct += num_correct
+    corpus_total_found += len(found_lines)
 
 if __name__ == "__main__":
     main()
