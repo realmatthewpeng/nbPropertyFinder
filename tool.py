@@ -10,7 +10,7 @@ class Visitor(ast.NodeVisitor):
                         "astype", "drop", "shape", "index", "mean", "std",
                         "quantile", "size", "rename", "count", "sort_values",
                         "loc", "iloc", "max", "tail", "columns", "fillna",
-                        "apply"]
+                        "apply", "unique", "value_counts"]
 
     def __init__(self):
         super()
@@ -89,6 +89,7 @@ def main():
         for subdir, _, files in os.walk(NB_TEST_DIR):
             for file in files:
                 notebook = os.path.join(subdir, file)
+                # print(file)
                 nb = nbformat.read(notebook, as_version=4)
                 processNotebook(nb, file)
 
@@ -107,11 +108,16 @@ def processNotebook(nb, file: str):
     cell_dict = {}
     property_dict = {}
     flattened_data = []
+    imported_pd = False
 
     cell_count = 0
     for cell in nb["cells"]:
         if cell["cell_type"] == "code":
             source: str = cell['source']
+            if (not imported_pd):
+                if "pandas" in source:
+                    imported_pd = True
+                    # print("found pandas")
             cell_id = cell_count
             try:
                 tree = ast.parse(source)
@@ -127,6 +133,10 @@ def processNotebook(nb, file: str):
             property_dict[cell_id] = lines
 
         cell_count += 1
+
+    if (not imported_pd):
+        printResults({}, {}, file, False)
+        return
 
     for id, source in cell_dict.items():
         source_split = [line for line in source.split("\n")]
@@ -150,9 +160,12 @@ def processNotebook(nb, file: str):
     #     print(flattened_data[x])
     printResults(cell_dict, property_dict, file)
 
-def printResults(cell_dict: dict, property_dict: dict, file: str):
+def printResults(cell_dict: dict, property_dict: dict, file: str, has_pandas = True):
 
     outfile = open("output/"+file.removesuffix(".ipynb")+".txt", 'w')
+    if (not has_pandas):
+        print("Did not find pandas", file=outfile)
+        return
 
     found_lines = []
     for id, source in cell_dict.items():

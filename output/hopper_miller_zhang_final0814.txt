@@ -1,4 +1,4 @@
-Total number of lines found: 41
+Total number of lines found: 45
 
 data['ConvertedAge']=data['AgeuponOutcome'].apply(ageConvert)
 data['Female'] = data.SexuponOutcome.apply(female)
@@ -22,6 +22,10 @@ data["ConvertedAge"] = data.groupby("AnimalType").transform(lambda x: x.fillna(x
 y = data2[[target]]
 data[continuous].describe().T
 X = data2[predictors]
+animal_type = data['AnimalType'].value_counts()
+outcome_type = data['OutcomeType'].value_counts()
+print("Unique Breeds" , (data.OrderedBreed.value_counts() > 0).sum())
+OrderedBreed = data.OrderedBreed.unique()
 plt.xticks(range(len(corr.columns)), corr.columns,rotation='vertical');
 plt.yticks(range(len(corr.columns)), corr.columns);
 data_dog = data[data['AnimalType'] == 'Dog']
@@ -49,13 +53,15 @@ return np.mean(ranks)
 ranks.append(int(breeds.loc[breeds['Breed'] == word]['2007']))
 y = data2[[target]]
 X = data2[predictors]
+outcome_type = data['OutcomeType'].value_counts()
+OrderedBreed = data.OrderedBreed.unique()
 plt.xticks(range(len(corr.columns)), corr.columns,rotation='vertical');
 plt.yticks(range(len(corr.columns)), corr.columns);
 data = X[self.cols]
 thresh = cm.max() / 2.
 
-Precision = 0.7804878048780488
-Recall = 0.463768115942029
+Precision = 0.7555555555555555
+Recall = 0.4927536231884058
 
 data2 = pd.concat([data[target], data[continuous], pd.get_dummies(data[discrete])], axis=1)
 ss.fit(X_train[continuous])   # Compute mean and std of training data
@@ -84,9 +90,7 @@ ss_cat.fit(X_cat_train[continuous['cat']])   # Compute mean and std of training 
 X_cat_train[continuous['cat']] = ss_cat.transform(X_cat_train[continuous['cat']])  # Use that mean and std to normalize columns of training data
 X_cat_dev[continuous['cat']] = ss_cat.transform(X_cat_dev[continuous['cat']])
 print X_cat.shape
-animal_type = data['AnimalType'].value_counts()
 outcome_type = data['OutcomeType'].value_counts() 
-print("Unique Breeds" , (data.OrderedBreed.value_counts() > 0).sum())
 print X_train.shape
 X_train_feature = X_train
 X_dev_feature = X_dev

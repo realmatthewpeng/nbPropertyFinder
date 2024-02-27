@@ -53,48 +53,9 @@ lines
 
 Incorrect Lines:
 
-df_county_data
-county = df_county_data["County Name"]
-grad_rate = df_county_data["Graduation Rate"]
-pov_rate = df_county_data["Poverty Rate"]
-county = df_county_data["County Name"]
-grad_rate = df_county_data["Graduation Rate"]
-pov_rate = df_county_data["Poverty Rate"]
-x = df_county_data["Poverty Rate"]
-county = df_county_data["County Name"]
-grad_rate = df_county_data["Graduation Rate"]
-house_size = df_county_data["Household Size"]
-county = df_county_data["County Name"]
-grad_rate = df_county_data["Graduation Rate"]
-y = df_county_data["Graduation Rate"]
-county = df_county_data["County Name"]
-grad_rate = df_county_data["Graduation Rate"]
-house_size = df_county_data["Unemployment Rate"]
-county = df_county_data["County Name"]
-grad_rate = df_county_data["Graduation Rate"]
-y = df_county_data["Graduation Rate"]
-county = df_county_data["County Name"]
-grad_rate = df_county_data["Graduation Rate"]
-house_size = df_county_data["Median Income"]
-county = df_county_data["County Name"]
-grad_rate = df_county_data["Graduation Rate"]
-y = df_county_data["Graduation Rate"]
-county = df_county_data["County Name"]
-grad_rate = df_county_data["Graduation Rate"]
-house_size = df_county_data["Speak a language other than English"]
-county = df_county_data["County Name"]
-grad_rate = df_county_data["Graduation Rate"]
-pov_rate = df_county_data["Speak a language other than English"]
-y = df_county_data["Graduation Rate"]
-x = df_county_data["Speak a language other than English"]
 lines
 
-Precision = 0.3
-Recall = 0.7142857142857143
+Precision = 0.98
+Recall = 0.98
 
-x_axis = np.arange(len(state))
-x_axis = np.arange(len(pov_rate))
-t = np.arange(len(county))
-x = df_county_data["Poverty Rate"] 
 mask = ~np.isnan(x) & ~np.isnan(y)
-x_axis = np.arange(len(house_size))

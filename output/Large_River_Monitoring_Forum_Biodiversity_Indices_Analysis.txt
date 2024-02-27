@@ -1,8 +1,9 @@
-Total number of lines found: 127
+Total number of lines found: 128
 
 last = len(data.columns)
 data["Margalef"] = ""
 data.loc[i,'Margalef'] = (len(data.iloc[i][4:last][data.iloc[i][4:last]>0])-1)/math.log(sum(data.iloc[i][4:last][data.iloc[i][4:last]>0]))
+segments = data.RiverSeg.unique()
 river = data.iloc[0]["River"]
 segDF = segDF[segDF["Margalef"]>0]
 y = segDF["Margalef"]
@@ -216,8 +217,7 @@ segDF = segDF[segDF["lam'"]>0]
 x = segDF["Year"]
 segDF = segDF.sort_values('Year')
 
-Precision = 0.33070866141732286
-Recall = 0.9545454545454546
+Precision = 0.3359375
+Recall = 0.9772727272727273
 
 data.iloc[0:5]
-segments = data.RiverSeg.unique()
