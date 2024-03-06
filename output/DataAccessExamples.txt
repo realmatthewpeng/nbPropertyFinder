@@ -1,48 +1,48 @@
-Total number of lines found: 19
+Total number of lines found: 20
 
 teams_all[teams_all.name== 'Boise St.'].sort()
 games_all
-features_total.drop(['team1','team2','year','name_1','name_2'], inplace=True, axis=1)
-fts = fts[(fts.name_1.notnull()) & (fts.name_2.notnull())]
-fts['value'] = value
 features_total = features_total[cols]
-t_B_fts = teams[(teams.name==team_b) & (teams.year == year)]
+fts['value'] = value
+features_total.drop(['team1','team2','year','name_1','name_2'], inplace=True, axis=1)
+features_total = pd.concat([features_1, features_2])
+fts = fts[(fts.name_1.notnull()) & (fts.name_2.notnull())]
 t_A_fts = teams[(teams.name==team_a) & (teams.year == year)]
 fs
 fts.drop(['name_1','name_2','year'], inplace=True, axis=1)
-wt['result'] = [checker(t) for t in wt.values]
-wt = kag_results.ix[kag_results.season==season, ['wteam', 'lteam']]
+t_B_fts = teams[(teams.name==team_b) & (teams.year == year)]
+t[0] = t[1]
+temp = t[0]
 teams[teams.year==year],
 teams_combined = pd.merge(pd.merge(kag_seeds[kag_seeds.season==season].sort(columns='team'),
+wt = kag_results.ix[kag_results.season==season, ['wteam', 'lteam']]
+wt['result'] = [checker(t) for t in wt.values]
 teams.ix[teams.name==team[0],'name'] = team[1]
-temp = t[0]
-t[0] = t[1]
 res = results[results.res.notnull()]
 ll
 
 Incorrect Lines:
 
-fts = fts[(fts.name_1.notnull()) & (fts.name_2.notnull())]
-fts['value'] = value
 features_total = features_total[cols]
-t_B_fts = teams[(teams.name==team_b) & (teams.year == year)]
+fts['value'] = value
+fts = fts[(fts.name_1.notnull()) & (fts.name_2.notnull())]
 t_A_fts = teams[(teams.name==team_a) & (teams.year == year)]
 fs
 fts.drop(['name_1','name_2','year'], inplace=True, axis=1)
-wt['result'] = [checker(t) for t in wt.values]
-wt = kag_results.ix[kag_results.season==season, ['wteam', 'lteam']]
+t_B_fts = teams[(teams.name==team_b) & (teams.year == year)]
+t[0] = t[1]
+temp = t[0]
 teams[teams.year==year],
 teams_combined = pd.merge(pd.merge(kag_seeds[kag_seeds.season==season].sort(columns='team'),
+wt = kag_results.ix[kag_results.season==season, ['wteam', 'lteam']]
+wt['result'] = [checker(t) for t in wt.values]
 teams.ix[teams.name==team[0],'name'] = team[1]
-temp = t[0]
-t[0] = t[1]
 res = results[results.res.notnull()]
 ll
 
-Precision = 0.15789473684210525
-Recall = 0.42857142857142855
+Precision = 0.2
+Recall = 0.5714285714285714
 
 games_all = pd.DataFrame(da.get_games_year('2010'))
-features_total = pd.concat([features_1, features_2])
 teams_mod = modify_teams(teams_all, mapper)
 results[results.res.notnull()]

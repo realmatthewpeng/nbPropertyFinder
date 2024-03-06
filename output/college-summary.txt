@@ -1,6 +1,7 @@
-Total number of lines found: 22
+Total number of lines found: 23
 
 all_df.head()
+all_df = pd.concat([old_df, f18_df], verify_integrity=True, ignore_index=True, sort=True)
 all_df['Created At DOW'] = all_df['Created At'].dt.dayofweek
 y=get_semester_asana(all_df, sem)['Created At DOW'].value_counts(normalize=True).values,
 x=get_semester_asana(all_df, sem)['Created At DOW'].value_counts(normalize=True).keys(),
@@ -9,18 +10,18 @@ x=get_semester_asana(all_df, sem)['Created At DOW'].value_counts(normalize=True)
 all_df['Duration'] = (all_df['Completed At'] - all_df['Created At'])
 x=get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]['Duration'].value_counts(normalize=True).keys().days,
 y=get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]['Duration'].value_counts(normalize=True).values,
-less_text = ' '.join(list(all_df[all_df['Duration'].astype('timedelta64[D]') < 3]['Name'].dropna()))
 grtr_text = ' '.join(list(all_df[all_df['Duration'].astype('timedelta64[D]') >= 3]['Name'].dropna()))
-x=get_semester_asana(all_df, sem)['Due Date'].dropna().value_counts().keys(),
+less_text = ' '.join(list(all_df[all_df['Duration'].astype('timedelta64[D]') < 3]['Name'].dropna()))
 y=get_semester_asana(all_df, sem)['Due Date'].dropna().value_counts().values,
+x=get_semester_asana(all_df, sem)['Due Date'].dropna().value_counts().keys(),
 all_df['Overdue'] = all_df['Completed At'] - all_df['Due Date']
 y=get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True).values,
 x=get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True).keys().days,
 y=get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True).values,
 x=get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True).keys().days,
 sameday_text = ' '.join(list(all_df[all_df['Overdue'].astype('timedelta64[D]') == 0]['Name'].dropna()))
-before_text = ' '.join(list(all_df[all_df['Overdue'].astype('timedelta64[D]') < 0]['Name'].dropna()))
 overdue_text = ' '.join(list(all_df[all_df['Overdue'].astype('timedelta64[D]') > 0]['Name'].dropna()))
+before_text = ' '.join(list(all_df[all_df['Overdue'].astype('timedelta64[D]') < 0]['Name'].dropna()))
 exam_counts['date']  = pd.to_datetime(exam_counts['date'])
 
 Incorrect Lines:
@@ -31,14 +32,13 @@ x=get_semester_asana(all_df, sem)['Created At DOW'].value_counts(normalize=True)
 "values": get_semester_asana(all_df, sem)['Column'].value_counts().values,
 x=get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]['Duration'].value_counts(normalize=True).keys().days,
 y=get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]['Duration'].value_counts(normalize=True).values,
-x=get_semester_asana(all_df, sem)['Due Date'].dropna().value_counts().keys(),
 y=get_semester_asana(all_df, sem)['Due Date'].dropna().value_counts().values,
+x=get_semester_asana(all_df, sem)['Due Date'].dropna().value_counts().keys(),
 y=get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True).values,
 x=get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True).keys().days,
 y=get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True).values,
 x=get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True).keys().days,
 
-Precision = 0.45454545454545453
-Recall = 0.9090909090909091
+Precision = 0.4782608695652174
+Recall = 1.0
 
-all_df = pd.concat([old_df, f18_df], verify_integrity=True, ignore_index=True, sort=True)

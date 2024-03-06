@@ -5,12 +5,5 @@ Incorrect Lines:
 
 
 Precision = 0
-Recall = 0.0
+Recall = 0
 
-features = data.drop('MEDV', axis = 1)
-print "Boston housing dataset has {} data points with {} variables each.".format(*data.shape)
-print "Minimum price: ${:,.2f}".format(minimum_price)
-print "Maximum price: ${:,.2f}".format(maximum_price)
-print "Mean price: ${:,.2f}".format(mean_price)
-print "Median price ${:,.2f}".format(median_price)
-print "Standard deviation of prices: ${:,.2f}".format(std_price)

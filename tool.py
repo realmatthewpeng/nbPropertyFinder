@@ -6,11 +6,13 @@ from operator import itemgetter
 class Visitor(ast.NodeVisitor):
 
     savedLines: set
+    # TODO: distinguish between Dataframe and Series value_counts?
     knownFuncNames = ["head", "describe", "dropna", "isnull", "copy", 
                         "astype", "drop", "shape", "index", "mean", "std",
                         "quantile", "size", "rename", "count", "sort_values",
                         "loc", "iloc", "max", "tail", "columns", "fillna",
-                        "apply", "unique", "value_counts"]
+                        "apply", "unique", "value_counts", "reshape", "reset_index", 
+                        "replace", "drop_duplicates", "concat"]
 
     def __init__(self):
         super()
@@ -30,43 +32,43 @@ class Visitor(ast.NodeVisitor):
 
     def visit_Assign(self, node: ast.Assign):
         if isinstance(node.value, ast.Subscript):
-            self.saveNode(node)
+            self.saveNode(node, "Assign1")
         targets = node.targets
         for target in targets:
             if isinstance(target, ast.Subscript):
                 if isinstance(target.slice, ast.Constant):
                     if (isinstance(target.slice.value, str)):
-                        self.saveNode(node)
+                        self.saveNode(node, "Assign2")
                 elif isinstance(target.value, ast.Attribute):
                     if target.value.attr in ["loc", "iloc"]:
-                        self.saveNode(node)
+                        self.saveNode(node, "Assign3")
 
     def visit_Expr(self, node: ast.Expr):
         if isinstance(node.value, ast.Name):
-            self.saveNode(node)
+            self.saveNode(node, "Expr1")
         elif isinstance(node.value, ast.Subscript) and isinstance(node.value.slice, ast.List):
-            self.saveNode(node)
+            self.saveNode(node, "Expr2")
         elif isinstance(node.value, ast.Attribute):
             if node.value.attr in self.knownFuncNames:
-                self.saveNode(node)
+                self.saveNode(node, "Expr3")
 
     def visit_Call(self, node: ast.Call):
         if isinstance(node.func, ast.Attribute):
             if node.func.attr in self.knownFuncNames:
-                self.saveNode(node)
+                self.saveNode(node, "Call1")
         else:
             args = node.args
             for arg in args:
                 if isinstance(arg, ast.Attribute):
                     if arg.attr in self.knownFuncNames:
-                        self.saveNode(node)
+                        self.saveNode(node, "Call2")
     
     def visit_Subscript(self, node: ast.Subscript):
         if isinstance(node.slice, ast.Compare):
-            self.saveNode(node)
+            self.saveNode(node, "Subscript1")
 
-    def saveNode(self, node: ast.AST):
-        self.savedLines.add((node.lineno, node.end_lineno, node.col_offset, node.end_col_offset))
+    def saveNode(self, node: ast.AST, type: str):
+        self.savedLines.add((node.lineno, node.end_lineno, node.col_offset, node.end_col_offset, type))
 
     def getSaved(self):
         return self.savedLines
@@ -79,6 +81,7 @@ TEST_NB = "test.ipynb"
 corpus_total_expected = 0
 corpus_total_correct = 0
 corpus_total_found = 0
+all_data = []
 
 def main():
     
@@ -102,6 +105,10 @@ def main():
             
         print("Precision = " + str(precision))
         print("Recall = " + str(recall))
+
+        with open("all_data.txt", "w") as f:
+            for x in range(len(all_data)):
+                print(all_data[x], file=f)
 
 def processNotebook(nb, file: str):
 
@@ -142,20 +149,27 @@ def processNotebook(nb, file: str):
         source_split = [line for line in source.split("\n")]
         lines = property_dict[id]
         if (len(lines) != 0):
-            for (start_r, end_r, start_c, end_c) in lines:
-                new_dict = {"cell_id":id, 
+            for (start_r, end_r, start_c, end_c, type) in lines:
+                new_dict = {"notebook":file,
+                            "cell_id":id, 
                             "lineno":start_r, 
                             "end_lineno":end_r, 
                             "col_offset":start_c, 
-                            "end_col_offset":end_c}
+                            "end_col_offset":end_c,
+                            "type": type}
                 cut = source_split[start_r-1:end_r]
-                cut[0] = cut[0][start_c:]
-                cut[-1] = cut[-1][:end_c]
+                if len(cut) > 1:
+                    cut[0] = cut[0][start_c:]
+                    cut[-1] = cut[-1][:end_c]
+                else:
+                    cut[0] = cut[0][start_c:end_c]
                 clean = "".join(cut)
                 new_dict["code"] = clean
                 flattened_data.append(new_dict)
     
-    # flattened_data = sorted(flattened_data, key=itemgetter("cell_id", "lineno", "col_offset"))
+    flattened_data = sorted(flattened_data, key=itemgetter("cell_id", "lineno", "col_offset"))
+    global all_data
+    all_data.extend(flattened_data) 
     # for x in range(len(flattened_data)):
     #     print(flattened_data[x])
     printResults(cell_dict, property_dict, file)
@@ -174,7 +188,7 @@ def printResults(cell_dict: dict, property_dict: dict, file: str, has_pandas = T
         if len(lines) != 0:
             if TEST_SINGLE_NB: print(lines)
             seen_lines = []
-            for (start,end, _, _) in lines:
+            for (start,end, _, _, _) in lines:
                 if (start,end) in seen_lines: continue
                 seen_lines.append((start,end))
                 clean = "".join(source_split[start-1:end])

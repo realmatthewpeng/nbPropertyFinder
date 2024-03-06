@@ -1,58 +1,58 @@
-Total number of lines found: 32
+Total number of lines found: 34
 
 print("Dataframe feature names: {}".format(list(data.columns)))
 describe = data.describe(include = "all")
+describe_final = describe_transposed.reset_index()
 describe_final
+dtypes_final = dtypes_dataframe.reset_index()
 dtypes_final.head()
-filled_count_series = data.notnull().sum().astype(int)
 null_count_series = data.isnull().sum().astype(int)
+filled_count_series = data.notnull().sum().astype(int)
 totalcount = data.shape[0]
-null_count_series = null_count_series.reset_index().rename(columns = {0:"null_counts"})
-filled_count_series = filled_count_series.reset_index().rename(columns = {0:"non_null_counts"})
 percent_null = percent_null.reset_index().rename(columns = {0:"null_percent"})
+null_count_series = null_count_series.reset_index().rename(columns = {0:"null_counts"})
 percent_filled = percent_filled.reset_index().rename(columns = {0:"non_null_percent"})
+filled_count_series = filled_count_series.reset_index().rename(columns = {0:"non_null_counts"})
 null_info_dataframe.head()
-merged["row_count"] = totalcount
 merged.drop(["count"], axis = 1, inplace = True)
+merged["row_count"] = totalcount
 merged.head()
-unique_value = merged.loc[index, "unique"]
 merged.loc[index, "unique"] = number_of_uniques
 feature_name = merged.loc[index, "index"]
+unique_value = merged.loc[index, "unique"]
 merged["data_type"] = merged["data_type"].astype(str)
-unique_datatypes = list(merged["data_type"].unique())
 merged[column] = merged[column].astype(float).round(rounded_places)
+unique_datatypes = list(merged["data_type"].unique())
 value = merged.loc[index, attr]
 merged_attributes = list(merged.columns)
 column = merged.loc[index, "index"]
-value = dictionary[attribute]
 sub_dictionary = profile_dict[key]
 attribute = keys[0]
+value = dictionary[attribute]
 data_no_nulls[column] = data_no_nulls[column].fillna(data_no_nulls[column].mean())
 data_no_nulls = data.dropna(how = "any", axis = 0)
-data_no_nulls_column_list = list(data_no_nulls.columns)
 data_no_nulls.drop([feature], axis = 1, inplace = True)
+data_no_nulls_column_list = list(data_no_nulls.columns)
 data_no_nulls[column] = data_no_nulls[column].astype(str)
 
 Incorrect Lines:
 
-unique_value = merged.loc[index, "unique"]
 merged.loc[index, "unique"] = number_of_uniques
 feature_name = merged.loc[index, "index"]
+unique_value = merged.loc[index, "unique"]
 value = merged.loc[index, attr]
 column = merged.loc[index, "index"]
-value = dictionary[attribute]
 sub_dictionary = profile_dict[key]
 attribute = keys[0]
+value = dictionary[attribute]
 data_no_nulls_column_list = list(data_no_nulls.columns)
 
-Precision = 0.71875
-Recall = 0.6052631578947368
+Precision = 0.7352941176470589
+Recall = 0.6578947368421053
 
 print("Dataframe has {} features and {} records".format(data.shape[1], data.shape[0]))
-describe_final = describe_transposed.reset_index()
 dtypes = data.dtypes
 dtypes_dataframe = pandas.DataFrame(dtypes, columns = ["data_type"])
-dtypes_final = dtypes_dataframe.reset_index()
 null_info_dataframe = reduce(lambda left,right: pandas.merge(left,right,on='index'), [percent_null,percent_filled,filled_count_series,null_count_series])
 merged = reduce(lambda left, right: pandas.merge(left, right, on='index', how="left"),[null_info_dataframe, dtypes_final, describe_final])
 number_of_uniques = data[feature_name].nunique()

@@ -24,16 +24,13 @@ print(predictions_5K)
 X_nobib = boston_clean[['Age','Official Time Duration', 'F', 'M', 'Temp (F)']]
 y_nobib = boston_clean['5K Duration'].values.reshape(-1, 1)
 print(X_nobib.shape, y_nobib.shape)
-# X_train_nobib.head()
 X_10K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration']]
 y_10K = boston_clean['10K Duration'].values.reshape(-1, 1)
 print(X_10K.shape, y_10K.shape)
-# X_train_5K.head()
 predictions_10K
 X_15K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration']]
 y_15K = boston_clean['15K Duration'].values.reshape(-1, 1)
 print(X_15K.shape, y_15K.shape)
-# X_train_15K.head()
 X_20K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration']]
 y_20K = boston_clean['20K Duration'].values.reshape(-1, 1)
 print(X_20K.shape, y_20K.shape)
@@ -63,3 +60,15 @@ X_F40K = boston_females[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp 
 y_F40K = boston_females['40K Duration'].values.reshape(-1, 1)
 print(X_F40K.shape, y_F40K.shape)
 boston_residuals_df
+plt.hlines(y=0, xmin=y_test_5K.min(), xmax=y_test_5K.max())
+plt.hlines(y=0, xmin=y_test_nobib.min(), xmax=y_test_nobib.max())
+plt.hlines(y=0, xmin=y_test_10K.min(), xmax=y_test_10K.max())
+plt.hlines(y=0, xmin=y_test_15K.min(), xmax=y_test_15K.max())
+plt.hlines(y=0, xmin=y_test_20K.min(), xmax=y_test_20K.max())
+plt.hlines(y=0, xmin=y_test_Half.min(), xmax=y_test_Half.max())
+plt.hlines(y=0, xmin=y_test_25K.min(), xmax=y_test_25K.max())
+plt.hlines(y=0, xmin=y_test_30K.min(), xmax=y_test_30K.max())
+plt.hlines(y=0, xmin=y_test_35K.min(), xmax=y_test_35K.max())
+plt.hlines(y=0, xmin=y_test_40K.min(), xmax=y_test_40K.max())
+plt.hlines(y=0, xmin=y_test_Final.min(), xmax=y_test_Final.max())
+plt.hlines(y=0, xmin=y_test_F40K.min(), xmax=y_test_F40K.max())
