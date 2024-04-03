@@ -1,4 +1,4 @@
-Total number of lines found: 34
+Total number of lines found: 36
 
 print("Dataframe feature names: {}".format(list(data.columns)))
 describe = data.describe(include = "all")
@@ -9,46 +9,48 @@ dtypes_final.head()
 null_count_series = data.isnull().sum().astype(int)
 filled_count_series = data.notnull().sum().astype(int)
 totalcount = data.shape[0]
+filled_count_series = filled_count_series.reset_index().rename(columns = {0:"non_null_counts"})
 percent_null = percent_null.reset_index().rename(columns = {0:"null_percent"})
 null_count_series = null_count_series.reset_index().rename(columns = {0:"null_counts"})
 percent_filled = percent_filled.reset_index().rename(columns = {0:"non_null_percent"})
-filled_count_series = filled_count_series.reset_index().rename(columns = {0:"non_null_counts"})
 null_info_dataframe.head()
-merged.drop(["count"], axis = 1, inplace = True)
 merged["row_count"] = totalcount
+merged.drop(["count"], axis = 1, inplace = True)
 merged.head()
-merged.loc[index, "unique"] = number_of_uniques
 feature_name = merged.loc[index, "index"]
+merged.loc[index, "unique"] = number_of_uniques
 unique_value = merged.loc[index, "unique"]
 merged["data_type"] = merged["data_type"].astype(str)
 merged[column] = merged[column].astype(float).round(rounded_places)
 unique_datatypes = list(merged["data_type"].unique())
+column = merged.loc[index, "index"]
 value = merged.loc[index, attr]
 merged_attributes = list(merged.columns)
-column = merged.loc[index, "index"]
-sub_dictionary = profile_dict[key]
 attribute = keys[0]
 value = dictionary[attribute]
-data_no_nulls[column] = data_no_nulls[column].fillna(data_no_nulls[column].mean())
+sub_dictionary = profile_dict[key]
+print("Shape of visualization dataset {}. \n{} Records were removed (containing nulls)."\.format(data_no_nulls.shape, data.shape[0] - data_no_nulls.shape[0]))
 data_no_nulls = data.dropna(how = "any", axis = 0)
+data_no_nulls[column] = data_no_nulls[column].fillna(data_no_nulls[column].mean())
+print("Shape of original dataset {}"\.format(data.shape))
 data_no_nulls.drop([feature], axis = 1, inplace = True)
 data_no_nulls_column_list = list(data_no_nulls.columns)
 data_no_nulls[column] = data_no_nulls[column].astype(str)
 
 Incorrect Lines:
 
-merged.loc[index, "unique"] = number_of_uniques
 feature_name = merged.loc[index, "index"]
+merged.loc[index, "unique"] = number_of_uniques
 unique_value = merged.loc[index, "unique"]
-value = merged.loc[index, attr]
 column = merged.loc[index, "index"]
-sub_dictionary = profile_dict[key]
+value = merged.loc[index, attr]
 attribute = keys[0]
 value = dictionary[attribute]
+sub_dictionary = profile_dict[key]
 data_no_nulls_column_list = list(data_no_nulls.columns)
 
-Precision = 0.7352941176470589
-Recall = 0.6578947368421053
+Precision = 0.75
+Recall = 0.7105263157894737
 
 print("Dataframe has {} features and {} records".format(data.shape[1], data.shape[0]))
 dtypes = data.dtypes
@@ -58,8 +60,6 @@ merged = reduce(lambda left, right: pandas.merge(left, right, on='index', how="l
 number_of_uniques = data[feature_name].nunique()
 total_keys = len(profile_dict.keys())
 list(merged[(merged["data_type"] == "int64") |(merged["data_type"] == "float64")]["index"])
-print("Shape of original dataset {}"\.format(data.shape))
-print("Shape of visualization dataset {}. \n{} Records were removed (containing nulls)."\.format(data_no_nulls.shape, data.shape[0] - data_no_nulls.shape[0]))
 columns_to_fill_mean = list(merged[(merged["data_type"] == "int64") |(merged["data_type"] == "float64")]["index"])
 chosen_categorical_features = list(merged[(merged["unique"] >= nunique_range[0]) &(merged["unique"] <= nunique_range[1]) &(merged["data_type"] == "object")]["index"])
 dtype = data_no_nulls[column].dtype

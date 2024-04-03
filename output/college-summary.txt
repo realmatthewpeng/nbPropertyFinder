@@ -15,10 +15,10 @@ less_text = ' '.join(list(all_df[all_df['Duration'].astype('timedelta64[D]') < 3
 y=get_semester_asana(all_df, sem)['Due Date'].dropna().value_counts().values,
 x=get_semester_asana(all_df, sem)['Due Date'].dropna().value_counts().keys(),
 all_df['Overdue'] = all_df['Completed At'] - all_df['Due Date']
-y=get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True).values,
 x=get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True).keys().days,
 y=get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True).values,
 x=get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True).keys().days,
+y=get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True).values,
 sameday_text = ' '.join(list(all_df[all_df['Overdue'].astype('timedelta64[D]') == 0]['Name'].dropna()))
 overdue_text = ' '.join(list(all_df[all_df['Overdue'].astype('timedelta64[D]') > 0]['Name'].dropna()))
 before_text = ' '.join(list(all_df[all_df['Overdue'].astype('timedelta64[D]') < 0]['Name'].dropna()))
@@ -26,19 +26,7 @@ exam_counts['date']  = pd.to_datetime(exam_counts['date'])
 
 Incorrect Lines:
 
-y=get_semester_asana(all_df, sem)['Created At DOW'].value_counts(normalize=True).values,
-x=get_semester_asana(all_df, sem)['Created At DOW'].value_counts(normalize=True).keys(),
-"labels": get_semester_asana(all_df, sem)['Column'].value_counts().keys(),
-"values": get_semester_asana(all_df, sem)['Column'].value_counts().values,
-x=get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]['Duration'].value_counts(normalize=True).keys().days,
-y=get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]['Duration'].value_counts(normalize=True).values,
-y=get_semester_asana(all_df, sem)['Due Date'].dropna().value_counts().values,
-x=get_semester_asana(all_df, sem)['Due Date'].dropna().value_counts().keys(),
-y=get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True).values,
-x=get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True).keys().days,
-y=get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True).values,
-x=get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True).keys().days,
 
-Precision = 0.4782608695652174
+Precision = 1.0
 Recall = 1.0
 

@@ -1,42 +1,42 @@
 Total number of lines found: 48
 
+data['OrderedColor'] = data.Color.apply(reorder)
+data['TopBreed'] = data.Breed.apply(top_breed)
+data['MixedBreed'] = data.Breed.apply(mixed_breed)
+data['Female'] = data.SexuponOutcome.apply(female)
+data['Intact'] = data.SexuponOutcome.apply(intact)
+data['OutcomeSubtype'] = data['OutcomeSubtype'].fillna('')
 data['OrderedBreed'] = data.Breed.apply(reorder)
 data['BreedRank'] = data.Breed.apply(breed_rank)
 data['Named'] = data.Name.apply(naming)
-data['TopBreed'] = data.Breed.apply(top_breed)
-data['OutcomeSubtype'] = data['OutcomeSubtype'].fillna('')
 breeds['Breed'] = breeds['Breed'].str.strip()
 data['PitBull'] = data.Breed.apply(pit_bull)
 data['ConvertedAge']=data['AgeuponOutcome'].apply(ageConvert)
-ranks.append(int(breeds.loc[breeds['Breed'] == word]['2007']))
 if i.find(" ") >= 0: i = i.replace(" ", "-")
-data['Intact'] = data.SexuponOutcome.apply(intact)
-if pd.isnull(i): return 'Unnamed'
-data['MixedBreed'] = data.Breed.apply(mixed_breed)
-data['AgeuponOutcome'].fillna('', inplace = True)
-data['Female'] = data.SexuponOutcome.apply(female)
+ranks.append(int(breeds.loc[breeds['Breed'] == word]['2007']))
 data['BlackCat'] = data.Color.apply(black_cat)
-return np.mean(ranks)
+if pd.isnull(i): return 'Unnamed'
+data['AgeuponOutcome'].fillna('', inplace = True)
 if i.find("/") >= 0: i = i.replace("/", " ")
+return np.mean(ranks)
 data['Female'] = 'Female' in data['SexuponOutcome']
-data['OrderedColor'] = data.Color.apply(reorder)
-y = data2[[target]]
-data2 = pd.concat([data[target], data[continuous], pd.get_dummies(data[discrete])], axis=1)
-data["ConvertedAge"] = data.groupby("AnimalType").transform(lambda x: x.fillna(x.median()))
-data[continuous].describe().T
 X = data2[predictors]
+data["ConvertedAge"] = data.groupby("AnimalType").transform(lambda x: x.fillna(x.median()))
+data2 = pd.concat([data[target], data[continuous], pd.get_dummies(data[discrete])], axis=1)
+y = data2[[target]]
+data[continuous].describe().T
 animal_type = data['AnimalType'].value_counts()
 outcome_type = data['OutcomeType'].value_counts()
 print("Unique Breeds" , (data.OrderedBreed.value_counts() > 0).sum())
 OrderedBreed = data.OrderedBreed.unique()
-plt.yticks(range(len(corr.columns)), corr.columns);
 plt.xticks(range(len(corr.columns)), corr.columns,rotation='vertical');
-data_dog = data[data['AnimalType'] == 'Dog']
-y_dog = data_dog[[target]]
-data_cat = data[data['AnimalType'] == 'Cat']
-X_dog = data_dog[pred['dog']]
+plt.yticks(range(len(corr.columns)), corr.columns);
 X_cat = data_cat[pred['cat']]
 y_cat = data_cat[[target]]
+data_cat = data[data['AnimalType'] == 'Cat']
+data_dog = data[data['AnimalType'] == 'Dog']
+y_dog = data_dog[[target]]
+X_dog = data_dog[pred['dog']]
 data = X[self.cols]
 cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
 thresh = cm.max() / 2.
@@ -51,51 +51,25 @@ X_train_cat = X_train_feature.drop('AnimalType_Cat', 1)
 
 Incorrect Lines:
 
-ranks.append(int(breeds.loc[breeds['Breed'] == word]['2007']))
 if i.find(" ") >= 0: i = i.replace(" ", "-")
+ranks.append(int(breeds.loc[breeds['Breed'] == word]['2007']))
 if pd.isnull(i): return 'Unnamed'
-return np.mean(ranks)
 if i.find("/") >= 0: i = i.replace("/", " ")
-y = data2[[target]]
+return np.mean(ranks)
 X = data2[predictors]
-outcome_type = data['OutcomeType'].value_counts()
+y = data2[[target]]
 OrderedBreed = data.OrderedBreed.unique()
-plt.yticks(range(len(corr.columns)), corr.columns);
 plt.xticks(range(len(corr.columns)), corr.columns,rotation='vertical');
+plt.yticks(range(len(corr.columns)), corr.columns);
 data = X[self.cols]
 thresh = cm.max() / 2.
 
-Precision = 0.7291666666666666
-Recall = 0.5072463768115942
+Precision = 0.75
+Recall = 0.8
 
 ss.fit(X_train[continuous])   # Compute mean and std of training data
 X_train[continuous] = ss.transform(X_train[continuous])  # Use that mean and std to normalize columns of training data
 X_dev[continuous] = ss.transform(X_dev[continuous])
-data["ConvertedAge"] = data.groupby("AnimalType").transform(lambda x: x.fillna(x.median()))
-print data[continuous['dog']].describe().T
-print data[continuous['cat']].describe().T
-data2_dog = pd.concat([data[target], data[continuous['dog']], pd.get_dummies(data[discrete['dog']])], axis=1)
-data2_cat = pd.concat([data[target], data[continuous['cat']], pd.get_dummies(data[discrete['cat']])], axis=1)
-print data2_dog.shape
-print data2_cat.shape
-data2_dog = pd.concat([data[target], data[continuous['dog']], pd.get_dummies(data[discrete['dog']])], axis=1)
-data2_cat = pd.concat([data[target], data[continuous['cat']], pd.get_dummies(data[discrete['cat']])], axis=1)
-predictors_dog = continuous['dog'] + discrete_dog
-predictors_cat = continuous['cat'] + discrete_cat
-X_dog = data2_dog[data2_dog['AnimalType_Dog'] == 1][predictors_dog]
-y_dog = data2_dog[data2_dog['AnimalType_Dog'] == 1][[target]]
-X_cat = data2_cat[data2_cat['AnimalType_Cat'] == 1][predictors_cat]
-y_cat = data2_cat[data2_cat['AnimalType_Cat'] == 1][[target]]
-ss_dog.fit(X_dog_train[continuous['dog']])   # Compute mean and std of training data
-X_dog_train[continuous['dog']] = ss_dog.transform(X_dog_train[continuous['dog']])  # Use that mean and std to normalize columns of training data
-X_dog_dev[continuous['dog']] = ss_dog.transform(X_dog_dev[continuous['dog']])
-print X_dog.shape
-ss_cat.fit(X_cat_train[continuous['cat']])   # Compute mean and std of training data
-X_cat_train[continuous['cat']] = ss_cat.transform(X_cat_train[continuous['cat']])  # Use that mean and std to normalize columns of training data
-X_cat_dev[continuous['cat']] = ss_cat.transform(X_cat_dev[continuous['cat']])
-print X_cat.shape
-outcome_type = data['OutcomeType'].value_counts() 
-print X_train.shape
 X_train_feature = X_train
 X_dev_feature = X_dev
 X_train_dog = X_train_feature

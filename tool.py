@@ -20,52 +20,77 @@ class Visitor(ast.NodeVisitor):
 
     def visit(self, node: ast.AST):
         if type(node) == ast.Call:
-            self.visit_Call(node)
+            self.visit_Call_FuncAttribute(node)
+            self.visit_Call_NodeArgs(node)
         elif type(node) == ast.Subscript:
             self.visit_Subscript(node)
         elif type(node) == ast.Expr:
-            self.visit_Expr(node)
+            self.visit_Expr_ValueName(node)
+            self.visit_Expr_ValueSubscript(node)
+            self.visit_Expr_ValueAttribute(node)
         elif type(node) == ast.Assign:
-            self.visit_Assign(node)
+            self.visit_Assign_ValueSubscript(node)
+            self.visit_Assign_NodeTargets(node)
+        elif type(node) == ast.Delete:
+            self.visit_Delete(node)
 
         self.generic_visit(node)
 
-    def visit_Assign(self, node: ast.Assign):
+    def visit_Assign_ValueSubscript(self, node: ast.Assign):
         if isinstance(node.value, ast.Subscript):
             self.saveNode(node, "Assign1")
+
+    def visit_Assign_NodeTargets(self, node: ast.Assign):
         targets = node.targets
         for target in targets:
             if isinstance(target, ast.Subscript):
-                if isinstance(target.slice, ast.Constant):
-                    if (isinstance(target.slice.value, str)):
-                        self.saveNode(node, "Assign2")
-                elif isinstance(target.value, ast.Attribute):
-                    if target.value.attr in ["loc", "iloc"]:
-                        self.saveNode(node, "Assign3")
+                self.visit_Assign_NodeTargetSubscript_SliceConstant(node, target)
+                self.visit_Assign_NodeTargetSubscript_ValueAttribute(node, target)
 
-    def visit_Expr(self, node: ast.Expr):
+    def visit_Assign_NodeTargetSubscript_SliceConstant(self, node: ast.Assign, target: ast.Subscript):
+        if isinstance(target.slice, ast.Constant):
+            if (isinstance(target.slice.value, str)):
+                self.saveNode(node, "Assign2")
+
+    def visit_Assign_NodeTargetSubscript_ValueAttribute(self, node: ast.Assign, target: ast.Subscript):
+        if isinstance(target.value, ast.Attribute):
+            if target.value.attr in ["loc", "iloc"]:
+                self.saveNode(node, "Assign3")
+
+    def visit_Expr_ValueName(self, node: ast.Expr):
         if isinstance(node.value, ast.Name):
             self.saveNode(node, "Expr1")
-        elif isinstance(node.value, ast.Subscript) and isinstance(node.value.slice, ast.List):
-            self.saveNode(node, "Expr2")
-        elif isinstance(node.value, ast.Attribute):
+    
+    def visit_Expr_ValueSubscript(self, node: ast.Expr):
+        if isinstance(node.value, ast.Subscript): 
+            if isinstance(node.value.slice, ast.List):
+                self.saveNode(node, "Expr2")
+
+    def visit_Expr_ValueAttribute(self, node: ast.Expr):
+        if isinstance(node.value, ast.Attribute):
             if node.value.attr in self.knownFuncNames:
                 self.saveNode(node, "Expr3")
 
-    def visit_Call(self, node: ast.Call):
+    def visit_Call_FuncAttribute(self, node: ast.Call):
         if isinstance(node.func, ast.Attribute):
             if node.func.attr in self.knownFuncNames:
                 self.saveNode(node, "Call1")
-        else:
-            args = node.args
-            for arg in args:
-                if isinstance(arg, ast.Attribute):
-                    if arg.attr in self.knownFuncNames:
-                        self.saveNode(node, "Call2")
+    
+    def visit_Call_NodeArgs(self, node: ast.Call):
+        args = node.args
+        for arg in args:
+            if isinstance(arg, ast.Attribute):
+                if arg.attr in self.knownFuncNames:
+                    self.saveNode(node, "Call2")
     
     def visit_Subscript(self, node: ast.Subscript):
         if isinstance(node.slice, ast.Compare):
             self.saveNode(node, "Subscript1")
+
+    def visit_Delete(self, node: ast.Delete):
+        if isinstance(node.targets[0], ast.Subscript):
+            if isinstance(node.targets[0].slice, ast.Constant):
+                self.saveNode(node, "Delete1")
 
     def saveNode(self, node: ast.AST, type: str):
         self.savedLines.add((node.lineno, node.end_lineno, node.col_offset, node.end_col_offset, type))
@@ -130,6 +155,7 @@ def processNotebook(nb, file: str):
                 tree = ast.parse(source)
                 if TEST_SINGLE_NB: print(ast.dump(tree, indent=3), end="\n\n")
             except Exception as e:
+                # print(f"Error {e} in file {file}")
                 continue
           
             visitor = Visitor()

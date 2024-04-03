@@ -2,41 +2,41 @@ Total number of lines found: 20
 
 teams_all[teams_all.name== 'Boise St.'].sort()
 games_all
-features_total = features_total[cols]
-fts['value'] = value
-features_total.drop(['team1','team2','year','name_1','name_2'], inplace=True, axis=1)
 features_total = pd.concat([features_1, features_2])
+fts['value'] = value
 fts = fts[(fts.name_1.notnull()) & (fts.name_2.notnull())]
-t_A_fts = teams[(teams.name==team_a) & (teams.year == year)]
-fs
+features_total = features_total[cols]
+features_total.drop(['team1','team2','year','name_1','name_2'], inplace=True, axis=1)
 fts.drop(['name_1','name_2','year'], inplace=True, axis=1)
+fs
 t_B_fts = teams[(teams.name==team_b) & (teams.year == year)]
+t_A_fts = teams[(teams.name==team_a) & (teams.year == year)]
+teams.ix[teams.name==team[0],'name'] = team[1]
+wt['result'] = [checker(t) for t in wt.values]
 t[0] = t[1]
 temp = t[0]
-teams[teams.year==year],
 teams_combined = pd.merge(pd.merge(kag_seeds[kag_seeds.season==season].sort(columns='team'),
+teams[teams.year==year],
 wt = kag_results.ix[kag_results.season==season, ['wteam', 'lteam']]
-wt['result'] = [checker(t) for t in wt.values]
-teams.ix[teams.name==team[0],'name'] = team[1]
 res = results[results.res.notnull()]
 ll
 
 Incorrect Lines:
 
-features_total = features_total[cols]
 fts['value'] = value
 fts = fts[(fts.name_1.notnull()) & (fts.name_2.notnull())]
-t_A_fts = teams[(teams.name==team_a) & (teams.year == year)]
-fs
+features_total = features_total[cols]
 fts.drop(['name_1','name_2','year'], inplace=True, axis=1)
+fs
 t_B_fts = teams[(teams.name==team_b) & (teams.year == year)]
+t_A_fts = teams[(teams.name==team_a) & (teams.year == year)]
+teams.ix[teams.name==team[0],'name'] = team[1]
+wt['result'] = [checker(t) for t in wt.values]
 t[0] = t[1]
 temp = t[0]
-teams[teams.year==year],
 teams_combined = pd.merge(pd.merge(kag_seeds[kag_seeds.season==season].sort(columns='team'),
+teams[teams.year==year],
 wt = kag_results.ix[kag_results.season==season, ['wteam', 'lteam']]
-wt['result'] = [checker(t) for t in wt.values]
-teams.ix[teams.name==team[0],'name'] = team[1]
 res = results[results.res.notnull()]
 ll
 

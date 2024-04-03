@@ -21,3 +21,6 @@ tripsqc.describe()
 df_train.describe()
 df_valid.describe()
 cols = outdf.columns.tolist()
+df_train = shuffled.iloc[:trainsize, :]
+df_valid = shuffled.iloc[trainsize:(trainsize+validsize), :]
+rate = df_train['fare_amount'].mean() / estimate_distance(df_train).mean()

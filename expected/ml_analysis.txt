@@ -3,3 +3,4 @@ print('Testing features shape: ' + str(test_features.shape))
 print('Training outcomes shape: ' + str(train_outcome.shape))
 print('Testing outcomes shape: ' + str(test_outcome.shape))
 print(list(train_features))
+modeling_df.drop(['DATE', 'HourlySkyConditions', 'REPORT_TYPE', 'join_time', 'actual_weather_delay', 'avg_delay'], axis=1),
