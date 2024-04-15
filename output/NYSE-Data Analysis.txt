@@ -5,8 +5,8 @@ data.symbol.unique()[:50]
 len(data.symbol.unique())
 aapl = data[data.symbol == "AAPL"]
 aapl_change = aapl_close.apply(lambda x: np.log(x) - np.log(x.shift(1))) # shift moves dates back by 1.
-dates = aapl[["date"]]
 aapl_close = aapl[["close"]]
+dates = aapl[["date"]]
 googl = data[data.symbol == "GOOGL"]
 
 Incorrect Lines:

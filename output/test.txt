@@ -1,12 +1,10 @@
-Total number of lines found: 2
+Total number of lines found: 1
 
-list(merged.head())
-list(merged.columns)
+print(X_5K.shape, y_5K.shape)
 
 Incorrect Lines:
 
-list(merged.head())
-list(merged.columns)
+print(X_5K.shape, y_5K.shape)
 
 Precision = 0.0
 Recall = 0.0
