@@ -3,9 +3,9 @@ Total number of lines found: 21
 tollrides = trips[trips['tolls_amount'] > 0]
 tollrides[tollrides['pickup_datetime'] == '2012-09-05 15:45:00']
 trips.describe()
+tripsqc.describe()
 trips = trips_in.copy(deep=True)
 del trips['tolls_amount']
-tripsqc.describe()
 del trips['pickup_datetime']
 del trips['trip_distance']
 del trips['total_amount']
@@ -13,8 +13,8 @@ df_train = shuffled.iloc[:trainsize, :]
 df_valid = shuffled.iloc[trainsize:(trainsize+validsize), :]
 df_train.describe()
 df_valid.describe()
-return np.sqrt(np.mean((actual-predicted)**2))
 rate = df_train['fare_amount'].mean() / estimate_distance(df_train).mean()
+return np.sqrt(np.mean((actual-predicted)**2))
 FEATURES = CSV_COLUMNS[1:len(CSV_COLUMNS) - 1]
 LABEL = CSV_COLUMNS[0]
 os.environ['BUCKET'] = BUCKET

@@ -1,8 +1,8 @@
 Total number of lines found: 36
 
 print("Dataframe feature names: {}".format(list(data.columns)))
-describe = data.describe(include = "all")
 describe_final = describe_transposed.reset_index()
+describe = data.describe(include = "all")
 describe_final
 dtypes_final = dtypes_dataframe.reset_index()
 dtypes_final.head()
@@ -14,24 +14,24 @@ percent_null = percent_null.reset_index().rename(columns = {0:"null_percent"})
 null_count_series = null_count_series.reset_index().rename(columns = {0:"null_counts"})
 percent_filled = percent_filled.reset_index().rename(columns = {0:"non_null_percent"})
 null_info_dataframe.head()
-merged["row_count"] = totalcount
 merged.drop(["count"], axis = 1, inplace = True)
+merged["row_count"] = totalcount
 merged.head()
-feature_name = merged.loc[index, "index"]
-merged.loc[index, "unique"] = number_of_uniques
 unique_value = merged.loc[index, "unique"]
+merged.loc[index, "unique"] = number_of_uniques
+feature_name = merged.loc[index, "index"]
 merged["data_type"] = merged["data_type"].astype(str)
-merged[column] = merged[column].astype(float).round(rounded_places)
 unique_datatypes = list(merged["data_type"].unique())
+merged[column] = merged[column].astype(float).round(rounded_places)
 column = merged.loc[index, "index"]
 value = merged.loc[index, attr]
 merged_attributes = list(merged.columns)
+sub_dictionary = profile_dict[key]
 attribute = keys[0]
 value = dictionary[attribute]
-sub_dictionary = profile_dict[key]
-print("Shape of visualization dataset {}. \n{} Records were removed (containing nulls)."\.format(data_no_nulls.shape, data.shape[0] - data_no_nulls.shape[0]))
 data_no_nulls = data.dropna(how = "any", axis = 0)
 data_no_nulls[column] = data_no_nulls[column].fillna(data_no_nulls[column].mean())
+print("Shape of visualization dataset {}. \n{} Records were removed (containing nulls)."\.format(data_no_nulls.shape, data.shape[0] - data_no_nulls.shape[0]))
 print("Shape of original dataset {}"\.format(data.shape))
 data_no_nulls.drop([feature], axis = 1, inplace = True)
 data_no_nulls_column_list = list(data_no_nulls.columns)
@@ -39,14 +39,14 @@ data_no_nulls[column] = data_no_nulls[column].astype(str)
 
 Incorrect Lines:
 
-feature_name = merged.loc[index, "index"]
-merged.loc[index, "unique"] = number_of_uniques
 unique_value = merged.loc[index, "unique"]
+merged.loc[index, "unique"] = number_of_uniques
+feature_name = merged.loc[index, "index"]
 column = merged.loc[index, "index"]
 value = merged.loc[index, attr]
+sub_dictionary = profile_dict[key]
 attribute = keys[0]
 value = dictionary[attribute]
-sub_dictionary = profile_dict[key]
 data_no_nulls_column_list = list(data_no_nulls.columns)
 
 Precision = 0.75

@@ -3,45 +3,45 @@ Total number of lines found: 43
 sessions = sessions.fillna(0)
 sessions['date'] = pd.to_datetime(sessions.date)
 sessions.columns
-sessions['power_scores'] = power_scores
-sessions['hang_scores'] = hangboard_scores
-sessions['climbing_scores'] = climbing_scores
+sessions['scores'] = scores
 sessions['tech_scores'] = tech_scores
 scores = sessions.apply(calc_score, axis=1)
-sessions['arc_scores'] = arc_scores
-sessions['gym_scores'] = gym_scores
-hangboard_scores = sessions.apply(calc_hangboard_scores, axis=1)
-yoga_scores = sessions.apply(calc_yoga_scores, axis=1)
-sessions['scores'] = scores
-climbing_scores = sessions.apply(calc_climbing_scores, axis=1)
 sessions['yoga_scores'] = yoga_scores
-tech_scores = sessions.apply(calc_technique_scores, axis=1)
+hangboard_scores = sessions.apply(calc_hangboard_scores, axis=1)
+sessions['power_scores'] = power_scores
 power_scores = sessions.apply(calc_power_scores, axis=1)
+climbing_scores = sessions.apply(calc_climbing_scores, axis=1)
 arc_scores = sessions.apply(calc_arc_scores, axis=1)
+yoga_scores = sessions.apply(calc_yoga_scores, axis=1)
+sessions['hang_scores'] = hangboard_scores
+tech_scores = sessions.apply(calc_technique_scores, axis=1)
+sessions['climbing_scores'] = climbing_scores
+sessions['arc_scores'] = arc_scores
 gym_scores = sessions.apply(calc_gym_scores, axis=1)
-doripa = sessions[sessions.monkey == 'doripa']
+sessions['gym_scores'] = gym_scores
 sunshine_sessions = sessions[sessions.monkey == 'sunshine']
+doripa = sessions[sessions.monkey == 'doripa']
 doripa.tail()[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']]
 doripa[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']].max()
 sunshine_sessions.tail()[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']]
 sunshine_sessions[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']].max()
-athelete_gym_scores = athlete[athlete.gym_scores > 0]
 athlete_tech_scores = athlete[athlete.tech_scores > 0]
+athelete_gym_scores = athlete[athlete.gym_scores > 0]
 athlete_hang_scores = athlete[athlete.hang > 0]
 athlete_climbing_scores = athlete[athlete.climbing_scores > 0]
 athlete['additional_index'] = x
-doripa[doripa.scores > 0].scores,
-doripa[doripa.tech_scores > 0].tech_scores,
 doripa[doripa.climbing_scores > 0].climbing_scores,
 doripa[doripa.hang_scores > 0].hang_scores,
 doripa[doripa.arc_scores > 0].arc_scores,
 doripa[doripa.gym_scores > 0].gym_scores,
-sunshine_sessions[sunshine_sessions.arc_scores > 0].arc_scores,
+doripa[doripa.scores > 0].scores,
+doripa[doripa.tech_scores > 0].tech_scores,
+sunshine_sessions[sunshine_sessions.gym_scores > 0].gym_scores,
+sunshine_sessions[sunshine_sessions.climbing_scores > 0].climbing_scores,
 sunshine_sessions[sunshine_sessions.scores > 0].scores,
 sunshine_sessions[sunshine_sessions.hang_scores > 0].hang_scores,
-sunshine_sessions[sunshine_sessions.gym_scores > 0].gym_scores,
 sunshine_sessions[sunshine_sessions.tech_scores > 0].tech_scores,
-sunshine_sessions[sunshine_sessions.climbing_scores > 0].climbing_scores,
+sunshine_sessions[sunshine_sessions.arc_scores > 0].arc_scores,
 doripa.corr()['scores'].sort_values()
 
 Incorrect Lines:

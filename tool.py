@@ -2,6 +2,7 @@ import nbformat
 import ast
 import os
 from operator import itemgetter
+import pandas as pd
 
 class Visitor(ast.NodeVisitor):
 
@@ -131,9 +132,12 @@ def main():
         print("Precision = " + str(precision))
         print("Recall = " + str(recall))
 
-        with open("all_data.txt", "w") as f:
-            for x in range(len(all_data)):
-                print(all_data[x], file=f)
+        # with open("all_data.txt", "w") as f:
+        #     for x in range(len(all_data)):
+        #         print(all_data[x], file=f)
+
+        df = pd.DataFrame(all_data)
+        df.to_csv('all_data.csv')
 
 def processNotebook(nb, file: str):
 

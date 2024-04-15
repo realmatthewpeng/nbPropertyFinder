@@ -10,8 +10,8 @@ x=get_semester_asana(all_df, sem)['Created At DOW'].value_counts(normalize=True)
 all_df['Duration'] = (all_df['Completed At'] - all_df['Created At'])
 x=get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]['Duration'].value_counts(normalize=True).keys().days,
 y=get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]['Duration'].value_counts(normalize=True).values,
-grtr_text = ' '.join(list(all_df[all_df['Duration'].astype('timedelta64[D]') >= 3]['Name'].dropna()))
 less_text = ' '.join(list(all_df[all_df['Duration'].astype('timedelta64[D]') < 3]['Name'].dropna()))
+grtr_text = ' '.join(list(all_df[all_df['Duration'].astype('timedelta64[D]') >= 3]['Name'].dropna()))
 y=get_semester_asana(all_df, sem)['Due Date'].dropna().value_counts().values,
 x=get_semester_asana(all_df, sem)['Due Date'].dropna().value_counts().keys(),
 all_df['Overdue'] = all_df['Completed At'] - all_df['Due Date']

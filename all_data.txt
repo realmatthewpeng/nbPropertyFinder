@@ -1,5 +1,5 @@
-{'notebook': 'hmwk01.ipynb', 'cell_id': 19, 'lineno': 1, 'end_lineno': 1, 'col_offset': 12, 'end_col_offset': 79, 'type': 'Call1', 'code': 'dfTiDirt.dropna(subset=["Survived", "Pclass", "Age", "Sex"]).copy()'}
 {'notebook': 'hmwk01.ipynb', 'cell_id': 19, 'lineno': 1, 'end_lineno': 1, 'col_offset': 12, 'end_col_offset': 72, 'type': 'Call1', 'code': 'dfTiDirt.dropna(subset=["Survived", "Pclass", "Age", "Sex"])'}
+{'notebook': 'hmwk01.ipynb', 'cell_id': 19, 'lineno': 1, 'end_lineno': 1, 'col_offset': 12, 'end_col_offset': 79, 'type': 'Call1', 'code': 'dfTiDirt.dropna(subset=["Survived", "Pclass", "Age", "Sex"]).copy()'}
 {'notebook': 'hmwk01.ipynb', 'cell_id': 21, 'lineno': 1, 'end_lineno': 1, 'col_offset': 18, 'end_col_offset': 111, 'type': 'Call1', 'code': 'dfTitanic.loc[(dfTiDirt["Survived"] == 1) & (dfTitanic["Pclass"] == 1), ["Survived"]].count()'}
 {'notebook': 'hmwk01.ipynb', 'cell_id': 21, 'lineno': 1, 'end_lineno': 1, 'col_offset': 114, 'end_col_offset': 175, 'type': 'Call1', 'code': 'dfTitanic.loc[dfTitanic["Pclass"] == 1, ["Survived"]].count()'}
 {'notebook': 'hmwk01.ipynb', 'cell_id': 21, 'lineno': 2, 'end_lineno': 2, 'col_offset': 19, 'end_col_offset': 112, 'type': 'Call1', 'code': 'dfTitanic.loc[(dfTiDirt["Survived"] == 1) & (dfTitanic["Pclass"] == 2), ["Survived"]].count()'}
@@ -26,14 +26,14 @@
 {'notebook': 'hmwk01.ipynb', 'cell_id': 37, 'lineno': 1, 'end_lineno': 1, 'col_offset': 0, 'end_col_offset': 206, 'type': 'Assign1', 'code': 'dfBabies = dfBabyDirt[(dfBabyDirt["bwt"] != 999) & (dfBabyDirt["gestation"] != 999) & (dfBabyDirt["parity"] != 9) & (dfBabyDirt["height"] != 99) & (dfBabyDirt["weight"] != 999) & (dfBabyDirt["smoke"] != 9)]'}
 {'notebook': 'hmwk01.ipynb', 'cell_id': 39, 'lineno': 3, 'end_lineno': 3, 'col_offset': 0, 'end_col_offset': 34, 'type': 'Subscript1', 'code': 'dfBabies.loc[dfBabies["smoke"]==0]'}
 {'notebook': 'hmwk01.ipynb', 'cell_id': 39, 'lineno': 10, 'end_lineno': 10, 'col_offset': 0, 'end_col_offset': 34, 'type': 'Subscript1', 'code': 'dfBabies.loc[dfBabies["smoke"]==1]'}
-{'notebook': 'hmwk01.ipynb', 'cell_id': 43, 'lineno': 1, 'end_lineno': 1, 'col_offset': 12, 'end_col_offset': 63, 'type': 'Call1', 'code': 'dfBabies.loc[dfBabies["smoke"]==1]["weight"].mean()'}
 {'notebook': 'hmwk01.ipynb', 'cell_id': 43, 'lineno': 1, 'end_lineno': 1, 'col_offset': 12, 'end_col_offset': 46, 'type': 'Subscript1', 'code': 'dfBabies.loc[dfBabies["smoke"]==1]'}
+{'notebook': 'hmwk01.ipynb', 'cell_id': 43, 'lineno': 1, 'end_lineno': 1, 'col_offset': 12, 'end_col_offset': 63, 'type': 'Call1', 'code': 'dfBabies.loc[dfBabies["smoke"]==1]["weight"].mean()'}
 {'notebook': 'hmwk01.ipynb', 'cell_id': 43, 'lineno': 2, 'end_lineno': 2, 'col_offset': 14, 'end_col_offset': 48, 'type': 'Subscript1', 'code': 'dfBabies.loc[dfBabies["smoke"]==1]'}
-{'notebook': 'hmwk01.ipynb', 'cell_id': 43, 'lineno': 3, 'end_lineno': 3, 'col_offset': 13, 'end_col_offset': 64, 'type': 'Call1', 'code': 'dfBabies.loc[dfBabies["smoke"]==0]["weight"].mean()'}
 {'notebook': 'hmwk01.ipynb', 'cell_id': 43, 'lineno': 3, 'end_lineno': 3, 'col_offset': 13, 'end_col_offset': 47, 'type': 'Subscript1', 'code': 'dfBabies.loc[dfBabies["smoke"]==0]'}
+{'notebook': 'hmwk01.ipynb', 'cell_id': 43, 'lineno': 3, 'end_lineno': 3, 'col_offset': 13, 'end_col_offset': 64, 'type': 'Call1', 'code': 'dfBabies.loc[dfBabies["smoke"]==0]["weight"].mean()'}
 {'notebook': 'hmwk01.ipynb', 'cell_id': 43, 'lineno': 4, 'end_lineno': 4, 'col_offset': 15, 'end_col_offset': 49, 'type': 'Subscript1', 'code': 'dfBabies.loc[dfBabies["smoke"]==0]'}
-{'notebook': 'hmwk01.ipynb', 'cell_id': 50, 'lineno': 9, 'end_lineno': 9, 'col_offset': 14, 'end_col_offset': 72, 'type': 'Call1', 'code': 'df.dropna(subset=["STATE", "D", "GENERAL PERCENT"]).copy()'}
 {'notebook': 'hmwk01.ipynb', 'cell_id': 50, 'lineno': 9, 'end_lineno': 9, 'col_offset': 14, 'end_col_offset': 65, 'type': 'Call1', 'code': 'df.dropna(subset=["STATE", "D", "GENERAL PERCENT"])'}
+{'notebook': 'hmwk01.ipynb', 'cell_id': 50, 'lineno': 9, 'end_lineno': 9, 'col_offset': 14, 'end_col_offset': 72, 'type': 'Call1', 'code': 'df.dropna(subset=["STATE", "D", "GENERAL PERCENT"]).copy()'}
 {'notebook': 'hmwk01.ipynb', 'cell_id': 50, 'lineno': 12, 'end_lineno': 12, 'col_offset': 8, 'end_col_offset': 29, 'type': 'Assign1', 'code': 'row = dfClean.iloc[i]'}
 {'notebook': 'hmwk01.ipynb', 'cell_id': 50, 'lineno': 13, 'end_lineno': 13, 'col_offset': 8, 'end_col_offset': 94, 'type': 'Assign2', 'code': 'row["GENERAL PERCENT"] = np.float(row["GENERAL PERCENT"].strip("%").replace(",", "."))'}
 {'notebook': 'hmwk01.ipynb', 'cell_id': 50, 'lineno': 13, 'end_lineno': 13, 'col_offset': 42, 'end_col_offset': 93, 'type': 'Call1', 'code': 'row["GENERAL PERCENT"].strip("%").replace(",", ".")'}
@@ -46,8 +46,8 @@
 {'notebook': 'hmwk01.ipynb', 'cell_id': 52, 'lineno': 6, 'end_lineno': 6, 'col_offset': 8, 'end_col_offset': 29, 'type': 'Assign1', 'code': 'row = dfClean.iloc[i]'}
 {'notebook': 'hmwk01.ipynb', 'cell_id': 52, 'lineno': 7, 'end_lineno': 7, 'col_offset': 8, 'end_col_offset': 89, 'type': 'Assign1', 'code': 'district = dfNew.loc[(dfNew["STATE"] == row["STATE"]) & (dfNew["D"] == row["D"])]'}
 {'notebook': 'hmwk01.ipynb', 'cell_id': 52, 'lineno': 10, 'end_lineno': 10, 'col_offset': 12, 'end_col_offset': 39, 'type': 'Assign1', 'code': 'dfRow = row[["STATE", "D"]]'}
-{'notebook': 'hmwk01.ipynb', 'cell_id': 52, 'lineno': 11, 'end_lineno': 11, 'col_offset': 12, 'end_col_offset': 51, 'type': 'Assign2', 'code': 'dfRow["WINNER"] = row["CANDIDATE NAME"]'}
 {'notebook': 'hmwk01.ipynb', 'cell_id': 52, 'lineno': 11, 'end_lineno': 11, 'col_offset': 12, 'end_col_offset': 51, 'type': 'Assign1', 'code': 'dfRow["WINNER"] = row["CANDIDATE NAME"]'}
+{'notebook': 'hmwk01.ipynb', 'cell_id': 52, 'lineno': 11, 'end_lineno': 11, 'col_offset': 12, 'end_col_offset': 51, 'type': 'Assign2', 'code': 'dfRow["WINNER"] = row["CANDIDATE NAME"]'}
 {'notebook': 'hmwk01.ipynb', 'cell_id': 52, 'lineno': 12, 'end_lineno': 12, 'col_offset': 12, 'end_col_offset': 33, 'type': 'Assign2', 'code': 'dfRow["MARGIN"] = 100'}
 {'notebook': 'hmwk01.ipynb', 'cell_id': 52, 'lineno': 13, 'end_lineno': 13, 'col_offset': 12, 'end_col_offset': 52, 'type': 'Assign2', 'code': 'dfRow["WINPER"] = row["GENERAL PERCENT"]'}
 {'notebook': 'hmwk01.ipynb', 'cell_id': 52, 'lineno': 13, 'end_lineno': 13, 'col_offset': 12, 'end_col_offset': 52, 'type': 'Assign1', 'code': 'dfRow["WINPER"] = row["GENERAL PERCENT"]'}
@@ -446,8 +446,8 @@
 {'notebook': 'college-summary.ipynb', 'cell_id': 15, 'lineno': 5, 'end_lineno': 5, 'col_offset': 14, 'end_col_offset': 122, 'type': 'Subscript1', 'code': "get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]"}
 {'notebook': 'college-summary.ipynb', 'cell_id': 15, 'lineno': 5, 'end_lineno': 5, 'col_offset': 14, 'end_col_offset': 163, 'type': 'Call1', 'code': "get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]['Duration'].value_counts(normalize=True)"}
 {'notebook': 'college-summary.ipynb', 'cell_id': 15, 'lineno': 5, 'end_lineno': 5, 'col_offset': 47, 'end_col_offset': 115, 'type': 'Call1', 'code': "get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]')"}
-{'notebook': 'college-summary.ipynb', 'cell_id': 15, 'lineno': 6, 'end_lineno': 6, 'col_offset': 14, 'end_col_offset': 122, 'type': 'Subscript1', 'code': "get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]"}
 {'notebook': 'college-summary.ipynb', 'cell_id': 15, 'lineno': 6, 'end_lineno': 6, 'col_offset': 14, 'end_col_offset': 163, 'type': 'Call1', 'code': "get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]['Duration'].value_counts(normalize=True)"}
+{'notebook': 'college-summary.ipynb', 'cell_id': 15, 'lineno': 6, 'end_lineno': 6, 'col_offset': 14, 'end_col_offset': 122, 'type': 'Subscript1', 'code': "get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]"}
 {'notebook': 'college-summary.ipynb', 'cell_id': 15, 'lineno': 6, 'end_lineno': 6, 'col_offset': 47, 'end_col_offset': 115, 'type': 'Call1', 'code': "get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]')"}
 {'notebook': 'college-summary.ipynb', 'cell_id': 16, 'lineno': 2, 'end_lineno': 2, 'col_offset': 26, 'end_col_offset': 98, 'type': 'Call1', 'code': "all_df[all_df['Duration'].astype('timedelta64[D]') < 3]['Name'].dropna()"}
 {'notebook': 'college-summary.ipynb', 'cell_id': 16, 'lineno': 2, 'end_lineno': 2, 'col_offset': 26, 'end_col_offset': 81, 'type': 'Subscript1', 'code': "all_df[all_df['Duration'].astype('timedelta64[D]') < 3]"}
@@ -457,21 +457,21 @@
 {'notebook': 'college-summary.ipynb', 'cell_id': 16, 'lineno': 3, 'end_lineno': 3, 'col_offset': 33, 'end_col_offset': 76, 'type': 'Call1', 'code': "all_df['Duration'].astype('timedelta64[D]')"}
 {'notebook': 'college-summary.ipynb', 'cell_id': 18, 'lineno': 5, 'end_lineno': 5, 'col_offset': 14, 'end_col_offset': 66, 'type': 'Call1', 'code': "get_semester_asana(all_df, sem)['Due Date'].dropna()"}
 {'notebook': 'college-summary.ipynb', 'cell_id': 18, 'lineno': 5, 'end_lineno': 5, 'col_offset': 14, 'end_col_offset': 81, 'type': 'Call1', 'code': "get_semester_asana(all_df, sem)['Due Date'].dropna().value_counts()"}
-{'notebook': 'college-summary.ipynb', 'cell_id': 18, 'lineno': 6, 'end_lineno': 6, 'col_offset': 14, 'end_col_offset': 66, 'type': 'Call1', 'code': "get_semester_asana(all_df, sem)['Due Date'].dropna()"}
 {'notebook': 'college-summary.ipynb', 'cell_id': 18, 'lineno': 6, 'end_lineno': 6, 'col_offset': 14, 'end_col_offset': 81, 'type': 'Call1', 'code': "get_semester_asana(all_df, sem)['Due Date'].dropna().value_counts()"}
+{'notebook': 'college-summary.ipynb', 'cell_id': 18, 'lineno': 6, 'end_lineno': 6, 'col_offset': 14, 'end_col_offset': 66, 'type': 'Call1', 'code': "get_semester_asana(all_df, sem)['Due Date'].dropna()"}
 {'notebook': 'college-summary.ipynb', 'cell_id': 20, 'lineno': 1, 'end_lineno': 1, 'col_offset': 0, 'end_col_offset': 63, 'type': 'Assign2', 'code': "all_df['Overdue'] = all_df['Completed At'] - all_df['Due Date']"}
 {'notebook': 'college-summary.ipynb', 'cell_id': 21, 'lineno': 5, 'end_lineno': 5, 'col_offset': 14, 'end_col_offset': 85, 'type': 'Call1', 'code': "get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True)"}
 {'notebook': 'college-summary.ipynb', 'cell_id': 21, 'lineno': 6, 'end_lineno': 6, 'col_offset': 14, 'end_col_offset': 85, 'type': 'Call1', 'code': "get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True)"}
 {'notebook': 'college-summary.ipynb', 'cell_id': 22, 'lineno': 5, 'end_lineno': 5, 'col_offset': 14, 'end_col_offset': 85, 'type': 'Call1', 'code': "get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True)"}
 {'notebook': 'college-summary.ipynb', 'cell_id': 22, 'lineno': 6, 'end_lineno': 6, 'col_offset': 14, 'end_col_offset': 85, 'type': 'Call1', 'code': "get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True)"}
-{'notebook': 'college-summary.ipynb', 'cell_id': 23, 'lineno': 2, 'end_lineno': 2, 'col_offset': 28, 'end_col_offset': 82, 'type': 'Subscript1', 'code': "all_df[all_df['Overdue'].astype('timedelta64[D]') < 0]"}
 {'notebook': 'college-summary.ipynb', 'cell_id': 23, 'lineno': 2, 'end_lineno': 2, 'col_offset': 28, 'end_col_offset': 99, 'type': 'Call1', 'code': "all_df[all_df['Overdue'].astype('timedelta64[D]') < 0]['Name'].dropna()"}
+{'notebook': 'college-summary.ipynb', 'cell_id': 23, 'lineno': 2, 'end_lineno': 2, 'col_offset': 28, 'end_col_offset': 82, 'type': 'Subscript1', 'code': "all_df[all_df['Overdue'].astype('timedelta64[D]') < 0]"}
 {'notebook': 'college-summary.ipynb', 'cell_id': 23, 'lineno': 2, 'end_lineno': 2, 'col_offset': 35, 'end_col_offset': 77, 'type': 'Call1', 'code': "all_df['Overdue'].astype('timedelta64[D]')"}
 {'notebook': 'college-summary.ipynb', 'cell_id': 23, 'lineno': 3, 'end_lineno': 3, 'col_offset': 29, 'end_col_offset': 101, 'type': 'Call1', 'code': "all_df[all_df['Overdue'].astype('timedelta64[D]') == 0]['Name'].dropna()"}
 {'notebook': 'college-summary.ipynb', 'cell_id': 23, 'lineno': 3, 'end_lineno': 3, 'col_offset': 29, 'end_col_offset': 84, 'type': 'Subscript1', 'code': "all_df[all_df['Overdue'].astype('timedelta64[D]') == 0]"}
 {'notebook': 'college-summary.ipynb', 'cell_id': 23, 'lineno': 3, 'end_lineno': 3, 'col_offset': 36, 'end_col_offset': 78, 'type': 'Call1', 'code': "all_df['Overdue'].astype('timedelta64[D]')"}
-{'notebook': 'college-summary.ipynb', 'cell_id': 23, 'lineno': 4, 'end_lineno': 4, 'col_offset': 29, 'end_col_offset': 100, 'type': 'Call1', 'code': "all_df[all_df['Overdue'].astype('timedelta64[D]') > 0]['Name'].dropna()"}
 {'notebook': 'college-summary.ipynb', 'cell_id': 23, 'lineno': 4, 'end_lineno': 4, 'col_offset': 29, 'end_col_offset': 83, 'type': 'Subscript1', 'code': "all_df[all_df['Overdue'].astype('timedelta64[D]') > 0]"}
+{'notebook': 'college-summary.ipynb', 'cell_id': 23, 'lineno': 4, 'end_lineno': 4, 'col_offset': 29, 'end_col_offset': 100, 'type': 'Call1', 'code': "all_df[all_df['Overdue'].astype('timedelta64[D]') > 0]['Name'].dropna()"}
 {'notebook': 'college-summary.ipynb', 'cell_id': 23, 'lineno': 4, 'end_lineno': 4, 'col_offset': 36, 'end_col_offset': 78, 'type': 'Call1', 'code': "all_df['Overdue'].astype('timedelta64[D]')"}
 {'notebook': 'college-summary.ipynb', 'cell_id': 26, 'lineno': 7, 'end_lineno': 7, 'col_offset': 0, 'end_col_offset': 58, 'type': 'Assign2', 'code': "exam_counts['date']  = pd.to_datetime(exam_counts['date'])"}
 {'notebook': 'Models.ipynb', 'cell_id': 2, 'lineno': 2, 'end_lineno': 2, 'col_offset': 0, 'end_col_offset': 14, 'type': 'Expr1', 'code': 'df_county_data'}
@@ -785,8 +785,8 @@
 {'notebook': 'Clustering.ipynb', 'cell_id': 0, 'lineno': 16, 'end_lineno': 16, 'col_offset': 0, 'end_col_offset': 68, 'type': 'Assign2', 'code': 'df["DiscountPerc"] = (df["DiscountDiff"]/df["Original Price"]) * 100'}
 {'notebook': 'Clustering.ipynb', 'cell_id': 0, 'lineno': 18, 'end_lineno': 18, 'col_offset': 0, 'end_col_offset': 2, 'type': 'Expr1', 'code': 'df'}
 {'notebook': 'Clustering.ipynb', 'cell_id': 2, 'lineno': 2, 'end_lineno': 2, 'col_offset': 0, 'end_col_offset': 77, 'type': 'Assign2', 'code': 'df["Hotel_Count"] = df.groupby(\'Hotel Name\')[\'Hotel Name\'].transform(\'count\')'}
-{'notebook': 'Clustering.ipynb', 'cell_id': 2, 'lineno': 3, 'end_lineno': 3, 'col_offset': 20, 'end_col_offset': 84, 'type': 'Call1', 'code': "df.sort_values(by=['Hotel_Count'],ascending=False).reset_index()"}
 {'notebook': 'Clustering.ipynb', 'cell_id': 2, 'lineno': 3, 'end_lineno': 3, 'col_offset': 20, 'end_col_offset': 70, 'type': 'Call1', 'code': "df.sort_values(by=['Hotel_Count'],ascending=False)"}
+{'notebook': 'Clustering.ipynb', 'cell_id': 2, 'lineno': 3, 'end_lineno': 3, 'col_offset': 20, 'end_col_offset': 84, 'type': 'Call1', 'code': "df.sort_values(by=['Hotel_Count'],ascending=False).reset_index()"}
 {'notebook': 'Clustering.ipynb', 'cell_id': 2, 'lineno': 6, 'end_lineno': 6, 'col_offset': 0, 'end_col_offset': 58, 'type': 'Assign1', 'code': 'df_hotels = descending_hotels["Hotel Name"].unique()[:150]'}
 {'notebook': 'Clustering.ipynb', 'cell_id': 2, 'lineno': 6, 'end_lineno': 6, 'col_offset': 12, 'end_col_offset': 52, 'type': 'Call1', 'code': 'descending_hotels["Hotel Name"].unique()'}
 {'notebook': 'Clustering.ipynb', 'cell_id': 2, 'lineno': 7, 'end_lineno': 7, 'col_offset': 0, 'end_col_offset': 87, 'type': 'Assign1', 'code': "most_common_hotels = descending_hotels[descending_hotels['Hotel Name'].isin(df_hotels)]"}
