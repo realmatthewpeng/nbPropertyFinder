@@ -7,8 +7,8 @@ samples_percentage
 samples_percentage['Total'] = samples_percentage.sum(axis=1)
 samples_w_total['Total'] = samples_w_total.sum(axis=1)
 X_all = new_data.drop(column_to_study, axis=1)
-new_data = data.copy()
 y_all = data[column_to_study]
+new_data = data.copy()
 df_preds = pd.concat([df_diffs, pd.Series(sample_preds, name='PREDICTION')], axis=1)
 
 Incorrect Lines:

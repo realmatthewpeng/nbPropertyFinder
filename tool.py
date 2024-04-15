@@ -127,12 +127,17 @@ def main():
         nb = nbformat.read(TEST_NB, as_version=4)
         processNotebook(nb, TEST_NB)
     else:
+        links = {}
+        with open("notebook_links.txt") as f:
+            for line in f:
+                (notebook, link) = line.split(",")
+                links[notebook] = link
+
         for subdir, _, files in os.walk(NB_TEST_DIR):
             for file in files:
                 notebook = os.path.join(subdir, file)
-                # print(file)
                 nb = nbformat.read(notebook, as_version=4)
-                processNotebook(nb, file)
+                processNotebook(nb, file, links[file])
 
         precision = 0
         recall = 0
@@ -151,7 +156,7 @@ def main():
         df = pd.DataFrame(all_data)
         df.to_csv('all_data.csv')
 
-def processNotebook(nb, file: str):
+def processNotebook(nb, file: str, link: str):
 
     cell_dict = {}
     property_dict = {}
@@ -193,6 +198,7 @@ def processNotebook(nb, file: str):
         if (len(lines) != 0):
             for (start_r, end_r, start_c, end_c, type, type_details, outputType, effectType) in lines:
                 new_dict = {"notebook":file,
+                            "link":link,
                             "cell_id":id, 
                             "lineno":start_r, 
                             "end_lineno":end_r, 

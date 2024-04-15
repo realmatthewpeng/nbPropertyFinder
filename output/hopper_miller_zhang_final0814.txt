@@ -1,49 +1,49 @@
 Total number of lines found: 48
 
+data['Female'] = data.SexuponOutcome.apply(female)
 data['ConvertedAge']=data['AgeuponOutcome'].apply(ageConvert)
+breeds['Breed'] = breeds['Breed'].str.strip()
+ranks.append(int(breeds.loc[breeds['Breed'] == word]['2007']))
+data['OutcomeSubtype'] = data['OutcomeSubtype'].fillna('')
+data['AgeuponOutcome'].fillna('', inplace = True)
+data['PitBull'] = data.Breed.apply(pit_bull)
+data['Named'] = data.Name.apply(naming)
+if i.find(" ") >= 0: i = i.replace(" ", "-")
 data['MixedBreed'] = data.Breed.apply(mixed_breed)
 data['OrderedBreed'] = data.Breed.apply(reorder)
-data['Female'] = 'Female' in data['SexuponOutcome']
-data['Named'] = data.Name.apply(naming)
-breeds['Breed'] = breeds['Breed'].str.strip()
-data['BreedRank'] = data.Breed.apply(breed_rank)
-if pd.isnull(i): return 'Unnamed'
-data['Female'] = data.SexuponOutcome.apply(female)
-data['OutcomeSubtype'] = data['OutcomeSubtype'].fillna('')
-data['TopBreed'] = data.Breed.apply(top_breed)
-if i.find(" ") >= 0: i = i.replace(" ", "-")
-data['BlackCat'] = data.Color.apply(black_cat)
-if i.find("/") >= 0: i = i.replace("/", " ")
-data['AgeuponOutcome'].fillna('', inplace = True)
-data['OrderedColor'] = data.Color.apply(reorder)
-ranks.append(int(breeds.loc[breeds['Breed'] == word]['2007']))
-data['PitBull'] = data.Breed.apply(pit_bull)
-return np.mean(ranks)
 data['Intact'] = data.SexuponOutcome.apply(intact)
-data[continuous].describe().T
+data['BlackCat'] = data.Color.apply(black_cat)
+if pd.isnull(i): return 'Unnamed'
+data['BreedRank'] = data.Breed.apply(breed_rank)
+if i.find("/") >= 0: i = i.replace("/", " ")
+data['TopBreed'] = data.Breed.apply(top_breed)
+return np.mean(ranks)
+data['Female'] = 'Female' in data['SexuponOutcome']
+data['OrderedColor'] = data.Color.apply(reorder)
 X = data2[predictors]
 y = data2[[target]]
-data["ConvertedAge"] = data.groupby("AnimalType").transform(lambda x: x.fillna(x.median()))
 data2 = pd.concat([data[target], data[continuous], pd.get_dummies(data[discrete])], axis=1)
+data["ConvertedAge"] = data.groupby("AnimalType").transform(lambda x: x.fillna(x.median()))
+data[continuous].describe().T
 animal_type = data['AnimalType'].value_counts()
 outcome_type = data['OutcomeType'].value_counts()
 print("Unique Breeds" , (data.OrderedBreed.value_counts() > 0).sum())
 OrderedBreed = data.OrderedBreed.unique()
-plt.xticks(range(len(corr.columns)), corr.columns,rotation='vertical');
 plt.yticks(range(len(corr.columns)), corr.columns);
+plt.xticks(range(len(corr.columns)), corr.columns,rotation='vertical');
 y_dog = data_dog[[target]]
-X_cat = data_cat[pred['cat']]
-data_cat = data[data['AnimalType'] == 'Cat']
 y_cat = data_cat[[target]]
+X_cat = data_cat[pred['cat']]
 data_dog = data[data['AnimalType'] == 'Dog']
 X_dog = data_dog[pred['dog']]
+data_cat = data[data['AnimalType'] == 'Cat']
 data = X[self.cols]
 cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
 thresh = cm.max() / 2.
 X_dev_feature = X_dev_feature.drop('Female_Unknown', 1)
 X_dev_feature = X_dev_feature.drop('Intact_Unknown', 1)
-X_train_feature = X_train_feature.drop('Intact_Unknown', 1)
 X_train_feature = X_train_feature.drop('Female_Unknown', 1)
+X_train_feature = X_train_feature.drop('Intact_Unknown', 1)
 X_dev_dog = X_dev_feature.drop('AnimalType_Dog', 1)
 X_train_dog = X_train_feature.drop('AnimalType_Dog', 1)
 X_dev_cat = X_dev_feature.drop('AnimalType_Cat', 1)
@@ -51,16 +51,16 @@ X_train_cat = X_train_feature.drop('AnimalType_Cat', 1)
 
 Incorrect Lines:
 
-if pd.isnull(i): return 'Unnamed'
-if i.find(" ") >= 0: i = i.replace(" ", "-")
-if i.find("/") >= 0: i = i.replace("/", " ")
 ranks.append(int(breeds.loc[breeds['Breed'] == word]['2007']))
+if i.find(" ") >= 0: i = i.replace(" ", "-")
+if pd.isnull(i): return 'Unnamed'
+if i.find("/") >= 0: i = i.replace("/", " ")
 return np.mean(ranks)
 X = data2[predictors]
 y = data2[[target]]
 OrderedBreed = data.OrderedBreed.unique()
-plt.xticks(range(len(corr.columns)), corr.columns,rotation='vertical');
 plt.yticks(range(len(corr.columns)), corr.columns);
+plt.xticks(range(len(corr.columns)), corr.columns,rotation='vertical');
 data = X[self.cols]
 thresh = cm.max() / 2.
 
