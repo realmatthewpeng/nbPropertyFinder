@@ -1,0 +1,430 @@
+{'category': 'NO_PRINT', 'source': "dfTiDirt = pd.read_csv('titanic_data.csv')"}
+{'category': 'NO_PRINT', 'source': 'dfTitanic = dfTiDirt.dropna(subset=["Survived", "Pclass", "Age", "Sex"]).copy()'}
+{'category': 'PRINT', 'source': 'print("First Class Fraction: {0:.4f}\\nSecond Class Fraction: {1:.4f}\\nThird Class Fraction: {2:.4f}".format(firstClassRate["Survived"], secondClassRate["Survived"], thirdClassRate["Survived"]))'}
+{'category': 'PRINT', 'source': 'print("First Class Male Fraction: {0:.4f} \\t First Class Female Fraction {1:.4f}\\nSecond Class Male Fraction: {2:.4f} \\t Second Class Female Fraction {3:.4f}\\nThird Class Male Fraction: {4:.4f} \\t Third Class Female Fraction {5:.4f}".format(firstClassMRate["Survived"], firstClassFRate["Survived"], secondClassMRate["Survived"], secondClassFRate["Survived"], thirdClassMRate["Survived"], thirdClassFRate["Survived"]))'}
+{'category': 'REDUCTION', 'source': 'print(dfTitanic["Age"].describe())'}
+{'category': 'PRINT', 'source': 'print("Survived Female Mean Age: {0:2.2f}  Median Age: {1:2.2f}\\nDied Female Mean Age: {2:2.2f} \\t Median Age: {3:2.2f}".format(dfTiFeSurvived["Age"].mean(), dfTiFeSurvived["Age"].median(), dfTiFeDied["Age"].mean(), dfTiFeDied["Age"].median()))'}
+{'category': 'NO_PRINT', 'source': "dfBabyDirt = pd.read_csv('http://www.stat.berkeley.edu/~statlabs/data/babies.data', delim_whitespace=True)"}
+{'category': 'NO_PRINT', 'source': 'dfBabies = dfBabyDirt[(dfBabyDirt["bwt"] != 999) & (dfBabyDirt["gestation"] != 999) & (dfBabyDirt["parity"] != 9) & (dfBabyDirt["height"] != 99) & (dfBabyDirt["weight"] != 999) & (dfBabyDirt["smoke"] != 9)]'}
+{'category': 'PRINT', 'source': 'fig.subplots_adjust(hspace=.5)'}
+{'category': 'PRINT', 'source': 'print("Mean Smoker: {0:2.2f} \\t Median Smoker: {1:2.2f}\\nMean Non-Smoker: {2:2.2f}  Median Non-Smoker: {3:2.2f}".format(meanSmoke, medianSmoke, meanNSmoke, medianNSmoke))'}
+{'category': 'PRINT', 'source': 'ax.grid(alpha=0.25)'}
+{'category': 'NO_PRINT', 'source': 'def clean_election_data():\'\'\'Function to clean election data\'\'\'import math# read in dirty datadf = pd.read_csv("2014_election_results.csv")dfClean = df.dropna(subset=["STATE", "D", "GENERAL PERCENT"]).copy()for i in range(len(dfClean)):row = dfClean.iloc[i]row["GENERAL PERCENT"] = np.float(row["GENERAL PERCENT"].strip("%").replace(",", "."))if(pd.isnull(row["CANDIDATE NAME"]) or (row["CANDIDATE NAME"] == \'Scattered\')):if(pd.isnull(row["CANDIDATE NAME (Last)"]) or (row["CANDIDATE NAME (Last)"] == \'Scattered\')):row["CANDIDATE NAME"] = "UNKNOWN"else:row["CANDIDATE NAME"] = row["CANDIDATE NAME (Last)"]dfClean = dfClean[["STATE", "D", "CANDIDATE NAME", "GENERAL PERCENT"]]return dfClean'}
+{'category': 'PRINT', 'source': 'winners_and_margins(clean_election_data())'}
+{'category': 'REDUCTION', 'source': 'display(data.describe())'}
+{'category': 'PRINT', 'source': 'display(samples - data.mean().round())'}
+{'category': 'PRINT', 'source': 'display(samples - data.median().round())'}
+{'category': 'PRINT', 'source': "samples.plot(kind='bar', figsize=(10, 6))"}
+{'category': 'SAMPLE', 'source': 'samples_percentage'}
+{'category': 'PRINT', 'source': 'print(score)'}
+{'category': 'PRINT', 'source': "pd.scatter_matrix(data, alpha = 0.3, figsize = (14,8), diagonal = 'kde')"}
+{'category': 'PRINT', 'source': "pd.scatter_matrix(log_data, alpha = 0.3, figsize = (14,8), diagonal = 'kde')"}
+{'category': 'PRINT', 'source': 'display(log_samples)'}
+{'category': 'PRINT', 'source': "pd.scatter_matrix(good_data, alpha = 0.3, figsize = (14,8), diagonal = 'kde')"}
+{'category': 'NO_PRINT', 'source': 'pca_results = rs.pca_results(good_data, pca)'}
+{'category': 'PRINT', 'source': 'display(pd.DataFrame(np.round(pca_samples, 4), columns = pca_results.index.values))'}
+{'category': 'NO_PRINT', 'source': "reduced_data = pd.DataFrame(reduced_data, columns = ['Dimension 1', 'Dimension 2'])"}
+{'category': 'PRINT', 'source': "pd.scatter_matrix(reduced_data, alpha = 0.8, figsize = (9,5), diagonal = 'kde')"}
+{'category': 'PRINT', 'source': "display(pd.DataFrame(np.round(pca_samples, 4), columns = ['Dimension 1', 'Dimension 2']))"}
+{'category': 'PRINT', 'source': 'print("{} => {}".format(n_clusters, score))'}
+{'category': 'PRINT', 'source': 'rs.cluster_results(reduced_data, preds, centers, pca_samples)'}
+{'category': 'PRINT', 'source': 'display(true_centers)'}
+{'category': 'PRINT', 'source': 'plt.yticks(rotation=0)'}
+{'category': 'PRINT', 'source': 'rs.channel_results(reduced_data, outliers, pca_samples)'}
+{'category': 'NO_PRINT', 'source': 'import math'}
+{'category': 'NO_PRINT', 'source': 'output = input("Please provide a full-path output directory:")'}
+{'category': 'NO_PRINT', 'source': 'data = pd.read_csv(inputFile,header=0)'}
+{'category': 'NO_PRINT', 'source': 'last = len(data.columns)'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'NO_PRINT', 'source': 'data["Margalef"] = ""'}
+{'category': 'NO_PRINT', 'source': "for i in range(len(data)):data.loc[i,'Margalef'] = (len(data.iloc[i][4:last][data.iloc[i][4:last]>0])-1)/math.log(sum(data.iloc[i][4:last][data.iloc[i][4:last]>0]))"}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'NO_PRINT', 'source': 'segments = data.RiverSeg.unique()'}
+{'category': 'NO_PRINT', 'source': 'river = data.iloc[0]["River"]'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'NO_PRINT', 'source': 'data["SWI_2"] = ""'}
+{'category': 'NO_PRINT', 'source': "for i in range(len(data)):swi = 0.0for x in range(len(data.iloc[0]))[4:last]:if data.iloc[i][x] > 0:swi += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])),2)data.loc[i,'SWI_2'] = swi"}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'NO_PRINT', 'source': 'data["SWI_e"] = ""'}
+{'category': 'NO_PRINT', 'source': "for i in range(len(data)):swi = 0.0for x in range(len(data.iloc[0]))[4:last]:if data.iloc[i][x] > 0:swi += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])))data.loc[i,'SWI_e'] = swi"}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'NO_PRINT', 'source': 'data["SWI_10"] = ""'}
+{'category': 'NO_PRINT', 'source': "for i in range(len(data)):swi = 0.0for x in range(len(data.iloc[0]))[4:last]:if data.iloc[i][x] > 0:swi += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])),10)data.loc[i,'SWI_10'] = swi"}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'NO_PRINT', 'source': 'data["lam"] = ""'}
+{'category': 'NO_PRINT', 'source': "for i in range(len(data)):N = 0.0for x in range(len(data.iloc[0]))[4:last]:if data.iloc[i][x] > 0:N += data.iloc[i][x]lam = 0.0for x in range(len(data.iloc[0]))[4:last]:lam += (data.iloc[i][x]/N) * (data.iloc[i][x]/N)data.loc[i,'lam'] = lam"}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'NO_PRINT', 'source': 'data["1-lam"] = ""'}
+{'category': 'NO_PRINT', 'source': "for i in range(len(data)):N = 0.0for x in range(len(data.iloc[0]))[4:last]:if data.iloc[i][x] > 0:N += data.iloc[i][x]lam = 0.0for x in range(len(data.iloc[0]))[4:last]:lam += (data.iloc[i][x]/N) * (data.iloc[i][x]/N)data.loc[i,'1-lam'] = 1 - lam"}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'NO_PRINT', 'source': 'data["lam\'"] = ""'}
+{'category': 'NO_PRINT', 'source': 'for i in range(len(data)):N = 0.0for x in range(len(data.iloc[i]))[4:last]:if data.iloc[i][x] > 0:N += data.iloc[i][x]array = data.iloc[i][4:last]num = 0.0for y in array:num += (y * (y-1))lam = num/(N*(N-1))data.loc[i,"lam\'"] = lam'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'NO_PRINT', 'source': 'data["1-lam\'"] = ""'}
+{'category': 'NO_PRINT', 'source': 'for i in range(len(data)):N = 0.0for x in range(len(data.iloc[i]))[4:last]:if data.iloc[i][x] > 0:N += data.iloc[i][x]array = data.iloc[i][4:last]num = 0.0for y in array:num += (y * (y-1))lam = num/(N*(N-1))data.loc[i,"1-lam\'"] = 1 - lam'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'NO_PRINT', 'source': 'data["N1"] = ""'}
+{'category': 'NO_PRINT', 'source': "for i in range(len(data)):N1 = 0.0for x in range(len(data.iloc[0]))[4:last]:if data.iloc[i][x] > 0:N1 += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])))data.loc[i,'N1'] = math.exp(N1)"}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'NO_PRINT', 'source': 'data["N2"] = ""'}
+{'category': 'NO_PRINT', 'source': "for i in range(len(data)):N = 0.0for x in range(len(data.iloc[0]))[4:last]:if data.iloc[i][x] > 0:N += data.iloc[i][x]lam = 0.0for x in range(len(data.iloc[0]))[4:last]:lam += (data.iloc[i][x]/N) * (data.iloc[i][x]/N)data.loc[i,'N2'] = 1/lam"}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'NO_PRINT', 'source': 'data["N_Inf"] = ""'}
+{'category': 'NO_PRINT', 'source': "for i in range(len(data)):N = 0.0for x in range(len(data.iloc[0]))[4:last]:if data.iloc[i][x] > 0:N += data.iloc[i][x]array = data.iloc[i][4:last]data.loc[i,'N_Inf'] = 1/(max(array)/N)"}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'NO_PRINT', 'source': 'data["N10"] = ""'}
+{'category': 'NO_PRINT', 'source': "for i in range(len(data)):swi = 0.0for x in range(len(data.iloc[0]))[4:last]:if data.iloc[i][x] > 0:swi += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])))data.loc[i,'N10'] = math.exp(swi)/len(data.iloc[i][4:last][data.iloc[i][4:last]>0])"}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'NO_PRINT', 'source': 'data["N10\'"] = ""'}
+{'category': 'NO_PRINT', 'source': 'for i in range(len(data)):swi = 0.0for x in range(len(data.iloc[0]))[4:last]:if data.iloc[i][x] > 0:swi += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])))try:data.loc[i,"N10\'"] = (math.exp(swi)-1)/(len(data.iloc[i][4:last][data.iloc[i][4:last]>0])-1)except:data.loc[i,"N10\'"] = 0'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'NO_PRINT', 'source': 'data["N21"] = ""'}
+{'category': 'NO_PRINT', 'source': 'for i in range(len(data)):N = 0.0for x in range(len(data.iloc[0]))[4:last]:if data.iloc[i][x] > 0:N += data.iloc[i][x]#N2lam = 0.0for x in range(len(data.iloc[0]))[4:last]:lam += (data.iloc[i][x]/N) * (data.iloc[i][x]/N)N2 = 1/lamswi = 0.0for x in range(len(data.iloc[0]))[4:last]:if data.iloc[i][x] > 0:swi += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])))N1 = math.exp(swi)data.loc[i,"N21"] = N2/N1'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'NO_PRINT', 'source': 'data["N21\'"] = ""'}
+{'category': 'NO_PRINT', 'source': 'for i in range(len(data)):N = 0.0for x in range(len(data.iloc[0]))[4:last]:if data.iloc[i][x] > 0:N += data.iloc[i][x]#N2lam = 0.0for x in range(len(data.iloc[0]))[4:last]:lam += (data.iloc[i][x]/N) * (data.iloc[i][x]/N)N2 = 1/lamswi = 0.0for x in range(len(data.iloc[0]))[4:last]:if data.iloc[i][x] > 0:swi += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])))N1 = math.exp(swi)data.loc[i,"N21\'"] = (N2-1)/(N1-1)'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'NO_PRINT', 'source': 'data["Pielou"] = ""'}
+{'category': 'NO_PRINT', 'source': "for i in range(len(data)):count = 0.0hmax = 0.0for x in range(len(data.iloc[0]))[4:last]:if data.iloc[i][x] > 0:count += 1swi = 0.0for x in range(len(data.iloc[0]))[4:last]:if data.iloc[i][x] > 0:swi += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])))data.loc[i,'Pielou'] = swi/math.log(count)"}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'data.to_csv(output + "\\\\" + river + "_biodiv.csv")'}
+{'category': 'NO_PRINT', 'source': "modeling_df = pd.read_csv('data/weather_with_avg_hourly_flight_delay.csv', index_col=False)"}
+{'category': 'PRINT', 'source': 'print(list(train_features))'}
+{'category': 'NO_PRINT', 'source': 'knn_evs = explained_variance_score(knn_grid.predict(test_features), test_outcome)'}
+{'category': 'NO_PRINT', 'source': 'dt_evs = explained_variance_score(dt_grid.predict(test_features), test_outcome)'}
+{'category': 'PRINT', 'source': "print('Decision Explained Variance Score: ' + str(dt_evs))"}
+{'category': 'PRINT', 'source': "print('Best Decision Tree hyperparameters: ' + str(dt_best_params) + '\\n')"}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'NO_PRINT', 'source': 'import sys'}
+{'category': 'PRINT', 'source': 'boston.columns'}
+{'category': 'SAMPLE', 'source': 'boston_join.head()'}
+{'category': 'PRINT', 'source': 'boston_join.columns'}
+{'category': 'PRINT', 'source': 'boston_clean.columns'}
+{'category': 'PRINT', 'source': 'print(X_5K.shape, y_5K.shape)'}
+{'category': 'SAMPLE', 'source': 'X_train_5K.head()'}
+{'category': 'PRINT', 'source': 'model_5K.fit(X_train_5K, y_train_5K)'}
+{'category': 'NO_PRINT', 'source': 'predictions_5K = model_5K.predict(X_test_5K)'}
+{'category': 'PRINT', 'source': 'print(predictions_5K)'}
+{'category': 'PRINT', 'source': 'model_5K.predict(df2)'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'boston_r2.append(r2)'}
+{'category': 'PRINT', 'source': "joblib.dump(model_5K, 'model_5K.pkl')"}
+{'category': 'PRINT', 'source': 'print(f"MSE: {MSE}, R2: {r2}")'}
+{'category': 'PRINT', 'source': 'print(f"MSE: {MSE}, R2: {r2}")'}
+{'category': 'PRINT', 'source': 'print(f"MSE: {MSE}, R2: {r2}")'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'print(f"MSE: {MSE}, R2: {r2}")'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'SAMPLE', 'source': 'predictions_10K'}
+{'category': 'PRINT', 'source': 'boston_r2.append(r2)'}
+{'category': 'PRINT', 'source': "joblib.dump(model_10K, 'model_10K.pkl')"}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'boston_r2.append(r2)'}
+{'category': 'PRINT', 'source': "joblib.dump(model_15K, 'model_15K.pkl')"}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'boston_r2.append(r2)'}
+{'category': 'PRINT', 'source': "joblib.dump(model_20K, 'model_20K.pkl')"}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'boston_r2.append(r2)'}
+{'category': 'PRINT', 'source': "joblib.dump(model_Half, 'model_Half.pkl')"}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'boston_r2.append(r2)'}
+{'category': 'PRINT', 'source': "joblib.dump(model_25K, 'model_25K.pkl')"}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'boston_r2.append(r2)'}
+{'category': 'PRINT', 'source': "joblib.dump(model_30K, 'model_30K.pkl')"}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'boston_r2.append(r2)'}
+{'category': 'PRINT', 'source': "joblib.dump(model_35K, 'model_35K.pkl')"}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'boston_r2.append(r2)'}
+{'category': 'PRINT', 'source': "joblib.dump(model_40K, 'model_40K.pkl')"}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'boston_r2.append(r2)'}
+{'category': 'PRINT', 'source': "joblib.dump(model_Final, 'model_Final.pkl')"}
+{'category': 'PRINT', 'source': 'boston_clean.columns'}
+{'category': 'SAMPLE', 'source': 'boston_mse'}
+{'category': 'SAMPLE', 'source': 'boston_r2'}
+{'category': 'SAMPLE', 'source': 'boston_residuals_df'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'SAMPLE', 'source': 'boston_females'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'SAMPLE', 'source': 'boston_residuals_df'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'NO_PRINT', 'source': 'from functools import reduce'}
+{'category': 'PRINT', 'source': 'seaborn.set_style("whitegrid")'}
+{'category': 'PRINT', 'source': 'print("Timestamp set to: {}".format(timestamp))'}
+{'category': 'PRINT', 'source': 'print("Dataframe has {} features and {} records".format(data.shape[1], data.shape[0]))'}
+{'category': 'PRINT', 'source': 'print("Dataframe feature names: {}".format(list(data.columns)))'}
+{'category': 'PRINT', 'source': 'print("Export path set to \'{}\'".format(exportpath))'}
+{'category': 'PRINT', 'source': 'print("Header spacing char set to \'{}\'".format(header_spacing_char))'}
+{'category': 'NO_PRINT', 'source': "non_identity_type = 'scatter'"}
+{'category': 'NO_PRINT', 'source': 'describe_final = describe_transposed.reset_index()'}
+{'category': 'SAMPLE', 'source': 'describe_final'}
+{'category': 'NO_PRINT', 'source': 'dtypes = data.dtypes'}
+{'category': 'NO_PRINT', 'source': 'dtypes_dataframe = pandas.DataFrame(dtypes, columns = ["data_type"])'}
+{'category': 'NO_PRINT', 'source': 'dtypes_final = dtypes_dataframe.reset_index()'}
+{'category': 'SAMPLE', 'source': 'dtypes_final.head()'}
+{'category': 'NO_PRINT', 'source': 'totalcount = data.shape[0]'}
+{'category': 'NO_PRINT', 'source': 'percent_filled = filled_count_series / totalcount'}
+{'category': 'NO_PRINT', 'source': 'null_count_series = null_count_series.reset_index().rename(columns = {0:"null_counts"})'}
+{'category': 'NO_PRINT', 'source': "null_info_dataframe = reduce(lambda left,right: pandas.merge(left,right,on='index'), [percent_null,percent_filled,filled_count_series,null_count_series])"}
+{'category': 'SAMPLE', 'source': 'null_info_dataframe.head()'}
+{'category': 'NO_PRINT', 'source': 'merged = reduce(lambda left, right: pandas.merge(left, right, on=\'index\', how="left"),[null_info_dataframe, dtypes_final, describe_final])'}
+{'category': 'PRINT', 'source': 'merged.drop(["count"], axis = 1, inplace = True)'}
+{'category': 'SAMPLE', 'source': 'merged.head()'}
+{'category': 'NO_PRINT', 'source': 'for index in range(merged.shape[0]):unique_value = merged.loc[index, "unique"]if numpy.isnan(unique_value):feature_name = merged.loc[index, "index"]number_of_uniques = data[feature_name].nunique()merged.loc[index, "unique"] = number_of_uniquesprint("Feature {} unique values being calculated and adjusted to {}".format(feature_name, number_of_uniques))'}
+{'category': 'NO_PRINT', 'source': 'merged["data_type"] = merged["data_type"].astype(str)'}
+{'category': 'NO_PRINT', 'source': 'if "float64" in unique_datatypes or "int64" in unique_datatypes:round_values = Truerounded_places = 4for column in ["mean", "std", "min", "25%", "50%", "75%", "max"]:merged[column] = merged[column].astype(float).round(rounded_places)else:round_values = False'}
+{'category': 'NO_PRINT', 'source': 'profile_dict = {}'}
+{'category': 'NO_PRINT', 'source': 'for index in range(merged.shape[0]):# Store column namecolumn = merged.loc[index, "index"]# Create empty list, to store sub dictionaries inprofile_dict[column] = []# For each attribute in merged_attributes list do thisfor attr in merged_attributes:# Locate the value of the attribuet for a given recordvalue = merged.loc[index, attr]# Append dictionary to list within main dictionaryprofile_dict[column].append({attr: value})'}
+{'category': 'NO_PRINT', 'source': 'def convert_invalid_values(value):try:new_value = float(value)except:new_value = str(value)return new_value'}
+{'category': 'PRINT', 'source': 'fileobj.close()'}
+{'category': 'PRINT', 'source': 'merged.to_csv(exportpath + "profile.csv", index = False)'}
+{'category': 'NO_PRINT', 'source': 'column_number = 0'}
+{'category': 'NO_PRINT', 'source': 'for key in profile_dict.keys():# Increment column numbercolumn_number = column_number + 1# Calculate column poscolumn_pos = " ({}/{})"print("\\n", (" " + key + " ").center(report_width, header_spacing_char))sub_dictionary = profile_dict[key]for dictionary in sub_dictionary:keys = list(dictionary.keys())attribute = keys[0]value = dictionary[attribute]if "percent" in attribute:formatted_value = "{0:.2%}".format(value)else:formatted_value = str(value)print(attribute.ljust(just_width, attribute_spacing_char),formatted_value.rjust(just_width, attribute_spacing_char))'}
+{'category': 'NO_PRINT', 'source': 'if d in ["this is", "that"]:print("true")'}
+{'category': 'PRINT', 'source': 'list(merged[(merged["data_type"] == "int64") |(merged["data_type"] == "float64")]["index"])'}
+{'category': 'NO_PRINT', 'source': 'if visualize_dataset == True:if deal_with_nulls == "remove":# Print messageprint("Nulls will be removed from visualization dataset.")# Remove each record containing any nullsdata_no_nulls = data.dropna(how = "any", axis = 0)print("Shape of original dataset {}"\\.format(data.shape))print("Shape of visualization dataset {}. \\n{} Records were removed (containing nulls)."\\.format(data_no_nulls.shape, data.shape[0] - data_no_nulls.shape[0]))else:# Print messageprint("Nulls will be replaced by the mean of each numeric feature.")# Find each column of numeric quality and store in listcolumns_to_fill_mean = list(merged[(merged["data_type"] == "int64") |(merged["data_type"] == "float64")]["index"])data_no_nulls = data# For each column in list fill the dataset with the mean of that columnfor column in columns_to_fill_mean:data_no_nulls[column] = data_no_nulls[column].fillna(data_no_nulls[column].mean())'}
+{'category': 'NO_PRINT', 'source': 'if visualize_dataset == True:for feature in features_to_exclude:if feature in data_no_nulls_column_list:data_no_nulls.drop([feature], axis = 1, inplace = True)print("{} removed from visualization dataset".format(feature))'}
+{'category': 'NO_PRINT', 'source': 'if visualize_dataset == True:# Create subset of merged containing data type = object and nunique between range abovechosen_categorical_features = list(merged[(merged["unique"] >= nunique_range[0]) &(merged["unique"] <= nunique_range[1]) &(merged["data_type"] == "object")]["index"])print("Categorical features: {}".format(chosen_categorical_features))# Remove unwanted featuresfor feature in features_to_exclude:if feature in chosen_categorical_features:chosen_categorical_features.remove(feature)# Preview chosen_categorical_featuresprint("Categorical features being used in pairplot: {}".format(chosen_categorical_features))'}
+{'category': 'NO_PRINT', 'source': 'for column in data_no_nulls.columns:dtype = data_no_nulls[column].dtypeif dtype == "bool":data_no_nulls[column] = data_no_nulls[column].astype(str)'}
+{'category': 'NO_PRINT', 'source': 'if visualize_dataset == True:# If dataset contains at least one categorical feature do thisif "unique" in merged.columns:for column in chosen_categorical_features:plt.figure()myplot = seaborn.pairplot(data = data_no_nulls,kind = non_identity_type,diag_kind = identity_type,hue = column,palette = palette)myplot.fig.suptitle("Pairplot categorized by {}".format(column),y = 1.03)plt.savefig(exportpath + timestamp +  column + "_pairplot.png")# If data set has no categorical features (only floats/ints) do thiselse:plt.figure()myplot = seaborn.pairplot(data = data_no_nulls,kind = non_identity_type,diag_kind = identity_type)myplot.fig.suptitle("Pairplot",y = 1.03)plt.savefig(exportpath + timestamp +  "data_profile_pairplot.png")'}
+{'category': 'PRINT', 'source': 'seaborn.set_style("whitegrid")'}
+{'category': 'NO_PRINT', 'source': 'if visualize_dataset == True and round_values == True:# Save pathheatmap_save_path = exportpath + timestamp + "heatmap.png"# Create correlation Matrixcorrelation_dataframe = data_no_nulls.corr()# Create maskmask = numpy.zeros_like(correlation_dataframe)mask[numpy.triu_indices_from(mask)] = True# Create heatmap, show and export as .pngseaborn.heatmap(data = correlation_dataframe,cmap = [\'#b2182b\',\'#ef8a62\',\'#fddbc7\',\'#f7f7f7\',\'#d1e5f0\',\'#67a9cf\',\'#2166ac\'],center = 0,square = True,linewidth = 1,mask = mask,annot = True).get_figure().savefig(heatmap_save_path)print("Heatmap saved to \'{}\'".format(heatmap_save_path))else:print("No heatmap was produced. Dataset contains no numeric features or visualize_dataset variable was set to False.")'}
+{'category': 'NO_PRINT', 'source': 'response_json = response.json()'}
+{'category': 'SAMPLE', 'source': 'region_stats.head()'}
+{'category': 'REDUCTION', 'source': 'region_stats.groupby("region").size()'}
+{'category': 'SAMPLE', 'source': 'mean_df_clean'}
+{'category': 'PRINT', 'source': 'plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)'}
+{'category': 'PRINT', 'source': 'plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)'}
+{'category': 'SAMPLE', 'source': 'quartile_bins'}
+{'category': 'NO_PRINT', 'source': "region_stats['weighted_growth_to_tuition'] = region_stats['earnings_cost_ratio'] * region_stats['earnings_growth_y6_y10']"}
+{'category': 'NO_PRINT', 'source': "clean_info = region_stats.drop(columns=['school_id', 'tuition_out_state'])"}
+{'category': 'NO_PRINT', 'source': 'df32 = clean_info.loc[clean_info["tuition_cost_tier"] == \'greater_32k\']'}
+{'category': 'NO_PRINT', 'source': "df32_grouped = df32.groupby(['region']).mean()"}
+{'category': 'NO_PRINT', 'source': "weighted_growth32k = [worthit for worthit in df32_grouped['weighted_growth_to_tuition']]"}
+{'category': 'PRINT', 'source': "table10k.rename(columns={'weighted_growth_to_tuition':'Worth-It Ratio'})"}
+{'category': 'PRINT', 'source': 'plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)'}
+{'category': 'SAMPLE', 'source': 'y_axis1'}
+{'category': 'SAMPLE', 'source': 'weighted_growth10k'}
+{'category': 'PRINT', 'source': 'plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)'}
+{'category': 'PRINT', 'source': 'plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)'}
+{'category': 'NO_PRINT', 'source': '__version__ = "0.0.1"'}
+{'category': 'PRINT', 'source': "plotly.tools.set_credentials_file(username='srjit', api_key='lpKtXjzR7LBaqHwlxFQp')"}
+{'category': 'NO_PRINT', 'source': 'data = pd.read_csv("../data/prices.csv")'}
+{'category': 'SAMPLE', 'source': 'data[data.symbol == "FB"].head()'}
+{'category': 'SAMPLE', 'source': 'data.symbol.unique()[:50]'}
+{'category': 'PRINT', 'source': 'len(data.symbol.unique())'}
+{'category': 'PRINT', 'source': "py.iplot(fig, filename='simple_ohlc')"}
+{'category': 'PRINT', 'source': 'py.iplot(fig)'}
+{'category': 'NO_PRINT', 'source': 'googl = data[data.symbol == "GOOGL"]'}
+{'category': 'PRINT', 'source': 'py.iplot(fig, filename = "Variation of High and Low of Google Stock Prices")'}
+{'category': 'PRINT', 'source': 'cf.set_config_file(world_readable=True, offline=True)'}
+{'category': 'NO_PRINT', 'source': "semester_names = {'f16': 'Fall 16','s17': 'Spring 17','f17': 'Fall 17','s18': 'Spring 18','f18': 'Fall 18','s19': 'Spring 19','f19': 'Fall 19','s20': 'Spring 20',}"}
+{'category': 'NO_PRINT', 'source': "old_df = pd.read_csv('data/School.csv', parse_dates=[1, 2, 3, 7, 8])"}
+{'category': 'NO_PRINT', 'source': "f18_df = pd.read_csv('data/asana-umass-f18.csv', parse_dates=[1, 2, 3, 8, 9])"}
+{'category': 'SAMPLE', 'source': 'all_df.head()'}
+{'category': 'NO_PRINT', 'source': "all_df['Created At DOW'] = all_df['Created At'].dt.dayofweek"}
+{'category': 'PRINT', 'source': "iplot(fig, filename='DOW Comparison')"}
+{'category': 'PRINT', 'source': "iplot(fig, filename='donut')"}
+{'category': 'NO_PRINT', 'source': "all_df['Duration'] = (all_df['Completed At'] - all_df['Created At'])"}
+{'category': 'PRINT', 'source': "iplot(fig, filename='grouped-bar')"}
+{'category': 'PRINT', 'source': 'axes[1].axis("off")'}
+{'category': 'PRINT', 'source': "iplot(fig, filename='due date freq')"}
+{'category': 'NO_PRINT', 'source': "all_df['Overdue'] = all_df['Completed At'] - all_df['Due Date']"}
+{'category': 'PRINT', 'source': "iplot(fig, filename='grouped-bar')"}
+{'category': 'PRINT', 'source': "iplot(fig, filename='overdue spread')"}
+{'category': 'PRINT', 'source': 'axes[1, 1].axis("off")'}
+{'category': 'NO_PRINT', 'source': "with open('data/Exams_2alvmakoou6sa9ks0roaq79nic@group.calendar.google.com.ics', 'r') as f:exams_cal = Calendar(f.readlines())"}
+{'category': 'NO_PRINT', 'source': "exam_counts['date']  = pd.to_datetime(exam_counts['date'])"}
+{'category': 'PRINT', 'source': "iplot(fig, filename='due date freq')"}
+{'category': 'NO_PRINT', 'source': 'import seaborn as sns'}
+{'category': 'NO_PRINT', 'source': 'county_data = pd.read_csv(file_to_load)'}
+{'category': 'SAMPLE', 'source': 'df_county_data'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'SAMPLE', 'source': 'lines'}
+{'category': 'PRINT', 'source': 'plt.savefig("Images/Graduation_State_Box_Plot.png", bbox_inches = "tight")'}
+{'category': 'PRINT', 'source': 'print("Household Size:      " + "{:.4f}".format(corr_hh))'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': "warnings.simplefilter(action='ignore', category=FutureWarning)"}
+{'category': 'SAMPLE', 'source': 'trips[:10]'}
+{'category': 'NO_PRINT', 'source': 'ax = sns.regplot(x="trip_distance", y="fare_amount", fit_reg=False, ci=None, truncate=True, data=trips)'}
+{'category': 'NO_PRINT', 'source': 'ax = sns.regplot(x="trip_distance", y="fare_amount", fit_reg=False, ci=None, truncate=True, data=trips)'}
+{'category': 'SAMPLE', 'source': "tollrides[tollrides['pickup_datetime'] == '2012-09-05 15:45:00']"}
+{'category': 'REDUCTION', 'source': 'trips.describe()'}
+{'category': 'REDUCTION', 'source': 'tripsqc.describe()'}
+{'category': 'NO_PRINT', 'source': 'df_valid = shuffled.iloc[trainsize:(trainsize+validsize), :]'}
+{'category': 'REDUCTION', 'source': 'df_train.describe()'}
+{'category': 'REDUCTION', 'source': 'df_valid.describe()'}
+{'category': 'PRINT', 'source': "print_rmse(df_train, rate, 'Train')"}
+{'category': 'NO_PRINT', 'source': "df_valid = pd.read_csv('./data/taxi-valid.csv', header = None, names = CSV_COLUMNS)"}
+{'category': 'NO_PRINT', 'source': 'def make_input_fn(df, num_epochs):return tf.estimator.inputs.pandas_input_fn(x = df,y = df[LABEL],batch_size = 128,num_epochs = num_epochs,shuffle = True,queue_capacity = 1000,num_threads = 1)'}
+{'category': 'NO_PRINT', 'source': 'def make_feature_cols():input_columns = [tf.feature_column.numeric_column(k) for k in FEATURES]return input_columns'}
+{'category': 'PRINT', 'source': 'model.train(input_fn = make_input_fn(df_train, num_epochs = 10))'}
+{'category': 'PRINT', 'source': "print_rmse(model, 'validation', df_valid)"}
+{'category': 'PRINT', 'source': "print_rmse(model, 'valid', df_valid)"}
+{'category': 'NO_PRINT', 'source': "REGION = 'us-central1'"}
+{'category': 'NO_PRINT', 'source': "os.environ['TFVERSION'] = '1.8'"}
+{'category': 'PRINT', 'source': "print('RMSE = {}'.format(np.sqrt(74)))"}
+{'category': 'PRINT', 'source': 'TensorBoard().start(OUTDIR)'}
+{'category': 'NO_PRINT', 'source': "if not pids_df.empty:for pid in pids_df['pid']:TensorBoard().stop(pid)print('Stopped TensorBoard with pid {}'.format(pid))"}
+{'category': 'PRINT', 'source': "plt.plot(np.linspace(-20, 120, 1000), [5] * 1000, 'b')"}
+{'category': 'NO_PRINT', 'source': "data['OrderedBreed'] = data.Breed.apply(reorder)"}
+{'category': 'NO_PRINT', 'source': 'X_dev[continuous] = ss.transform(X_dev[continuous])'}
+{'category': 'PRINT', 'source': "animal_type.plot(kind='bar',color='#34ABD8',rot=0)"}
+{'category': 'PRINT', 'source': "outcome_type.plot(kind='bar',color='#34ABD8',rot=0)"}
+{'category': 'PRINT', 'source': 'show(p)'}
+{'category': 'PRINT', 'source': 'show(p)'}
+{'category': 'PRINT', 'source': 'show(p)'}
+{'category': 'PRINT', 'source': 'data.hist(column="ConvertedAge", bins=25)'}
+{'category': 'PRINT', 'source': 'show(p)'}
+{'category': 'PRINT', 'source': 'print("Unique Breeds" , (data.OrderedBreed.value_counts() > 0).sum())'}
+{'category': 'PRINT', 'source': 'plot_corr(data2)'}
+{'category': 'PRINT', 'source': 'show(p)'}
+{'category': 'NO_PRINT', 'source': 'X_cat_train, X_cat_dev, y_cat_train, y_cat_dev = train_test_split(X_cat, y_cat, random_state=2)'}
+{'category': 'NO_PRINT', 'source': 'class MyVectorizer(BaseEstimator, TransformerMixin):def __init__(self, cols, hashing=None):"""args:cols: a list of column names of the categorical variableshashing:If None, then vectorization is a simple one-hot-encoding.If an integer, then hashing is the number of features in the output."""self.cols = colsself.hashing = hashingdef fit(self, X, y=None):data = X[self.cols]# Choose a vectorizerif self.hashing is None:self.myvec = DictVectorizer(sparse=False)else:self.myvec = FeatureHasher(n_features = self.hashing)self.myvec.fit(X[self.cols].to_dict(orient=\'records\'))return selfdef transform(self, X):# Vectorize Inputif self.hashing is None:return pd.DataFrame(self.myvec.transform(X[self.cols].to_dict(orient=\'records\')),columns = self.myvec.feature_names_)else:return pd.DataFrame(self.myvec.transform(X[self.cols].to_dict(orient=\'records\')).toarray())'}
+{'category': 'NO_PRINT', 'source': 'class MyScaler():def __init__(self, cols):self.cols = colsdef fit(self, X, y=None):self.ss = StandardScaler()self.ss.fit(X[self.cols])return selfdef transform(self, X):return self.ss.transform(X[self.cols])'}
+{'category': 'NO_PRINT', 'source': "union_cat = FeatureUnion([('Discrete', discrete_pipe_cat), ('Continuous', continuous_pipe_cat)])"}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'model.fit(np.array(X_train), y_train_hot, epochs=10, batch_size=32)'}
+{'category': 'PRINT', 'source': 'model2.fit(np.array(X_train_feature), y_train_hot, epochs=10, batch_size=32)'}
+{'category': 'PRINT', 'source': 'model3.fit(np.array(X_train_dog), y_train_hot, epochs=10, batch_size=32)'}
+{'category': 'PRINT', 'source': 'model4.fit(np.array(X_train_cat), y_train_hot, epochs=10, batch_size=32)'}
+{'category': 'NO_PRINT', 'source': "def get_missed_predictions(tourney_comp_ratings, model_features, numeric_feature_to_scale,prediction_probabilities, X, y, y_pred):pred_probs = pd.Series(prediction_probabilities[:,1], index=X.index)predictions = pd.Series(y_pred, index=y.index)test_games = tourney_comp_ratings[tourney_comp_ratings.index.isin(X.index)].copy()test_games[numeric_feature_to_scale] = scaler.inverse_transform(test_games[numeric_feature_to_scale])test_games['predicted_result'] = predictionstest_games['pred_win_prob'] = pred_probsmissed_predictions = test_games[test_games['game_result'] !=test_games['predicted_result']].sort_values(by='pred_win_prob', ascending=False)missed_predictions.apply(lambda x: feature_dictionary.print_game_info(test_games,x['season_t'], x['round'], x['team_t'] ), axis=1)supporting_features = missed_predictions.apply(lambda row: utils.get_supporting_features(row,feature_dictionary,feature_list),axis=1)supporting_model_features = missed_predictions.apply(lambda row: utils.get_supporting_features(row,feature_dictionary,model_features),axis=1)missed_predictions = missed_predictions.merge(supporting_features.to_frame(name='supporting_features'),how='left',left_index=True, right_index=True)missed_predictions = missed_predictions.merge(supporting_model_features.to_frame(name='supporting_model_features'),how='left',left_index=True, right_index=True)missed_predictions['features'] = 100 * missed_predictions['supporting_features'].apply(lambda x: len(x)) / len(feature_list)missed_predictions['model_features'] = 100 * missed_predictions['supporting_model_features'].apply(lambda x: len(x)) / \\len(model_features)missed_predictions['game_index'] = missed_predictions.indexreturn missed_predictions"}
+{'category': 'NO_PRINT', 'source': 'def eliminate_features_logistic_regression(classifier, X, y ):iteration = 0print("Iteration= ", iteration)iteration += 1model_stats = {}drop_list = []# get baseline by identifying sorted important features using all of the provided featuresmodel_stats = utils.save_model_stats(classifier,X,y,model_stats)important_features = utils.display_important_features(classifier.coef_[0], X,0)#important_features = display_important_features_regression(classifier, X,0)# least important featureleast_important_label = important_features[-1][0]print("least_important label= ", least_important_label)drop_list.append(least_important_label)del important_features[-1]# drop list contains all of the feature labels except for the feature label identified as being most importantlist_count = len(important_features)while list_count > 0:print("Iteration= ", iteration)iteration += 1model_stats = utils.save_model_stats(classifier,X.drop(columns=drop_list),y,model_stats)least_important_label = important_features[-1][0]print("least_important label= ", least_important_label)drop_list.append(least_important_label)del important_features[-1]list_count-=1return model_stats'}
+{'category': 'NO_PRINT', 'source': 'feature_dictionary = utils.Feature_Dictionary()'}
+{'category': 'NO_PRINT', 'source': 'stop_tournament = 2017'}
+{'category': 'SAMPLE', 'source': 'summary_data.head()'}
+{'category': 'REDUCTION', 'source': "summary_data['season'].describe()"}
+{'category': 'REDUCTION', 'source': 'tourney_data.describe()'}
+{'category': 'SAMPLE', 'source': 'tourney_data.head()'}
+{'category': 'SAMPLE', 'source': 'tourney_comp_ratings[tourney_comp_ratings.isnull().any(axis=1)]'}
+{'category': 'SAMPLE', 'source': 'tourney_comp_ratings.head()'}
+{'category': 'REDUCTION', 'source': 'tourney_comp_ratings.describe()'}
+{'category': 'NO_PRINT', 'source': 'for item in numeric_features:tourney_comp_ratings[item] = tourney_comp_ratings[item].astype(float)'}
+{'category': 'SAMPLE', 'source': 'feature_data.head()'}
+{'category': 'REDUCTION', 'source': "X['season_t'].describe()"}
+{'category': 'SAMPLE', 'source': 'feature_list'}
+{'category': 'SAMPLE', 'source': 'X_train.head()'}
+{'category': 'NO_PRINT', 'source': 'X_test[numeric_features] = scaler.transform(X_test[numeric_features])'}
+{'category': 'SAMPLE', 'source': 'X_train.head()'}
+{'category': 'PRINT', 'source': 'print("Intercept ", logreg.intercept_)'}
+{'category': 'PRINT', 'source': 'utils.display_important_features(logreg.coef_[0], X_train,1)'}
+{'category': 'NO_PRINT', 'source': 'y_pred = logreg.predict(X_test)'}
+{'category': 'PRINT', 'source': 'utils.display_confusion_matrix(y_test, y_pred)'}
+{'category': 'PRINT', 'source': 'print("Log loss= ",log_loss(y_test, prediction_probabilities))'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'REDUCTION', 'source': 'print(scores.mean())'}
+{'category': 'NO_PRINT', 'source': 'model_stats = eliminate_features_logistic_regression(logreg, X_copy,y)'}
+{'category': 'PRINT', 'source': "print('Log Loss at Max Cross Validation= {0:6.4f} '.format( model_stats[cross_hash]['log_loss'] ))"}
+{'category': 'PRINT', 'source': 'print(model_features)'}
+{'category': 'SAMPLE', 'source': 'numeric_model_features'}
+{'category': 'SAMPLE', 'source': 'dropped_features'}
+{'category': 'PRINT', 'source': 'utils.display_confusion_matrix(y_test, y_pred)'}
+{'category': 'NO_PRINT', 'source': 'missed_predictions = get_missed_predictions(tourney_comp_ratings, model_features, numeric_model_features,prediction_probabilities, X_test, y_test, y_pred)'}
+{'category': 'SAMPLE', 'source': 'missed_predictions'}
+{'category': 'PRINT', 'source': 'm_plot.figure.set_size_inches(20,6)'}
+{'category': 'SAMPLE', 'source': "missed_predictions[missed_predictions['game_index']==201]"}
+{'category': 'SAMPLE', 'source': 'feature_copy.head()'}
+{'category': 'SAMPLE', 'source': 'feature_copy.head()'}
+{'category': 'PRINT', 'source': 'X_season.shape'}
+{'category': 'PRINT', 'source': 'utils.display_confusion_matrix(y_season,y_pred_season)'}
+{'category': 'PRINT', 'source': 'print("Log loss= ",log_loss(y_season, prediction_probabilities))'}
+{'category': 'NO_PRINT', 'source': 'missed_predictions = get_missed_predictions(tourney_comp_ratings, model_features, numeric_model_features,prediction_probabilities,X_season,y_season,y_pred_season)'}
+{'category': 'SAMPLE', 'source': 'missed_predictions'}
+{'category': 'PRINT', 'source': 'm_plot.figure.set_size_inches(20,6)'}
+{'category': 'SAMPLE', 'source': "missed_predictions[missed_predictions['game_index']==1024]"}
+{'category': 'SAMPLE', 'source': 'log_loss_result'}
+{'category': 'SAMPLE', 'source': 'prediction_probabilities[:,1]'}
+{'category': 'SAMPLE', 'source': 'y_pred_season'}
+{'category': 'SAMPLE', 'source': 'tourney_games'}
+{'category': 'SAMPLE', 'source': 'tourney_games.head()'}
+{'category': 'SAMPLE', 'source': "predictions_counter_seed[['round','seed_t','team_t','seed_o','team_o','game_result','predicted','win_pts','lose_pts']]"}
+{'category': 'SAMPLE', 'source': "correct_counter_predictions[['round','seed_t','team_t','seed_o','team_o','game_result','predicted','win_pts','lose_pts']]"}
+{'category': 'SAMPLE', 'source': "wrong_counter_predictions[['round','seed_t','team_t','seed_o','team_o','game_result','predicted','win_pts','lose_pts']]"}
+{'category': 'PRINT', 'source': 'print("Number of correct counter seed predictions= ", len(correct_counter_predictions.index))'}
+{'category': 'NO_PRINT', 'source': "sessions['date'] = pd.to_datetime(sessions.date)"}
+{'category': 'PRINT', 'source': 'sessions.columns'}
+{'category': 'NO_PRINT', 'source': "def calc_yoga_scores(row):s = [row[key] * scores_translator[key] for key in ['yoga', ]]return sum(s)"}
+{'category': 'NO_PRINT', 'source': "sessions['yoga_scores'] = yoga_scores"}
+{'category': 'NO_PRINT', 'source': "sunshine_sessions = sessions[sessions.monkey == 'sunshine']"}
+{'category': 'SAMPLE', 'source': "doripa.tail()[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']]"}
+{'category': 'REDUCTION', 'source': "doripa[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']].max()"}
+{'category': 'SAMPLE', 'source': "sunshine_sessions.tail()[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']]"}
+{'category': 'REDUCTION', 'source': "sunshine_sessions[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']].max()"}
+{'category': 'NO_PRINT', 'source': 'def plot_scores(athlete):"""Plot the following scores:- Hangboard- Climbing- Gymnastics- Technical Scores"""fig, axes = plt.subplots()ax1 = fig.add_subplot(221)ax2 = fig.add_subplot(222)ax3 = fig.add_subplot(223)ax4 = fig.add_subplot(224)ax1.set_title(\'Hangboarding\')ax2.set_title(\'Gymnastics\')ax3.set_title(\'Climbing\')ax4.set_title(\'Technique\')athlete_hang_scores = athlete[athlete.hang > 0]athelete_gym_scores = athlete[athlete.gym_scores > 0]athlete_climbing_scores = athlete[athlete.climbing_scores > 0]athlete_tech_scores = athlete[athlete.tech_scores > 0]# plt.figure(figsize=(20,10))# plt.plot(athlete_hang_scores.hang_scores, marker=\'o\', color=\'green\')athlete_hang_scores.hang_scores.plot(ax=ax1, figsize=(20, 10), marker=\'o\', color=\'green\')athelete_gym_scores.gym_scores.plot(ax=ax2, figsize=(20, 10), marker=\'o\', color=\'gold\')athlete_climbing_scores.climbing_scores.plot(ax=ax3, figsize=(20, 10), marker=\'o\', color=\'cornflowerblue\')athlete_tech_scores.tech_scores.plot(ax=ax4, figsize=(20, 10), marker=\'o\', color=\'mediumorchid\')plt.show()'}
+{'category': 'PRINT', 'source': 'plot_stacked_scores(doripa)'}
+{'category': 'PRINT', 'source': 'plot_scores(doripa)'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': 'plot_stacked_scores(sunshine_sessions)'}
+{'category': 'PRINT', 'source': 'plot_scores(sunshine_sessions)'}
+{'category': 'PRINT', 'source': 'plt.show()'}
+{'category': 'PRINT', 'source': "plt.matshow(doripa[['total', 'total6', 'scores']].corr())"}
+{'category': 'PRINT', 'source': "doripa[['total', 'total6', 'scores']].corr()"}
+{'category': 'PRINT', 'source': "doripa['total'].corr(doripa['total6'])"}
+{'category': 'PRINT', 'source': "doripa['total'].corr(doripa['scores'])"}
+{'category': 'PRINT', 'source': "doripa['scores'].corr(doripa['total6'])"}
+{'category': 'SAMPLE', 'source': "sunshine_sessions.corr()['scores']"}
+{'category': 'PRINT', 'source': "doripa.corr()['scores'].sort_values()"}
+{'category': 'NO_PRINT', 'source': 'from sklearn import metrics'}
+{'category': 'PRINT', 'source': "teams_all[teams_all.name== 'Boise St.'].sort()"}
+{'category': 'SAMPLE', 'source': 'games_all'}
+{'category': 'PRINT', 'source': 'features_total.iloc[0].tolist()'}
+{'category': 'SAMPLE', 'source': 'fs'}
+{'category': 'NO_PRINT', 'source': "kag_results = pd.read_csv('data_files/tourney_results.csv')"}
+{'category': 'NO_PRINT', 'source': "def create_tournament(teams, kag_teams, kag_seeds, kag_results, year, season):cols = ['name', 'id']cols += ['s'+str(i) for i in range(1,31)]teams_combined = pd.merge(pd.merge(kag_seeds[kag_seeds.season==season].sort(columns='team'),kag_teams,left_on='team',right_on='id',how='left'),teams[teams.year==year],left_on='name',right_on='name',how='left',suffixes=('_1', '_2'))wt = kag_results.ix[kag_results.season==season, ['wteam', 'lteam']]wt['result'] = [checker(t) for t in wt.values]wt = pd.DataFrame([orderer(t) for t in wt.values], columns=['id_1','id_2','res'])team_tuples = [tuple(x) for x in teams_combined[cols].values]tournament = [(i[2:] + j[2:]) for i, j in combinations(team_tuples, 2)]teams = [(i[:2] + j[:2]) for i,j in combinations(team_tuples,2)]teams_df = pd.DataFrame(teams, columns=['t_1','id_1','t_2','id_2'])results = pd.merge(teams_df, wt, on=['id_1','id_2'], how='left')return tournament, teams, results"}
+{'category': 'SAMPLE', 'source': 'results[results.res.notnull()]'}
+{'category': 'NO_PRINT', 'source': "def log_loss(results, probs):res = results[results.res.notnull()]results['p1'],results['p2'] = np.array(probs)[:,0], np.array(probs)[:,1]probs = results.ix[results.res.notnull(), ['p1','p2']].values.tolist()ll = metrics.log_loss(res.res.tolist(), probs)return ll"}
+{'category': 'SAMPLE', 'source': 'll'}
+{'category': 'NO_PRINT', 'source': 'def performance_metric(y_true, y_predict):""" Calculates and returns the performance score betweentrue and predicted values based on the metric chosen. """# TODO: Calculate the performance score between \'y_true\' and \'y_predict\'score = None# Return the scorereturn score'}
+{'category': 'PRINT', 'source': 'vs.ModelLearning(features, prices)'}
+{'category': 'PRINT', 'source': 'vs.ModelComplexity(X_train, y_train)'}
+{'category': 'NO_PRINT', 'source': 'def fit_model(X, y):""" Performs grid search over the \'max_depth\' parameter for adecision tree regressor trained on the input data [X, y]. """# Create cross-validation sets from the training data# sklearn version 0.18: ShuffleSplit(n_splits=10, test_size=0.1, train_size=None, random_state=None)# sklearn versiin 0.17: ShuffleSplit(n, n_iter=10, test_size=0.1, train_size=None, random_state=None)cv_sets = ShuffleSplit(X.shape[0], n_iter = 10, test_size = 0.20, random_state = 0)# TODO: Create a decision tree regressor objectregressor = None# TODO: Create a dictionary for the parameter \'max_depth\' with a range from 1 to 10params = {}# TODO: Transform \'performance_metric\' into a scoring function using \'make_scorer\'scoring_fnc = None# TODO: Create the grid search cv object --> GridSearchCV()# Make sure to include the right parameters in the object:# (estimator, param_grid, scoring, cv) which have values \'regressor\', \'params\', \'scoring_fnc\', and \'cv_sets\' respectively.grid = None# Fit the grid search object to the data to compute the optimal modelgrid = grid.fit(X, y)# Return the optimal model after fitting the datareturn grid.best_estimator_'}
+{'category': 'PRINT', 'source': 'vs.PredictTrials(features, prices, fit_model, client_data)'}
+{'category': 'SAMPLE', 'source': 'df'}
+{'category': 'NO_PRINT', 'source': "most_common_hotels = descending_hotels[descending_hotels['Hotel Name'].isin(df_hotels)]"}
+{'category': 'NO_PRINT', 'source': "most_checkins = descending_most_common_hotels[descending_most_common_hotels['Checkin Date'].isin(common_checkins_list)]"}
+{'category': 'NO_PRINT', 'source': 'most_checkins = most_checkins.append(new_df)'}
+{'category': 'NO_PRINT', 'source': 'checkin_hotel_discount = most_checkins[["Hotel Name","Checkin Date","Discount Code","Discount Price"]].reset_index()'}
+{'category': 'SAMPLE', 'source': 'normal_dataFrame'}
+{'category': 'NO_PRINT', 'source': 'vector = pd.DataFrame.from_records(rows)'}
+{'category': 'PRINT', 'source': 'plt.show(dend)'}
+{'category': 'SAMPLE', 'source': 'hotels'}
+{'category': 'PRINT', 'source': "plt.scatter(pca_2d[:,0],pca_2d[:,1],c=cluster.labels_, cmap='rainbow')"}
