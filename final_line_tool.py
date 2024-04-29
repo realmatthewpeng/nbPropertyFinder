@@ -75,6 +75,9 @@ def processNotebook(nb, file: str):
                             category = "SAMPLE"
                         if type(node.value) == ast.Name:
                             category = "SAMPLE"
+                        if type(node.value) == ast.Attribute:
+                            if node.value.attr in reduce_funs:
+                                category = "REDUCTION"
                     else:
                         category = "NO_PRINT"
                     found_line_dict[cell_id] = (node.lineno, node.end_lineno, node.col_offset, node.end_col_offset, category)
