@@ -12,6 +12,8 @@ sample_funcs = ["head", "tail", "loc", "iloc"]
 reduce_funs = ["describe", "mean", "std",
                 "size", "count", "max", 
                 "unique", "value_counts"]
+non_pd_funcs = ["ax", "fig", "plt", "os", "joblib", "utils", "py",
+                "sns", "seaborn", "rs", "iplot", "vs"]
 
 def main():
     
@@ -59,25 +61,33 @@ def processNotebook(nb, file: str):
                     if type(node) == ast.Expr:
                         if type(node.value) == ast.Call:
                             if type(node.value.func) == ast.Attribute:
+                                if type(node.value.func.value) == ast.Name:
+                                    if node.value.func.value.id in non_pd_funcs:
+                                        continue
                                 if node.value.func.attr in sample_funcs:
                                     category = "SAMPLE"
                                 if node.value.func.attr in reduce_funs:
                                     category = "REDUCTION"
                             if type(node.value.func) == ast.Name:
-                                if (node.value.func.id == "print" or node.value.func.id == "display"):
+                                if (node.value.func.id == "print" or node.value.func.id == "display" or node.value.func.id == "show"):
                                     if type(node.value.args[0]) == ast.Call:
                                         if type(node.value.args[0].func) == ast.Attribute:
                                             if (node.value.args[0].func.attr in sample_funcs):
                                                 category = "SAMPLE"
                                             if (node.value.args[0].func.attr in reduce_funs):
                                                 category = "REDUCTION"
+                                else:
+                                    continue
                         if type(node.value) == ast.Subscript:
                             category = "SAMPLE"
                         if type(node.value) == ast.Name:
-                            category = "SAMPLE"
+                            category = "IMPLICIT SAMPLE"
                         if type(node.value) == ast.Attribute:
                             if node.value.attr in reduce_funs:
                                 category = "REDUCTION"
+                    elif (type(node) == ast.FunctionDef or type(node) == ast.Import or type(node) == ast.ImportFrom
+                          or type(node) == ast.If or type(node) == ast.For):
+                        continue
                     else:
                         category = "NO_PRINT"
                     found_line_dict[cell_id] = (node.lineno, node.end_lineno, node.col_offset, node.end_col_offset, category)
@@ -104,11 +114,15 @@ def processNotebook(nb, file: str):
             cut = source_split[start_r-1:end_r]
             if len(cut) > 1:
                 cut[0] = cut[0][start_c:]
-                cut[-1] = cut[-1][:end_c]
+                cut[-1] = cut[-1][:end_c+1]
             else:
-                cut[0] = cut[0][start_c:end_c]
+                cut[0] = cut[0][start_c:end_c+1]
             clean = "".join(cut)
-            all_cleaned.append({"category":category, "source":clean})
+            if (clean[-1] != ";"):
+                all_cleaned.append({"category":category, "source":clean})
+            else:
+                all_cleaned.append({"category":"STOP_PRINT", "source":clean})
+
 
     return all_cleaned
 

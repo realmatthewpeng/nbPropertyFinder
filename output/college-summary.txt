@@ -1,12 +1,12 @@
 Total number of lines found: 23
 
-all_df.head()
 all_df = pd.concat([old_df, f18_df], verify_integrity=True, ignore_index=True, sort=True)
+all_df.head()
 all_df['Created At DOW'] = all_df['Created At'].dt.dayofweek
-x=get_semester_asana(all_df, sem)['Created At DOW'].value_counts(normalize=True).keys(),
 y=get_semester_asana(all_df, sem)['Created At DOW'].value_counts(normalize=True).values,
-"values": get_semester_asana(all_df, sem)['Column'].value_counts().values,
+x=get_semester_asana(all_df, sem)['Created At DOW'].value_counts(normalize=True).keys(),
 "labels": get_semester_asana(all_df, sem)['Column'].value_counts().keys(),
+"values": get_semester_asana(all_df, sem)['Column'].value_counts().values,
 all_df['Duration'] = (all_df['Completed At'] - all_df['Created At'])
 x=get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]['Duration'].value_counts(normalize=True).keys().days,
 y=get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]['Duration'].value_counts(normalize=True).values,

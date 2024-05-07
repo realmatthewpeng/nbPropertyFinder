@@ -15,13 +15,14 @@ class Visitor(ast.NodeVisitor):
                         "apply", "unique", "value_counts", "reshape", "reset_index", 
                         "replace", "drop_duplicates", "concat"]
     
-    revealingFuncs = ["head", "describe", "tail"]
-
-    checkingFuncs = ["head", "describe", "isnull", "copy",
-                     "shape", "index", "mean", "std",
+    revealingFuncs = ["describe", "isnull",
+                     "shape", "mean", "std",
                      "quantile", "size", "count",
-                     "loc", "iloc", "max", "tail", "columns",
-                     "unique", "value_counts"]
+                     "max", "unique", "value_counts"]
+    
+    enforcingFuncs = ["dropna", "astype", "drop", 
+                      "rename", "sort_values", "fillna", "apply", 
+                      "replace", "drop_duplicates", "concat"]
 
     def __init__(self):
         super()
@@ -47,7 +48,7 @@ class Visitor(ast.NodeVisitor):
 
     def visit_Assign_ValueSubscript(self, node: ast.Assign):
         if isinstance(node.value, ast.Subscript):
-            self.saveNode(node, "Assign1", "", "internal", "checking")
+            self.saveNode(node, "Assign1", "", "reduction")
 
     def visit_Assign_NodeTargets(self, node: ast.Assign):
         targets = node.targets
@@ -59,54 +60,60 @@ class Visitor(ast.NodeVisitor):
     def visit_Assign_NodeTargetSubscript_SliceConstant(self, node: ast.Assign, target: ast.Subscript):
         if isinstance(target.slice, ast.Constant):
             if (isinstance(target.slice.value, str)):
-                self.saveNode(node, "Assign2", "", "internal", "enforcing")
+                self.saveNode(node, "Assign2", "", "enforcing")
 
     def visit_Assign_NodeTargetSubscript_ValueAttribute(self, node: ast.Assign, target: ast.Subscript):
         if isinstance(target.value, ast.Attribute):
             if target.value.attr in ["loc", "iloc"]:
-                self.saveNode(node, "Assign3", target.value.attr, "internal", "enforcing")
+                self.saveNode(node, "Assign3", target.value.attr, "enforcing")
 
     def visit_Expr_ValueName(self, node: ast.Expr):
         if isinstance(node.value, ast.Name):
-            self.saveNode(node, "Expr1", "", "revealing", "checking")
+            self.saveNode(node, "Expr1", "", "sampling")
     
     def visit_Expr_ValueSubscript(self, node: ast.Expr):
         if isinstance(node.value, ast.Subscript): 
             if isinstance(node.value.slice, ast.List):
-                self.saveNode(node, "Expr2", "", "revealing", "checking")
+                self.saveNode(node, "Expr2", "", "sampling")
 
     def visit_Expr_ValueAttribute(self, node: ast.Expr):
         if isinstance(node.value, ast.Attribute):
-            if node.value.attr in self.knownFuncNames:
-                self.saveNode(node, "Expr3", node.value.attr, "revealing", "checking")
+            if node.value.attr in self.revealingFuncs:
+                self.saveNode(node, "Expr3", node.value.attr, "revealing")
 
     def visit_Call_FuncAttribute(self, node: ast.Call):
         if isinstance(node.func, ast.Attribute):
             if node.func.attr in self.knownFuncNames:
-                isCheck = "checking" if node.func.attr in self.checkingFuncs else "enforcing"
-                isReveal = "revealing" if node.func.attr in self.revealingFuncs else "internal"
-                self.saveNode(node, "Call1", node.func.attr, isReveal, isCheck)
+                isReveal = "uncategorized"
+                if node.func.attr in self.revealingFuncs:
+                    isReveal = "revealing"
+                if node.func.attr in self.enforcingFuncs:
+                    isReveal = "enforcing"
+                self.saveNode(node, "Call1", node.func.attr, isReveal)
     
     def visit_Call_NodeArgs(self, node: ast.Call):
         args = node.args
         for arg in args:
             if isinstance(arg, ast.Attribute):
                 if arg.attr in self.knownFuncNames:
-                    isCheck = "checking" if arg.attr in self.checkingFuncs else "enforcing"
-                    isReveal = "revealing" if (isinstance(node.func, ast.Name) and node.func.id == "print") else "internal"
-                    self.saveNode(node, "Call2", arg.attr, isReveal, isCheck)
+                    isReveal = "uncategorized"
+                    if arg.attr in self.revealingFuncs:
+                        isReveal = "revealing"
+                    if arg.attr in self.enforcingFuncs:
+                        isReveal = "enforcing"
+                    self.saveNode(node, "Call2", arg.attr, isReveal)
     
     def visit_Subscript(self, node: ast.Subscript):
         if isinstance(node.slice, ast.Compare):
-            self.saveNode(node, "Subscript1", "", "internal", "enforcing")
+            self.saveNode(node, "Subscript1", "", "reduction")
 
     def visit_Delete(self, node: ast.Delete):
         if isinstance(node.targets[0], ast.Subscript):
             if isinstance(node.targets[0].slice, ast.Constant):
-                self.saveNode(node, "Delete1", "", "internal", "enforcing")
+                self.saveNode(node, "Delete1", "", "enforcing")
 
-    def saveNode(self, node: ast.AST, type: str, type_details="", outputType="", effectType=""):
-        self.savedLines.add((node.lineno, node.end_lineno, node.col_offset, node.end_col_offset, type, type_details, outputType, effectType))
+    def saveNode(self, node: ast.AST, type: str, type_details="", effectType=""):
+        self.savedLines.add((node.lineno, node.end_lineno, node.col_offset, node.end_col_offset, type, type_details, effectType))
 
     def getSaved(self):
         return self.savedLines
@@ -196,7 +203,7 @@ def processNotebook(nb, file: str, link: str):
         source_split = [line for line in source.split("\n")]
         lines = property_dict[id]
         if (len(lines) != 0):
-            for (start_r, end_r, start_c, end_c, type, type_details, outputType, effectType) in lines:
+            for (start_r, end_r, start_c, end_c, type, type_details, effectType) in lines:
                 new_dict = {"notebook":file,
                             "link":link,
                             "cell_id":id, 
@@ -206,7 +213,6 @@ def processNotebook(nb, file: str, link: str):
                             "end_col_offset":end_c,
                             "type": type,
                             "type_details": type_details,
-                            "output_type": outputType,
                             "effect_type": effectType}
                 cut = source_split[start_r-1:end_r]
                 if len(cut) > 1:
@@ -239,7 +245,7 @@ def printResults(cell_dict: dict, property_dict: dict, file: str, has_pandas = T
         if len(lines) != 0:
             if TEST_SINGLE_NB: print(lines)
             seen_lines = []
-            for (start,end, _, _, _, _, _, _) in lines:
+            for (start,end, _, _, _, _, _) in lines:
                 if (start,end) in seen_lines: continue
                 seen_lines.append((start,end))
                 clean = "".join(source_split[start-1:end])
