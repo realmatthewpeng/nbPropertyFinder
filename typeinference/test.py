@@ -1,24 +1,39 @@
-
 import pandas as pd
-from sklearn.datasets import load_iris
+import matplotlib.pyplot as plt
+from IPython.display import display, display_html
+data = pd.read_csv("../data/prices.csv")
+data[data.symbol == "FB"].head()
+len(data.symbol.unique())
+# Variation of AAPL Stock
+# Ref: https://plot.ly/python/ohlc-charts/
 
-# Load Iris dataset
-iris = load_iris()
-df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
 
-# Calculate mean and standard deviation for sepal length and width
-sepal_length_mean = df['sepal length (cm)'].mean()
-sepal_width_mean = df['sepal width (cm)'].mean()
-sepal_length_std = df['sepal length (cm)'].std()
-sepal_width_std = df['sepal width (cm)'].std()
+aapl = data[data.symbol == "AAPL"]
+trace = go.Ohlc(x=aapl['date'],
+                open=aapl['open'],
+                high=aapl['high'],
+                low=aapl['low'],
+                close=aapl['close'],
+                increasing=dict(line=dict(color= '#17BECF')),
+                decreasing=dict(line=dict(color= '#7F7F7F')))
 
-print(f"Sepal Length - Mean: {sepal_length_mean:.2f}, Std: {sepal_length_std:.2f}")
-print(f"Sepal Width - Mean: {sepal_width_mean:.2f}, Std: {sepal_width_std:.2f}")
+layout = {
+    'title' : 'AAPL Stock Variation',
+    'yaxis' : {'title': 'Stock Value'},
+    'xaxis' : {'title' : 'Year'},
+    'shapes': [{
+        'x0': '2014-06-09', 'x1': '2014-06-09',
+        'y0': 0, 'y1': 1, 'xref': 'x', 'yref': 'paper',
+        'line': {'color': 'rgb(30,30,30)', 'width': 1}
+    }],
+     'annotations': [{
+        'x': '2014-06-09', 'y': 0.05, 'xref': 'x', 'yref': 'paper',
+        'showarrow': False, 'xanchor': 'left',
+        'text': 'Steep Drop in Stock Price'
+    }]
+}
 
-my_str = "foo"
+data_aapl = [trace]
+fig = dict(data=data_aapl, layout=layout)
 
-my_dict = {}
-my_dict[my_str] = 123
-
-if True:
-    scoped_df = pd.DataFrame()
+py.iplot(fig, filename='simple_ohlc')
