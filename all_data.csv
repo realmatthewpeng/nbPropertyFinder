@@ -96,15 +96,15 @@
 47,hmwk01.ipynb,"https://github.com/scuthbert/DataScience/blob/master/hmwk/hmwk01/hmwk01.ipynb
 ",52,10,10,12,39,Assign1,,reduction,"dfRow = row[[""STATE"", ""D""]]"
 48,hmwk01.ipynb,"https://github.com/scuthbert/DataScience/blob/master/hmwk/hmwk01/hmwk01.ipynb
-",52,11,11,12,51,Assign1,,reduction,"dfRow[""WINNER""] = row[""CANDIDATE NAME""]"
-49,hmwk01.ipynb,"https://github.com/scuthbert/DataScience/blob/master/hmwk/hmwk01/hmwk01.ipynb
 ",52,11,11,12,51,Assign2,,enforcing,"dfRow[""WINNER""] = row[""CANDIDATE NAME""]"
+49,hmwk01.ipynb,"https://github.com/scuthbert/DataScience/blob/master/hmwk/hmwk01/hmwk01.ipynb
+",52,11,11,12,51,Assign1,,reduction,"dfRow[""WINNER""] = row[""CANDIDATE NAME""]"
 50,hmwk01.ipynb,"https://github.com/scuthbert/DataScience/blob/master/hmwk/hmwk01/hmwk01.ipynb
 ",52,12,12,12,33,Assign2,,enforcing,"dfRow[""MARGIN""] = 100"
 51,hmwk01.ipynb,"https://github.com/scuthbert/DataScience/blob/master/hmwk/hmwk01/hmwk01.ipynb
-",52,13,13,12,52,Assign1,,reduction,"dfRow[""WINPER""] = row[""GENERAL PERCENT""]"
-52,hmwk01.ipynb,"https://github.com/scuthbert/DataScience/blob/master/hmwk/hmwk01/hmwk01.ipynb
 ",52,13,13,12,52,Assign2,,enforcing,"dfRow[""WINPER""] = row[""GENERAL PERCENT""]"
+52,hmwk01.ipynb,"https://github.com/scuthbert/DataScience/blob/master/hmwk/hmwk01/hmwk01.ipynb
+",52,13,13,12,52,Assign1,,reduction,"dfRow[""WINPER""] = row[""GENERAL PERCENT""]"
 53,hmwk01.ipynb,"https://github.com/scuthbert/DataScience/blob/master/hmwk/hmwk01/hmwk01.ipynb
 ",52,16,16,12,81,Assign1,,reduction,"(Margin, WinPer) = dfNew.loc[district.index[0], ['MARGIN', 'WINPER']]"
 54,hmwk01.ipynb,"https://github.com/scuthbert/DataScience/blob/master/hmwk/hmwk01/hmwk01.ipynb
@@ -494,1089 +494,1101 @@
 246,ml_analysis.ipynb,"https://github.com/ChuckBowers/info370-group11/blob/master/ml_analysis.ipynb
 ",1,12,12,35,58,Call2,shape,revealing,str(test_outcome.shape)
 247,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",5,7,7,12,50,Call1,concat,enforcing,"pd.concat([boston, boston_mf], axis=1)"
+",3,4,4,0,14,Expr3,columns,uncategorized,boston.columns
 248,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",5,9,9,0,18,Call1,head,uncategorized,boston_join.head()
+",5,7,7,12,50,Call1,concat,enforcing,"pd.concat([boston, boston_mf], axis=1)"
 249,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",7,11,11,0,66,Assign2,,enforcing,boston_join['5K Duration'] = boston_join['5K'].apply(time_convert)
+",5,9,9,0,18,Call1,head,uncategorized,boston_join.head()
 250,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",7,11,11,29,66,Call1,apply,enforcing,boston_join['5K'].apply(time_convert)
+",6,1,1,0,19,Expr3,columns,uncategorized,boston_join.columns
 251,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",7,12,12,0,68,Assign2,,enforcing,boston_join['10K Duration'] = boston_join['10K'].apply(time_convert)
+",7,11,11,0,66,Assign2,,enforcing,boston_join['5K Duration'] = boston_join['5K'].apply(time_convert)
 252,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",7,12,12,30,68,Call1,apply,enforcing,boston_join['10K'].apply(time_convert)
+",7,11,11,29,66,Call1,apply,enforcing,boston_join['5K'].apply(time_convert)
 253,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",7,13,13,0,68,Assign2,,enforcing,boston_join['15K Duration'] = boston_join['15K'].apply(time_convert)
+",7,12,12,0,68,Assign2,,enforcing,boston_join['10K Duration'] = boston_join['10K'].apply(time_convert)
 254,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",7,13,13,30,68,Call1,apply,enforcing,boston_join['15K'].apply(time_convert)
+",7,12,12,30,68,Call1,apply,enforcing,boston_join['10K'].apply(time_convert)
 255,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",7,14,14,0,68,Assign2,,enforcing,boston_join['20K Duration'] = boston_join['20K'].apply(time_convert)
+",7,13,13,0,68,Assign2,,enforcing,boston_join['15K Duration'] = boston_join['15K'].apply(time_convert)
 256,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",7,14,14,30,68,Call1,apply,enforcing,boston_join['20K'].apply(time_convert)
+",7,13,13,30,68,Call1,apply,enforcing,boston_join['15K'].apply(time_convert)
 257,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",7,15,15,0,70,Assign2,,enforcing,boston_join['Half Duration'] = boston_join['Half'].apply(time_convert)
+",7,14,14,0,68,Assign2,,enforcing,boston_join['20K Duration'] = boston_join['20K'].apply(time_convert)
 258,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",7,15,15,31,70,Call1,apply,enforcing,boston_join['Half'].apply(time_convert)
+",7,14,14,30,68,Call1,apply,enforcing,boston_join['20K'].apply(time_convert)
 259,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",7,16,16,0,68,Assign2,,enforcing,boston_join['25K Duration'] = boston_join['25K'].apply(time_convert)
+",7,15,15,0,70,Assign2,,enforcing,boston_join['Half Duration'] = boston_join['Half'].apply(time_convert)
 260,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",7,16,16,30,68,Call1,apply,enforcing,boston_join['25K'].apply(time_convert)
+",7,15,15,31,70,Call1,apply,enforcing,boston_join['Half'].apply(time_convert)
 261,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",7,17,17,0,68,Assign2,,enforcing,boston_join['30K Duration'] = boston_join['30K'].apply(time_convert)
+",7,16,16,0,68,Assign2,,enforcing,boston_join['25K Duration'] = boston_join['25K'].apply(time_convert)
 262,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",7,17,17,30,68,Call1,apply,enforcing,boston_join['30K'].apply(time_convert)
+",7,16,16,30,68,Call1,apply,enforcing,boston_join['25K'].apply(time_convert)
 263,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",7,18,18,0,68,Assign2,,enforcing,boston_join['35K Duration'] = boston_join['35K'].apply(time_convert)
+",7,17,17,0,68,Assign2,,enforcing,boston_join['30K Duration'] = boston_join['30K'].apply(time_convert)
 264,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",7,18,18,30,68,Call1,apply,enforcing,boston_join['35K'].apply(time_convert)
+",7,17,17,30,68,Call1,apply,enforcing,boston_join['30K'].apply(time_convert)
 265,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",7,19,19,0,68,Assign2,,enforcing,boston_join['40K Duration'] = boston_join['40K'].apply(time_convert)
+",7,18,18,0,68,Assign2,,enforcing,boston_join['35K Duration'] = boston_join['35K'].apply(time_convert)
 266,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",7,19,19,30,68,Call1,apply,enforcing,boston_join['40K'].apply(time_convert)
+",7,18,18,30,68,Call1,apply,enforcing,boston_join['35K'].apply(time_convert)
 267,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",7,20,20,0,88,Assign2,,enforcing,boston_join['Official Time Duration'] = boston_join['Official Time'].apply(time_convert)
+",7,19,19,0,68,Assign2,,enforcing,boston_join['40K Duration'] = boston_join['40K'].apply(time_convert)
 268,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",7,20,20,40,88,Call1,apply,enforcing,boston_join['Official Time'].apply(time_convert)
+",7,19,19,30,68,Call1,apply,enforcing,boston_join['40K'].apply(time_convert)
 269,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",7,24,24,0,227,Call1,dropna,enforcing,"boston_join.dropna(inplace=True,subset=['Bib','Age','5K Duration','10K Duration','15K Duration','20K Duration', 'Half Duration', '25K Duration','30K Duration','35K Duration','40K Duration','Official Time Duration', 'Temp (F)'])"
+",7,20,20,0,88,Assign2,,enforcing,boston_join['Official Time Duration'] = boston_join['Official Time'].apply(time_convert)
 270,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",7,26,26,0,223,Assign1,,reduction,"boston_clean=boston_join[['Bib','Age','5K Duration','10K Duration','15K Duration','20K Duration', 'Half Duration', '25K Duration','30K Duration','35K Duration','40K Duration','Official Time Duration', 'Temp (F)', 'F', 'M']]"
+",7,20,20,40,88,Call1,apply,enforcing,boston_join['Official Time'].apply(time_convert)
 271,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",9,2,2,0,81,Assign1,,reduction,"X_5K = boston_clean[['Bib','Age','Official Time Duration', 'F', 'M', 'Temp (F)']]"
+",7,24,24,0,227,Call1,dropna,enforcing,"boston_join.dropna(inplace=True,subset=['Bib','Age','5K Duration','10K Duration','15K Duration','20K Duration', 'Half Duration', '25K Duration','30K Duration','35K Duration','40K Duration','Official Time Duration', 'Temp (F)'])"
 272,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",9,3,3,7,56,Call1,reshape,uncategorized,"boston_clean['5K Duration'].values.reshape(-1, 1)"
+",7,26,26,0,223,Assign1,,reduction,"boston_clean=boston_join[['Bib','Age','5K Duration','10K Duration','15K Duration','20K Duration', 'Half Duration', '25K Duration','30K Duration','35K Duration','40K Duration','Official Time Duration', 'Temp (F)', 'F', 'M']]"
 273,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",9,4,4,0,29,Call2,shape,revealing,"print(X_5K.shape, y_5K.shape)"
+",7,30,30,0,20,Expr3,columns,uncategorized,boston_clean.columns
 274,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",11,5,5,0,17,Call1,head,uncategorized,X_train_5K.head()
+",9,2,2,0,81,Assign1,,reduction,"X_5K = boston_clean[['Bib','Age','Official Time Duration', 'F', 'M', 'Temp (F)']]"
 275,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",21,4,4,43,58,Call1,max,revealing,y_test_5K.max()
+",9,3,3,7,56,Call1,reshape,uncategorized,"boston_clean['5K Duration'].values.reshape(-1, 1)"
 276,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",32,4,4,0,78,Assign1,,reduction,"X_nobib = boston_clean[['Age','Official Time Duration', 'F', 'M', 'Temp (F)']]"
+",9,4,4,0,29,Call2,shape,revealing,"print(X_5K.shape, y_5K.shape)"
 277,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",32,5,5,10,59,Call1,reshape,uncategorized,"boston_clean['5K Duration'].values.reshape(-1, 1)"
+",11,5,5,0,17,Call1,head,uncategorized,X_train_5K.head()
 278,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",32,6,6,0,35,Call2,shape,revealing,"print(X_nobib.shape, y_nobib.shape)"
+",21,4,4,43,58,Call1,max,revealing,y_test_5K.max()
 279,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",32,30,30,46,64,Call1,max,revealing,y_test_nobib.max()
+",32,4,4,0,78,Assign1,,reduction,"X_nobib = boston_clean[['Age','Official Time Duration', 'F', 'M', 'Temp (F)']]"
 280,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",34,4,4,0,98,Assign1,,reduction,"X_10K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration']]"
+",32,5,5,10,59,Call1,reshape,uncategorized,"boston_clean['5K Duration'].values.reshape(-1, 1)"
 281,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",34,5,5,8,58,Call1,reshape,uncategorized,"boston_clean['10K Duration'].values.reshape(-1, 1)"
+",32,6,6,0,35,Call2,shape,revealing,"print(X_nobib.shape, y_nobib.shape)"
 282,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",34,6,6,0,31,Call2,shape,revealing,"print(X_10K.shape, y_10K.shape)"
+",32,30,30,46,64,Call1,max,revealing,y_test_nobib.max()
 283,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",34,30,30,44,60,Call1,max,revealing,y_test_10K.max()
+",34,4,4,0,98,Assign1,,reduction,"X_10K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration']]"
 284,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",35,1,1,0,15,Expr1,,sampling,predictions_10K
+",34,5,5,8,58,Call1,reshape,uncategorized,"boston_clean['10K Duration'].values.reshape(-1, 1)"
 285,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",38,4,4,0,114,Assign1,,reduction,"X_15K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration']]"
+",34,6,6,0,31,Call2,shape,revealing,"print(X_10K.shape, y_10K.shape)"
 286,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",38,5,5,8,58,Call1,reshape,uncategorized,"boston_clean['15K Duration'].values.reshape(-1, 1)"
+",34,30,30,44,60,Call1,max,revealing,y_test_10K.max()
 287,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",38,6,6,0,31,Call2,shape,revealing,"print(X_15K.shape, y_15K.shape)"
+",35,1,1,0,15,Expr1,,sampling,predictions_10K
 288,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",38,30,30,44,60,Call1,max,revealing,y_test_15K.max()
+",38,4,4,0,114,Assign1,,reduction,"X_15K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration']]"
 289,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",41,4,4,0,130,Assign1,,reduction,"X_20K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration']]"
+",38,5,5,8,58,Call1,reshape,uncategorized,"boston_clean['15K Duration'].values.reshape(-1, 1)"
 290,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",41,5,5,8,58,Call1,reshape,uncategorized,"boston_clean['20K Duration'].values.reshape(-1, 1)"
+",38,6,6,0,31,Call2,shape,revealing,"print(X_15K.shape, y_15K.shape)"
 291,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",41,6,6,0,31,Call2,shape,revealing,"print(X_20K.shape, y_20K.shape)"
+",38,30,30,44,60,Call1,max,revealing,y_test_15K.max()
 292,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",41,30,30,44,60,Call1,max,revealing,y_test_20K.max()
+",41,4,4,0,130,Assign1,,reduction,"X_20K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration']]"
 293,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",44,4,4,0,147,Assign1,,reduction,"X_Half = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration']]"
+",41,5,5,8,58,Call1,reshape,uncategorized,"boston_clean['20K Duration'].values.reshape(-1, 1)"
 294,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",44,5,5,9,60,Call1,reshape,uncategorized,"boston_clean['Half Duration'].values.reshape(-1, 1)"
+",41,6,6,0,31,Call2,shape,revealing,"print(X_20K.shape, y_20K.shape)"
 295,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",44,6,6,0,33,Call2,shape,revealing,"print(X_Half.shape, y_Half.shape)"
+",41,30,30,44,60,Call1,max,revealing,y_test_20K.max()
 296,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",44,30,30,45,62,Call1,max,revealing,y_test_Half.max()
+",44,4,4,0,147,Assign1,,reduction,"X_Half = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration']]"
 297,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",47,4,4,0,163,Assign1,,reduction,"X_25K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration', 'Half Duration']]"
+",44,5,5,9,60,Call1,reshape,uncategorized,"boston_clean['Half Duration'].values.reshape(-1, 1)"
 298,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",47,5,5,8,58,Call1,reshape,uncategorized,"boston_clean['25K Duration'].values.reshape(-1, 1)"
+",44,6,6,0,33,Call2,shape,revealing,"print(X_Half.shape, y_Half.shape)"
 299,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",47,6,6,0,31,Call2,shape,revealing,"print(X_25K.shape, y_25K.shape)"
+",44,30,30,45,62,Call1,max,revealing,y_test_Half.max()
 300,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",47,30,30,44,60,Call1,max,revealing,y_test_25K.max()
+",47,4,4,0,163,Assign1,,reduction,"X_25K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration', 'Half Duration']]"
 301,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",50,4,4,0,178,Assign1,,reduction,"X_30K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration','Half Duration', '25K Duration']]"
+",47,5,5,8,58,Call1,reshape,uncategorized,"boston_clean['25K Duration'].values.reshape(-1, 1)"
 302,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",50,5,5,8,58,Call1,reshape,uncategorized,"boston_clean['30K Duration'].values.reshape(-1, 1)"
+",47,6,6,0,31,Call2,shape,revealing,"print(X_25K.shape, y_25K.shape)"
 303,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",50,6,6,0,31,Call2,shape,revealing,"print(X_30K.shape, y_30K.shape)"
+",47,30,30,44,60,Call1,max,revealing,y_test_25K.max()
 304,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",50,30,30,44,60,Call1,max,revealing,y_test_30K.max()
+",50,4,4,0,178,Assign1,,reduction,"X_30K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration','Half Duration', '25K Duration']]"
 305,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",53,4,4,0,195,Assign1,,reduction,"X_35K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration', 'Half Duration','25K Duration',  '30K Duration']]"
+",50,5,5,8,58,Call1,reshape,uncategorized,"boston_clean['30K Duration'].values.reshape(-1, 1)"
 306,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",53,5,5,8,58,Call1,reshape,uncategorized,"boston_clean['35K Duration'].values.reshape(-1, 1)"
+",50,6,6,0,31,Call2,shape,revealing,"print(X_30K.shape, y_30K.shape)"
 307,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",53,6,6,0,31,Call2,shape,revealing,"print(X_30K.shape, y_30K.shape)"
+",50,30,30,44,60,Call1,max,revealing,y_test_30K.max()
 308,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",53,30,30,44,60,Call1,max,revealing,y_test_35K.max()
+",53,4,4,0,195,Assign1,,reduction,"X_35K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration', 'Half Duration','25K Duration',  '30K Duration']]"
 309,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",56,4,4,0,211,Assign1,,reduction,"X_40K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration',  'Half Duration', '25K Duration', '30K Duration','35K Duration']]"
+",53,5,5,8,58,Call1,reshape,uncategorized,"boston_clean['35K Duration'].values.reshape(-1, 1)"
 310,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",56,5,5,8,58,Call1,reshape,uncategorized,"boston_clean['40K Duration'].values.reshape(-1, 1)"
+",53,6,6,0,31,Call2,shape,revealing,"print(X_30K.shape, y_30K.shape)"
 311,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",56,6,6,0,31,Call2,shape,revealing,"print(X_40K.shape, y_40K.shape)"
+",53,30,30,44,60,Call1,max,revealing,y_test_35K.max()
 312,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",56,30,30,44,60,Call1,max,revealing,y_test_40K.max()
+",56,4,4,0,211,Assign1,,reduction,"X_40K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration',  'Half Duration', '25K Duration', '30K Duration','35K Duration']]"
 313,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",59,4,4,0,203,Assign1,,reduction,"X_Final = boston_clean[['Bib', 'Age', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration','Half Duration', '25K Duration', '30K Duration', '35K Duration', '40K Duration']]"
+",56,5,5,8,58,Call1,reshape,uncategorized,"boston_clean['40K Duration'].values.reshape(-1, 1)"
 314,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",59,5,5,10,70,Call1,reshape,uncategorized,"boston_clean['Official Time Duration'].values.reshape(-1, 1)"
+",56,6,6,0,31,Call2,shape,revealing,"print(X_40K.shape, y_40K.shape)"
 315,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",59,6,6,0,35,Call2,shape,revealing,"print(X_Final.shape, y_Final.shape)"
+",56,30,30,44,60,Call1,max,revealing,y_test_40K.max()
 316,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",59,30,30,46,64,Call1,max,revealing,y_test_Final.max()
+",59,4,4,0,203,Assign1,,reduction,"X_Final = boston_clean[['Bib', 'Age', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration','Half Duration', '25K Duration', '30K Duration', '35K Duration', '40K Duration']]"
 317,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",63,1,1,0,10,Expr1,,sampling,boston_mse
+",59,5,5,10,70,Call1,reshape,uncategorized,"boston_clean['Official Time Duration'].values.reshape(-1, 1)"
 318,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",64,1,1,0,9,Expr1,,sampling,boston_r2
+",59,6,6,0,35,Call2,shape,revealing,"print(X_Final.shape, y_Final.shape)"
 319,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",65,6,6,0,19,Expr1,,sampling,boston_residuals_df
+",59,30,30,46,64,Call1,max,revealing,y_test_Final.max()
 320,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",68,1,1,0,55,Assign1,,reduction,boston_females=boston_clean.loc[boston_clean['F'] == 1]
+",62,1,1,0,20,Expr3,columns,uncategorized,boston_clean.columns
 321,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",68,1,1,15,55,Subscript1,,reduction,boston_clean.loc[boston_clean['F'] == 1]
+",63,1,1,0,10,Expr1,,sampling,boston_mse
 322,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",68,2,2,0,14,Expr1,,sampling,boston_females
+",64,1,1,0,9,Expr1,,sampling,boston_r2
 323,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",69,4,4,0,213,Assign1,,reduction,"X_F40K = boston_females[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration','Half Duration', '25K Duration', '30K Duration', '35K Duration']]"
+",65,6,6,0,19,Expr1,,sampling,boston_residuals_df
 324,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",69,5,5,9,61,Call1,reshape,uncategorized,"boston_females['40K Duration'].values.reshape(-1, 1)"
+",68,1,1,0,55,Assign1,,reduction,boston_females=boston_clean.loc[boston_clean['F'] == 1]
 325,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",69,6,6,0,33,Call2,shape,revealing,"print(X_F40K.shape, y_F40K.shape)"
+",68,1,1,15,55,Subscript1,,reduction,boston_clean.loc[boston_clean['F'] == 1]
 326,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
-",69,30,30,45,62,Call1,max,revealing,y_test_F40K.max()
+",68,2,2,0,14,Expr1,,sampling,boston_females
 327,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
+",69,4,4,0,213,Assign1,,reduction,"X_F40K = boston_females[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration','Half Duration', '25K Duration', '30K Duration', '35K Duration']]"
+328,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
+",69,5,5,9,61,Call1,reshape,uncategorized,"boston_females['40K Duration'].values.reshape(-1, 1)"
+329,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
+",69,6,6,0,33,Call2,shape,revealing,"print(X_F40K.shape, y_F40K.shape)"
+330,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
+",69,30,30,45,62,Call1,max,revealing,y_test_F40K.max()
+331,boston_model.ipynb,"https://github.com/amcm29/MachineLearning_Marathon/blob/master/boston_model.ipynb
 ",70,22,22,0,19,Expr1,,sampling,boston_residuals_df
-328,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",11,1,1,43,61,Call2,columns,uncategorized,list(data.columns)
-329,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",20,2,2,11,41,Call1,describe,revealing,"data.describe(include = ""all"")"
-330,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",20,8,8,17,50,Call1,reset_index,uncategorized,describe_transposed.reset_index()
-331,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",21,1,1,0,14,Expr1,,sampling,describe_final
 332,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",25,2,2,15,45,Call1,reset_index,uncategorized,dtypes_dataframe.reset_index()
+",11,1,1,43,61,Call2,columns,uncategorized,list(data.columns)
 333,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",26,2,2,0,19,Call1,head,uncategorized,dtypes_final.head()
+",20,2,2,11,41,Call1,describe,revealing,"data.describe(include = ""all"")"
 334,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",28,3,3,22,54,Call1,astype,enforcing,data.notnull().sum().astype(int)
+",20,8,8,17,50,Call1,reset_index,uncategorized,describe_transposed.reset_index()
 335,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",28,4,4,20,33,Call1,isnull,revealing,data.isnull()
+",21,1,1,0,14,Expr1,,sampling,describe_final
 336,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",28,4,4,20,51,Call1,astype,enforcing,data.isnull().sum().astype(int)
+",25,2,2,15,45,Call1,reset_index,uncategorized,dtypes_dataframe.reset_index()
 337,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",28,7,7,0,26,Assign1,,reduction,totalcount = data.shape[0]
+",26,2,2,0,19,Call1,head,uncategorized,dtypes_final.head()
 338,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",30,1,1,15,78,Call1,rename,enforcing,"percent_null.reset_index().rename(columns = {0:""null_percent""})"
+",28,3,3,22,54,Call1,astype,enforcing,data.notnull().sum().astype(int)
 339,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",30,1,1,15,41,Call1,reset_index,uncategorized,percent_null.reset_index()
+",28,4,4,20,33,Call1,isnull,revealing,data.isnull()
 340,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",30,2,2,17,86,Call1,rename,enforcing,"percent_filled.reset_index().rename(columns = {0:""non_null_percent""})"
+",28,4,4,20,51,Call1,astype,enforcing,data.isnull().sum().astype(int)
 341,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",30,2,2,17,45,Call1,reset_index,uncategorized,percent_filled.reset_index()
+",28,7,7,0,26,Assign1,,reduction,totalcount = data.shape[0]
 342,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",30,3,3,22,95,Call1,rename,enforcing,"filled_count_series.reset_index().rename(columns = {0:""non_null_counts""})"
+",30,1,1,15,78,Call1,rename,enforcing,"percent_null.reset_index().rename(columns = {0:""null_percent""})"
 343,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",30,3,3,22,55,Call1,reset_index,uncategorized,filled_count_series.reset_index()
+",30,1,1,15,41,Call1,reset_index,uncategorized,percent_null.reset_index()
 344,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",30,4,4,20,87,Call1,rename,enforcing,"null_count_series.reset_index().rename(columns = {0:""null_counts""})"
+",30,2,2,17,45,Call1,reset_index,uncategorized,percent_filled.reset_index()
 345,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",30,4,4,20,51,Call1,reset_index,uncategorized,null_count_series.reset_index()
+",30,2,2,17,86,Call1,rename,enforcing,"percent_filled.reset_index().rename(columns = {0:""non_null_percent""})"
 346,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",32,1,1,0,26,Call1,head,uncategorized,null_info_dataframe.head()
+",30,3,3,22,55,Call1,reset_index,uncategorized,filled_count_series.reset_index()
 347,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",36,1,1,0,32,Assign2,,enforcing,"merged[""row_count""] = totalcount"
+",30,3,3,22,95,Call1,rename,enforcing,"filled_count_series.reset_index().rename(columns = {0:""non_null_counts""})"
 348,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",36,3,3,0,48,Call1,drop,enforcing,"merged.drop([""count""], axis = 1, inplace = True)"
+",30,4,4,20,87,Call1,rename,enforcing,"null_count_series.reset_index().rename(columns = {0:""null_counts""})"
 349,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",37,1,1,0,13,Call1,head,uncategorized,merged.head()
+",30,4,4,20,51,Call1,reset_index,uncategorized,null_count_series.reset_index()
 350,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",39,5,5,4,46,Assign1,,reduction,"unique_value = merged.loc[index, ""unique""]"
+",32,1,1,0,26,Call1,head,uncategorized,null_info_dataframe.head()
 351,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",39,9,9,8,49,Assign1,,reduction,"feature_name = merged.loc[index, ""index""]"
+",36,1,1,0,32,Assign2,,enforcing,"merged[""row_count""] = totalcount"
 352,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",39,13,13,8,55,Assign3,loc,enforcing,"merged.loc[index, ""unique""] = number_of_uniques"
+",36,3,3,0,48,Call1,drop,enforcing,"merged.drop([""count""], axis = 1, inplace = True)"
 353,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",41,2,2,0,53,Assign2,,enforcing,"merged[""data_type""] = merged[""data_type""].astype(str)"
+",37,1,1,0,13,Call1,head,uncategorized,merged.head()
 354,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",41,2,2,22,53,Call1,astype,enforcing,"merged[""data_type""].astype(str)"
+",39,5,5,4,46,Assign1,,reduction,"unique_value = merged.loc[index, ""unique""]"
 355,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",43,1,1,24,52,Call1,unique,revealing,"merged[""data_type""].unique()"
+",39,9,9,8,49,Assign1,,reduction,"feature_name = merged.loc[index, ""index""]"
 356,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",43,12,12,25,53,Call1,astype,enforcing,merged[column].astype(float)
+",39,13,13,8,55,Assign3,loc,enforcing,"merged.loc[index, ""unique""] = number_of_uniques"
 357,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",46,2,2,20,40,Call2,columns,uncategorized,list(merged.columns)
+",41,2,2,0,53,Assign2,,enforcing,"merged[""data_type""] = merged[""data_type""].astype(str)"
 358,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",46,9,9,4,39,Assign1,,reduction,"column = merged.loc[index, ""index""]"
+",41,2,2,22,53,Call1,astype,enforcing,"merged[""data_type""].astype(str)"
 359,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",46,18,18,8,39,Assign1,,reduction,"value = merged.loc[index, attr]"
+",43,1,1,24,52,Call1,unique,revealing,"merged[""data_type""].unique()"
 360,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",56,11,11,4,38,Assign1,,reduction,sub_dictionary = profile_dict[key]
+",43,12,12,25,53,Call1,astype,enforcing,merged[column].astype(float)
 361,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",56,15,15,8,27,Assign1,,reduction,attribute = keys[0]
+",46,2,2,20,40,Call2,columns,uncategorized,list(merged.columns)
 362,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",56,16,16,8,37,Assign1,,reduction,value = dictionary[attribute]
+",46,9,9,4,39,Assign1,,reduction,"column = merged.loc[index, ""index""]"
 363,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",62,9,9,24,58,Call1,dropna,enforcing,"data.dropna(how = ""any"", axis = 0)"
+",46,18,18,8,39,Assign1,,reduction,"value = merged.loc[index, attr]"
 364,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",62,11,12,14,33,Call2,shape,revealing,"""Shape of original dataset {}""\              .format(data.shape)"
+",56,11,11,4,38,Assign1,,reduction,sub_dictionary = profile_dict[key]
 365,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",62,13,14,14,82,Call2,shape,revealing,"""Shape of visualization dataset {}. \n{} Records were removed (containing nulls).""\              .format(data_no_nulls.shape, data.shape[0] - data_no_nulls.shape[0])"
+",56,15,15,8,27,Assign1,,reduction,attribute = keys[0]
 366,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",62,29,29,36,94,Call1,fillna,enforcing,data_no_nulls[column].fillna(data_no_nulls[column].mean())
+",56,16,16,8,37,Assign1,,reduction,value = dictionary[attribute]
 367,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",62,29,29,65,93,Call1,mean,revealing,data_no_nulls[column].mean()
+",62,9,9,24,58,Call1,dropna,enforcing,"data.dropna(how = ""any"", axis = 0)"
 368,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",64,1,1,28,55,Call2,columns,uncategorized,list(data_no_nulls.columns)
+",62,11,12,14,33,Call2,shape,revealing,"""Shape of original dataset {}""\              .format(data.shape)"
 369,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
-",64,6,6,12,67,Call1,drop,enforcing,"data_no_nulls.drop([feature], axis = 1, inplace = True)"
+",62,13,14,14,82,Call2,shape,revealing,"""Shape of visualization dataset {}. \n{} Records were removed (containing nulls).""\              .format(data_no_nulls.shape, data.shape[0] - data_no_nulls.shape[0])"
 370,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
+",62,29,29,36,94,Call1,fillna,enforcing,data_no_nulls[column].fillna(data_no_nulls[column].mean())
+371,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
+",62,29,29,65,93,Call1,mean,revealing,data_no_nulls[column].mean()
+372,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
+",64,1,1,28,55,Call2,columns,uncategorized,list(data_no_nulls.columns)
+373,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
+",64,6,6,12,67,Call1,drop,enforcing,"data_no_nulls.drop([feature], axis = 1, inplace = True)"
+374,notebook_data_profililng.ipynb,"https://github.com/danielc92/python_nb_data_profiling/blob/master/notebook_data_profililng.ipynb
 ",69,4,4,32,65,Call1,astype,enforcing,data_no_nulls[column].astype(str)
-371,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,2,2,2,0,19,Call1,head,uncategorized,region_stats.head()
-372,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,3,3,3,0,37,Call1,size,revealing,"region_stats.groupby(""region"").size()"
-373,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,4,2,2,23,62,Call1,mean,revealing,region_stats.groupby(['region']).mean()
-374,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,4,3,3,14,62,Call1,drop,enforcing,"grouped_region_stats.drop(columns=[""school_id""])"
-375,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,4,4,4,0,98,Assign2,,enforcing,region_mean['earnings_cost_ratio'] = region_mean['earnings6years']/region_mean['tuition_in_state']
-376,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,4,8,8,16,39,Call1,drop,enforcing,"region_mean.drop([0,9])"
-377,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,4,9,9,0,13,Expr1,,sampling,mean_df_clean
-378,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,6,2,2,0,38,Assign1,,reduction,"y1 = mean_df_clean[""tuition_in_state""]"
-379,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,6,3,3,0,36,Assign1,,reduction,"y2 = mean_df_clean[""earnings6years""]"
-380,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,8,2,2,0,45,Assign1,,reduction,"y_axis = mean_df_clean[""earnings_cost_ratio""]"
-381,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,9,10,10,0,47,Assign1,,reduction,tuition_list = region_stats['tuition_in_state']
-382,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,9,13,13,24,51,Call1,quantile,revealing,tuition_list.quantile(0.25)
-383,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,9,17,17,19,46,Call1,quantile,revealing,tuition_list.quantile(0.50)
-384,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,9,21,21,25,52,Call1,quantile,revealing,tuition_list.quantile(0.75)
-385,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,9,25,25,24,48,Call1,quantile,revealing,tuition_list.quantile(1)
-386,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,9,29,29,0,13,Expr1,,sampling,quartile_bins
-387,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,10,2,2,0,100,Assign2,,enforcing,"region_stats[""tuition_cost_tier""] = pd.cut(region_stats[""tuition_in_state""], bins, labels=bin_names)"
-388,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,10,5,5,0,39,Assign1,,reduction,cost = region_stats['tuition_in_state']
-389,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,10,6,6,0,42,Assign1,,reduction,earnings6 = region_stats['earnings6years']
-390,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,10,7,7,0,44,Assign1,,reduction,earnings10 = region_stats['earnings10years']
-391,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,10,10,10,0,52,Assign2,,enforcing,region_stats['earnings_cost_ratio'] = earnings6/cost
-392,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,10,11,11,0,61,Assign2,,enforcing,region_stats['earnings_growth_y6_y10'] = earnings10/earnings6
-393,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,10,12,12,0,121,Assign2,,enforcing,region_stats['weighted_growth_to_tuition'] = region_stats['earnings_cost_ratio'] * region_stats['earnings_growth_y6_y10']
-394,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,11,2,2,13,74,Call1,drop,enforcing,"region_stats.drop(columns=['school_id', 'tuition_out_state'])"
-395,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,2,2,0,71,Assign1,,reduction,"df0_10k = clean_info.loc[clean_info[""tuition_cost_tier""] == 'less_10k']"
-396,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,2,2,10,71,Subscript1,,reduction,"clean_info.loc[clean_info[""tuition_cost_tier""] == 'less_10k']"
-397,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,3,3,0,44,Assign1,,reduction,df0_10k_edit0 = df0_10k[df0_10k.region != 0]
-398,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,3,3,16,44,Subscript1,,reduction,df0_10k[df0_10k.region != 0]
-399,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,4,4,0,56,Assign1,,reduction,df0_10k_edit9 = df0_10k_edit0[df0_10k_edit0.region != 9]
-400,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,4,4,16,56,Subscript1,,reduction,df0_10k_edit0[df0_10k_edit0.region != 9]
-401,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,6,6,0,71,Assign1,,reduction,"df10_18k = clean_info.loc[clean_info[""tuition_cost_tier""] == '10k_18k']"
-402,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,6,6,11,71,Subscript1,,reduction,"clean_info.loc[clean_info[""tuition_cost_tier""] == '10k_18k']"
-403,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,7,7,0,46,Assign1,,reduction,df10_18k_edit = df10_18k[df10_18k.region != 9]
-404,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,7,7,16,46,Subscript1,,reduction,df10_18k[df10_18k.region != 9]
-405,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,9,9,0,70,Assign1,,reduction,"df18_32 = clean_info.loc[clean_info[""tuition_cost_tier""] == '18k_32k']"
-406,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,9,9,10,70,Subscript1,,reduction,"clean_info.loc[clean_info[""tuition_cost_tier""] == '18k_32k']"
-407,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,11,11,0,71,Assign1,,reduction,"df32 = clean_info.loc[clean_info[""tuition_cost_tier""] == 'greater_32k']"
-408,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,11,11,7,71,Subscript1,,reduction,"clean_info.loc[clean_info[""tuition_cost_tier""] == 'greater_32k']"
-409,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,13,2,2,18,58,Call1,mean,revealing,df0_10k_edit9.groupby(['region']).mean()
-410,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,13,4,4,19,59,Call1,mean,revealing,df10_18k_edit.groupby(['region']).mean()
-411,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,13,6,6,18,52,Call1,mean,revealing,df18_32.groupby(['region']).mean()
-412,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,13,8,8,15,46,Call1,mean,revealing,df32.groupby(['region']).mean()
-413,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,16,2,3,11,109,Call1,drop,enforcing,"df0_10k_grouped.drop(['tuition_in_state','earnings6years',                                 'earnings10years','earnings_cost_ratio','earnings_growth_y6_y10'], axis = 1)"
-414,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,16,5,5,0,72,Call1,rename,enforcing,table10k.rename(columns={'weighted_growth_to_tuition':'Worth-It Ratio'})
-415,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,18,6,6,0,48,Assign1,,reduction,"y_axis1 = df0_10k_grouped[""earnings_cost_ratio""]"
-416,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,18,7,7,0,49,Assign1,,reduction,"y_axis2 = df10_18k_grouped[""earnings_cost_ratio""]"
-417,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,18,8,8,0,48,Assign1,,reduction,"y_axis3 = df18_32_grouped[""earnings_cost_ratio""]"
-418,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,18,9,9,0,45,Assign1,,reduction,"y_axis4 = df32_grouped[""earnings_cost_ratio""]"
-419,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,19,2,2,0,17,Expr1,,sampling,earningsgrowth10k
-420,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,19,3,3,0,7,Expr1,,sampling,y_axis1
-421,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,20,2,2,0,18,Expr1,,sampling,weighted_growth10k
-422,NYSE-Data Analysis.ipynb,"https://github.com/srjit/data-visualizations/blob/master/nyse/src/NYSE-Data%20Analysis.ipynb
-",3,1,1,0,32,Call1,head,uncategorized,"data[data.symbol == ""FB""].head()"
-423,NYSE-Data Analysis.ipynb,"https://github.com/srjit/data-visualizations/blob/master/nyse/src/NYSE-Data%20Analysis.ipynb
-",3,1,1,0,25,Subscript1,,reduction,"data[data.symbol == ""FB""]"
-424,NYSE-Data Analysis.ipynb,"https://github.com/srjit/data-visualizations/blob/master/nyse/src/NYSE-Data%20Analysis.ipynb
-",4,1,1,0,20,Call1,unique,revealing,data.symbol.unique()
-425,NYSE-Data Analysis.ipynb,"https://github.com/srjit/data-visualizations/blob/master/nyse/src/NYSE-Data%20Analysis.ipynb
-",5,1,1,4,24,Call1,unique,revealing,data.symbol.unique()
+375,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,2,2,2,0,19,Call1,head,uncategorized,region_stats.head()
+376,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,3,3,3,0,37,Call1,size,revealing,"region_stats.groupby(""region"").size()"
+377,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,4,2,2,23,62,Call1,mean,revealing,region_stats.groupby(['region']).mean()
+378,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,4,3,3,14,62,Call1,drop,enforcing,"grouped_region_stats.drop(columns=[""school_id""])"
+379,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,4,4,4,0,98,Assign2,,enforcing,region_mean['earnings_cost_ratio'] = region_mean['earnings6years']/region_mean['tuition_in_state']
+380,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,4,8,8,16,39,Call1,drop,enforcing,"region_mean.drop([0,9])"
+381,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,4,9,9,0,13,Expr1,,sampling,mean_df_clean
+382,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,6,2,2,0,38,Assign1,,reduction,"y1 = mean_df_clean[""tuition_in_state""]"
+383,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,6,3,3,0,36,Assign1,,reduction,"y2 = mean_df_clean[""earnings6years""]"
+384,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,8,2,2,0,45,Assign1,,reduction,"y_axis = mean_df_clean[""earnings_cost_ratio""]"
+385,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,9,10,10,0,47,Assign1,,reduction,tuition_list = region_stats['tuition_in_state']
+386,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,9,13,13,24,51,Call1,quantile,revealing,tuition_list.quantile(0.25)
+387,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,9,17,17,19,46,Call1,quantile,revealing,tuition_list.quantile(0.50)
+388,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,9,21,21,25,52,Call1,quantile,revealing,tuition_list.quantile(0.75)
+389,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,9,25,25,24,48,Call1,quantile,revealing,tuition_list.quantile(1)
+390,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,9,29,29,0,13,Expr1,,sampling,quartile_bins
+391,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,10,2,2,0,100,Assign2,,enforcing,"region_stats[""tuition_cost_tier""] = pd.cut(region_stats[""tuition_in_state""], bins, labels=bin_names)"
+392,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,10,5,5,0,39,Assign1,,reduction,cost = region_stats['tuition_in_state']
+393,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,10,6,6,0,42,Assign1,,reduction,earnings6 = region_stats['earnings6years']
+394,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,10,7,7,0,44,Assign1,,reduction,earnings10 = region_stats['earnings10years']
+395,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,10,10,10,0,52,Assign2,,enforcing,region_stats['earnings_cost_ratio'] = earnings6/cost
+396,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,10,11,11,0,61,Assign2,,enforcing,region_stats['earnings_growth_y6_y10'] = earnings10/earnings6
+397,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,10,12,12,0,121,Assign2,,enforcing,region_stats['weighted_growth_to_tuition'] = region_stats['earnings_cost_ratio'] * region_stats['earnings_growth_y6_y10']
+398,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,11,2,2,13,74,Call1,drop,enforcing,"region_stats.drop(columns=['school_id', 'tuition_out_state'])"
+399,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,2,2,0,71,Assign1,,reduction,"df0_10k = clean_info.loc[clean_info[""tuition_cost_tier""] == 'less_10k']"
+400,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,2,2,10,71,Subscript1,,reduction,"clean_info.loc[clean_info[""tuition_cost_tier""] == 'less_10k']"
+401,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,3,3,0,44,Assign1,,reduction,df0_10k_edit0 = df0_10k[df0_10k.region != 0]
+402,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,3,3,16,44,Subscript1,,reduction,df0_10k[df0_10k.region != 0]
+403,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,4,4,0,56,Assign1,,reduction,df0_10k_edit9 = df0_10k_edit0[df0_10k_edit0.region != 9]
+404,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,4,4,16,56,Subscript1,,reduction,df0_10k_edit0[df0_10k_edit0.region != 9]
+405,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,6,6,0,71,Assign1,,reduction,"df10_18k = clean_info.loc[clean_info[""tuition_cost_tier""] == '10k_18k']"
+406,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,6,6,11,71,Subscript1,,reduction,"clean_info.loc[clean_info[""tuition_cost_tier""] == '10k_18k']"
+407,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,7,7,0,46,Assign1,,reduction,df10_18k_edit = df10_18k[df10_18k.region != 9]
+408,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,7,7,16,46,Subscript1,,reduction,df10_18k[df10_18k.region != 9]
+409,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,9,9,0,70,Assign1,,reduction,"df18_32 = clean_info.loc[clean_info[""tuition_cost_tier""] == '18k_32k']"
+410,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,9,9,10,70,Subscript1,,reduction,"clean_info.loc[clean_info[""tuition_cost_tier""] == '18k_32k']"
+411,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,11,11,0,71,Assign1,,reduction,"df32 = clean_info.loc[clean_info[""tuition_cost_tier""] == 'greater_32k']"
+412,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,12,11,11,7,71,Subscript1,,reduction,"clean_info.loc[clean_info[""tuition_cost_tier""] == 'greater_32k']"
+413,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,13,2,2,18,58,Call1,mean,revealing,df0_10k_edit9.groupby(['region']).mean()
+414,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,13,4,4,19,59,Call1,mean,revealing,df10_18k_edit.groupby(['region']).mean()
+415,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,13,6,6,18,52,Call1,mean,revealing,df18_32.groupby(['region']).mean()
+416,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,13,8,8,15,46,Call1,mean,revealing,df32.groupby(['region']).mean()
+417,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,16,2,3,11,109,Call1,drop,enforcing,"df0_10k_grouped.drop(['tuition_in_state','earnings6years',                                 'earnings10years','earnings_cost_ratio','earnings_growth_y6_y10'], axis = 1)"
+418,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,16,5,5,0,72,Call1,rename,enforcing,table10k.rename(columns={'weighted_growth_to_tuition':'Worth-It Ratio'})
+419,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,18,6,6,0,48,Assign1,,reduction,"y_axis1 = df0_10k_grouped[""earnings_cost_ratio""]"
+420,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,18,7,7,0,49,Assign1,,reduction,"y_axis2 = df10_18k_grouped[""earnings_cost_ratio""]"
+421,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,18,8,8,0,48,Assign1,,reduction,"y_axis3 = df18_32_grouped[""earnings_cost_ratio""]"
+422,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,18,9,9,0,45,Assign1,,reduction,"y_axis4 = df32_grouped[""earnings_cost_ratio""]"
+423,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,19,2,2,0,17,Expr1,,sampling,earningsgrowth10k
+424,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,19,3,3,0,7,Expr1,,sampling,y_axis1
+425,Python Analytics - Best Region for Undergrad Degrees.ipynb,https://github.com/kent-huynh/ucb_project_1/blob/master/Python%20Analytics%20-%20Best%20Region%20for%20Undergrad%20Degrees.ipynbhmwk01.ipynb,20,2,2,0,18,Expr1,,sampling,weighted_growth10k
 426,NYSE-Data Analysis.ipynb,"https://github.com/srjit/data-visualizations/blob/master/nyse/src/NYSE-Data%20Analysis.ipynb
-",9,5,5,0,34,Assign1,,reduction,"aapl = data[data.symbol == ""AAPL""]"
+",3,1,1,0,25,Subscript1,,reduction,"data[data.symbol == ""FB""]"
 427,NYSE-Data Analysis.ipynb,"https://github.com/srjit/data-visualizations/blob/master/nyse/src/NYSE-Data%20Analysis.ipynb
-",9,5,5,7,34,Subscript1,,reduction,"data[data.symbol == ""AAPL""]"
+",3,1,1,0,32,Call1,head,uncategorized,"data[data.symbol == ""FB""].head()"
 428,NYSE-Data Analysis.ipynb,"https://github.com/srjit/data-visualizations/blob/master/nyse/src/NYSE-Data%20Analysis.ipynb
-",12,3,3,0,28,Assign1,,reduction,"aapl_close = aapl[[""close""]]"
+",4,1,1,0,20,Call1,unique,revealing,data.symbol.unique()
 429,NYSE-Data Analysis.ipynb,"https://github.com/srjit/data-visualizations/blob/master/nyse/src/NYSE-Data%20Analysis.ipynb
-",12,4,4,0,22,Assign1,,reduction,"dates = aapl[[""date""]]"
+",5,1,1,4,24,Call1,unique,revealing,data.symbol.unique()
 430,NYSE-Data Analysis.ipynb,"https://github.com/srjit/data-visualizations/blob/master/nyse/src/NYSE-Data%20Analysis.ipynb
-",12,7,7,14,72,Call1,apply,enforcing,aapl_close.apply(lambda x: np.log(x) - np.log(x.shift(1)))
+",9,5,5,0,34,Assign1,,reduction,"aapl = data[data.symbol == ""AAPL""]"
 431,NYSE-Data Analysis.ipynb,"https://github.com/srjit/data-visualizations/blob/master/nyse/src/NYSE-Data%20Analysis.ipynb
-",16,1,1,0,36,Assign1,,reduction,"googl = data[data.symbol == ""GOOGL""]"
+",9,5,5,7,34,Subscript1,,reduction,"data[data.symbol == ""AAPL""]"
 432,NYSE-Data Analysis.ipynb,"https://github.com/srjit/data-visualizations/blob/master/nyse/src/NYSE-Data%20Analysis.ipynb
+",12,3,3,0,28,Assign1,,reduction,"aapl_close = aapl[[""close""]]"
+433,NYSE-Data Analysis.ipynb,"https://github.com/srjit/data-visualizations/blob/master/nyse/src/NYSE-Data%20Analysis.ipynb
+",12,4,4,0,22,Assign1,,reduction,"dates = aapl[[""date""]]"
+434,NYSE-Data Analysis.ipynb,"https://github.com/srjit/data-visualizations/blob/master/nyse/src/NYSE-Data%20Analysis.ipynb
+",12,7,7,14,72,Call1,apply,enforcing,aapl_close.apply(lambda x: np.log(x) - np.log(x.shift(1)))
+435,NYSE-Data Analysis.ipynb,"https://github.com/srjit/data-visualizations/blob/master/nyse/src/NYSE-Data%20Analysis.ipynb
+",16,1,1,0,36,Assign1,,reduction,"googl = data[data.symbol == ""GOOGL""]"
+436,NYSE-Data Analysis.ipynb,"https://github.com/srjit/data-visualizations/blob/master/nyse/src/NYSE-Data%20Analysis.ipynb
 ",16,1,1,8,36,Subscript1,,reduction,"data[data.symbol == ""GOOGL""]"
-433,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",7,1,1,9,89,Call1,concat,enforcing,"pd.concat([old_df, f18_df], verify_integrity=True, ignore_index=True, sort=True)"
-434,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",7,2,2,0,13,Call1,head,uncategorized,all_df.head()
-435,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",9,1,1,0,60,Assign2,,enforcing,all_df['Created At DOW'] = all_df['Created At'].dt.dayofweek
-436,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",10,5,5,14,92,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)['Created At DOW'].value_counts(normalize=True)"
 437,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",10,6,6,14,92,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)['Created At DOW'].value_counts(normalize=True)"
+",7,1,1,9,89,Call1,concat,enforcing,"pd.concat([old_df, f18_df], verify_integrity=True, ignore_index=True, sort=True)"
 438,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",12,23,23,22,78,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)['Column'].value_counts()"
+",7,2,2,0,13,Call1,head,uncategorized,all_df.head()
 439,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",12,24,24,22,78,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)['Column'].value_counts()"
+",9,1,1,0,60,Assign2,,enforcing,all_df['Created At DOW'] = all_df['Created At'].dt.dayofweek
 440,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",14,1,1,0,68,Assign2,,enforcing,all_df['Duration'] = (all_df['Completed At'] - all_df['Created At'])
+",10,5,5,14,92,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)['Created At DOW'].value_counts(normalize=True)"
 441,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",15,5,5,14,163,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]['Duration'].value_counts(normalize=True)"
+",10,6,6,14,92,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)['Created At DOW'].value_counts(normalize=True)"
 442,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",15,5,5,14,122,Subscript1,,reduction,"get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]"
+",12,23,23,22,78,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)['Column'].value_counts()"
 443,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",15,5,5,47,115,Call1,astype,enforcing,"get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]')"
+",12,24,24,22,78,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)['Column'].value_counts()"
 444,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",15,6,6,14,163,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]['Duration'].value_counts(normalize=True)"
+",14,1,1,0,68,Assign2,,enforcing,all_df['Duration'] = (all_df['Completed At'] - all_df['Created At'])
 445,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",15,6,6,14,122,Subscript1,,reduction,"get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]"
+",15,5,5,14,122,Subscript1,,reduction,"get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]"
 446,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",15,6,6,47,115,Call1,astype,enforcing,"get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]')"
+",15,5,5,14,163,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]['Duration'].value_counts(normalize=True)"
 447,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",16,2,2,26,81,Subscript1,,reduction,all_df[all_df['Duration'].astype('timedelta64[D]') < 3]
+",15,5,5,47,115,Call1,astype,enforcing,"get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]')"
 448,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",16,2,2,26,98,Call1,dropna,enforcing,all_df[all_df['Duration'].astype('timedelta64[D]') < 3]['Name'].dropna()
+",15,6,6,14,163,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]['Duration'].value_counts(normalize=True)"
 449,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",16,2,2,33,76,Call1,astype,enforcing,all_df['Duration'].astype('timedelta64[D]')
+",15,6,6,14,122,Subscript1,,reduction,"get_semester_asana(all_df, sem)[(get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]') < 30)]"
 450,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",16,3,3,26,82,Subscript1,,reduction,all_df[all_df['Duration'].astype('timedelta64[D]') >= 3]
+",15,6,6,47,115,Call1,astype,enforcing,"get_semester_asana(all_df, sem)['Duration'].astype('timedelta64[D]')"
 451,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",16,3,3,26,99,Call1,dropna,enforcing,all_df[all_df['Duration'].astype('timedelta64[D]') >= 3]['Name'].dropna()
+",16,2,2,26,81,Subscript1,,reduction,all_df[all_df['Duration'].astype('timedelta64[D]') < 3]
 452,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",16,3,3,33,76,Call1,astype,enforcing,all_df['Duration'].astype('timedelta64[D]')
+",16,2,2,26,98,Call1,dropna,enforcing,all_df[all_df['Duration'].astype('timedelta64[D]') < 3]['Name'].dropna()
 453,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",18,5,5,14,81,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)['Due Date'].dropna().value_counts()"
+",16,2,2,33,76,Call1,astype,enforcing,all_df['Duration'].astype('timedelta64[D]')
 454,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",18,5,5,14,66,Call1,dropna,enforcing,"get_semester_asana(all_df, sem)['Due Date'].dropna()"
+",16,3,3,26,82,Subscript1,,reduction,all_df[all_df['Duration'].astype('timedelta64[D]') >= 3]
 455,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",18,6,6,14,66,Call1,dropna,enforcing,"get_semester_asana(all_df, sem)['Due Date'].dropna()"
+",16,3,3,26,99,Call1,dropna,enforcing,all_df[all_df['Duration'].astype('timedelta64[D]') >= 3]['Name'].dropna()
 456,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",18,6,6,14,81,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)['Due Date'].dropna().value_counts()"
+",16,3,3,33,76,Call1,astype,enforcing,all_df['Duration'].astype('timedelta64[D]')
 457,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",20,1,1,0,63,Assign2,,enforcing,all_df['Overdue'] = all_df['Completed At'] - all_df['Due Date']
+",18,5,5,14,81,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)['Due Date'].dropna().value_counts()"
 458,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",21,5,5,14,85,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True)"
+",18,5,5,14,66,Call1,dropna,enforcing,"get_semester_asana(all_df, sem)['Due Date'].dropna()"
 459,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",21,6,6,14,85,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True)"
+",18,6,6,14,81,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)['Due Date'].dropna().value_counts()"
 460,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",22,5,5,14,85,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True)"
+",18,6,6,14,66,Call1,dropna,enforcing,"get_semester_asana(all_df, sem)['Due Date'].dropna()"
 461,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",22,6,6,14,85,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True)"
+",20,1,1,0,63,Assign2,,enforcing,all_df['Overdue'] = all_df['Completed At'] - all_df['Due Date']
 462,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",23,2,2,28,82,Subscript1,,reduction,all_df[all_df['Overdue'].astype('timedelta64[D]') < 0]
+",21,5,5,14,85,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True)"
 463,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",23,2,2,28,99,Call1,dropna,enforcing,all_df[all_df['Overdue'].astype('timedelta64[D]') < 0]['Name'].dropna()
+",21,6,6,14,85,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True)"
 464,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",23,2,2,35,77,Call1,astype,enforcing,all_df['Overdue'].astype('timedelta64[D]')
+",22,5,5,14,85,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True)"
 465,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",23,3,3,29,101,Call1,dropna,enforcing,all_df[all_df['Overdue'].astype('timedelta64[D]') == 0]['Name'].dropna()
+",22,6,6,14,85,Call1,value_counts,revealing,"get_semester_asana(all_df, sem)['Overdue'].value_counts(normalize=True)"
 466,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",23,3,3,29,84,Subscript1,,reduction,all_df[all_df['Overdue'].astype('timedelta64[D]') == 0]
+",23,2,2,28,82,Subscript1,,reduction,all_df[all_df['Overdue'].astype('timedelta64[D]') < 0]
 467,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",23,3,3,36,78,Call1,astype,enforcing,all_df['Overdue'].astype('timedelta64[D]')
+",23,2,2,28,99,Call1,dropna,enforcing,all_df[all_df['Overdue'].astype('timedelta64[D]') < 0]['Name'].dropna()
 468,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",23,4,4,29,83,Subscript1,,reduction,all_df[all_df['Overdue'].astype('timedelta64[D]') > 0]
+",23,2,2,35,77,Call1,astype,enforcing,all_df['Overdue'].astype('timedelta64[D]')
 469,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",23,4,4,29,100,Call1,dropna,enforcing,all_df[all_df['Overdue'].astype('timedelta64[D]') > 0]['Name'].dropna()
+",23,3,3,29,101,Call1,dropna,enforcing,all_df[all_df['Overdue'].astype('timedelta64[D]') == 0]['Name'].dropna()
 470,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
-",23,4,4,36,78,Call1,astype,enforcing,all_df['Overdue'].astype('timedelta64[D]')
+",23,3,3,29,84,Subscript1,,reduction,all_df[all_df['Overdue'].astype('timedelta64[D]') == 0]
 471,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
+",23,3,3,36,78,Call1,astype,enforcing,all_df['Overdue'].astype('timedelta64[D]')
+472,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
+",23,4,4,29,83,Subscript1,,reduction,all_df[all_df['Overdue'].astype('timedelta64[D]') > 0]
+473,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
+",23,4,4,29,100,Call1,dropna,enforcing,all_df[all_df['Overdue'].astype('timedelta64[D]') > 0]['Name'].dropna()
+474,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
+",23,4,4,36,78,Call1,astype,enforcing,all_df['Overdue'].astype('timedelta64[D]')
+475,college-summary.ipynb,"https://github.com/seangtkelley/personal-health-tracking/blob/master/college-summary.ipynb
 ",26,7,7,0,58,Assign2,,enforcing,exam_counts['date']  = pd.to_datetime(exam_counts['date'])
-472,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",2,2,2,0,14,Expr1,,sampling,df_county_data
-473,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",3,2,2,0,29,Assign1,,reduction,state=df_county_data['State']
-474,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",3,3,3,0,38,Assign1,,reduction,"county = df_county_data[""County Name""]"
-475,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",3,4,4,0,45,Assign1,,reduction,"grad_rate = df_county_data[""Graduation Rate""]"
 476,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",5,1,1,0,38,Assign1,,reduction,"county = df_county_data[""County Name""]"
+",2,2,2,0,14,Expr1,,sampling,df_county_data
 477,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",5,2,2,0,41,Assign1,,reduction,"pov_rate = df_county_data[""Poverty Rate""]"
+",3,2,2,0,29,Assign1,,reduction,state=df_county_data['State']
 478,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",6,1,1,0,45,Assign1,,reduction,"grad_rate = df_county_data[""Graduation Rate""]"
+",3,3,3,0,38,Assign1,,reduction,"county = df_county_data[""County Name""]"
 479,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",6,2,2,0,41,Assign1,,reduction,"pov_rate = df_county_data[""Poverty Rate""]"
+",3,4,4,0,45,Assign1,,reduction,"grad_rate = df_county_data[""Graduation Rate""]"
 480,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",7,7,7,0,45,Assign1,,reduction,"grad_rate = df_county_data[""Graduation Rate""]"
+",5,1,1,0,38,Assign1,,reduction,"county = df_county_data[""County Name""]"
 481,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",7,8,8,0,38,Assign1,,reduction,"county = df_county_data[""County Name""]"
+",5,2,2,0,41,Assign1,,reduction,"pov_rate = df_county_data[""Poverty Rate""]"
 482,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",7,9,9,0,41,Assign1,,reduction,"pov_rate = df_county_data[""Poverty Rate""]"
+",6,1,1,0,45,Assign1,,reduction,"grad_rate = df_county_data[""Graduation Rate""]"
 483,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",8,2,2,0,34,Assign1,,reduction,"x = df_county_data[""Poverty Rate""]"
+",6,2,2,0,41,Assign1,,reduction,"pov_rate = df_county_data[""Poverty Rate""]"
 484,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",8,3,3,0,37,Assign1,,reduction,"y = df_county_data[""Graduation Rate""]"
+",7,7,7,0,45,Assign1,,reduction,"grad_rate = df_county_data[""Graduation Rate""]"
 485,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",10,1,1,0,38,Assign1,,reduction,"county = df_county_data[""County Name""]"
+",7,8,8,0,38,Assign1,,reduction,"county = df_county_data[""County Name""]"
 486,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",10,2,2,0,45,Assign1,,reduction,"house_size = df_county_data[""Household Size""]"
+",7,9,9,0,41,Assign1,,reduction,"pov_rate = df_county_data[""Poverty Rate""]"
 487,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",11,1,1,0,45,Assign1,,reduction,"grad_rate = df_county_data[""Graduation Rate""]"
+",8,2,2,0,34,Assign1,,reduction,"x = df_county_data[""Poverty Rate""]"
 488,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",11,2,2,0,45,Assign1,,reduction,"house_size = df_county_data[""Household Size""]"
+",8,3,3,0,37,Assign1,,reduction,"y = df_county_data[""Graduation Rate""]"
 489,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",12,7,7,0,45,Assign1,,reduction,"grad_rate = df_county_data[""Graduation Rate""]"
+",10,1,1,0,38,Assign1,,reduction,"county = df_county_data[""County Name""]"
 490,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",12,8,8,0,38,Assign1,,reduction,"county = df_county_data[""County Name""]"
+",10,2,2,0,45,Assign1,,reduction,"house_size = df_county_data[""Household Size""]"
 491,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",12,9,9,0,43,Assign1,,reduction,"pov_rate = df_county_data[""Household Size""]"
+",11,1,1,0,45,Assign1,,reduction,"grad_rate = df_county_data[""Graduation Rate""]"
 492,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",13,2,2,0,36,Assign1,,reduction,"x = df_county_data[""Household Size""]"
+",11,2,2,0,45,Assign1,,reduction,"house_size = df_county_data[""Household Size""]"
 493,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",13,3,3,0,37,Assign1,,reduction,"y = df_county_data[""Graduation Rate""]"
+",12,7,7,0,45,Assign1,,reduction,"grad_rate = df_county_data[""Graduation Rate""]"
 494,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",15,1,1,0,38,Assign1,,reduction,"county = df_county_data[""County Name""]"
+",12,8,8,0,38,Assign1,,reduction,"county = df_county_data[""County Name""]"
 495,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",15,2,2,0,48,Assign1,,reduction,"house_size = df_county_data[""Unemployment Rate""]"
+",12,9,9,0,43,Assign1,,reduction,"pov_rate = df_county_data[""Household Size""]"
 496,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",16,1,1,0,45,Assign1,,reduction,"grad_rate = df_county_data[""Graduation Rate""]"
+",13,2,2,0,36,Assign1,,reduction,"x = df_county_data[""Household Size""]"
 497,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",16,2,2,0,48,Assign1,,reduction,"house_size = df_county_data[""Unemployment Rate""]"
+",13,3,3,0,37,Assign1,,reduction,"y = df_county_data[""Graduation Rate""]"
 498,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",17,7,7,0,45,Assign1,,reduction,"grad_rate = df_county_data[""Graduation Rate""]"
+",15,1,1,0,38,Assign1,,reduction,"county = df_county_data[""County Name""]"
 499,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",17,8,8,0,38,Assign1,,reduction,"county = df_county_data[""County Name""]"
+",15,2,2,0,48,Assign1,,reduction,"house_size = df_county_data[""Unemployment Rate""]"
 500,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",17,9,9,0,46,Assign1,,reduction,"pov_rate = df_county_data[""Unemployment Rate""]"
+",16,1,1,0,45,Assign1,,reduction,"grad_rate = df_county_data[""Graduation Rate""]"
 501,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",18,2,2,0,39,Assign1,,reduction,"x = df_county_data[""Unemployment Rate""]"
+",16,2,2,0,48,Assign1,,reduction,"house_size = df_county_data[""Unemployment Rate""]"
 502,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",18,3,3,0,37,Assign1,,reduction,"y = df_county_data[""Graduation Rate""]"
+",17,7,7,0,45,Assign1,,reduction,"grad_rate = df_county_data[""Graduation Rate""]"
 503,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",20,1,1,0,38,Assign1,,reduction,"county = df_county_data[""County Name""]"
+",17,8,8,0,38,Assign1,,reduction,"county = df_county_data[""County Name""]"
 504,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",20,2,2,0,44,Assign1,,reduction,"house_size = df_county_data[""Median Income""]"
+",17,9,9,0,46,Assign1,,reduction,"pov_rate = df_county_data[""Unemployment Rate""]"
 505,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",21,1,1,0,45,Assign1,,reduction,"grad_rate = df_county_data[""Graduation Rate""]"
+",18,2,2,0,39,Assign1,,reduction,"x = df_county_data[""Unemployment Rate""]"
 506,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",21,2,2,0,44,Assign1,,reduction,"house_size = df_county_data[""Median Income""]"
+",18,3,3,0,37,Assign1,,reduction,"y = df_county_data[""Graduation Rate""]"
 507,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",22,7,7,0,45,Assign1,,reduction,"grad_rate = df_county_data[""Graduation Rate""]"
+",20,1,1,0,38,Assign1,,reduction,"county = df_county_data[""County Name""]"
 508,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",22,8,8,0,38,Assign1,,reduction,"county = df_county_data[""County Name""]"
+",20,2,2,0,44,Assign1,,reduction,"house_size = df_county_data[""Median Income""]"
 509,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",22,9,9,0,42,Assign1,,reduction,"pov_rate = df_county_data[""Median Income""]"
+",21,1,1,0,45,Assign1,,reduction,"grad_rate = df_county_data[""Graduation Rate""]"
 510,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",23,2,2,0,35,Assign1,,reduction,"x = df_county_data[""Median Income""]"
+",21,2,2,0,44,Assign1,,reduction,"house_size = df_county_data[""Median Income""]"
 511,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",23,3,3,0,37,Assign1,,reduction,"y = df_county_data[""Graduation Rate""]"
+",22,7,7,0,45,Assign1,,reduction,"grad_rate = df_county_data[""Graduation Rate""]"
 512,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",25,1,1,0,38,Assign1,,reduction,"county = df_county_data[""County Name""]"
+",22,8,8,0,38,Assign1,,reduction,"county = df_county_data[""County Name""]"
 513,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",25,2,2,0,66,Assign1,,reduction,"house_size = df_county_data[""Speak a language other than English""]"
+",22,9,9,0,42,Assign1,,reduction,"pov_rate = df_county_data[""Median Income""]"
 514,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",26,1,1,0,45,Assign1,,reduction,"grad_rate = df_county_data[""Graduation Rate""]"
+",23,2,2,0,35,Assign1,,reduction,"x = df_county_data[""Median Income""]"
 515,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",26,2,2,0,66,Assign1,,reduction,"house_size = df_county_data[""Speak a language other than English""]"
+",23,3,3,0,37,Assign1,,reduction,"y = df_county_data[""Graduation Rate""]"
 516,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",27,7,7,0,45,Assign1,,reduction,"grad_rate = df_county_data[""Graduation Rate""]"
+",25,1,1,0,38,Assign1,,reduction,"county = df_county_data[""County Name""]"
 517,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",27,8,8,0,38,Assign1,,reduction,"county = df_county_data[""County Name""]"
+",25,2,2,0,66,Assign1,,reduction,"house_size = df_county_data[""Speak a language other than English""]"
 518,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",27,9,9,0,64,Assign1,,reduction,"pov_rate = df_county_data[""Speak a language other than English""]"
+",26,1,1,0,45,Assign1,,reduction,"grad_rate = df_county_data[""Graduation Rate""]"
 519,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",28,2,2,0,57,Assign1,,reduction,"x = df_county_data[""Speak a language other than English""]"
+",26,2,2,0,66,Assign1,,reduction,"house_size = df_county_data[""Speak a language other than English""]"
 520,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
-",28,3,3,0,37,Assign1,,reduction,"y = df_county_data[""Graduation Rate""]"
+",27,7,7,0,45,Assign1,,reduction,"grad_rate = df_county_data[""Graduation Rate""]"
 521,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
+",27,8,8,0,38,Assign1,,reduction,"county = df_county_data[""County Name""]"
+522,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
+",27,9,9,0,64,Assign1,,reduction,"pov_rate = df_county_data[""Speak a language other than English""]"
+523,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
+",28,2,2,0,57,Assign1,,reduction,"x = df_county_data[""Speak a language other than English""]"
+524,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
+",28,3,3,0,37,Assign1,,reduction,"y = df_county_data[""Graduation Rate""]"
+525,Models.ipynb,"https://github.com/Areej32/project-1/blob/master/Clean%20Data/Models.ipynb
 ",29,5,5,0,5,Expr1,,sampling,lines
-522,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
-",14,1,1,0,44,Assign1,,reduction,tollrides = trips[trips['tolls_amount'] > 0]
-523,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
-",14,1,1,12,44,Subscript1,,reduction,trips[trips['tolls_amount'] > 0]
-524,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
-",14,2,2,0,64,Subscript1,,reduction,tollrides[tollrides['pickup_datetime'] == '2012-09-05 15:45:00']
-525,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
-",16,1,1,0,16,Call1,describe,revealing,trips.describe()
 526,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
-",18,2,2,10,34,Call1,copy,uncategorized,trips_in.copy(deep=True)
+",14,1,1,0,44,Assign1,,reduction,tollrides = trips[trips['tolls_amount'] > 0]
 527,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
-",18,4,4,2,27,Delete1,,enforcing,del trips['tolls_amount']
+",14,1,1,12,44,Subscript1,,reduction,trips[trips['tolls_amount'] > 0]
 528,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
-",18,5,5,2,27,Delete1,,enforcing,del trips['total_amount']
+",14,2,2,0,64,Subscript1,,reduction,tollrides[tollrides['pickup_datetime'] == '2012-09-05 15:45:00']
 529,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
-",18,6,6,2,28,Delete1,,enforcing,del trips['trip_distance']
+",16,1,1,0,16,Call1,describe,revealing,trips.describe()
 530,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
-",18,7,7,2,30,Delete1,,enforcing,del trips['pickup_datetime']
+",18,2,2,10,34,Call1,copy,uncategorized,trips_in.copy(deep=True)
 531,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
-",18,24,24,0,18,Call1,describe,revealing,tripsqc.describe()
+",18,4,4,2,27,Delete1,,enforcing,del trips['tolls_amount']
 532,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
-",21,6,6,0,39,Assign1,,reduction,"df_train = shuffled.iloc[:trainsize, :]"
+",18,5,5,2,27,Delete1,,enforcing,del trips['total_amount']
 533,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
-",21,7,7,0,60,Assign1,,reduction,"df_valid = shuffled.iloc[trainsize:(trainsize+validsize), :]"
+",18,6,6,2,28,Delete1,,enforcing,del trips['trip_distance']
 534,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
-",22,1,1,0,19,Call1,describe,revealing,df_train.describe()
+",18,7,7,2,30,Delete1,,enforcing,del trips['pickup_datetime']
 535,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
-",23,1,1,0,19,Call1,describe,revealing,df_valid.describe()
+",18,24,24,0,18,Call1,describe,revealing,tripsqc.describe()
 536,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
-",28,10,10,17,47,Call1,mean,revealing,np.mean((actual-predicted)**2)
+",21,6,6,0,39,Assign1,,reduction,"df_train = shuffled.iloc[:trainsize, :]"
 537,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
-",28,22,22,7,37,Call1,mean,revealing,df_train['fare_amount'].mean()
+",21,7,7,0,60,Assign1,,reduction,"df_valid = shuffled.iloc[trainsize:(trainsize+validsize), :]"
 538,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
-",28,22,22,40,74,Call1,mean,revealing,estimate_distance(df_train).mean()
+",22,1,1,0,19,Call1,describe,revealing,df_train.describe()
 539,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
-",31,3,3,0,46,Assign1,,reduction,FEATURES = CSV_COLUMNS[1:len(CSV_COLUMNS) - 1]
+",23,1,1,0,19,Call1,describe,revealing,df_valid.describe()
 540,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
-",31,4,4,0,22,Assign1,,reduction,LABEL = CSV_COLUMNS[0]
+",28,10,10,17,47,Call1,mean,revealing,np.mean((actual-predicted)**2)
 541,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
-",47,2,2,0,31,Assign2,,enforcing,os.environ['PROJECT'] = PROJECT
+",28,22,22,7,37,Call1,mean,revealing,df_train['fare_amount'].mean()
 542,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
-",47,3,3,0,29,Assign2,,enforcing,os.environ['BUCKET'] = BUCKET
+",28,22,22,40,74,Call1,mean,revealing,estimate_distance(df_train).mean()
 543,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
-",47,4,4,0,29,Assign2,,enforcing,os.environ['REGION'] = REGION
+",31,3,3,0,46,Assign1,,reduction,FEATURES = CSV_COLUMNS[1:len(CSV_COLUMNS) - 1]
 544,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
+",31,4,4,0,22,Assign1,,reduction,LABEL = CSV_COLUMNS[0]
+545,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
+",47,2,2,0,31,Assign2,,enforcing,os.environ['PROJECT'] = PROJECT
+546,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
+",47,3,3,0,29,Assign2,,enforcing,os.environ['BUCKET'] = BUCKET
+547,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
+",47,4,4,0,29,Assign2,,enforcing,os.environ['REGION'] = REGION
+548,ml-live.ipynb,"https://github.com/bjoernrost/ml-live/blob/master/ml-live.ipynb
 ",47,5,5,0,31,Assign2,,enforcing,os.environ['TFVERSION'] = '1.8'
-545,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,4,4,0,45,Assign2,,enforcing,breeds['Breed'] = breeds['Breed'].str.strip()
-546,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,8,8,0,58,Assign2,,enforcing,data['OutcomeSubtype'] = data['OutcomeSubtype'].fillna('')
-547,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,8,8,25,58,Call1,fillna,enforcing,data['OutcomeSubtype'].fillna('')
-548,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,9,9,0,51,Assign2,,enforcing,data['Female'] = 'Female' in data['SexuponOutcome']
 549,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,10,10,0,49,Call1,fillna,enforcing,"data['AgeuponOutcome'].fillna('', inplace = True)"
+",3,4,4,0,45,Assign2,,enforcing,breeds['Breed'] = breeds['Breed'].str.strip()
 550,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,33,33,0,61,Assign2,,enforcing,data['ConvertedAge']=data['AgeuponOutcome'].apply(ageConvert)
+",3,8,8,0,58,Assign2,,enforcing,data['OutcomeSubtype'] = data['OutcomeSubtype'].fillna('')
 551,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,33,33,21,61,Call1,apply,enforcing,data['AgeuponOutcome'].apply(ageConvert)
+",3,8,8,25,58,Call1,fillna,enforcing,data['OutcomeSubtype'].fillna('')
 552,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,42,42,0,50,Assign2,,enforcing,data['Female'] = data.SexuponOutcome.apply(female)
+",3,9,9,0,51,Assign2,,enforcing,data['Female'] = 'Female' in data['SexuponOutcome']
 553,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,42,42,17,50,Call1,apply,enforcing,data.SexuponOutcome.apply(female)
+",3,10,10,0,49,Call1,fillna,enforcing,"data['AgeuponOutcome'].fillna('', inplace = True)"
 554,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,49,49,0,50,Assign2,,enforcing,data['Intact'] = data.SexuponOutcome.apply(intact)
+",3,33,33,0,61,Assign2,,enforcing,data['ConvertedAge']=data['AgeuponOutcome'].apply(ageConvert)
 555,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,49,49,17,50,Call1,apply,enforcing,data.SexuponOutcome.apply(intact)
+",3,33,33,21,61,Call1,apply,enforcing,data['AgeuponOutcome'].apply(ageConvert)
 556,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,56,56,0,50,Assign2,,enforcing,data['MixedBreed'] = data.Breed.apply(mixed_breed)
+",3,42,42,0,50,Assign2,,enforcing,data['Female'] = data.SexuponOutcome.apply(female)
 557,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,56,56,21,50,Call1,apply,enforcing,data.Breed.apply(mixed_breed)
+",3,42,42,17,50,Call1,apply,enforcing,data.SexuponOutcome.apply(female)
 558,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,64,64,0,46,Assign2,,enforcing,data['TopBreed'] = data.Breed.apply(top_breed)
+",3,49,49,0,50,Assign2,,enforcing,data['Intact'] = data.SexuponOutcome.apply(intact)
 559,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,64,64,19,46,Call1,apply,enforcing,data.Breed.apply(top_breed)
+",3,49,49,17,50,Call1,apply,enforcing,data.SexuponOutcome.apply(intact)
 560,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,71,71,29,64,Subscript1,,reduction,breeds.loc[breeds['Breed'] == word]
+",3,56,56,0,50,Assign2,,enforcing,data['MixedBreed'] = data.Breed.apply(mixed_breed)
 561,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,73,73,15,29,Call1,mean,revealing,np.mean(ranks)
+",3,56,56,21,50,Call1,apply,enforcing,data.Breed.apply(mixed_breed)
 562,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,76,76,0,48,Assign2,,enforcing,data['BreedRank'] = data.Breed.apply(breed_rank)
+",3,64,64,0,46,Assign2,,enforcing,data['TopBreed'] = data.Breed.apply(top_breed)
 563,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,76,76,20,48,Call1,apply,enforcing,data.Breed.apply(breed_rank)
+",3,64,64,19,46,Call1,apply,enforcing,data.Breed.apply(top_breed)
 564,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,82,82,0,44,Assign2,,enforcing,data['PitBull'] = data.Breed.apply(pit_bull)
+",3,71,71,29,64,Subscript1,,reduction,breeds.loc[breeds['Breed'] == word]
 565,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,82,82,18,44,Call1,apply,enforcing,data.Breed.apply(pit_bull)
+",3,73,73,15,29,Call1,mean,revealing,np.mean(ranks)
 566,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,88,88,0,46,Assign2,,enforcing,data['BlackCat'] = data.Color.apply(black_cat)
+",3,76,76,0,48,Assign2,,enforcing,data['BreedRank'] = data.Breed.apply(breed_rank)
 567,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,88,88,19,46,Call1,apply,enforcing,data.Color.apply(black_cat)
+",3,76,76,20,48,Call1,apply,enforcing,data.Breed.apply(breed_rank)
 568,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,91,91,7,19,Call1,isnull,revealing,pd.isnull(i)
+",3,82,82,0,44,Assign2,,enforcing,data['PitBull'] = data.Breed.apply(pit_bull)
 569,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,93,93,0,39,Assign2,,enforcing,data['Named'] = data.Name.apply(naming)
+",3,82,82,18,44,Call1,apply,enforcing,data.Breed.apply(pit_bull)
 570,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,93,93,16,39,Call1,apply,enforcing,data.Name.apply(naming)
+",3,88,88,0,46,Assign2,,enforcing,data['BlackCat'] = data.Color.apply(black_cat)
 571,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,99,99,29,48,Call1,replace,enforcing,"i.replace("" "", ""-"")"
+",3,88,88,19,46,Call1,apply,enforcing,data.Color.apply(black_cat)
 572,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,100,100,29,48,Call1,replace,enforcing,"i.replace(""/"", "" "")"
+",3,91,91,7,19,Call1,isnull,revealing,pd.isnull(i)
 573,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,106,106,0,48,Assign2,,enforcing,data['OrderedColor'] = data.Color.apply(reorder)
+",3,93,93,0,39,Assign2,,enforcing,data['Named'] = data.Name.apply(naming)
 574,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,106,106,23,48,Call1,apply,enforcing,data.Color.apply(reorder)
+",3,93,93,16,39,Call1,apply,enforcing,data.Name.apply(naming)
 575,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,107,107,0,48,Assign2,,enforcing,data['OrderedBreed'] = data.Breed.apply(reorder)
+",3,99,99,29,48,Call1,replace,enforcing,"i.replace("" "", ""-"")"
 576,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",3,107,107,23,48,Call1,apply,enforcing,data.Breed.apply(reorder)
+",3,100,100,29,48,Call1,replace,enforcing,"i.replace(""/"", "" "")"
 577,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",4,19,19,0,91,Assign2,,enforcing,"data[""ConvertedAge""] = data.groupby(""AnimalType"").transform(lambda x: x.fillna(x.median()))"
+",3,106,106,0,48,Assign2,,enforcing,data['OrderedColor'] = data.Color.apply(reorder)
 578,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",4,19,19,70,90,Call1,fillna,enforcing,x.fillna(x.median())
+",3,106,106,23,48,Call1,apply,enforcing,data.Color.apply(reorder)
 579,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",4,20,20,0,27,Call1,describe,revealing,data[continuous].describe()
+",3,107,107,0,48,Assign2,,enforcing,data['OrderedBreed'] = data.Breed.apply(reorder)
 580,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",4,23,23,8,91,Call1,concat,enforcing,"pd.concat([data[target], data[continuous], pd.get_dummies(data[discrete])], axis=1)"
+",3,107,107,23,48,Call1,apply,enforcing,data.Breed.apply(reorder)
 581,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",4,35,35,0,21,Assign1,,reduction,X = data2[predictors]
+",4,19,19,0,91,Assign2,,enforcing,"data[""ConvertedAge""] = data.groupby(""AnimalType"").transform(lambda x: x.fillna(x.median()))"
 582,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",4,36,36,0,19,Assign1,,reduction,y = data2[[target]]
+",4,19,19,70,90,Call1,fillna,enforcing,x.fillna(x.median())
 583,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",7,2,2,14,47,Call1,value_counts,revealing,data['AnimalType'].value_counts()
+",4,20,20,0,27,Call1,describe,revealing,data[continuous].describe()
 584,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",8,2,2,15,49,Call1,value_counts,revealing,data['OutcomeType'].value_counts()
+",4,23,23,8,91,Call1,concat,enforcing,"pd.concat([data[target], data[continuous], pd.get_dummies(data[discrete])], axis=1)"
 585,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",14,1,1,15,41,Call1,unique,revealing,data.OrderedBreed.unique()
+",4,35,35,0,21,Assign1,,reduction,X = data2[predictors]
 586,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",14,2,2,25,57,Call1,value_counts,revealing,data.OrderedBreed.value_counts()
+",4,36,36,0,19,Assign1,,reduction,y = data2[[target]]
 587,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",16,7,7,4,74,Call2,columns,uncategorized,"plt.xticks(range(len(corr.columns)), corr.columns,rotation='vertical')"
+",7,2,2,14,47,Call1,value_counts,revealing,data['AnimalType'].value_counts()
 588,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",16,7,7,21,38,Call2,columns,uncategorized,len(corr.columns)
+",8,2,2,15,49,Call1,value_counts,revealing,data['OutcomeType'].value_counts()
 589,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",16,8,8,4,54,Call2,columns,uncategorized,"plt.yticks(range(len(corr.columns)), corr.columns)"
+",14,1,1,15,41,Call1,unique,revealing,data.OrderedBreed.unique()
 590,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",16,8,8,21,38,Call2,columns,uncategorized,len(corr.columns)
+",14,2,2,25,57,Call1,value_counts,revealing,data.OrderedBreed.value_counts()
 591,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",25,2,2,0,44,Assign1,,reduction,data_dog = data[data['AnimalType'] == 'Dog']
+",16,7,7,4,74,Call2,columns,uncategorized,"plt.xticks(range(len(corr.columns)), corr.columns,rotation='vertical')"
 592,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",25,2,2,11,44,Subscript1,,reduction,data[data['AnimalType'] == 'Dog']
+",16,7,7,21,38,Call2,columns,uncategorized,len(corr.columns)
 593,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",25,3,3,0,44,Assign1,,reduction,data_cat = data[data['AnimalType'] == 'Cat']
+",16,8,8,4,54,Call2,columns,uncategorized,"plt.yticks(range(len(corr.columns)), corr.columns)"
 594,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",25,3,3,11,44,Subscript1,,reduction,data[data['AnimalType'] == 'Cat']
+",16,8,8,21,38,Call2,columns,uncategorized,len(corr.columns)
 595,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",25,4,4,0,29,Assign1,,reduction,X_dog = data_dog[pred['dog']]
+",25,2,2,0,44,Assign1,,reduction,data_dog = data[data['AnimalType'] == 'Dog']
 596,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",25,5,5,0,29,Assign1,,reduction,X_cat = data_cat[pred['cat']]
+",25,2,2,11,44,Subscript1,,reduction,data[data['AnimalType'] == 'Dog']
 597,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",25,6,6,0,26,Assign1,,reduction,y_dog = data_dog[[target]]
+",25,3,3,0,44,Assign1,,reduction,data_cat = data[data['AnimalType'] == 'Cat']
 598,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",25,7,7,0,26,Assign1,,reduction,y_cat = data_cat[[target]]
+",25,3,3,11,44,Subscript1,,reduction,data[data['AnimalType'] == 'Cat']
 599,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",26,16,16,8,27,Assign1,,reduction,data = X[self.cols]
+",25,4,4,0,29,Assign1,,reduction,X_dog = data_dog[pred['dog']]
 600,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",29,3,3,13,31,Call1,astype,enforcing,cm.astype('float')
+",25,5,5,0,29,Assign1,,reduction,X_cat = data_cat[pred['cat']]
 601,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",29,17,17,13,21,Call1,max,revealing,cm.max()
+",25,6,6,0,26,Assign1,,reduction,y_dog = data_dog[[target]]
 602,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",36,2,2,18,59,Call1,drop,enforcing,"X_train_feature.drop('Intact_Unknown', 1)"
+",25,7,7,0,26,Assign1,,reduction,y_cat = data_cat[[target]]
 603,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",36,3,3,18,59,Call1,drop,enforcing,"X_train_feature.drop('Female_Unknown', 1)"
+",26,16,16,8,27,Assign1,,reduction,data = X[self.cols]
 604,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",36,5,5,16,55,Call1,drop,enforcing,"X_dev_feature.drop('Intact_Unknown', 1)"
+",29,3,3,13,31,Call1,astype,enforcing,cm.astype('float')
 605,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",36,6,6,16,55,Call1,drop,enforcing,"X_dev_feature.drop('Female_Unknown', 1)"
+",29,17,17,13,21,Call1,max,revealing,cm.max()
 606,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",39,2,2,14,55,Call1,drop,enforcing,"X_train_feature.drop('AnimalType_Dog', 1)"
+",36,2,2,18,59,Call1,drop,enforcing,"X_train_feature.drop('Intact_Unknown', 1)"
 607,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",39,4,4,12,51,Call1,drop,enforcing,"X_dev_feature.drop('AnimalType_Dog', 1)"
+",36,3,3,18,59,Call1,drop,enforcing,"X_train_feature.drop('Female_Unknown', 1)"
 608,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
-",41,2,2,14,55,Call1,drop,enforcing,"X_train_feature.drop('AnimalType_Cat', 1)"
+",36,5,5,16,55,Call1,drop,enforcing,"X_dev_feature.drop('Intact_Unknown', 1)"
 609,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
+",36,6,6,16,55,Call1,drop,enforcing,"X_dev_feature.drop('Female_Unknown', 1)"
+610,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
+",39,2,2,14,55,Call1,drop,enforcing,"X_train_feature.drop('AnimalType_Dog', 1)"
+611,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
+",39,4,4,12,51,Call1,drop,enforcing,"X_dev_feature.drop('AnimalType_Dog', 1)"
+612,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
+",41,2,2,14,55,Call1,drop,enforcing,"X_train_feature.drop('AnimalType_Cat', 1)"
+613,hopper_miller_zhang_final0814.ipynb,"https://github.com/r-hopper/W207-Summer-2017-Final/blob/master/analysis/hopper_miller_zhang_final0814.ipynb
 ",41,4,4,12,51,Call1,drop,enforcing,"X_dev_feature.drop('AnimalType_Cat', 1)"
-610,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",0,6,6,17,86,Call1,copy,uncategorized,tourney_comp_ratings[tourney_comp_ratings.index.isin(X.index)].copy()
-611,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",0,6,6,38,78,Call2,index,uncategorized,tourney_comp_ratings.index.isin(X.index)
-612,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",0,8,8,4,48,Assign2,,enforcing,test_games['predicted_result'] = predictions
-613,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",0,9,9,4,44,Assign2,,enforcing,test_games['pred_win_prob'] = pred_probs
 614,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",0,10,11,25,63,Subscript1,,reduction,test_games[test_games['game_result'] !=                                 test_games['predicted_result']]
+",0,6,6,17,86,Call1,copy,uncategorized,tourney_comp_ratings[tourney_comp_ratings.index.isin(X.index)].copy()
 615,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",0,10,11,25,112,Call1,sort_values,enforcing,"test_games[test_games['game_result'] !=                                 test_games['predicted_result']].sort_values(by='pred_win_prob', ascending=False)"
+",0,6,6,38,78,Call2,index,uncategorized,tourney_comp_ratings.index.isin(X.index)
 616,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",0,13,13,4,134,Call1,apply,enforcing,"missed_predictions.apply(lambda x: feature_dictionary.print_game_info(test_games,x['season_t'], x['round'], x['team_t'] ), axis=1)"
+",0,8,8,4,48,Assign2,,enforcing,test_games['predicted_result'] = predictions
 617,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",0,14,16,26,110,Call1,apply,enforcing,"missed_predictions.apply(lambda row: utils.get_supporting_features(row,                                                                                         feature_dictionary,                                                                                          feature_list),axis=1)"
+",0,9,9,4,44,Assign2,,enforcing,test_games['pred_win_prob'] = pred_probs
 618,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",0,18,20,32,118,Call1,apply,enforcing,"missed_predictions.apply(lambda row: utils.get_supporting_features(row,                                                                                                feature_dictionary,                                                                                               model_features),axis=1)"
+",0,10,11,25,112,Call1,sort_values,enforcing,"test_games[test_games['game_result'] !=                                 test_games['predicted_result']].sort_values(by='pred_win_prob', ascending=False)"
 619,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",0,28,28,4,128,Assign2,,enforcing,missed_predictions['features'] = 100 * missed_predictions['supporting_features'].apply(lambda x: len(x)) / len(feature_list)
+",0,10,11,25,63,Subscript1,,reduction,test_games[test_games['game_result'] !=                                 test_games['predicted_result']]
 620,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",0,28,28,43,108,Call1,apply,enforcing,missed_predictions['supporting_features'].apply(lambda x: len(x))
+",0,13,13,4,134,Call1,apply,enforcing,"missed_predictions.apply(lambda x: feature_dictionary.print_game_info(test_games,x['season_t'], x['round'], x['team_t'] ), axis=1)"
 621,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",0,30,31,4,27,Assign2,,enforcing,missed_predictions['model_features'] = 100 * missed_predictions['supporting_model_features'].apply(lambda x: len(x)) / \        len(model_features)
+",0,14,16,26,110,Call1,apply,enforcing,"missed_predictions.apply(lambda row: utils.get_supporting_features(row,                                                                                         feature_dictionary,                                                                                          feature_list),axis=1)"
 622,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",0,30,30,49,120,Call1,apply,enforcing,missed_predictions['supporting_model_features'].apply(lambda x: len(x))
+",0,18,20,32,118,Call1,apply,enforcing,"missed_predictions.apply(lambda row: utils.get_supporting_features(row,                                                                                                feature_dictionary,                                                                                               model_features),axis=1)"
 623,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",0,33,33,4,63,Assign2,,enforcing,missed_predictions['game_index'] = missed_predictions.index
+",0,28,28,4,128,Assign2,,enforcing,missed_predictions['features'] = 100 * missed_predictions['supporting_features'].apply(lambda x: len(x)) / len(feature_list)
 624,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",1,12,12,4,53,Assign1,,reduction,least_important_label = important_features[-1][0]
+",0,28,28,43,108,Call1,apply,enforcing,missed_predictions['supporting_features'].apply(lambda x: len(x))
 625,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",1,23,23,56,81,Call1,drop,enforcing,X.drop(columns=drop_list)
+",0,30,31,4,27,Assign2,,enforcing,missed_predictions['model_features'] = 100 * missed_predictions['supporting_model_features'].apply(lambda x: len(x)) / \        len(model_features)
 626,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",1,24,24,8,57,Assign1,,reduction,least_important_label = important_features[-1][0]
+",0,30,30,49,120,Call1,apply,enforcing,missed_predictions['supporting_model_features'].apply(lambda x: len(x))
 627,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",5,4,4,0,19,Call1,head,uncategorized,summary_data.head()
+",0,33,33,4,63,Assign2,,enforcing,missed_predictions['game_index'] = missed_predictions.index
 628,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",8,2,2,0,33,Call1,describe,revealing,summary_data['season'].describe()
+",1,12,12,4,53,Assign1,,reduction,least_important_label = important_features[-1][0]
 629,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",10,3,3,0,23,Call1,describe,revealing,tourney_data.describe()
+",1,23,23,56,81,Call1,drop,enforcing,X.drop(columns=drop_list)
 630,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",11,1,1,0,19,Call1,head,uncategorized,tourney_data.head()
+",1,24,24,8,57,Assign1,,reduction,least_important_label = important_features[-1][0]
 631,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",12,5,5,0,86,Assign1,,reduction,computer_rankings = computer_rankings[computer_rankings['season'] >= start_tournament]
+",5,4,4,0,19,Call1,head,uncategorized,summary_data.head()
 632,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",12,5,5,20,86,Subscript1,,reduction,computer_rankings[computer_rankings['season'] >= start_tournament]
+",8,2,2,0,33,Call1,describe,revealing,summary_data['season'].describe()
 633,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",12,22,22,0,41,Call1,dropna,enforcing,tourney_comp_ratings.dropna(inplace=True)
+",10,3,3,0,23,Call1,describe,revealing,tourney_data.describe()
 634,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",12,23,23,21,50,Call1,isnull,revealing,tourney_comp_ratings.isnull()
+",11,1,1,0,19,Call1,head,uncategorized,tourney_data.head()
 635,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",13,1,1,0,27,Call1,head,uncategorized,tourney_comp_ratings.head()
+",12,5,5,0,86,Assign1,,reduction,computer_rankings = computer_rankings[computer_rankings['season'] >= start_tournament]
 636,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",14,1,1,0,31,Call1,describe,revealing,tourney_comp_ratings.describe()
+",12,5,5,20,86,Subscript1,,reduction,computer_rankings[computer_rankings['season'] >= start_tournament]
 637,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",15,12,12,33,73,Call1,astype,enforcing,tourney_comp_ratings[item].astype(float)
+",12,22,22,0,41,Call1,dropna,enforcing,tourney_comp_ratings.dropna(inplace=True)
 638,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",16,2,2,15,59,Call1,copy,uncategorized,tourney_comp_ratings[feature_columns].copy()
+",12,23,23,21,50,Call1,isnull,revealing,tourney_comp_ratings.isnull()
 639,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",16,3,3,0,19,Call1,head,uncategorized,feature_data.head()
+",13,1,1,0,27,Call1,head,uncategorized,tourney_comp_ratings.head()
 640,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",17,1,1,0,59,Assign1,,reduction,X= feature_data[feature_data['season_t']<= stop_tournament]
+",14,1,1,0,31,Call1,describe,revealing,tourney_comp_ratings.describe()
 641,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",17,1,1,3,59,Subscript1,,reduction,feature_data[feature_data['season_t']<= stop_tournament]
+",15,12,12,33,73,Call1,astype,enforcing,tourney_comp_ratings[item].astype(float)
 642,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",17,2,2,0,24,Call1,describe,revealing,X['season_t'].describe()
+",16,2,2,15,59,Call1,copy,uncategorized,tourney_comp_ratings[feature_columns].copy()
 643,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",18,1,1,0,89,Assign1,,reduction,y=tourney_comp_ratings[tourney_comp_ratings['season_t']<= stop_tournament]['game_result']
+",16,3,3,0,19,Call1,head,uncategorized,feature_data.head()
 644,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",18,1,1,2,74,Subscript1,,reduction,tourney_comp_ratings[tourney_comp_ratings['season_t']<= stop_tournament]
+",17,1,1,0,59,Assign1,,reduction,X= feature_data[feature_data['season_t']<= stop_tournament]
 645,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",18,2,2,3,31,Call1,drop,enforcing,X.drop(columns=['season_t'])
+",17,1,1,3,59,Subscript1,,reduction,feature_data[feature_data['season_t']<= stop_tournament]
 646,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",18,5,5,0,12,Expr1,,sampling,feature_list
+",17,2,2,0,24,Call1,describe,revealing,X['season_t'].describe()
 647,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",19,2,2,10,24,Call1,copy,uncategorized,X_train.copy()
+",18,1,1,0,89,Assign1,,reduction,y=tourney_comp_ratings[tourney_comp_ratings['season_t']<= stop_tournament]['game_result']
 648,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",19,3,3,9,22,Call1,copy,uncategorized,X_test.copy()
+",18,1,1,2,74,Subscript1,,reduction,tourney_comp_ratings[tourney_comp_ratings['season_t']<= stop_tournament]
 649,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",19,4,4,0,20,Call2,shape,revealing,print(X_train.shape)
+",18,2,2,3,31,Call1,drop,enforcing,X.drop(columns=['season_t'])
 650,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",19,5,5,0,20,Call2,shape,revealing,print(y_train.shape)
+",18,5,5,0,12,Expr1,,sampling,feature_list
 651,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",19,6,6,0,19,Call2,shape,revealing,print(X_test.shape)
+",19,2,2,10,24,Call1,copy,uncategorized,X_train.copy()
 652,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",19,7,7,0,19,Call2,shape,revealing,print(y_test.shape)
+",19,3,3,9,22,Call1,copy,uncategorized,X_test.copy()
 653,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",19,8,8,0,14,Call1,head,uncategorized,X_train.head()
+",19,4,4,0,20,Call2,shape,revealing,print(X_train.shape)
 654,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",22,1,1,0,14,Call1,head,uncategorized,X_train.head()
+",19,5,5,0,20,Call2,shape,revealing,print(y_train.shape)
 655,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",30,1,1,9,17,Call1,copy,uncategorized,X.copy()
+",19,6,6,0,19,Call2,shape,revealing,print(X_test.shape)
 656,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",30,17,17,13,42,Call1,mean,revealing,"np.mean(train_scores, axis=1)"
+",19,7,7,0,19,Call2,shape,revealing,print(y_test.shape)
 657,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",30,18,18,12,40,Call1,std,revealing,"np.std(train_scores, axis=1)"
+",19,8,8,0,14,Call1,head,uncategorized,X_train.head()
 658,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",30,21,21,12,40,Call1,mean,revealing,"np.mean(test_scores, axis=1)"
+",22,1,1,0,14,Call1,head,uncategorized,X_train.head()
 659,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",30,22,22,11,38,Call1,std,revealing,"np.std(test_scores, axis=1)"
+",30,1,1,9,17,Call1,copy,uncategorized,X.copy()
 660,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",31,2,2,6,19,Call1,mean,revealing,scores.mean()
+",30,17,17,13,42,Call1,mean,revealing,"np.mean(train_scores, axis=1)"
 661,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",34,5,5,4,32,Assign1,,reduction,accuracy = value['accuracy']
+",30,18,18,12,40,Call1,std,revealing,"np.std(train_scores, axis=1)"
 662,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",34,6,6,4,41,Assign1,,reduction,cross_val = value['cross_validation']
+",30,21,21,12,40,Call1,mean,revealing,"np.mean(test_scores, axis=1)"
 663,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",34,7,7,4,36,Assign1,,reduction,log_loss_val = value['log_loss']
+",30,22,22,11,38,Call1,std,revealing,"np.std(test_scores, axis=1)"
 664,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",35,1,1,0,49,Assign1,,reduction,model_features =model_stats[cross_hash]['labels']
+",31,2,2,6,19,Call1,mean,revealing,scores.mean()
 665,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",36,4,4,0,22,Expr1,,sampling,numeric_model_features
+",34,5,5,4,32,Assign1,,reduction,accuracy = value['accuracy']
 666,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",37,3,3,0,16,Expr1,,sampling,dropped_features
+",34,6,6,4,41,Assign1,,reduction,cross_val = value['cross_validation']
 667,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",38,1,1,10,34,Call1,copy,uncategorized,X[model_features].copy()
+",34,7,7,4,36,Assign1,,reduction,log_loss_val = value['log_loss']
 668,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",38,3,3,10,24,Call1,copy,uncategorized,X_train.copy()
+",35,1,1,0,49,Assign1,,reduction,model_features =model_stats[cross_hash]['labels']
 669,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",38,4,4,9,22,Call1,copy,uncategorized,X_test.copy()
+",36,4,4,0,22,Expr1,,sampling,numeric_model_features
 670,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",38,5,5,0,20,Call2,shape,revealing,print(X_train.shape)
+",37,3,3,0,16,Expr1,,sampling,dropped_features
 671,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",38,6,6,0,20,Call2,shape,revealing,print(y_train.shape)
+",38,1,1,10,34,Call1,copy,uncategorized,X[model_features].copy()
 672,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",38,7,7,0,19,Call2,shape,revealing,print(X_test.shape)
+",38,3,3,10,24,Call1,copy,uncategorized,X_train.copy()
 673,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",38,8,8,0,19,Call2,shape,revealing,print(y_test.shape)
+",38,4,4,9,22,Call1,copy,uncategorized,X_test.copy()
 674,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",38,21,21,27,50,Call1,mean,revealing,cross_val_scores.mean()
+",38,5,5,0,20,Call2,shape,revealing,print(X_train.shape)
 675,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",40,1,1,0,18,Expr1,,sampling,missed_predictions
+",38,6,6,0,20,Call2,shape,revealing,print(y_train.shape)
 676,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",41,1,1,0,91,Assign1,,reduction,"plot_missed_predictions_df = missed_predictions[['game_index','features','model_features']]"
+",38,7,7,0,19,Call2,shape,revealing,print(X_test.shape)
 677,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",43,1,1,0,57,Subscript1,,reduction,missed_predictions[missed_predictions['game_index']==201]
+",38,8,8,0,19,Call2,shape,revealing,print(y_test.shape)
 678,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",45,4,4,15,66,Subscript1,,reduction,feature_data[feature_data['season_t'] == test_year]
+",38,21,21,27,50,Call1,mean,revealing,cross_val_scores.mean()
 679,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",45,4,4,15,73,Call1,copy,uncategorized,feature_data[feature_data['season_t'] == test_year].copy()
+",40,1,1,0,18,Expr1,,sampling,missed_predictions
 680,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",45,6,6,0,19,Call1,head,uncategorized,feature_copy.head()
+",41,1,1,0,91,Assign1,,reduction,"plot_missed_predictions_df = missed_predictions[['game_index','features','model_features']]"
 681,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",46,3,3,0,19,Call1,head,uncategorized,feature_copy.head()
+",43,1,1,0,57,Subscript1,,reduction,missed_predictions[missed_predictions['game_index']==201]
 682,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",47,1,1,0,39,Assign1,,reduction,X_season = feature_copy[model_features]
+",45,4,4,15,66,Subscript1,,reduction,feature_data[feature_data['season_t'] == test_year]
 683,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",47,3,3,0,92,Assign1,,reduction,y_season = tourney_comp_ratings[tourney_comp_ratings['season_t']== test_year]['game_result']
+",45,4,4,15,73,Call1,copy,uncategorized,feature_data[feature_data['season_t'] == test_year].copy()
 684,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",47,3,3,11,77,Subscript1,,reduction,tourney_comp_ratings[tourney_comp_ratings['season_t']== test_year]
+",45,6,6,0,19,Call1,head,uncategorized,feature_copy.head()
 685,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",47,4,4,0,14,Expr3,shape,revealing,X_season.shape
+",46,3,3,0,19,Call1,head,uncategorized,feature_copy.head()
 686,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",51,1,1,0,18,Expr1,,sampling,missed_predictions
+",47,1,1,0,39,Assign1,,reduction,X_season = feature_copy[model_features]
 687,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",52,1,1,0,91,Assign1,,reduction,"plot_missed_predictions_df = missed_predictions[['game_index','features','model_features']]"
+",47,3,3,0,92,Assign1,,reduction,y_season = tourney_comp_ratings[tourney_comp_ratings['season_t']== test_year]['game_result']
 688,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",53,1,1,0,58,Subscript1,,reduction,missed_predictions[missed_predictions['game_index']==1024]
+",47,3,3,11,77,Subscript1,,reduction,tourney_comp_ratings[tourney_comp_ratings['season_t']== test_year]
 689,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",54,4,4,0,15,Expr1,,sampling,log_loss_result
+",47,4,4,0,14,Expr3,shape,revealing,X_season.shape
 690,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",57,1,1,0,13,Expr1,,sampling,y_pred_season
+",47,4,4,0,14,Expr3,shape,uncategorized,X_season.shape
 691,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",58,1,1,16,92,Call1,copy,uncategorized,tourney_comp_ratings[tourney_comp_ratings.index.isin(X_season.index)].copy()
+",51,1,1,0,18,Expr1,,sampling,missed_predictions
 692,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",58,1,1,37,84,Call2,index,uncategorized,tourney_comp_ratings.index.isin(X_season.index)
+",52,1,1,0,91,Assign1,,reduction,"plot_missed_predictions_df = missed_predictions[['game_index','features','model_features']]"
 693,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",58,2,2,0,13,Expr1,,sampling,tourney_games
+",53,1,1,0,58,Subscript1,,reduction,missed_predictions[missed_predictions['game_index']==1024]
 694,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",59,1,1,0,42,Assign2,,enforcing,tourney_games['predicted'] = y_pred_season
+",54,4,4,0,15,Expr1,,sampling,log_loss_result
 695,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",59,2,2,0,20,Call1,head,uncategorized,tourney_games.head()
+",57,1,1,0,13,Expr1,,sampling,y_pred_season
 696,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",60,4,4,0,57,Assign1,,reduction,predictions_counter_seed = tourney_games[cond_1 | cond_2]
+",58,1,1,16,92,Call1,copy,uncategorized,tourney_comp_ratings[tourney_comp_ratings.index.isin(X_season.index)].copy()
 697,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",60,5,5,0,118,Expr2,,sampling,"predictions_counter_seed[['round','seed_t','team_t','seed_o','team_o','game_result','predicted','win_pts','lose_pts']]"
+",58,1,1,37,84,Call2,index,uncategorized,tourney_comp_ratings.index.isin(X_season.index)
 698,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",61,2,2,0,135,Assign1,,reduction,correct_counter_predictions = predictions_counter_seed[predictions_counter_seed['game_result']== predictions_counter_seed['predicted']]
+",58,2,2,0,13,Expr1,,sampling,tourney_games
 699,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",61,2,2,30,135,Subscript1,,reduction,predictions_counter_seed[predictions_counter_seed['game_result']== predictions_counter_seed['predicted']]
+",59,1,1,0,42,Assign2,,enforcing,tourney_games['predicted'] = y_pred_season
 700,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",61,3,3,0,121,Expr2,,sampling,"correct_counter_predictions[['round','seed_t','team_t','seed_o','team_o','game_result','predicted','win_pts','lose_pts']]"
+",59,2,2,0,20,Call1,head,uncategorized,tourney_games.head()
 701,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",62,2,2,0,134,Assign1,,reduction,wrong_counter_predictions = predictions_counter_seed[predictions_counter_seed['game_result'] != predictions_counter_seed['predicted']]
+",60,4,4,0,57,Assign1,,reduction,predictions_counter_seed = tourney_games[cond_1 | cond_2]
 702,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",62,2,2,28,134,Subscript1,,reduction,predictions_counter_seed[predictions_counter_seed['game_result'] != predictions_counter_seed['predicted']]
+",60,5,5,0,118,Expr2,,sampling,"predictions_counter_seed[['round','seed_t','team_t','seed_o','team_o','game_result','predicted','win_pts','lose_pts']]"
 703,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",62,3,3,0,119,Expr2,,sampling,"wrong_counter_predictions[['round','seed_t','team_t','seed_o','team_o','game_result','predicted','win_pts','lose_pts']]"
+",61,2,2,0,135,Assign1,,reduction,correct_counter_predictions = predictions_counter_seed[predictions_counter_seed['game_result']== predictions_counter_seed['predicted']]
 704,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
-",63,1,1,46,81,Call2,index,uncategorized,len(predictions_counter_seed.index)
+",61,2,2,30,135,Subscript1,,reduction,predictions_counter_seed[predictions_counter_seed['game_result']== predictions_counter_seed['predicted']]
 705,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
+",61,3,3,0,121,Expr2,,sampling,"correct_counter_predictions[['round','seed_t','team_t','seed_o','team_o','game_result','predicted','win_pts','lose_pts']]"
+706,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
+",62,2,2,0,134,Assign1,,reduction,wrong_counter_predictions = predictions_counter_seed[predictions_counter_seed['game_result'] != predictions_counter_seed['predicted']]
+707,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
+",62,2,2,28,134,Subscript1,,reduction,predictions_counter_seed[predictions_counter_seed['game_result'] != predictions_counter_seed['predicted']]
+708,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
+",62,3,3,0,119,Expr2,,sampling,"wrong_counter_predictions[['round','seed_t','team_t','seed_o','team_o','game_result','predicted','win_pts','lose_pts']]"
+709,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
+",63,1,1,46,81,Call2,index,uncategorized,len(predictions_counter_seed.index)
+710,Tournament_Model_LR-Delta_No_Opp_Stats.ipynb,"https://github.com/chipk215/ncaa_basketball/blob/master/Models/Tournament_Model_LR-Delta_No_Opp_Stats.ipynb
 ",63,2,2,54,92,Call2,index,uncategorized,len(correct_counter_predictions.index)
-706,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",0,2,2,11,29,Call1,fillna,enforcing,sessions.fillna(0)
-707,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",0,5,5,0,48,Assign2,,enforcing,sessions['date'] = pd.to_datetime(sessions.date)
-708,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",3,1,1,9,43,Call1,apply,enforcing,"sessions.apply(calc_score, axis=1)"
-709,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",3,2,2,19,64,Call1,apply,enforcing,"sessions.apply(calc_hangboard_scores, axis=1)"
-710,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",3,3,3,13,52,Call1,apply,enforcing,"sessions.apply(calc_gym_scores, axis=1)"
 711,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",3,4,4,18,62,Call1,apply,enforcing,"sessions.apply(calc_climbing_scores, axis=1)"
+",0,2,2,11,29,Call1,fillna,enforcing,sessions.fillna(0)
 712,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",3,5,5,13,52,Call1,apply,enforcing,"sessions.apply(calc_arc_scores, axis=1)"
+",0,5,5,0,48,Assign2,,enforcing,sessions['date'] = pd.to_datetime(sessions.date)
 713,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",3,6,6,14,59,Call1,apply,enforcing,"sessions.apply(calc_technique_scores, axis=1)"
+",1,1,1,0,16,Expr3,columns,uncategorized,sessions.columns
 714,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",3,7,7,15,56,Call1,apply,enforcing,"sessions.apply(calc_power_scores, axis=1)"
+",3,1,1,9,43,Call1,apply,enforcing,"sessions.apply(calc_score, axis=1)"
 715,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",3,8,8,14,54,Call1,apply,enforcing,"sessions.apply(calc_yoga_scores, axis=1)"
+",3,2,2,19,64,Call1,apply,enforcing,"sessions.apply(calc_hangboard_scores, axis=1)"
 716,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",3,10,10,0,27,Assign2,,enforcing,sessions['scores'] = scores
+",3,3,3,13,52,Call1,apply,enforcing,"sessions.apply(calc_gym_scores, axis=1)"
 717,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",3,11,11,0,42,Assign2,,enforcing,sessions['hang_scores'] = hangboard_scores
+",3,4,4,18,62,Call1,apply,enforcing,"sessions.apply(calc_climbing_scores, axis=1)"
 718,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",3,12,12,0,35,Assign2,,enforcing,sessions['gym_scores'] = gym_scores
+",3,5,5,13,52,Call1,apply,enforcing,"sessions.apply(calc_arc_scores, axis=1)"
 719,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",3,13,13,0,45,Assign2,,enforcing,sessions['climbing_scores'] = climbing_scores
+",3,6,6,14,59,Call1,apply,enforcing,"sessions.apply(calc_technique_scores, axis=1)"
 720,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",3,14,14,0,35,Assign2,,enforcing,sessions['arc_scores'] = arc_scores
+",3,7,7,15,56,Call1,apply,enforcing,"sessions.apply(calc_power_scores, axis=1)"
 721,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",3,15,15,0,37,Assign2,,enforcing,sessions['tech_scores'] = tech_scores
+",3,8,8,14,54,Call1,apply,enforcing,"sessions.apply(calc_yoga_scores, axis=1)"
 722,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",3,16,16,0,39,Assign2,,enforcing,sessions['power_scores'] = power_scores
+",3,10,10,0,27,Assign2,,enforcing,sessions['scores'] = scores
 723,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",3,17,17,0,37,Assign2,,enforcing,sessions['yoga_scores'] = yoga_scores
+",3,11,11,0,42,Assign2,,enforcing,sessions['hang_scores'] = hangboard_scores
 724,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",4,1,1,0,46,Assign1,,reduction,doripa = sessions[sessions.monkey == 'doripa']
+",3,12,12,0,35,Assign2,,enforcing,sessions['gym_scores'] = gym_scores
 725,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",4,1,1,9,46,Subscript1,,reduction,sessions[sessions.monkey == 'doripa']
+",3,13,13,0,45,Assign2,,enforcing,sessions['climbing_scores'] = climbing_scores
 726,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",4,2,2,0,59,Assign1,,reduction,sunshine_sessions = sessions[sessions.monkey == 'sunshine']
+",3,14,14,0,35,Assign2,,enforcing,sessions['arc_scores'] = arc_scores
 727,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",4,2,2,20,59,Subscript1,,reduction,sessions[sessions.monkey == 'sunshine']
+",3,15,15,0,37,Assign2,,enforcing,sessions['tech_scores'] = tech_scores
 728,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",6,1,1,0,13,Call1,tail,uncategorized,doripa.tail()
+",3,16,16,0,39,Assign2,,enforcing,sessions['power_scores'] = power_scores
 729,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",6,1,1,0,92,Expr2,,sampling,"doripa.tail()[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']]"
+",3,17,17,0,37,Assign2,,enforcing,sessions['yoga_scores'] = yoga_scores
 730,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",8,1,1,0,91,Call1,max,revealing,"doripa[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']].max()"
+",4,1,1,0,46,Assign1,,reduction,doripa = sessions[sessions.monkey == 'doripa']
 731,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",10,1,1,0,103,Expr2,,sampling,"sunshine_sessions.tail()[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']]"
+",4,1,1,9,46,Subscript1,,reduction,sessions[sessions.monkey == 'doripa']
 732,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",10,1,1,0,24,Call1,tail,uncategorized,sunshine_sessions.tail()
+",4,2,2,0,59,Assign1,,reduction,sunshine_sessions = sessions[sessions.monkey == 'sunshine']
 733,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",12,1,1,0,102,Call1,max,revealing,"sunshine_sessions[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']].max()"
+",4,2,2,20,59,Subscript1,,reduction,sessions[sessions.monkey == 'sunshine']
 734,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",13,6,6,4,35,Assign2,,enforcing,athlete['additional_index'] = x
+",6,1,1,0,13,Call1,tail,uncategorized,doripa.tail()
 735,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",13,55,55,4,51,Assign1,,reduction,athlete_hang_scores = athlete[athlete.hang > 0]
+",6,1,1,0,92,Expr2,,sampling,"doripa.tail()[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']]"
 736,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",13,55,55,26,51,Subscript1,,reduction,athlete[athlete.hang > 0]
+",8,1,1,0,91,Call1,max,revealing,"doripa[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']].max()"
 737,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",13,56,56,4,57,Assign1,,reduction,athelete_gym_scores = athlete[athlete.gym_scores > 0]
+",10,1,1,0,103,Expr2,,sampling,"sunshine_sessions.tail()[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']]"
 738,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",13,56,56,26,57,Subscript1,,reduction,athlete[athlete.gym_scores > 0]
+",10,1,1,0,24,Call1,tail,uncategorized,sunshine_sessions.tail()
 739,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",13,57,57,4,66,Assign1,,reduction,athlete_climbing_scores = athlete[athlete.climbing_scores > 0]
+",12,1,1,0,102,Call1,max,revealing,"sunshine_sessions[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']].max()"
 740,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",13,57,57,30,66,Subscript1,,reduction,athlete[athlete.climbing_scores > 0]
+",13,6,6,4,35,Assign2,,enforcing,athlete['additional_index'] = x
 741,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",13,58,58,4,58,Assign1,,reduction,athlete_tech_scores = athlete[athlete.tech_scores > 0]
+",13,55,55,4,51,Assign1,,reduction,athlete_hang_scores = athlete[athlete.hang > 0]
 742,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",13,58,58,26,58,Subscript1,,reduction,athlete[athlete.tech_scores > 0]
+",13,55,55,26,51,Subscript1,,reduction,athlete[athlete.hang > 0]
 743,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",17,2,2,4,29,Subscript1,,reduction,doripa[doripa.scores > 0]
+",13,56,56,4,57,Assign1,,reduction,athelete_gym_scores = athlete[athlete.gym_scores > 0]
 744,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",17,3,3,4,38,Subscript1,,reduction,doripa[doripa.climbing_scores > 0]
+",13,56,56,26,57,Subscript1,,reduction,athlete[athlete.gym_scores > 0]
 745,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",17,5,5,4,34,Subscript1,,reduction,doripa[doripa.tech_scores > 0]
+",13,57,57,4,66,Assign1,,reduction,athlete_climbing_scores = athlete[athlete.climbing_scores > 0]
 746,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",17,6,6,4,33,Subscript1,,reduction,doripa[doripa.gym_scores > 0]
+",13,57,57,30,66,Subscript1,,reduction,athlete[athlete.climbing_scores > 0]
 747,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",17,7,7,4,33,Subscript1,,reduction,doripa[doripa.arc_scores > 0]
+",13,58,58,4,58,Assign1,,reduction,athlete_tech_scores = athlete[athlete.tech_scores > 0]
 748,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",17,9,9,4,34,Subscript1,,reduction,doripa[doripa.hang_scores > 0]
+",13,58,58,26,58,Subscript1,,reduction,athlete[athlete.tech_scores > 0]
 749,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",20,2,2,4,51,Subscript1,,reduction,sunshine_sessions[sunshine_sessions.scores > 0]
+",17,2,2,4,29,Subscript1,,reduction,doripa[doripa.scores > 0]
 750,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",20,3,3,4,60,Subscript1,,reduction,sunshine_sessions[sunshine_sessions.climbing_scores > 0]
+",17,3,3,4,38,Subscript1,,reduction,doripa[doripa.climbing_scores > 0]
 751,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",20,5,5,4,56,Subscript1,,reduction,sunshine_sessions[sunshine_sessions.tech_scores > 0]
+",17,5,5,4,34,Subscript1,,reduction,doripa[doripa.tech_scores > 0]
 752,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",20,6,6,4,55,Subscript1,,reduction,sunshine_sessions[sunshine_sessions.gym_scores > 0]
+",17,6,6,4,33,Subscript1,,reduction,doripa[doripa.gym_scores > 0]
 753,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",20,7,7,4,55,Subscript1,,reduction,sunshine_sessions[sunshine_sessions.arc_scores > 0]
+",17,7,7,4,33,Subscript1,,reduction,doripa[doripa.arc_scores > 0]
 754,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
-",20,9,9,4,56,Subscript1,,reduction,sunshine_sessions[sunshine_sessions.hang_scores > 0]
+",17,9,9,4,34,Subscript1,,reduction,doripa[doripa.hang_scores > 0]
 755,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
+",20,2,2,4,51,Subscript1,,reduction,sunshine_sessions[sunshine_sessions.scores > 0]
+756,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
+",20,3,3,4,60,Subscript1,,reduction,sunshine_sessions[sunshine_sessions.climbing_scores > 0]
+757,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
+",20,5,5,4,56,Subscript1,,reduction,sunshine_sessions[sunshine_sessions.tech_scores > 0]
+758,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
+",20,6,6,4,55,Subscript1,,reduction,sunshine_sessions[sunshine_sessions.gym_scores > 0]
+759,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
+",20,7,7,4,55,Subscript1,,reduction,sunshine_sessions[sunshine_sessions.arc_scores > 0]
+760,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
+",20,9,9,4,56,Subscript1,,reduction,sunshine_sessions[sunshine_sessions.hang_scores > 0]
+761,Sessions Analysis.ipynb,"https://github.com/lejkos/monkies/blob/master/Sessions%20Analysis.ipynb
 ",27,1,1,0,37,Call1,sort_values,enforcing,doripa.corr()['scores'].sort_values()
-756,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
-",1,8,8,0,39,Subscript1,,reduction,teams_all[teams_all.name== 'Boise St.']
-757,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
-",3,6,6,0,9,Expr1,,sampling,games_all
-758,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
-",4,14,14,4,24,Assign2,,enforcing,fts['value'] = value
-759,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
-",4,15,15,4,62,Assign1,,reduction,fts = fts[(fts.name_1.notnull()) & (fts.name_2.notnull())]
-760,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
-",4,22,22,17,52,Call1,concat,enforcing,"pd.concat([features_1, features_2])"
-761,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
-",4,23,23,0,85,Call1,drop,enforcing,"features_total.drop(['team1','team2','year','name_1','name_2'], inplace=True, axis=1)"
 762,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
-",4,28,28,0,37,Assign1,,reduction,features_total = features_total[cols]
+",1,8,8,0,39,Subscript1,,reduction,teams_all[teams_all.name== 'Boise St.']
 763,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
-",5,3,3,4,64,Assign1,,reduction,t_A_fts = teams[(teams.name==team_a) & (teams.year == year)]
+",3,6,6,0,9,Expr1,,sampling,games_all
 764,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
-",5,4,4,4,64,Assign1,,reduction,t_B_fts = teams[(teams.name==team_b) & (teams.year == year)]
+",4,14,14,4,24,Assign2,,enforcing,fts['value'] = value
 765,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
-",5,7,7,4,62,Call1,drop,enforcing,"fts.drop(['name_1','name_2','year'], inplace=True, axis=1)"
+",4,15,15,4,62,Assign1,,reduction,fts = fts[(fts.name_1.notnull()) & (fts.name_2.notnull())]
 766,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
-",5,11,11,0,2,Expr1,,sampling,fs
+",4,22,22,17,52,Call1,concat,enforcing,"pd.concat([features_1, features_2])"
 767,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
-",7,30,30,12,58,Assign1,,reduction,"teams.ix[teams.name==team[0],'name'] = team[1]"
+",4,23,23,0,85,Call1,drop,enforcing,"features_total.drop(['team1','team2','year','name_1','name_2'], inplace=True, axis=1)"
 768,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
-",7,40,40,8,19,Assign1,,reduction,temp = t[0]
+",4,28,28,0,37,Assign1,,reduction,features_total = features_total[cols]
 769,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
-",7,41,41,8,19,Assign1,,reduction,t[0] = t[1]
+",5,3,3,4,64,Assign1,,reduction,t_A_fts = teams[(teams.name==team_a) & (teams.year == year)]
 770,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
-",7,49,49,39,74,Subscript1,,reduction,kag_seeds[kag_seeds.season==season]
+",5,4,4,4,64,Assign1,,reduction,t_B_fts = teams[(teams.name==team_b) & (teams.year == year)]
 771,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
-",7,54,54,27,50,Subscript1,,reduction,teams[teams.year==year]
+",5,7,7,4,62,Call1,drop,enforcing,"fts.drop(['name_1','name_2','year'], inplace=True, axis=1)"
 772,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
-",7,60,60,4,71,Assign1,,reduction,"wt = kag_results.ix[kag_results.season==season, ['wteam', 'lteam']]"
+",5,11,11,0,2,Expr1,,sampling,fs
 773,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
-",7,61,61,4,50,Assign2,,enforcing,wt['result'] = [checker(t) for t in wt.values]
+",7,30,30,12,58,Assign1,,reduction,"teams.ix[teams.name==team[0],'name'] = team[1]"
 774,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
-",10,4,4,4,40,Assign1,,reduction,res = results[results.res.notnull()]
+",7,40,40,8,19,Assign1,,reduction,temp = t[0]
 775,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
+",7,41,41,8,19,Assign1,,reduction,t[0] = t[1]
+776,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
+",7,49,49,39,74,Subscript1,,reduction,kag_seeds[kag_seeds.season==season]
+777,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
+",7,54,54,27,50,Subscript1,,reduction,teams[teams.year==year]
+778,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
+",7,60,60,4,71,Assign1,,reduction,"wt = kag_results.ix[kag_results.season==season, ['wteam', 'lteam']]"
+779,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
+",7,61,61,4,50,Assign2,,enforcing,wt['result'] = [checker(t) for t in wt.values]
+780,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
+",10,4,4,4,40,Assign1,,reduction,res = results[results.res.notnull()]
+781,DataAccessExamples.ipynb,"https://github.com/bpjsincl/marchmadness/blob/master/DataAccessExamples.ipynb
 ",11,5,5,0,2,Expr1,,sampling,ll
-776,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",0,13,13,0,140,Assign2,,enforcing,"df[""DayDiff""] = DataFrame([get_datetime(val) for val in df[""Checkin Date""]]) - DataFrame([get_datetime(val) for val in df[""Snapshot Date""]])"
-777,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",0,14,14,0,86,Assign2,,enforcing,"df[""WeekDay""] = DataFrame([get_datetime(val).weekday() for val in df[""Checkin Date""]])"
-778,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",0,15,15,0,64,Assign2,,enforcing,"df[""DiscountDiff""] = df[""Original Price""] - df[""Discount Price""]"
-779,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",0,16,16,0,68,Assign2,,enforcing,"df[""DiscountPerc""] = (df[""DiscountDiff""]/df[""Original Price""]) * 100"
-780,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",0,18,18,0,2,Expr1,,sampling,df
-781,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",2,2,2,0,77,Assign2,,enforcing,"df[""Hotel_Count""] = df.groupby('Hotel Name')['Hotel Name'].transform('count')"
 782,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",2,3,3,20,70,Call1,sort_values,enforcing,"df.sort_values(by=['Hotel_Count'],ascending=False)"
+",0,13,13,0,140,Assign2,,enforcing,"df[""DayDiff""] = DataFrame([get_datetime(val) for val in df[""Checkin Date""]]) - DataFrame([get_datetime(val) for val in df[""Snapshot Date""]])"
 783,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",2,3,3,20,84,Call1,reset_index,uncategorized,"df.sort_values(by=['Hotel_Count'],ascending=False).reset_index()"
+",0,14,14,0,86,Assign2,,enforcing,"df[""WeekDay""] = DataFrame([get_datetime(val).weekday() for val in df[""Checkin Date""]])"
 784,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",2,6,6,0,58,Assign1,,reduction,"df_hotels = descending_hotels[""Hotel Name""].unique()[:150]"
+",0,15,15,0,64,Assign2,,enforcing,"df[""DiscountDiff""] = df[""Original Price""] - df[""Discount Price""]"
 785,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",2,6,6,12,52,Call1,unique,revealing,"descending_hotels[""Hotel Name""].unique()"
+",0,16,16,0,68,Assign2,,enforcing,"df[""DiscountPerc""] = (df[""DiscountDiff""]/df[""Original Price""]) * 100"
 786,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",2,7,7,0,87,Assign1,,reduction,most_common_hotels = descending_hotels[descending_hotels['Hotel Name'].isin(df_hotels)]
+",0,18,18,0,2,Expr1,,sampling,df
 787,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",4,2,2,0,115,Assign2,,enforcing,"most_common_hotels[""Checkin_Count""] = most_common_hotels.groupby('Checkin Date')['Checkin Date'].transform('count')"
+",2,2,2,0,77,Assign2,,enforcing,"df[""Hotel_Count""] = df.groupby('Hotel Name')['Hotel Name'].transform('count')"
 788,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",4,3,3,32,100,Call1,sort_values,enforcing,"most_common_hotels.sort_values(by=['Checkin_Count'],ascending=False)"
+",2,3,3,20,84,Call1,reset_index,uncategorized,"df.sort_values(by=['Hotel_Count'],ascending=False).reset_index()"
 789,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",4,3,3,32,114,Call1,reset_index,uncategorized,"most_common_hotels.sort_values(by=['Checkin_Count'],ascending=False).reset_index()"
+",2,3,3,20,70,Call1,sort_values,enforcing,"df.sort_values(by=['Hotel_Count'],ascending=False)"
 790,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",4,6,6,0,82,Assign1,,reduction,"common_checkins_list = descending_most_common_hotels[""Checkin Date""].unique()[:40]"
+",2,6,6,0,58,Assign1,,reduction,"df_hotels = descending_hotels[""Hotel Name""].unique()[:150]"
 791,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",4,6,6,23,77,Call1,unique,revealing,"descending_most_common_hotels[""Checkin Date""].unique()"
+",2,6,6,12,52,Call1,unique,revealing,"descending_hotels[""Hotel Name""].unique()"
 792,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",4,7,7,0,119,Assign1,,reduction,most_checkins = descending_most_common_hotels[descending_most_common_hotels['Checkin Date'].isin(common_checkins_list)]
+",2,7,7,0,87,Assign1,,reduction,most_common_hotels = descending_hotels[descending_hotels['Hotel Name'].isin(df_hotels)]
 793,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",6,1,1,22,58,Call1,unique,revealing,"most_checkins[""Hotel Name""].unique()"
+",4,2,2,0,115,Assign2,,enforcing,"most_common_hotels[""Checkin_Count""] = most_common_hotels.groupby('Checkin Date')['Checkin Date'].transform('count')"
 794,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",6,2,2,19,57,Call1,unique,revealing,"most_checkins[""Checkin Date""].unique()"
+",4,3,3,32,114,Call1,reset_index,uncategorized,"most_common_hotels.sort_values(by=['Checkin_Count'],ascending=False).reset_index()"
 795,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",8,2,2,0,136,Assign2,,enforcing,"most_checkins[""Discount Price""]= most_checkins.groupby(['Hotel Name','Checkin Date','Discount Code'])[""Discount Price""].transform('min')"
+",4,3,3,32,100,Call1,sort_values,enforcing,"most_common_hotels.sort_values(by=['Checkin_Count'],ascending=False)"
 796,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",8,3,3,0,97,Call1,drop_duplicates,enforcing,"most_checkins.drop_duplicates(subset=[""Hotel Name"",""Checkin Date"",""Discount Code""], inplace=True)"
+",4,6,6,0,82,Assign1,,reduction,"common_checkins_list = descending_most_common_hotels[""Checkin Date""].unique()[:40]"
 797,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",8,4,4,0,103,Call1,sort_values,enforcing,"most_checkins.sort_values(by=[""Hotel Name"",""Checkin Date"",""Discount Code""],ascending=True,inplace=True)"
+",4,6,6,23,77,Call1,unique,revealing,"descending_most_common_hotels[""Checkin Date""].unique()"
 798,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",8,5,5,0,70,Call1,replace,enforcing,"most_checkins['Discount Price'].replace(sys.maxsize, -1, inplace=True)"
+",4,7,7,0,119,Assign1,,reduction,most_checkins = descending_most_common_hotels[descending_most_common_hotels['Checkin Date'].isin(common_checkins_list)]
 799,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",8,8,8,25,116,Call1,reset_index,uncategorized,"most_checkins[[""Hotel Name"",""Checkin Date"",""Discount Code"",""Discount Price""]].reset_index()"
+",6,1,1,22,58,Call1,unique,revealing,"most_checkins[""Hotel Name""].unique()"
 800,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",10,2,2,0,90,Assign1,,reduction,discount_filtered = checkin_hotel_discount[checkin_hotel_discount['Discount Price'] > -1 ]
+",6,2,2,19,57,Call1,unique,revealing,"most_checkins[""Checkin Date""].unique()"
 801,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",10,2,2,20,90,Subscript1,,reduction,checkin_hotel_discount[checkin_hotel_discount['Discount Price'] > -1 ]
+",8,2,2,0,136,Assign2,,enforcing,"most_checkins[""Discount Price""]= most_checkins.groupby(['Hotel Name','Checkin Date','Discount Code'])[""Discount Price""].transform('min')"
 802,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",10,11,11,0,85,Assign1,,reduction,discount_filtered_grouped = discount_filtered.groupby('Hotel Name')['Discount Price']
+",8,3,3,0,97,Call1,drop_duplicates,enforcing,"most_checkins.drop_duplicates(subset=[""Hotel Name"",""Checkin Date"",""Discount Code""], inplace=True)"
 803,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",10,12,12,0,81,Assign2,,enforcing,"discount_filtered[""Normal""] = discount_filtered_grouped.transform(normalize_data)"
+",8,4,4,0,103,Call1,sort_values,enforcing,"most_checkins.sort_values(by=[""Hotel Name"",""Checkin Date"",""Discount Code""],ascending=True,inplace=True)"
 804,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",10,14,14,0,88,Assign1,,reduction,discount_synth = checkin_hotel_discount[checkin_hotel_discount['Discount Price'] == -1 ]
+",8,5,5,0,70,Call1,replace,enforcing,"most_checkins['Discount Price'].replace(sys.maxsize, -1, inplace=True)"
 805,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",10,14,14,17,88,Subscript1,,reduction,checkin_hotel_discount[checkin_hotel_discount['Discount Price'] == -1 ]
+",8,8,8,25,116,Call1,reset_index,uncategorized,"most_checkins[[""Hotel Name"",""Checkin Date"",""Discount Code"",""Discount Price""]].reset_index()"
 806,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",10,15,15,0,29,Assign2,,enforcing,"discount_synth[""Normal""] = -1"
+",10,2,2,0,90,Assign1,,reduction,discount_filtered = checkin_hotel_discount[checkin_hotel_discount['Discount Price'] > -1 ]
 807,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",10,19,19,0,106,Call1,sort_values,enforcing,"normal_dataFrame.sort_values(by=[""Hotel Name"",""Checkin Date"",""Discount Code""],ascending=True,inplace=True)"
+",10,2,2,20,90,Subscript1,,reduction,checkin_hotel_discount[checkin_hotel_discount['Discount Price'] > -1 ]
 808,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",10,20,20,0,16,Expr1,,sampling,normal_dataFrame
+",10,11,11,0,85,Assign1,,reduction,discount_filtered_grouped = discount_filtered.groupby('Hotel Name')['Discount Price']
 809,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",14,8,8,0,27,Assign1,,reduction,"labels = vector.values[:,0]"
+",10,12,12,0,81,Assign2,,enforcing,"discount_filtered[""Normal""] = discount_filtered_grouped.transform(normalize_data)"
 810,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",14,9,9,0,29,Assign1,,reduction,"data = vector.values[:,1:160]"
+",10,14,14,0,88,Assign1,,reduction,discount_synth = checkin_hotel_discount[checkin_hotel_discount['Discount Price'] == -1 ]
 811,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",16,9,9,0,28,Assign2,,enforcing,"hotels[""cluster""] = clusters"
+",10,14,14,17,88,Subscript1,,reduction,checkin_hotel_discount[checkin_hotel_discount['Discount Price'] == -1 ]
 812,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",16,10,10,0,30,Assign1,,reduction,"hotels = hotels[[0,""cluster""]]"
+",10,15,15,0,29,Assign2,,enforcing,"discount_synth[""Normal""] = -1"
 813,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",16,11,11,0,62,Call1,sort_values,enforcing,"hotels.sort_values(by=[""cluster""],ascending=True,inplace=True)"
+",10,19,19,0,106,Call1,sort_values,enforcing,"normal_dataFrame.sort_values(by=[""Hotel Name"",""Checkin Date"",""Discount Code""],ascending=True,inplace=True)"
 814,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
-",16,13,13,0,65,Assign2,,enforcing,"hotels[""Count""] = hotels.groupby(""cluster"")[0].transform(""count"")"
+",10,20,20,0,16,Expr1,,sampling,normal_dataFrame
 815,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
+",14,8,8,0,27,Assign1,,reduction,"labels = vector.values[:,0]"
+816,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
+",14,9,9,0,29,Assign1,,reduction,"data = vector.values[:,1:160]"
+817,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
+",16,9,9,0,28,Assign2,,enforcing,"hotels[""cluster""] = clusters"
+818,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
+",16,10,10,0,30,Assign1,,reduction,"hotels = hotels[[0,""cluster""]]"
+819,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
+",16,11,11,0,62,Call1,sort_values,enforcing,"hotels.sort_values(by=[""cluster""],ascending=True,inplace=True)"
+820,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
+",16,13,13,0,65,Assign2,,enforcing,"hotels[""Count""] = hotels.groupby(""cluster"")[0].transform(""count"")"
+821,Clustering.ipynb,"https://github.com/roei60/Data-Science-Hotels/blob/master/Clustering.ipynb
 ",16,14,14,0,6,Expr1,,sampling,hotels

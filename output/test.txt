@@ -1,10 +1,14 @@
-Total number of lines found: 1
+Total number of lines found: 3
 
-print(X_5K.shape, y_5K.shape)
+data
+boston.head()
+boston
 
 Incorrect Lines:
 
-print(X_5K.shape, y_5K.shape)
+data
+boston.head()
+boston
 
 Precision = 0.0
 Recall = 0.0

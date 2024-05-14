@@ -5,129 +5,129 @@ data["Margalef"] = ""
 data.loc[i,'Margalef'] = (len(data.iloc[i][4:last][data.iloc[i][4:last]>0])-1)/math.log(sum(data.iloc[i][4:last][data.iloc[i][4:last]>0]))
 segments = data.RiverSeg.unique()
 river = data.iloc[0]["River"]
-x = segDF["Year"]
-segDF = segDF.sort_values('Year')
-segDF = segDF[segDF["Margalef"]>0]
 y = segDF["Margalef"]
 segDF = data.loc[data['RiverSeg'] == segment]
+segDF = segDF[segDF["Margalef"]>0]
+segDF = segDF.sort_values('Year')
+x = segDF["Year"]
 data["SWI_2"] = ""
-swi += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])),2)
 data.loc[i,'SWI_2'] = swi
-segDF = segDF[segDF["SWI_2"]>0]
+swi += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])),2)
+x = segDF["Year"]
 segDF = data.loc[data['RiverSeg'] == segment]
+segDF = segDF[segDF["SWI_2"]>0]
 y = segDF["SWI_2"]
 segDF = segDF.sort_values('Year')
-x = segDF["Year"]
 data["SWI_e"] = ""
-swi += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])))
 data.loc[i,'SWI_e'] = swi
-segDF = segDF[segDF["SWI_e"]>0]
+swi += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])))
+x = segDF["Year"]
 segDF = data.loc[data['RiverSeg'] == segment]
+segDF = segDF[segDF["SWI_e"]>0]
 y = segDF["SWI_e"]
 segDF = segDF.sort_values('Year')
-x = segDF["Year"]
 data["SWI_10"] = ""
-swi += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])),10)
 data.loc[i,'SWI_10'] = swi
+swi += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])),10)
 segDF = segDF[segDF["SWI_10"]>0]
-segDF = data.loc[data['RiverSeg'] == segment]
-y = segDF["SWI_10"]
-segDF = segDF.sort_values('Year')
 x = segDF["Year"]
+y = segDF["SWI_10"]
+segDF = data.loc[data['RiverSeg'] == segment]
+segDF = segDF.sort_values('Year')
 data["lam"] = ""
 data.loc[i,'lam'] = lam
-y = segDF["lam"]
-segDF = data.loc[data['RiverSeg'] == segment]
 segDF = segDF[segDF["lam"]>0]
-segDF = segDF.sort_values('Year')
 x = segDF["Year"]
+segDF = data.loc[data['RiverSeg'] == segment]
+y = segDF["lam"]
+segDF = segDF.sort_values('Year')
 data["1-lam"] = ""
 data.loc[i,'1-lam'] = 1 - lam
-segDF = segDF[segDF["1-lam"]>0]
+x = segDF["Year"]
 segDF = data.loc[data['RiverSeg'] == segment]
+segDF = segDF[segDF["1-lam"]>0]
 y = segDF["1-lam"]
 segDF = segDF.sort_values('Year')
-x = segDF["Year"]
 data["lam'"] = ""
 array = data.iloc[i][4:last]
 data.loc[i,"lam'"] = lam
+x = segDF["Year"]
 segDF = segDF[segDF["lam'"]>0]
+segDF = data.loc[data['RiverSeg'] == segment]
 y = segDF["lam'"]
-segDF = data.loc[data['RiverSeg'] == segment]
 segDF = segDF.sort_values('Year')
-x = segDF["Year"]
 data["1-lam'"] = ""
-array = data.iloc[i][4:last]
 data.loc[i,"1-lam'"] = 1 - lam
-y = segDF["1-lam'"]
+array = data.iloc[i][4:last]
 segDF = segDF[segDF["lam'"]>0]
 x = segDF["Year"]
-segDF = segDF.sort_values('Year')
 segDF = data.loc[data['RiverSeg'] == segment]
+segDF = segDF.sort_values('Year')
+y = segDF["1-lam'"]
 data["N1"] = ""
 N1 += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])))
 data.loc[i,'N1'] = math.exp(N1)
+x = segDF["Year"]
 segDF = segDF[segDF["lam'"]>0]
 segDF = data.loc[data['RiverSeg'] == segment]
 y = segDF["N1"]
 segDF = segDF.sort_values('Year')
-x = segDF["Year"]
 data["N2"] = ""
 data.loc[i,'N2'] = 1/lam
+x = segDF["Year"]
 segDF = segDF[segDF["lam'"]>0]
 segDF = data.loc[data['RiverSeg'] == segment]
 y = segDF["N2"]
 segDF = segDF.sort_values('Year')
-x = segDF["Year"]
 data["N_Inf"] = ""
 array = data.iloc[i][4:last]
 data.loc[i,'N_Inf'] = 1/(max(array)/N)
+x = segDF["Year"]
 segDF = segDF[segDF["lam'"]>0]
 segDF = data.loc[data['RiverSeg'] == segment]
 y = segDF["N_Inf"]
 segDF = segDF.sort_values('Year')
-x = segDF["Year"]
 data["N10"] = ""
-data.loc[i,'N10'] = math.exp(swi)/len(data.iloc[i][4:last][data.iloc[i][4:last]>0])
 swi += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])))
-x = segDF["Year"]
-segDF = segDF.sort_values('Year')
+data.loc[i,'N10'] = math.exp(swi)/len(data.iloc[i][4:last][data.iloc[i][4:last]>0])
+segDF = data.loc[data['RiverSeg'] == segment]
 segDF = segDF[segDF["lam'"]>0]
 y = segDF["N10"]
-segDF = data.loc[data['RiverSeg'] == segment]
-data["N10'"] = ""
-data.loc[i,"N10'"] = 0
-data.loc[i,"N10'"] = (math.exp(swi)-1)/(len(data.iloc[i][4:last][data.iloc[i][4:last]>0])-1)
-swi += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])))
-segDF = segDF[segDF["lam'"]>0]
-y = segDF["N10'"]
-segDF = data.loc[data['RiverSeg'] == segment]
 segDF = segDF.sort_values('Year')
 x = segDF["Year"]
+data["N10'"] = ""
+data.loc[i,"N10'"] = (math.exp(swi)-1)/(len(data.iloc[i][4:last][data.iloc[i][4:last]>0])-1)
+swi += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])))
+data.loc[i,"N10'"] = 0
+x = segDF["Year"]
+segDF = segDF[segDF["lam'"]>0]
+segDF = data.loc[data['RiverSeg'] == segment]
+y = segDF["N10'"]
+segDF = segDF.sort_values('Year')
 data["N21"] = ""
 swi += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])))
 data.loc[i,"N21"] = N2/N1
+x = segDF["Year"]
 segDF = segDF[segDF["lam'"]>0]
+segDF = data.loc[data['RiverSeg'] == segment]
 y = segDF["N21"]
-segDF = data.loc[data['RiverSeg'] == segment]
 segDF = segDF.sort_values('Year')
-x = segDF["Year"]
 data["N21'"] = ""
+swi += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])))
 data.loc[i,"N21'"] = (N2-1)/(N1-1)
-swi += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])))
-segDF = segDF[segDF["lam'"]>0]
-y = segDF["N21'"]
-segDF = data.loc[data['RiverSeg'] == segment]
-segDF = segDF.sort_values('Year')
 x = segDF["Year"]
+segDF = segDF[segDF["lam'"]>0]
+segDF = data.loc[data['RiverSeg'] == segment]
+y = segDF["N21'"]
+segDF = segDF.sort_values('Year')
 data["Pielou"] = ""
-swi += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])))
 data.loc[i,'Pielou'] = swi/math.log(count)
+swi += -(data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])) * math.log((data.iloc[i][x]/sum(data.iloc[i][4:last][data.iloc[i][4:last]>0])))
+x = segDF["Year"]
 segDF = segDF[segDF["lam'"]>0]
 segDF = data.loc[data['RiverSeg'] == segment]
 y = segDF["Pielou"]
 segDF = segDF.sort_values('Year')
-x = segDF["Year"]
 
 Incorrect Lines:
 

@@ -1,8 +1,11 @@
+from collections import defaultdict
+import json
 import nbformat
 import ast
 import os
 from operator import itemgetter
 import pandas as pd
+import typeinference.typerinfer_tool as typeinfer
 
 class Visitor(ast.NodeVisitor):
 
@@ -80,6 +83,8 @@ class Visitor(ast.NodeVisitor):
         if isinstance(node.value, ast.Attribute):
             if node.value.attr in self.revealingFuncs:
                 self.saveNode(node, "Expr3", node.value.attr, "revealing")
+            if node.value.attr in self.knownFuncNames:
+                self.saveNode(node, "Expr3", node.value.attr, "uncategorized")
 
     def visit_Call_FuncAttribute(self, node: ast.Call):
         if isinstance(node.func, ast.Attribute):
@@ -132,7 +137,7 @@ def main():
     
     if (TEST_SINGLE_NB):
         nb = nbformat.read(TEST_NB, as_version=4)
-        processNotebook(nb, TEST_NB)
+        processNotebook(nb, TEST_NB, "")
     else:
         links = {}
         with open("notebook_links.txt") as f:
@@ -196,12 +201,15 @@ def processNotebook(nb, file: str, link: str):
         cell_count += 1
 
     if (not imported_pd):
-        printResults({}, {}, file, False)
+        printResults({}, {}, file, {}, False)
         return
+    
+    typeinfer.clearFile()
 
     for id, source in cell_dict.items():
         source_split = [line for line in source.split("\n")]
         lines = property_dict[id]
+        toTypeCheck = defaultdict(list)
         if (len(lines) != 0):
             for (start_r, end_r, start_c, end_c, type, type_details, effectType) in lines:
                 new_dict = {"notebook":file,
@@ -223,15 +231,21 @@ def processNotebook(nb, file: str, link: str):
                 clean = "".join(cut)
                 new_dict["code"] = clean
                 flattened_data.append(new_dict)
-    
+                if (type == "Expr1" or type == "Expr2"):
+                    toTypeCheck[end_r].append(clean)
+        typeinfer.buildNotebook(source_split, toTypeCheck)
+
+    types = typeinfer.pyright_run_default()
+    # print(types)
+
     flattened_data = sorted(flattened_data, key=itemgetter("cell_id", "lineno", "col_offset"))
     global all_data
     all_data.extend(flattened_data) 
     # for x in range(len(flattened_data)):
     #     print(flattened_data[x])
-    printResults(cell_dict, property_dict, file)
+    printResults(cell_dict, property_dict, file, types)
 
-def printResults(cell_dict: dict, property_dict: dict, file: str, has_pandas = True):
+def printResults(cell_dict: dict, property_dict: dict, file: str, types: dict, has_pandas = True):
 
     outfile = open("output/"+file.removesuffix(".ipynb")+".txt", 'w')
     if (not has_pandas):
@@ -245,10 +259,22 @@ def printResults(cell_dict: dict, property_dict: dict, file: str, has_pandas = T
         if len(lines) != 0:
             if TEST_SINGLE_NB: print(lines)
             seen_lines = []
-            for (start,end, _, _, _, _, _) in lines:
+            for (start,end, _, _, type, _, _) in lines:
                 if (start,end) in seen_lines: continue
-                seen_lines.append((start,end))
                 clean = "".join(source_split[start-1:end])
+
+                should_continue = True
+                if (type == "Expr1" or type == "Expr2"):
+                    should_continue = False
+                    types_list = types[clean]
+                    for (inferred_type, lineno) in types_list:
+                        if "DataFrame" in inferred_type:
+                            should_continue = True
+
+                if (not should_continue):
+                    continue
+
+                seen_lines.append((start,end))
                 if TEST_SINGLE_NB: print(clean)
                 found_lines.append(clean)
 

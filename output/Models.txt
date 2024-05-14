@@ -1,61 +1,59 @@
-Total number of lines found: 50
+Total number of lines found: 49
 
 df_county_data
-grad_rate = df_county_data["Graduation Rate"]
 county = df_county_data["County Name"]
 state=df_county_data['State']
+grad_rate = df_county_data["Graduation Rate"]
 county = df_county_data["County Name"]
 pov_rate = df_county_data["Poverty Rate"]
 grad_rate = df_county_data["Graduation Rate"]
 pov_rate = df_county_data["Poverty Rate"]
+county = df_county_data["County Name"]
 grad_rate = df_county_data["Graduation Rate"]
 pov_rate = df_county_data["Poverty Rate"]
-county = df_county_data["County Name"]
 y = df_county_data["Graduation Rate"]
 x = df_county_data["Poverty Rate"]
-house_size = df_county_data["Household Size"]
 county = df_county_data["County Name"]
 house_size = df_county_data["Household Size"]
+house_size = df_county_data["Household Size"]
 grad_rate = df_county_data["Graduation Rate"]
+county = df_county_data["County Name"]
 grad_rate = df_county_data["Graduation Rate"]
 pov_rate = df_county_data["Household Size"]
-county = df_county_data["County Name"]
 y = df_county_data["Graduation Rate"]
 x = df_county_data["Household Size"]
 house_size = df_county_data["Unemployment Rate"]
 county = df_county_data["County Name"]
 house_size = df_county_data["Unemployment Rate"]
 grad_rate = df_county_data["Graduation Rate"]
+county = df_county_data["County Name"]
 grad_rate = df_county_data["Graduation Rate"]
 pov_rate = df_county_data["Unemployment Rate"]
-county = df_county_data["County Name"]
-y = df_county_data["Graduation Rate"]
 x = df_county_data["Unemployment Rate"]
+y = df_county_data["Graduation Rate"]
 house_size = df_county_data["Median Income"]
 county = df_county_data["County Name"]
 house_size = df_county_data["Median Income"]
 grad_rate = df_county_data["Graduation Rate"]
+county = df_county_data["County Name"]
 grad_rate = df_county_data["Graduation Rate"]
 pov_rate = df_county_data["Median Income"]
-county = df_county_data["County Name"]
 y = df_county_data["Graduation Rate"]
 x = df_county_data["Median Income"]
-county = df_county_data["County Name"]
 house_size = df_county_data["Speak a language other than English"]
-grad_rate = df_county_data["Graduation Rate"]
+county = df_county_data["County Name"]
 house_size = df_county_data["Speak a language other than English"]
 grad_rate = df_county_data["Graduation Rate"]
 pov_rate = df_county_data["Speak a language other than English"]
 county = df_county_data["County Name"]
+grad_rate = df_county_data["Graduation Rate"]
 x = df_county_data["Speak a language other than English"]
 y = df_county_data["Graduation Rate"]
-lines
 
 Incorrect Lines:
 
-lines
 
-Precision = 0.98
+Precision = 1.0
 Recall = 0.98
 
 mask = ~np.isnan(x) & ~np.isnan(y)

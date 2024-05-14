@@ -1,18 +1,18 @@
-Total number of lines found: 85
+Total number of lines found: 74
 
-missed_predictions['model_features'] = 100 * missed_predictions['supporting_model_features'].apply(lambda x: len(x)) / \len(model_features)
-missed_predictions.apply(lambda x: feature_dictionary.print_game_info(test_games,x['season_t'], x['round'], x['team_t'] ), axis=1)
-missed_predictions = test_games[test_games['game_result'] !=test_games['predicted_result']].sort_values(by='pred_win_prob', ascending=False)
-missed_predictions['model_features'] = 100 * missed_predictions['supporting_model_features'].apply(lambda x: len(x)) / \
 test_games = tourney_comp_ratings[tourney_comp_ratings.index.isin(X.index)].copy()
-missed_predictions['game_index'] = missed_predictions.index
-test_games['predicted_result'] = predictions
-test_games['pred_win_prob'] = pred_probs
-supporting_features = missed_predictions.apply(lambda row: utils.get_supporting_features(row,feature_dictionary,feature_list),axis=1)
-missed_predictions['features'] = 100 * missed_predictions['supporting_features'].apply(lambda x: len(x)) / len(feature_list)
 supporting_model_features = missed_predictions.apply(lambda row: utils.get_supporting_features(row,feature_dictionary,model_features),axis=1)
-least_important_label = important_features[-1][0]
+missed_predictions.apply(lambda x: feature_dictionary.print_game_info(test_games,x['season_t'], x['round'], x['team_t'] ), axis=1)
+missed_predictions['model_features'] = 100 * missed_predictions['supporting_model_features'].apply(lambda x: len(x)) / \len(model_features)
+supporting_features = missed_predictions.apply(lambda row: utils.get_supporting_features(row,feature_dictionary,feature_list),axis=1)
+missed_predictions['game_index'] = missed_predictions.index
+test_games['pred_win_prob'] = pred_probs
+missed_predictions['features'] = 100 * missed_predictions['supporting_features'].apply(lambda x: len(x)) / len(feature_list)
+missed_predictions = test_games[test_games['game_result'] !=test_games['predicted_result']].sort_values(by='pred_win_prob', ascending=False)
+test_games['predicted_result'] = predictions
+missed_predictions['model_features'] = 100 * missed_predictions['supporting_model_features'].apply(lambda x: len(x)) / \
 model_stats = utils.save_model_stats(classifier,X.drop(columns=drop_list),y,model_stats)
+least_important_label = important_features[-1][0]
 least_important_label = important_features[-1][0]
 summary_data.head()
 summary_data['season'].describe()
@@ -30,79 +30,71 @@ X= feature_data[feature_data['season_t']<= stop_tournament]
 X['season_t'].describe()
 y=tourney_comp_ratings[tourney_comp_ratings['season_t']<= stop_tournament]['game_result']
 X= X.drop(columns=['season_t'])
-feature_list
-print(y_train.shape)
-print(X_train.shape)
-print(X_test.shape)
 print(y_test.shape)
-X_test = X_test.copy()
-X_train.head()
+print(X_train.shape)
 X_train = X_train.copy()
 X_train.head()
-X_copy = X.copy()
+print(y_train.shape)
+print(X_test.shape)
+X_test = X_test.copy()
+X_train.head()
+test_std = np.std(test_scores, axis=1)
 test_mean = np.mean(test_scores, axis=1)
 train_std = np.std(train_scores, axis=1)
-test_std = np.std(test_scores, axis=1)
 train_mean = np.mean(train_scores, axis=1)
+X_copy = X.copy()
 print(scores.mean())
 log_loss_val = value['log_loss']
-cross_val = value['cross_validation']
 accuracy = value['accuracy']
+cross_val = value['cross_validation']
 model_features =model_stats[cross_hash]['labels']
-numeric_model_features
-dropped_features
-print(X_train.shape)
-print(y_test.shape)
 cross_validation_average = cross_val_scores.mean()
-X_model = X[model_features].copy()
 print(X_test.shape)
 X_train = X_train.copy()
 X_test = X_test.copy()
+print(y_test.shape)
 print(y_train.shape)
-missed_predictions
+print(X_train.shape)
+X_model = X[model_features].copy()
 plot_missed_predictions_df = missed_predictions[['game_index','features','model_features']]
 missed_predictions[missed_predictions['game_index']==201]
-feature_copy.head()
 feature_copy = feature_data[feature_data['season_t'] == test_year].copy()
 feature_copy.head()
+feature_copy.head()
 X_season = feature_copy[model_features]
-X_season.shape
 y_season = tourney_comp_ratings[tourney_comp_ratings['season_t']== test_year]['game_result']
-missed_predictions
+X_season.shape
 plot_missed_predictions_df = missed_predictions[['game_index','features','model_features']]
 missed_predictions[missed_predictions['game_index']==1024]
-log_loss_result
-y_pred_season
-tourney_games
 tourney_games = tourney_comp_ratings[tourney_comp_ratings.index.isin(X_season.index)].copy()
-tourney_games['predicted'] = y_pred_season
 tourney_games.head()
+tourney_games['predicted'] = y_pred_season
 predictions_counter_seed = tourney_games[cond_1 | cond_2]
-predictions_counter_seed[['round','seed_t','team_t','seed_o','team_o','game_result','predicted','win_pts','lose_pts']]
 correct_counter_predictions = predictions_counter_seed[predictions_counter_seed['game_result']== predictions_counter_seed['predicted']]
-correct_counter_predictions[['round','seed_t','team_t','seed_o','team_o','game_result','predicted','win_pts','lose_pts']]
 wrong_counter_predictions = predictions_counter_seed[predictions_counter_seed['game_result'] != predictions_counter_seed['predicted']]
-wrong_counter_predictions[['round','seed_t','team_t','seed_o','team_o','game_result','predicted','win_pts','lose_pts']]
 print("Number of correct counter seed predictions= ", len(correct_counter_predictions.index))
 print("Number of counter seed predictions= ", len(predictions_counter_seed.index))
 
 Incorrect Lines:
 
-least_important_label = important_features[-1][0]
 model_stats = utils.save_model_stats(classifier,X.drop(columns=drop_list),y,model_stats)
 least_important_label = important_features[-1][0]
+least_important_label = important_features[-1][0]
 log_loss_val = value['log_loss']
-cross_val = value['cross_validation']
 accuracy = value['accuracy']
+cross_val = value['cross_validation']
 model_features =model_stats[cross_hash]['labels']
-numeric_model_features
-dropped_features
 cross_validation_average = cross_val_scores.mean()
-log_loss_result
-y_pred_season
 
-Precision = 0.8588235294117647
-Recall = 0.9733333333333334
+Precision = 0.8918918918918919
+Recall = 0.88
 
+feature_list
 X_copy[numeric_features] = scaler.transform(X_copy[numeric_features])
+missed_predictions
 feature_copy[numeric_model_features] = scaler.transform(feature_copy[numeric_model_features])
+missed_predictions
+tourney_games
+predictions_counter_seed[['round','seed_t','team_t','seed_o','team_o','game_result','predicted','win_pts','lose_pts']]
+correct_counter_predictions[['round','seed_t','team_t','seed_o','team_o','game_result','predicted','win_pts','lose_pts']]
+wrong_counter_predictions[['round','seed_t','team_t','seed_o','team_o','game_result','predicted','win_pts','lose_pts']]

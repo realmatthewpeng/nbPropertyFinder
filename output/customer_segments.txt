@@ -1,22 +1,21 @@
-Total number of lines found: 10
+Total number of lines found: 9
 
 display(data.describe())
 display(samples - data.mean().round())
-samples_percentage
-samples_w_total['Total'] = samples_w_total.sum(axis=1)
-samples_percentage['Total'] = samples_percentage.sum(axis=1)
 samples_w_total = samples.copy()
-new_data = data.copy()
+samples_percentage['Total'] = samples_percentage.sum(axis=1)
+samples_w_total['Total'] = samples_w_total.sum(axis=1)
 y_all = data[column_to_study]
 X_all = new_data.drop(column_to_study, axis=1)
+new_data = data.copy()
 df_preds = pd.concat([df_diffs, pd.Series(sample_preds, name='PREDICTION')], axis=1)
 
 Incorrect Lines:
 
 df_preds = pd.concat([df_diffs, pd.Series(sample_preds, name='PREDICTION')], axis=1)
 
-Precision = 0.9
-Recall = 0.375
+Precision = 0.8888888888888888
+Recall = 0.3333333333333333
 
 data.drop(['Region', 'Channel'], axis = 1, inplace = True)
 print "Wholesale customers dataset has {} samples with {} features each.".format(*data.shape)
@@ -24,6 +23,7 @@ samples = pd.DataFrame(data.loc[indices], columns = data.keys()).reset_index(dro
 display(samples)
 display(samples - data.median().round())
 samples_percentage = samples.loc[:,"Fresh":"Delicatessen"].div(samples_w_total['Total'], axis=0) * 100
+samples_percentage
 log_data = np.log(data)
 log_samples = np.log(samples)
 display(log_samples)
