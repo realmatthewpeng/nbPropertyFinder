@@ -4,7 +4,6 @@ grad_rate = df_county_data["Graduation Rate"]
 pov_rate = df_county_data["Poverty Rate"]
 x = df_county_data["Poverty Rate"]
 y = df_county_data["Graduation Rate"]
-mask = ~np.isnan(x) & ~np.isnan(y)
 house_size = df_county_data["Household Size"]
 pov_rate = df_county_data["Household Size"]
 x = df_county_data["Household Size"]

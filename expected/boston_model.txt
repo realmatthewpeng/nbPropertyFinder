@@ -1,5 +1,5 @@
 boston.columns
-boston_mf=pd.get_dummies(boston['M/F'])"
+boston_mf=pd.get_dummies(boston['M/F'])
 boston_join=pd.concat([boston, boston_mf], axis=1)
 boston_join.head()
 boston_join.columns
@@ -20,14 +20,12 @@ X_5K = boston_clean[['Bib','Age','Official Time Duration', 'F', 'M', 'Temp (F)']
 y_5K = boston_clean['5K Duration'].values.reshape(-1, 1)
 print(X_5K.shape, y_5K.shape)
 X_train_5K.head()
-print(predictions_5K)
 X_nobib = boston_clean[['Age','Official Time Duration', 'F', 'M', 'Temp (F)']]
 y_nobib = boston_clean['5K Duration'].values.reshape(-1, 1)
 print(X_nobib.shape, y_nobib.shape)
 X_10K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration']]
 y_10K = boston_clean['10K Duration'].values.reshape(-1, 1)
 print(X_10K.shape, y_10K.shape)
-predictions_10K
 X_15K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration']]
 y_15K = boston_clean['15K Duration'].values.reshape(-1, 1)
 print(X_15K.shape, y_15K.shape)

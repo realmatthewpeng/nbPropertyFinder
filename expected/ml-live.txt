@@ -16,7 +16,6 @@ trips['pickup_latitude'] < 45, \
 trips['dropoff_latitude'] > 37, \
 trips['dropoff_latitude'] < 45, \
 trips['passenger_count'] > 0,
-tripsqc = preprocess(trips)
 tripsqc.describe()
 df_train.describe()
 df_valid.describe()

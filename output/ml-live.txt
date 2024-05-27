@@ -3,37 +3,37 @@ Total number of lines found: 21
 tollrides = trips[trips['tolls_amount'] > 0]
 tollrides[tollrides['pickup_datetime'] == '2012-09-05 15:45:00']
 trips.describe()
+del trips['trip_distance']
+del trips['pickup_datetime']
 trips = trips_in.copy(deep=True)
 tripsqc.describe()
-del trips['pickup_datetime']
-del trips['tolls_amount']
 del trips['total_amount']
-del trips['trip_distance']
+del trips['tolls_amount']
 df_valid = shuffled.iloc[trainsize:(trainsize+validsize), :]
 df_train = shuffled.iloc[:trainsize, :]
 df_train.describe()
 df_valid.describe()
-return np.sqrt(np.mean((actual-predicted)**2))
 rate = df_train['fare_amount'].mean() / estimate_distance(df_train).mean()
-LABEL = CSV_COLUMNS[0]
+return np.sqrt(np.mean((actual-predicted)**2))
 FEATURES = CSV_COLUMNS[1:len(CSV_COLUMNS) - 1]
-os.environ['BUCKET'] = BUCKET
+LABEL = CSV_COLUMNS[0]
 os.environ['PROJECT'] = PROJECT
 os.environ['TFVERSION'] = '1.8'
+os.environ['BUCKET'] = BUCKET
 os.environ['REGION'] = REGION
 
 Incorrect Lines:
 
 return np.sqrt(np.mean((actual-predicted)**2))
-LABEL = CSV_COLUMNS[0]
 FEATURES = CSV_COLUMNS[1:len(CSV_COLUMNS) - 1]
-os.environ['BUCKET'] = BUCKET
+LABEL = CSV_COLUMNS[0]
 os.environ['PROJECT'] = PROJECT
 os.environ['TFVERSION'] = '1.8'
+os.environ['BUCKET'] = BUCKET
 os.environ['REGION'] = REGION
 
 Precision = 0.6666666666666666
-Recall = 0.5384615384615384
+Recall = 0.56
 
 trips[:10]
 trips['pickup_longitude'] > -78, \
@@ -45,5 +45,4 @@ trips['pickup_latitude'] < 45, \
 trips['dropoff_latitude'] > 37, \
 trips['dropoff_latitude'] < 45, \
 trips['passenger_count'] > 0,
-tripsqc = preprocess(trips)
 cols = outdf.columns.tolist()

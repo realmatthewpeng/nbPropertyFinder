@@ -16,7 +16,7 @@ class Visitor(ast.NodeVisitor):
                         "quantile", "size", "rename", "count", "sort_values",
                         "loc", "iloc", "max", "tail", "columns", "fillna",
                         "apply", "unique", "value_counts", "reshape", "reset_index", 
-                        "replace", "drop_duplicates", "concat"]
+                        "replace", "drop_duplicates", "concat", "get_dummies", "median"]
     
     revealingFuncs = ["describe", "isnull",
                      "shape", "mean", "std",
@@ -61,8 +61,7 @@ class Visitor(ast.NodeVisitor):
                 self.visit_Assign_NodeTargetSubscript_ValueAttribute(node, target)
 
     def visit_Assign_NodeTargetSubscript_SliceConstant(self, node: ast.Assign, target: ast.Subscript):
-        if isinstance(target.slice, ast.Constant):
-            if (isinstance(target.slice.value, str)):
+        if isinstance(target.slice, ast.Constant) and (isinstance(target.slice.value, str)):
                 self.saveNode(node, "Assign2", "", "enforcing")
 
     def visit_Assign_NodeTargetSubscript_ValueAttribute(self, node: ast.Assign, target: ast.Subscript):
@@ -148,6 +147,7 @@ def main():
         for subdir, _, files in os.walk(NB_TEST_DIR):
             for file in files:
                 notebook = os.path.join(subdir, file)
+                print("Processing: " + notebook)
                 nb = nbformat.read(notebook, as_version=4)
                 processNotebook(nb, file, links[file])
 
@@ -266,8 +266,10 @@ def printResults(cell_dict: dict, property_dict: dict, file: str, types: dict, h
                 should_continue = True
                 if (type == "Expr1" or type == "Expr2"):
                     should_continue = False
+                    # print(types)
                     types_list = types[clean]
                     for (inferred_type, lineno) in types_list:
+                        # print(inferred_type)
                         if "DataFrame" in inferred_type:
                             should_continue = True
 

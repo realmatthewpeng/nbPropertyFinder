@@ -1,8 +1,4 @@
-data.drop(['Region', 'Channel'], axis = 1, inplace = True)
-print "Wholesale customers dataset has {} samples with {} features each.".format(*data.shape)
 display(data.describe())
-samples = pd.DataFrame(data.loc[indices], columns = data.keys()).reset_index(drop = True)
-display(samples)
 display(samples - data.mean().round())
 display(samples - data.median().round())
 samples_w_total = samples.copy()
@@ -13,12 +9,4 @@ samples_percentage
 new_data = data.copy()
 X_all = new_data.drop(column_to_study, axis=1)
 y_all = data[column_to_study]
-log_data = np.log(data)
-log_samples = np.log(samples)
-display(log_samples)
-Q1 = np.percentile(log_data[feature], 25)
-Q3 = np.percentile(log_data[feature], 75)
-df_outliers = log_data[~((log_data[feature] >= Q1 - step) & (log_data[feature] <= Q3 + step))]
-display(df_outliers)
-good_data = log_data.drop(log_data.index[outliers]).reset_index(drop = True)
-true_centers = np.exp(log_centers)
+df_preds = pd.concat([df_diffs, pd.Series(sample_preds, name='PREDICTION')], axis=1)

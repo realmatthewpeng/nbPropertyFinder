@@ -1,14 +1,18 @@
-Total number of lines found: 3
+Total number of lines found: 5
 
-data
-boston.head()
-boston
+samples_percentage
+samples = pd.DataFrame(data.loc[indices], columns = data.keys()).reset_index(drop = True)
+samples_percentage['Total'] = samples_percentage.sum(axis=1)
+samples_w_total = samples.copy()
+samples_w_total['Total'] = samples_w_total.sum(axis=1)
 
 Incorrect Lines:
 
-data
-boston.head()
-boston
+samples_percentage
+samples = pd.DataFrame(data.loc[indices], columns = data.keys()).reset_index(drop = True)
+samples_percentage['Total'] = samples_percentage.sum(axis=1)
+samples_w_total = samples.copy()
+samples_w_total['Total'] = samples_w_total.sum(axis=1)
 
 Precision = 0.0
 Recall = 0.0
