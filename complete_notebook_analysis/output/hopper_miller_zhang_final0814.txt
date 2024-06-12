@@ -1,49 +1,49 @@
 Total number of lines found: 48
 
-data['MixedBreed'] = data.Breed.apply(mixed_breed)
-data['Intact'] = data.SexuponOutcome.apply(intact)
-data['TopBreed'] = data.Breed.apply(top_breed)
-data['Female'] = data.SexuponOutcome.apply(female)
-data['Named'] = data.Name.apply(naming)
-ranks.append(int(breeds.loc[breeds['Breed'] == word]['2007']))
-data['PitBull'] = data.Breed.apply(pit_bull)
-data['Female'] = 'Female' in data['SexuponOutcome']
-data['AgeuponOutcome'].fillna('', inplace = True)
-data['ConvertedAge']=data['AgeuponOutcome'].apply(ageConvert)
 data['OutcomeSubtype'] = data['OutcomeSubtype'].fillna('')
-data['OrderedBreed'] = data.Breed.apply(reorder)
 data['OrderedColor'] = data.Color.apply(reorder)
-data['BreedRank'] = data.Breed.apply(breed_rank)
-return np.mean(ranks)
+data['TopBreed'] = data.Breed.apply(top_breed)
 data['BlackCat'] = data.Color.apply(black_cat)
-if i.find("/") >= 0: i = i.replace("/", " ")
-if pd.isnull(i): return 'Unnamed'
+data['OrderedBreed'] = data.Breed.apply(reorder)
+data['Intact'] = data.SexuponOutcome.apply(intact)
 breeds['Breed'] = breeds['Breed'].str.strip()
+data['AgeuponOutcome'].fillna('', inplace = True)
+data['BreedRank'] = data.Breed.apply(breed_rank)
+data['ConvertedAge']=data['AgeuponOutcome'].apply(ageConvert)
+data['Named'] = data.Name.apply(naming)
+if i.find("/") >= 0: i = i.replace("/", " ")
+data['MixedBreed'] = data.Breed.apply(mixed_breed)
+data['PitBull'] = data.Breed.apply(pit_bull)
+if pd.isnull(i): return 'Unnamed'
+data['Female'] = 'Female' in data['SexuponOutcome']
 if i.find(" ") >= 0: i = i.replace(" ", "-")
-data2 = pd.concat([data[target], data[continuous], pd.get_dummies(data[discrete])], axis=1)
-data[continuous].describe().T
+data['Female'] = data.SexuponOutcome.apply(female)
+ranks.append(int(breeds.loc[breeds['Breed'] == word]['2007']))
+return np.mean(ranks)
 data["ConvertedAge"] = data.groupby("AnimalType").transform(lambda x: x.fillna(x.median()))
 y = data2[[target]]
+data[continuous].describe().T
 X = data2[predictors]
+data2 = pd.concat([data[target], data[continuous], pd.get_dummies(data[discrete])], axis=1)
 animal_type = data['AnimalType'].value_counts()
 outcome_type = data['OutcomeType'].value_counts()
-print("Unique Breeds" , (data.OrderedBreed.value_counts() > 0).sum())
 OrderedBreed = data.OrderedBreed.unique()
+print("Unique Breeds" , (data.OrderedBreed.value_counts() > 0).sum())
 plt.xticks(range(len(corr.columns)), corr.columns,rotation='vertical');
 plt.yticks(range(len(corr.columns)), corr.columns);
-y_dog = data_dog[[target]]
-data_cat = data[data['AnimalType'] == 'Cat']
 data_dog = data[data['AnimalType'] == 'Dog']
 X_cat = data_cat[pred['cat']]
-X_dog = data_dog[pred['dog']]
 y_cat = data_cat[[target]]
+X_dog = data_dog[pred['dog']]
+data_cat = data[data['AnimalType'] == 'Cat']
+y_dog = data_dog[[target]]
 data = X[self.cols]
-cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
 thresh = cm.max() / 2.
+cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+X_dev_feature = X_dev_feature.drop('Female_Unknown', 1)
 X_dev_feature = X_dev_feature.drop('Intact_Unknown', 1)
 X_train_feature = X_train_feature.drop('Intact_Unknown', 1)
 X_train_feature = X_train_feature.drop('Female_Unknown', 1)
-X_dev_feature = X_dev_feature.drop('Female_Unknown', 1)
 X_dev_dog = X_dev_feature.drop('AnimalType_Dog', 1)
 X_train_dog = X_train_feature.drop('AnimalType_Dog', 1)
 X_dev_cat = X_dev_feature.drop('AnimalType_Cat', 1)
@@ -51,19 +51,19 @@ X_train_cat = X_train_feature.drop('AnimalType_Cat', 1)
 
 Incorrect Lines:
 
-ranks.append(int(breeds.loc[breeds['Breed'] == word]['2007']))
-return np.mean(ranks)
 if i.find("/") >= 0: i = i.replace("/", " ")
 if pd.isnull(i): return 'Unnamed'
 if i.find(" ") >= 0: i = i.replace(" ", "-")
+ranks.append(int(breeds.loc[breeds['Breed'] == word]['2007']))
+return np.mean(ranks)
 plt.xticks(range(len(corr.columns)), corr.columns,rotation='vertical');
 plt.yticks(range(len(corr.columns)), corr.columns);
 data = X[self.cols]
 thresh = cm.max() / 2.
+X_dev_feature = X_dev_feature.drop('Female_Unknown', 1)
 X_dev_feature = X_dev_feature.drop('Intact_Unknown', 1)
 X_train_feature = X_train_feature.drop('Intact_Unknown', 1)
 X_train_feature = X_train_feature.drop('Female_Unknown', 1)
-X_dev_feature = X_dev_feature.drop('Female_Unknown', 1)
 X_dev_dog = X_dev_feature.drop('AnimalType_Dog', 1)
 X_train_dog = X_train_feature.drop('AnimalType_Dog', 1)
 X_dev_cat = X_dev_feature.drop('AnimalType_Cat', 1)

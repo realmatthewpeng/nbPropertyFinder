@@ -2,75 +2,75 @@ Total number of lines found: 72
 
 boston.columns
 boston_mf=pd.get_dummies(boston['M/F'])
-boston_join.head()
 boston_join=pd.concat([boston, boston_mf], axis=1)
+boston_join.head()
 boston_join.columns
-boston_clean.columns
-boston_join['10K Duration'] = boston_join['10K'].apply(time_convert)
-boston_join['Half Duration'] = boston_join['Half'].apply(time_convert)
-boston_join['25K Duration'] = boston_join['25K'].apply(time_convert)
-boston_join['40K Duration'] = boston_join['40K'].apply(time_convert)
-boston_join['Official Time Duration'] = boston_join['Official Time'].apply(time_convert)
-boston_join['15K Duration'] = boston_join['15K'].apply(time_convert)
-boston_join['5K Duration'] = boston_join['5K'].apply(time_convert)
-boston_join['30K Duration'] = boston_join['30K'].apply(time_convert)
-boston_clean=boston_join[['Bib','Age','5K Duration','10K Duration','15K Duration','20K Duration', 'Half Duration', '25K Duration','30K Duration','35K Duration','40K Duration','Official Time Duration', 'Temp (F)', 'F', 'M']]
-boston_join['20K Duration'] = boston_join['20K'].apply(time_convert)
 boston_join['35K Duration'] = boston_join['35K'].apply(time_convert)
+boston_join['5K Duration'] = boston_join['5K'].apply(time_convert)
+boston_join['Half Duration'] = boston_join['Half'].apply(time_convert)
+boston_join['30K Duration'] = boston_join['30K'].apply(time_convert)
+boston_join['10K Duration'] = boston_join['10K'].apply(time_convert)
+boston_join['Official Time Duration'] = boston_join['Official Time'].apply(time_convert)
+boston_join['25K Duration'] = boston_join['25K'].apply(time_convert)
 boston_join.dropna(inplace=True,subset=['Bib','Age','5K Duration','10K Duration','15K Duration','20K Duration', 'Half Duration', '25K Duration','30K Duration','35K Duration','40K Duration','Official Time Duration', 'Temp (F)'])
-y_5K = boston_clean['5K Duration'].values.reshape(-1, 1)
-print(X_5K.shape, y_5K.shape)
+boston_clean=boston_join[['Bib','Age','5K Duration','10K Duration','15K Duration','20K Duration', 'Half Duration', '25K Duration','30K Duration','35K Duration','40K Duration','Official Time Duration', 'Temp (F)', 'F', 'M']]
+boston_join['15K Duration'] = boston_join['15K'].apply(time_convert)
+boston_join['40K Duration'] = boston_join['40K'].apply(time_convert)
+boston_clean.columns
+boston_join['20K Duration'] = boston_join['20K'].apply(time_convert)
 X_5K = boston_clean[['Bib','Age','Official Time Duration', 'F', 'M', 'Temp (F)']]
+print(X_5K.shape, y_5K.shape)
+y_5K = boston_clean['5K Duration'].values.reshape(-1, 1)
 X_train_5K.head()
 plt.hlines(y=0, xmin=y_test_5K.min(), xmax=y_test_5K.max())
+X_nobib = boston_clean[['Age','Official Time Duration', 'F', 'M', 'Temp (F)']]
 y_nobib = boston_clean['5K Duration'].values.reshape(-1, 1)
 print(X_nobib.shape, y_nobib.shape)
 plt.hlines(y=0, xmin=y_test_nobib.min(), xmax=y_test_nobib.max())
-X_nobib = boston_clean[['Age','Official Time Duration', 'F', 'M', 'Temp (F)']]
-X_10K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration']]
-print(X_10K.shape, y_10K.shape)
-plt.hlines(y=0, xmin=y_test_10K.min(), xmax=y_test_10K.max())
 y_10K = boston_clean['10K Duration'].values.reshape(-1, 1)
+plt.hlines(y=0, xmin=y_test_10K.min(), xmax=y_test_10K.max())
+print(X_10K.shape, y_10K.shape)
+X_10K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration']]
 y_15K = boston_clean['15K Duration'].values.reshape(-1, 1)
-print(X_15K.shape, y_15K.shape)
 plt.hlines(y=0, xmin=y_test_15K.min(), xmax=y_test_15K.max())
+print(X_15K.shape, y_15K.shape)
 X_15K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration']]
 y_20K = boston_clean['20K Duration'].values.reshape(-1, 1)
-print(X_20K.shape, y_20K.shape)
 plt.hlines(y=0, xmin=y_test_20K.min(), xmax=y_test_20K.max())
 X_20K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration']]
+print(X_20K.shape, y_20K.shape)
 X_Half = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration']]
-y_Half = boston_clean['Half Duration'].values.reshape(-1, 1)
 print(X_Half.shape, y_Half.shape)
+y_Half = boston_clean['Half Duration'].values.reshape(-1, 1)
 plt.hlines(y=0, xmin=y_test_Half.min(), xmax=y_test_Half.max())
 y_25K = boston_clean['25K Duration'].values.reshape(-1, 1)
-X_25K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration', 'Half Duration']]
-print(X_25K.shape, y_25K.shape)
 plt.hlines(y=0, xmin=y_test_25K.min(), xmax=y_test_25K.max())
+print(X_25K.shape, y_25K.shape)
+X_25K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration', 'Half Duration']]
 y_30K = boston_clean['30K Duration'].values.reshape(-1, 1)
-print(X_30K.shape, y_30K.shape)
 plt.hlines(y=0, xmin=y_test_30K.min(), xmax=y_test_30K.max())
 X_30K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration','Half Duration', '25K Duration']]
-y_35K = boston_clean['35K Duration'].values.reshape(-1, 1)
-X_35K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration', 'Half Duration','25K Duration',  '30K Duration']]
 print(X_30K.shape, y_30K.shape)
+X_35K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration', 'Half Duration','25K Duration',  '30K Duration']]
+y_35K = boston_clean['35K Duration'].values.reshape(-1, 1)
 plt.hlines(y=0, xmin=y_test_35K.min(), xmax=y_test_35K.max())
+print(X_30K.shape, y_30K.shape)
 y_40K = boston_clean['40K Duration'].values.reshape(-1, 1)
-print(X_40K.shape, y_40K.shape)
 X_40K = boston_clean[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration',  'Half Duration', '25K Duration', '30K Duration','35K Duration']]
+print(X_40K.shape, y_40K.shape)
 plt.hlines(y=0, xmin=y_test_40K.min(), xmax=y_test_40K.max())
-y_Final = boston_clean['Official Time Duration'].values.reshape(-1, 1)
 X_Final = boston_clean[['Bib', 'Age', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration','Half Duration', '25K Duration', '30K Duration', '35K Duration', '40K Duration']]
-plt.hlines(y=0, xmin=y_test_Final.min(), xmax=y_test_Final.max())
+y_Final = boston_clean['Official Time Duration'].values.reshape(-1, 1)
 print(X_Final.shape, y_Final.shape)
+plt.hlines(y=0, xmin=y_test_Final.min(), xmax=y_test_Final.max())
 boston_clean.columns
 boston_residuals_df
 boston_females=boston_clean.loc[boston_clean['F'] == 1]
 boston_females
-y_F40K = boston_females['40K Duration'].values.reshape(-1, 1)
 print(X_F40K.shape, y_F40K.shape)
-plt.hlines(y=0, xmin=y_test_F40K.min(), xmax=y_test_F40K.max())
 X_F40K = boston_females[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration','Half Duration', '25K Duration', '30K Duration', '35K Duration']]
+y_F40K = boston_females['40K Duration'].values.reshape(-1, 1)
+plt.hlines(y=0, xmin=y_test_F40K.min(), xmax=y_test_F40K.max())
 boston_residuals_df
 
 Incorrect Lines:
