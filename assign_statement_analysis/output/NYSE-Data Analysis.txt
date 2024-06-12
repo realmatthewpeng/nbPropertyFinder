@@ -1,0 +1,15 @@
+Total number of lines found: 6
+
+data = pd.read_csv("../data/prices.csv")
+aapl = data[data.symbol == "AAPL"]
+dates = aapl[["date"]]
+aapl_change = aapl_close.apply(lambda x: np.log(x) - np.log(x.shift(1))) # shift moves dates back by 1.
+aapl_close = aapl[["close"]]
+googl = data[data.symbol == "GOOGL"]
+
+Incorrect Lines:
+
+
+Precision = 1.0
+Recall = 1.0
+

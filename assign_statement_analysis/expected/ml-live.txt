@@ -1,0 +1,10 @@
+tollrides = trips[trips['tolls_amount'] > 0]
+trips = trips_in.copy(deep=True)
+df_train = shuffled.iloc[:trainsize, :]
+df_valid = shuffled.iloc[trainsize:(trainsize+validsize), :]
+rate = df_train['fare_amount'].mean() / estimate_distance(df_train).mean()
+df_train = pd.read_csv('data/taxi-train.csv', header=None, names=columns)
+df_valid = pd.read_csv('data/taxi-valid.csv', header=None, names=columns)
+df_train = pd.read_csv('./data/taxi-train.csv', header = None, names = CSV_COLUMNS)
+df_valid = pd.read_csv('./data/taxi-valid.csv', header = None, names = CSV_COLUMNS)
+df = pd.DataFrame({'Lab' : pd.Series(['1a', '2-3', '4a', '4b', '4c']),'Method' : pd.Series(['Heuristic Benchmark', 'tf.learn', '+Feature Eng.', '+ Hyperparam', '+ 2m rows']),'RMSE': pd.Series([8.026, 9.4, 8.3, 5.0, 3.03]) })

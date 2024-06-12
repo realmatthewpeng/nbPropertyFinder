@@ -1,0 +1,24 @@
+Total number of lines found: 9
+
+old_df = pd.read_csv('data/School.csv', parse_dates=[1, 2, 3, 7, 8])
+f18_df = pd.read_csv('data/asana-umass-f18.csv', parse_dates=[1, 2, 3, 8, 9])
+all_df = pd.concat([old_df, f18_df], verify_integrity=True, ignore_index=True, sort=True)
+all_df['Created At DOW'] = all_df['Created At'].dt.dayofweek
+all_df['Duration'] = (all_df['Completed At'] - all_df['Created At'])
+all_df['Overdue'] = all_df['Completed At'] - all_df['Due Date']
+exam_counts = pd.DataFrame.from_dict({ 'date': list(exam_counts.keys()), 'num': list(exam_counts.values()) })
+exam_counts = {}
+exam_counts['date']  = pd.to_datetime(exam_counts['date'])
+
+Incorrect Lines:
+
+exam_counts = {}
+
+Precision = 0.8888888888888888
+Recall = 0.6153846153846154
+
+less_text = ' '.join(list(all_df[all_df['Duration'].astype('timedelta64[D]') < 3]['Name'].dropna()))
+grtr_text = ' '.join(list(all_df[all_df['Duration'].astype('timedelta64[D]') >= 3]['Name'].dropna()))
+before_text = ' '.join(list(all_df[all_df['Overdue'].astype('timedelta64[D]') < 0]['Name'].dropna()))
+sameday_text = ' '.join(list(all_df[all_df['Overdue'].astype('timedelta64[D]') == 0]['Name'].dropna()))
+overdue_text = ' '.join(list(all_df[all_df['Overdue'].astype('timedelta64[D]') > 0]['Name'].dropna()))

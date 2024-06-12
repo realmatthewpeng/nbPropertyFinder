@@ -1,0 +1,10 @@
+Total number of lines found: 1
+
+modeling_df = pd.read_csv('data/weather_with_avg_hourly_flight_delay.csv', index_col=False)
+
+Incorrect Lines:
+
+
+Precision = 1.0
+Recall = 1.0
+

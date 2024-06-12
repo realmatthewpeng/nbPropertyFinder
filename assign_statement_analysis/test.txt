@@ -1,0 +1,21 @@
+Total number of lines found: 6
+
+data = pd.read_csv("../data/prices.csv")
+samples_w_total = samples.copy()
+samples = pd.DataFrame(data.loc[indices], columns = data.keys()).reset_index(drop = True)
+samples_w_total['Total'] = samples_w_total.sum(axis=1)
+samples_percentage['Total'] = samples_percentage.sum(axis=1)
+samples_percentage = samples.loc[:,"Fresh":"Delicatessen"].div(samples_w_total['Total'], axis=0) * 100
+
+Incorrect Lines:
+
+data = pd.read_csv("../data/prices.csv")
+samples_w_total = samples.copy()
+samples = pd.DataFrame(data.loc[indices], columns = data.keys()).reset_index(drop = True)
+samples_w_total['Total'] = samples_w_total.sum(axis=1)
+samples_percentage['Total'] = samples_percentage.sum(axis=1)
+samples_percentage = samples.loc[:,"Fresh":"Delicatessen"].div(samples_w_total['Total'], axis=0) * 100
+
+Precision = 0.0
+Recall = 0
+

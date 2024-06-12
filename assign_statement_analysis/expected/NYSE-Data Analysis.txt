@@ -1,0 +1,6 @@
+aapl = data[data.symbol == "AAPL"]
+aapl_close = aapl[["close"]]
+dates = aapl[["date"]]
+aapl_change = aapl_close.apply(lambda x: np.log(x) - np.log(x.shift(1))) # shift moves dates back by 1.
+googl = data[data.symbol == "GOOGL"]
+data = pd.read_csv("../data/prices.csv")

@@ -1,0 +1,40 @@
+Total number of lines found: 22
+
+teams_all = pd.DataFrame(teams, columns=cols)
+games_all = pd.DataFrame(da.get_games_year('2010'))
+games = pd.DataFrame(da.get_games_matchup('UCLA', 'Washington'))
+fts = fts[(fts.name_1.notnull()) & (fts.name_2.notnull())]
+features_1 = make_features(games_all, teams_all, 'team1', 'team2', 1)
+fts = pd.merge(pd.merge(games,teams,left_on=(team_a, 'year'),right_on=('name', 'year'),how='left'),teams,left_on=(team_b, 'year'),right_on=('name', 'year'),how='left',suffixes=('_1','_2'))
+fts['value'] = value
+features_total = pd.concat([features_1, features_2])
+features_total = features_total[cols]
+features_2 = make_features(games_all, teams_all, 'team2', 'team1', 0)
+fs = make_features_matchup(teams_all, 'Air Force', 'Charleston Southern', 2010)
+fts = pd.merge(t_A_fts, t_B_fts, how='inner', on='year', suffixes=('_1','_2'))
+kag_results = pd.read_csv('data_files/tourney_results.csv')
+kag_teams = pd.read_csv('data_files/teams.csv')
+kag_seeds = pd.read_csv('data_files/tourney_seeds.csv')
+results = pd.merge(teams_df, wt, on=['id_1','id_2'], how='left')
+wt = pd.DataFrame([orderer(t) for t in wt.values], columns=['id_1','id_2','res'])
+wt = kag_results.ix[kag_results.season==season, ['wteam', 'lteam']]
+teams_combined = pd.merge(pd.merge(kag_seeds[kag_seeds.season==season].sort(columns='team'),kag_teams,left_on='team',right_on='id',how='left'),teams[teams.year==year],left_on='name',right_on='name',how='left',suffixes=('_1', '_2'))
+teams_df = pd.DataFrame(teams, columns=['t_1','id_1','t_2','id_2'])
+teams_mod = modify_teams(teams_all, mapper)
+tournament, t_teams, results = create_tournament(teams_mod, kag_teams, kag_seeds, kag_results, 2013, 'R')
+
+Incorrect Lines:
+
+features_1 = make_features(games_all, teams_all, 'team1', 'team2', 1)
+features_total = features_total[cols]
+features_2 = make_features(games_all, teams_all, 'team2', 'team1', 0)
+fs = make_features_matchup(teams_all, 'Air Force', 'Charleston Southern', 2010)
+wt = kag_results.ix[kag_results.season==season, ['wteam', 'lteam']]
+teams_mod = modify_teams(teams_all, mapper)
+tournament, t_teams, results = create_tournament(teams_mod, kag_teams, kag_seeds, kag_results, 2013, 'R')
+
+Precision = 0.6818181818181818
+Recall = 0.8823529411764706
+
+t_B_fts = teams[(teams.name==team_b) & (teams.year == year)]
+t_A_fts = teams[(teams.name==team_a) & (teams.year == year)]
