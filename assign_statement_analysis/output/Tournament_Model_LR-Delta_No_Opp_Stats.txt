@@ -12,14 +12,7 @@ tourney_comp_ratings[item] = tourney_comp_ratings[item].astype(float)
 X= feature_data[feature_data['season_t']<= stop_tournament]
 y=tourney_comp_ratings[tourney_comp_ratings['season_t']<= stop_tournament]['game_result']
 X= X.drop(columns=['season_t'])
-X_copy = X.copy()
 X_copy[numeric_features] = scaler.transform(X_copy[numeric_features])
-train_mean = np.mean(train_scores, axis=1)
-train_std = np.std(train_scores, axis=1)
-test_mean = np.mean(test_scores, axis=1)
-test_std = np.std(test_scores, axis=1)
-X_train = X_train.copy()
-X_test = X_test.copy()
 plot_missed_predictions_df = missed_predictions[['game_index','features','model_features']]
 feature_copy = feature_data[feature_data['season_t'] == test_year].copy()
 X_season = feature_copy[model_features]
@@ -33,9 +26,7 @@ missed_predictions = test_games[test_games['game_result'] !=test_games['predicte
 test_games = tourney_comp_ratings[tourney_comp_ratings.index.isin(X.index)].copy()
 missed_predictions['game_index'] = missed_predictions.index
 feature_data = tourney_comp_ratings[feature_columns].copy()
-X_test = X_test.copy()
 X_model = X[model_features].copy()
-X_train = X_train.copy()
 plot_missed_predictions_df = missed_predictions[['game_index','features','model_features']]
 test_games['predicted_result'] = predictions
 test_games['pred_win_prob'] = pred_probs

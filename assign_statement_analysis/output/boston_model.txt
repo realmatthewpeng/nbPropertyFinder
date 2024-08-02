@@ -1,19 +1,19 @@
 Total number of lines found: 29
 
 boston = pd.read_csv('marathon/Boston_Marathon_2015_to_2017.csv')
-boston_mf=pd.get_dummies(boston['M/F'])
 boston_join=pd.concat([boston, boston_mf], axis=1)
-boston_join['Half Duration'] = boston_join['Half'].apply(time_convert)
-boston_join['30K Duration'] = boston_join['30K'].apply(time_convert)
+boston_mf=pd.get_dummies(boston['M/F'])
 boston_join['20K Duration'] = boston_join['20K'].apply(time_convert)
-boston_clean=boston_join[['Bib','Age','5K Duration','10K Duration','15K Duration','20K Duration', 'Half Duration', '25K Duration','30K Duration','35K Duration','40K Duration','Official Time Duration', 'Temp (F)', 'F', 'M']]
-boston_join['Official Time Duration'] = boston_join['Official Time'].apply(time_convert)
-boston_join['25K Duration'] = boston_join['25K'].apply(time_convert)
-boston_join['5K Duration'] = boston_join['5K'].apply(time_convert)
 boston_join['15K Duration'] = boston_join['15K'].apply(time_convert)
-boston_join['40K Duration'] = boston_join['40K'].apply(time_convert)
 boston_join['35K Duration'] = boston_join['35K'].apply(time_convert)
 boston_join['10K Duration'] = boston_join['10K'].apply(time_convert)
+boston_join['Official Time Duration'] = boston_join['Official Time'].apply(time_convert)
+boston_clean=boston_join[['Bib','Age','5K Duration','10K Duration','15K Duration','20K Duration', 'Half Duration', '25K Duration','30K Duration','35K Duration','40K Duration','Official Time Duration', 'Temp (F)', 'F', 'M']]
+boston_join['40K Duration'] = boston_join['40K'].apply(time_convert)
+boston_join['30K Duration'] = boston_join['30K'].apply(time_convert)
+boston_join['5K Duration'] = boston_join['5K'].apply(time_convert)
+boston_join['Half Duration'] = boston_join['Half'].apply(time_convert)
+boston_join['25K Duration'] = boston_join['25K'].apply(time_convert)
 X_5K = boston_clean[['Bib','Age','Official Time Duration', 'F', 'M', 'Temp (F)']]
 df2=pd.DataFrame({'Bib':[25000], 'Age':[42],'Official Time Duration':[22175], 'F':[0], 'M':[1],'Temp (F)':[65]})
 X_nobib = boston_clean[['Age','Official Time Duration', 'F', 'M', 'Temp (F)']]
@@ -34,17 +34,5 @@ Incorrect Lines:
 
 
 Precision = 1.0
-Recall = 0.7073170731707317
+Recall = 1.0
 
-y_5K = boston_clean['5K Duration'].values.reshape(-1, 1)
-y_nobib = boston_clean['5K Duration'].values.reshape(-1, 1)
-y_10K = boston_clean['10K Duration'].values.reshape(-1, 1)
-y_15K = boston_clean['15K Duration'].values.reshape(-1, 1)
-y_20K = boston_clean['20K Duration'].values.reshape(-1, 1)
-y_Half = boston_clean['Half Duration'].values.reshape(-1, 1)
-y_25K = boston_clean['25K Duration'].values.reshape(-1, 1)
-y_30K = boston_clean['30K Duration'].values.reshape(-1, 1)
-y_35K = boston_clean['35K Duration'].values.reshape(-1, 1)
-y_40K = boston_clean['40K Duration'].values.reshape(-1, 1)
-y_Final = boston_clean['Official Time Duration'].values.reshape(-1, 1)
-y_F40K = boston_females['40K Duration'].values.reshape(-1, 1)

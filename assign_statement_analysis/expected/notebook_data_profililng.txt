@@ -4,7 +4,6 @@ dtypes = data.dtypes
 dtypes_final = dtypes_dataframe.reset_index()
 filled_count_series = data.notnull().sum().astype(int)
 null_count_series = data.isnull().sum().astype(int)
-totalcount = data.shape[0]
 percent_null = percent_null.reset_index().rename(columns = {0:"null_percent"})
 percent_filled = percent_filled.reset_index().rename(columns = {0:"non_null_percent"})
 filled_count_series = filled_count_series.reset_index().rename(columns = {0:"non_null_counts"})
@@ -12,15 +11,10 @@ null_count_series = null_count_series.reset_index().rename(columns = {0:"null_co
 null_info_dataframe = reduce(lambda left,right: pandas.merge(left,right,on='index'), [percent_null,percent_filled,filled_count_series,null_count_series])
 merged = reduce(lambda left, right: pandas.merge(left, right, on='index', how="left"),[null_info_dataframe, dtypes_final, describe_final])
 merged["row_count"] = totalcount
-number_of_uniques = data[feature_name].nunique()
 merged["data_type"] = merged["data_type"].astype(str)
-unique_datatypes = list(merged["data_type"].unique())
 merged[column] = merged[column].astype(float).round(rounded_places)
-merged_attributes = list(merged.columns)
 data_no_nulls = data.dropna(how = "any", axis = 0)
-columns_to_fill_mean = list(merged[(merged["data_type"] == "int64") |(merged["data_type"] == "float64")]["index"])
 data_no_nulls[column] = data_no_nulls[column].fillna(data_no_nulls[column].mean())
-chosen_categorical_features = list(merged[(merged["unique"] >= nunique_range[0]) &(merged["unique"] <= nunique_range[1]) &(merged["data_type"] == "object")]["index"])
 dtype = data_no_nulls[column].dtype
 data_no_nulls[column] = data_no_nulls[column].astype(str)
 data = pandas.read_csv(data_path)

@@ -2,14 +2,10 @@ df["DiscountDiff"] = df["Original Price"] - df["Discount Price"]
 df["DiscountPerc"] = (df["DiscountDiff"]/df["Original Price"]) * 100
 df["Hotel_Count"] = df.groupby('Hotel Name')['Hotel Name'].transform('count')
 descending_hotels = df.sort_values(by=['Hotel_Count'],ascending=False).reset_index()
-df_hotels = descending_hotels["Hotel Name"].unique()[:150]
 most_common_hotels = descending_hotels[descending_hotels['Hotel Name'].isin(df_hotels)]
 most_common_hotels["Checkin_Count"] = most_common_hotels.groupby('Checkin Date')['Checkin Date'].transform('count')
 descending_most_common_hotels = most_common_hotels.sort_values(by=['Checkin_Count'],ascending=False).reset_index()
-common_checkins_list = descending_most_common_hotels["Checkin Date"].unique()[:40]
 most_checkins = descending_most_common_hotels[descending_most_common_hotels['Checkin Date'].isin(common_checkins_list)]
-unique_hotels_names = most_checkins["Hotel Name"].unique()
-unique_checkins =  most_checkins["Checkin Date"].unique()
 most_checkins = most_checkins.append(new_df)
 most_checkins["Discount Price"]= most_checkins.groupby(['Hotel Name','Checkin Date','Discount Code'])["Discount Price"].transform('min')
 checkin_hotel_discount = most_checkins[["Hotel Name","Checkin Date","Discount Code","Discount Price"]].reset_index()

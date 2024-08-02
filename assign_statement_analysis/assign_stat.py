@@ -20,13 +20,16 @@ class Visitor(ast.NodeVisitor):
         self.savedLines = set()
 
     def visit(self, node: ast.AST):
+        global all_assigns
         if type(node) == ast.Assign:
             self.saveNode(node, "Assign", ast.unparse(node.targets[0]))
+            all_assigns += 1
             # print(ast.unparse(node.targets[0]))
             # self.visit_Assign_ValueSubscript(node)
             # self.visit_Assign_NodeTargets(node)
-        if type(node) == ast.AugAssign:
-            self.saveNode(node, "AugAssign", ast.unparse(node.target))
+        # if type(node) == ast.AugAssign:
+        #     self.saveNode(node, "AugAssign", ast.unparse(node.target))
+        #     all_assigns += 1
 
         self.generic_visit(node)
 
@@ -64,6 +67,7 @@ TEST_NB = "../test.ipynb"
 corpus_total_expected = 0
 corpus_total_correct = 0
 corpus_total_found = 0
+all_assigns = 0
 all_data = []
 
 def main():
@@ -94,6 +98,7 @@ def main():
             
         print("Precision = " + str(precision))
         print("Recall = " + str(recall))
+        print(f"{corpus_total_correct} out of {all_assigns} assignment statements are DataFrame related.")
 
         # with open("all_data.txt", "w") as f:
         #     for x in range(len(all_data)):
@@ -135,7 +140,7 @@ def processNotebook(nb, file: str, link: str):
         cell_count += 1
 
     if (not imported_pd):
-        printResults({}, {}, file, False)
+        printResults({}, {}, file, {}, False)
         return
     
     typeinfer.clearFile()

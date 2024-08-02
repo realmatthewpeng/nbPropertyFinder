@@ -7,22 +7,22 @@ describe_final = describe_transposed.reset_index()
 dtypes = data.dtypes
 dtypes_dataframe = pandas.DataFrame(dtypes, columns = ["data_type"])
 dtypes_final = dtypes_dataframe.reset_index()
-filled_count_series = data.notnull().sum().astype(int)
 null_count_series = data.isnull().sum().astype(int)
+filled_count_series = data.notnull().sum().astype(int)
 percent_null =  null_count_series / totalcount
 percent_filled = filled_count_series / totalcount
+percent_null = percent_null.reset_index().rename(columns = {0:"null_percent"})
+null_count_series = null_count_series.reset_index().rename(columns = {0:"null_counts"})
 percent_filled = percent_filled.reset_index().rename(columns = {0:"non_null_percent"})
 filled_count_series = filled_count_series.reset_index().rename(columns = {0:"non_null_counts"})
-null_count_series = null_count_series.reset_index().rename(columns = {0:"null_counts"})
-percent_null = percent_null.reset_index().rename(columns = {0:"null_percent"})
 null_info_dataframe = reduce(lambda left,right: pandas.merge(left,right,on='index'), [percent_null,percent_filled,filled_count_series,null_count_series])
 merged = reduce(lambda left, right: pandas.merge(left, right, on='index', how="left"),[null_info_dataframe, dtypes_final, describe_final])
 merged["row_count"] = totalcount
 merged["data_type"] = merged["data_type"].astype(str)
 merged[column] = merged[column].astype(float).round(rounded_places)
 data_no_nulls = data.dropna(how = "any", axis = 0)
-data_no_nulls = data
 data_no_nulls[column] = data_no_nulls[column].fillna(data_no_nulls[column].mean())
+data_no_nulls = data
 data_no_nulls[column] = data_no_nulls[column].astype(str)
 correlation_dataframe = data_no_nulls.corr()
 
@@ -32,12 +32,6 @@ percent_null =  null_count_series / totalcount
 percent_filled = filled_count_series / totalcount
 
 Precision = 0.92
-Recall = 0.7666666666666667
+Recall = 0.9583333333333334
 
-totalcount = data.shape[0]
-number_of_uniques = data[feature_name].nunique()
-unique_datatypes = list(merged["data_type"].unique())
-merged_attributes = list(merged.columns)
-columns_to_fill_mean = list(merged[(merged["data_type"] == "int64") |(merged["data_type"] == "float64")]["index"])
-chosen_categorical_features = list(merged[(merged["unique"] >= nunique_range[0]) &(merged["unique"] <= nunique_range[1]) &(merged["data_type"] == "object")]["index"])
 dtype = data_no_nulls[column].dtype

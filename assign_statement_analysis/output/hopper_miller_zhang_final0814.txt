@@ -31,7 +31,6 @@ X_dog = data_dog[pred['dog']]
 X_cat = data_cat[pred['cat']]
 y_dog = data_dog[[target]]
 y_cat = data_cat[[target]]
-cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
 y = data2[[target]]
 X = data2[predictors]
 OrderedBreed = data.OrderedBreed.unique()

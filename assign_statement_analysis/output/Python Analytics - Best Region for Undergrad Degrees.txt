@@ -1,54 +1,50 @@
 Total number of lines found: 37
 
 region_stats = pd.read_csv('cost_earnings_stat_final.csv')
-region_mean['earnings_cost_ratio'] = region_mean['earnings6years']/region_mean['tuition_in_state']
 region_mean = grouped_region_stats.drop(columns=["school_id"])
 grouped_region_stats = region_stats.groupby(['region']).mean()
 mean_df_clean = region_mean.drop([0,9])
+region_mean['earnings_cost_ratio'] = region_mean['earnings6years']/region_mean['tuition_in_state']
 y2 = mean_df_clean["earnings6years"]
 y1 = mean_df_clean["tuition_in_state"]
 y_axis = mean_df_clean["earnings_cost_ratio"]
 tuition_list = region_stats['tuition_in_state']
-region_stats["tuition_cost_tier"] = pd.cut(region_stats["tuition_in_state"], bins, labels=bin_names)
 cost = region_stats['tuition_in_state']
-region_stats['earnings_growth_y6_y10'] = earnings10/earnings6
 region_stats['earnings_cost_ratio'] = earnings6/cost
-earnings6 = region_stats['earnings6years']
 region_stats['weighted_growth_to_tuition'] = region_stats['earnings_cost_ratio'] * region_stats['earnings_growth_y6_y10']
+earnings6 = region_stats['earnings6years']
+region_stats["tuition_cost_tier"] = pd.cut(region_stats["tuition_in_state"], bins, labels=bin_names)
+region_stats['earnings_growth_y6_y10'] = earnings10/earnings6
 earnings10 = region_stats['earnings10years']
 clean_info = region_stats.drop(columns=['school_id', 'tuition_out_state'])
+df32 = clean_info.loc[clean_info["tuition_cost_tier"] == 'greater_32k']
 df0_10k_edit9 = df0_10k_edit0[df0_10k_edit0.region != 9]
 df0_10k = clean_info.loc[clean_info["tuition_cost_tier"] == 'less_10k']
-df32 = clean_info.loc[clean_info["tuition_cost_tier"] == 'greater_32k']
+df18_32 = clean_info.loc[clean_info["tuition_cost_tier"] == '18k_32k']
 df10_18k = clean_info.loc[clean_info["tuition_cost_tier"] == '10k_18k']
 df0_10k_edit0 = df0_10k[df0_10k.region != 0]
 df10_18k_edit = df10_18k[df10_18k.region != 9]
-df18_32 = clean_info.loc[clean_info["tuition_cost_tier"] == '18k_32k']
+df0_10k_grouped = df0_10k_edit9.groupby(['region']).mean()
 df18_32_grouped = df18_32.groupby(['region']).mean()
 df10_18k_grouped = df10_18k_edit.groupby(['region']).mean()
 df32_grouped = df32.groupby(['region']).mean()
-df0_10k_grouped = df0_10k_edit9.groupby(['region']).mean()
 table10k = df0_10k_grouped.drop(['tuition_in_state','earnings6years','earnings10years','earnings_cost_ratio','earnings_growth_y6_y10'], axis = 1)
-y_axis1 = df0_10k_grouped["earnings_cost_ratio"]
-y_axis3 = df18_32_grouped["earnings_cost_ratio"]
 y_axis2 = df10_18k_grouped["earnings_cost_ratio"]
 y_axis4 = df32_grouped["earnings_cost_ratio"]
-y2 = earningsgrowth10k_18k
+y_axis1 = df0_10k_grouped["earnings_cost_ratio"]
+y_axis3 = df18_32_grouped["earnings_cost_ratio"]
 y1 = earningsgrowth10k
-y2 = weighted_growth10k_18k
+y2 = earningsgrowth10k_18k
 y1 = weighted_growth10k
+y2 = weighted_growth10k_18k
 
 Incorrect Lines:
 
-y2 = earningsgrowth10k_18k
 y1 = earningsgrowth10k
-y2 = weighted_growth10k_18k
+y2 = earningsgrowth10k_18k
 y1 = weighted_growth10k
+y2 = weighted_growth10k_18k
 
 Precision = 0.8918918918918919
-Recall = 0.8918918918918919
+Recall = 1.0
 
-twentyfive_Percentile = tuition_list.quantile(0.25)
-fifty_Percentile = tuition_list.quantile(0.50)
-seventyFive_Percentile = tuition_list.quantile(0.75)
-ninetyNine_Percentile = tuition_list.quantile(1)
