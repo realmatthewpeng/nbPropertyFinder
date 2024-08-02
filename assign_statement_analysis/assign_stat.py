@@ -63,6 +63,7 @@ TEST_SINGLE_NB = False
 NB_TEST_DIR = "../notebooks/"
 NB_EXPECTED_DIR = "expected/"
 TEST_NB = "../test.ipynb"
+# TEST_NB = "../notebooks/college-summary.ipynb"
 
 corpus_total_expected = 0
 corpus_total_correct = 0
@@ -179,7 +180,12 @@ def processNotebook(nb, file: str, link: str):
 
 def printResults(cell_dict: dict, property_dict: dict, file: str, types: dict, has_pandas = True):
 
-    outfile = open("output/"+file.removesuffix(".ipynb")+".txt", 'w')
+    try:
+        outfile = open("output/"+file.removesuffix(".ipynb")+".txt", 'w')
+    except:
+        print("Writing to test.txt")
+        outfile = open("test.txt", 'w')
+
     if (not has_pandas):
         print("Did not find pandas", file=outfile)
         return
@@ -199,6 +205,8 @@ def printResults(cell_dict: dict, property_dict: dict, file: str, types: dict, h
                 should_continue = False
                 types_list = types[lval]
                 for (inferred_type, lineno) in types_list:
+                    if (int(lineno) < start or int(lineno) > end):
+                        continue
                     if "DataFrame" in inferred_type or "Series" in inferred_type:
                         should_continue = True
 
@@ -216,10 +224,14 @@ def printResults(cell_dict: dict, property_dict: dict, file: str, types: dict, h
     for line in found_lines:
         print(line, file=outfile)
 
-    expected = os.path.join(NB_EXPECTED_DIR, file.removesuffix(".ipynb")+".txt")
-    expected_lines = []
-    with open(expected) as f:
-        expected_lines = f.read().splitlines()
+    try:
+        expected = os.path.join(NB_EXPECTED_DIR, file.removesuffix(".ipynb")+".txt")
+        expected_lines = []
+        with open(expected) as f:
+            expected_lines = f.read().splitlines()
+    except:
+        return
+    
     total_expected = len(expected_lines)
 
     num_correct = 0
