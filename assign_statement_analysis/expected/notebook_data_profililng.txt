@@ -22,3 +22,5 @@ describe_transposed = describe.T
 dtypes_dataframe = pandas.DataFrame(dtypes, columns = ["data_type"])
 data_no_nulls = data
 correlation_dataframe = data_no_nulls.corr()
+percent_null =  null_count_series / totalcount
+percent_filled = filled_count_series / totalcount

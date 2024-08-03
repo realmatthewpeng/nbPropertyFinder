@@ -63,7 +63,7 @@ TEST_SINGLE_NB = False
 NB_TEST_DIR = "../notebooks/"
 NB_EXPECTED_DIR = "expected/"
 TEST_NB = "../test.ipynb"
-# TEST_NB = "../notebooks/college-summary.ipynb"
+# TEST_NB = "../notebooks/notebook_data_profililng.ipynb"
 
 corpus_total_expected = 0
 corpus_total_correct = 0

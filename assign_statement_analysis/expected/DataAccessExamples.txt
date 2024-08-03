@@ -15,3 +15,9 @@ fts = pd.merge(pd.merge(games,teams,left_on=(team_a, 'year'),right_on=('name', '
 fts = pd.merge(t_A_fts, t_B_fts, how='inner', on='year', suffixes=('_1','_2'))
 teams_combined = pd.merge(pd.merge(kag_seeds[kag_seeds.season==season].sort(columns='team'),kag_teams,left_on='team',right_on='id',how='left'),teams[teams.year==year],left_on='name',right_on='name',how='left',suffixes=('_1', '_2'))
 results = pd.merge(teams_df, wt, on=['id_1','id_2'], how='left')
+features_2 = make_features(games_all, teams_all, 'team2', 'team1', 0)
+features_1 = make_features(games_all, teams_all, 'team1', 'team2', 1)
+features_total = features_total[cols]
+fs = make_features_matchup(teams_all, 'Air Force', 'Charleston Southern', 2010)
+teams_mod = modify_teams(teams_all, mapper)
+tournament, t_teams, results = create_tournament(teams_mod, kag_teams, kag_seeds, kag_results, 2013, 'R')

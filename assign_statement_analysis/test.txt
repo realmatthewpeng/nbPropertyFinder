@@ -1,17 +1,26 @@
-Total number of lines found: 4
+Total number of lines found: 24
 
-read = pd.read_csv("../data/prices.csv")
-df = pd.DataFrame(data, columns=['Name', 'Age', 'ID'])
-new_data = df.copy()
-X_all = new_data.drop(column_to_study, axis=1)
-
-Incorrect Lines:
-
-read = pd.read_csv("../data/prices.csv")
-df = pd.DataFrame(data, columns=['Name', 'Age', 'ID'])
-new_data = df.copy()
-X_all = new_data.drop(column_to_study, axis=1)
-
-Precision = 0.0
-Recall = 0
-
+data = pandas.read_csv(data_path)
+describe_final = describe_transposed.reset_index()
+describe = data.describe(include = "all")
+describe_transposed = describe.T
+dtypes = data.dtypes
+dtypes_dataframe = pandas.DataFrame(dtypes, columns = ["data_type"])
+dtypes_final = dtypes_dataframe.reset_index()
+filled_count_series = data.notnull().sum().astype(int)
+null_count_series = data.isnull().sum().astype(int)
+percent_null =  null_count_series / totalcount
+percent_filled = filled_count_series / totalcount
+filled_count_series = filled_count_series.reset_index().rename(columns = {0:"non_null_counts"})
+null_count_series = null_count_series.reset_index().rename(columns = {0:"null_counts"})
+percent_filled = percent_filled.reset_index().rename(columns = {0:"non_null_percent"})
+percent_null = percent_null.reset_index().rename(columns = {0:"null_percent"})
+null_info_dataframe = reduce(lambda left,right: pandas.merge(left,right,on='index'), [percent_null,percent_filled,filled_count_series,null_count_series])
+merged = reduce(lambda left, right: pandas.merge(left, right, on='index', how="left"),[null_info_dataframe, dtypes_final, describe_final])
+merged["row_count"] = totalcount
+merged["data_type"] = merged["data_type"].astype(str)
+merged[column] = merged[column].astype(float).round(rounded_places)
+data_no_nulls = data.dropna(how = "any", axis = 0)
+data_no_nulls = data
+data_no_nulls[column] = data_no_nulls[column].astype(str)
+correlation_dataframe = data_no_nulls.corr()
