@@ -20,10 +20,10 @@ class Visitor(ast.NodeVisitor):
         self.savedLines = set()
 
     def visit(self, node: ast.AST):
-        global all_assigns
+        global notebook_assigns
         if type(node) == ast.Assign:
             self.saveNode(node, "Assign", ast.unparse(node.targets[0]))
-            all_assigns += 1
+            notebook_assigns += 1
             # print(ast.unparse(node.targets[0]))
             # self.visit_Assign_ValueSubscript(node)
             # self.visit_Assign_NodeTargets(node)
@@ -69,6 +69,7 @@ corpus_total_expected = 0
 corpus_total_correct = 0
 corpus_total_found = 0
 all_assigns = 0
+notebook_assigns = 0
 all_data = []
 
 def main():
@@ -99,7 +100,7 @@ def main():
             
         print("Precision = " + str(precision))
         print("Recall = " + str(recall))
-        print(f"{corpus_total_correct} out of {all_assigns} assignment statements are DataFrame related.")
+        print(f"Found {corpus_total_correct} out of {all_assigns} assignment statements to be DataFrame related.")
 
         # with open("all_data.txt", "w") as f:
         #     for x in range(len(all_data)):
@@ -140,10 +141,17 @@ def processNotebook(nb, file: str, link: str):
 
         cell_count += 1
 
+    global all_assigns
+    global notebook_assigns
+
     if (not imported_pd):
+        notebook_assigns = 0
         printResults({}, {}, file, {}, False)
         return
-    
+
+    all_assigns += notebook_assigns
+    notebook_assigns = 0
+
     typeinfer.clearFile()
     
     for id, source in cell_dict.items():
@@ -209,6 +217,11 @@ def printResults(cell_dict: dict, property_dict: dict, file: str, types: dict, h
                         continue
                     if "DataFrame" in inferred_type or "Series" in inferred_type:
                         should_continue = True
+                    # elif "list" in inferred_type or "dict" in inferred_type or "Literal" in inferred_type or "float" in inferred_type:
+                    #     should_continue = False
+                    # elif "Any" != inferred_type and "Unknown" != inferred_type:
+                    #     print(inferred_type, file=outfile)
+                    #     should_continue = True
 
                 if (not should_continue):
                     continue

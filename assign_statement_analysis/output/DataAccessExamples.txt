@@ -3,30 +3,42 @@ Total number of lines found: 21
 teams_all = pd.DataFrame(teams, columns=cols)
 games_all = pd.DataFrame(da.get_games_year('2010'))
 games = pd.DataFrame(da.get_games_matchup('UCLA', 'Washington'))
-features_total = pd.concat([features_1, features_2])
 fts = fts[(fts.name_1.notnull()) & (fts.name_2.notnull())]
-features_total = features_total[cols]
-fts = pd.merge(pd.merge(games,teams,left_on=(team_a, 'year'),right_on=('name', 'year'),how='left'),teams,left_on=(team_b, 'year'),right_on=('name', 'year'),how='left',suffixes=('_1','_2'))
-fts['value'] = value
-features_2 = make_features(games_all, teams_all, 'team2', 'team1', 0)
 features_1 = make_features(games_all, teams_all, 'team1', 'team2', 1)
-fts = pd.merge(t_A_fts, t_B_fts, how='inner', on='year', suffixes=('_1','_2'))
+fts = pd.merge(pd.merge(games,teams,left_on=(team_a, 'year'),right_on=('name', 'year'),how='left'),teams,left_on=(team_b, 'year'),right_on=('name', 'year'),how='left',suffixes=('_1','_2'))
+features_total = pd.concat([features_1, features_2])
+features_2 = make_features(games_all, teams_all, 'team2', 'team1', 0)
+fts['value'] = value
+features_total = features_total[cols]
 fs = make_features_matchup(teams_all, 'Air Force', 'Charleston Southern', 2010)
+fts = pd.merge(t_A_fts, t_B_fts, how='inner', on='year', suffixes=('_1','_2'))
 kag_teams = pd.read_csv('data_files/teams.csv')
-kag_seeds = pd.read_csv('data_files/tourney_seeds.csv')
 kag_results = pd.read_csv('data_files/tourney_results.csv')
-teams_df = pd.DataFrame(teams, columns=['t_1','id_1','t_2','id_2'])
+kag_seeds = pd.read_csv('data_files/tourney_seeds.csv')
 results = pd.merge(teams_df, wt, on=['id_1','id_2'], how='left')
 teams_combined = pd.merge(pd.merge(kag_seeds[kag_seeds.season==season].sort(columns='team'),kag_teams,left_on='team',right_on='id',how='left'),teams[teams.year==year],left_on='name',right_on='name',how='left',suffixes=('_1', '_2'))
+teams_df = pd.DataFrame(teams, columns=['t_1','id_1','t_2','id_2'])
 wt = pd.DataFrame([orderer(t) for t in wt.values], columns=['id_1','id_2','res'])
-tournament, t_teams, results = create_tournament(teams_mod, kag_teams, kag_seeds, kag_results, 2013, 'R')
 teams_mod = modify_teams(teams_all, mapper)
+tournament, t_teams, results = create_tournament(teams_mod, kag_teams, kag_seeds, kag_results, 2013, 'R')
 
 Incorrect Lines:
 
 
 Precision = 1.0
-Recall = 0.9130434782608695
+Recall = 0.6
 
+teams = da.get_teams()
 t_B_fts = teams[(teams.name==team_b) & (teams.year == year)]
 t_A_fts = teams[(teams.name==team_a) & (teams.year == year)]
+t[1] = temp
+t[0] = t[1]
+wt['result'] = [checker(t) for t in wt.values]
+wt = kag_results.ix[kag_results.season==season, ['wteam', 'lteam']]
+teams.ix[teams.name==team[0],'name'] = team[1]
+temp = t[0]
+probs = results.ix[results.res.notnull(), ['p1','p2']].values.tolist()
+res = results[results.res.notnull()]
+results['p1'],results['p2'] = np.array(probs)[:,0], np.array(probs)[:,1]
+ll = metrics.log_loss(res.res.tolist(), probs)
+ll = log_loss(results, probs)

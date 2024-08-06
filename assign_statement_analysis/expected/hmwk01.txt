@@ -1,19 +1,38 @@
+dfTiDirt = pd.read_csv('titanic_data.csv')
 dfTitanic = dfTiDirt.dropna(subset=["Survived", "Pclass", "Age", "Sex"]).copy()
-dfTiFeSurvived = dfTitanic.loc[(dfTitanic["Sex"] == "female") & (dfTitanic["Survived"] == 1)]
+firstClassRate = (dfTitanic.loc[(dfTiDirt["Survived"] == 1) & (dfTitanic["Pclass"] == 1), ["Survived"]].count() / dfTitanic.loc[dfTitanic["Pclass"] == 1, ["Survived"]].count())
+secondClassRate = (dfTitanic.loc[(dfTiDirt["Survived"] == 1) & (dfTitanic["Pclass"] == 2), ["Survived"]].count() / dfTitanic.loc[dfTitanic["Pclass"] == 2, ["Survived"]].count())
+thirdClassRate = (dfTitanic.loc[(dfTiDirt["Survived"] == 1) & (dfTitanic["Pclass"] == 3), ["Survived"]].count() / dfTitanic.loc[dfTitanic["Pclass"] == 3, ["Survived"]].count())
+firstClassFRate = (dfTitanic.loc[(dfTitanic["Survived"] == 1) & (dfTitanic["Pclass"] == 1) & (dfTitanic["Sex"] == "female"), ["Survived"]].count() / dfTitanic.loc[(dfTitanic["Pclass"] == 1) & (dfTitanic["Sex"] == "female"), ["Survived"]].count())
+thirdClassFRate = (dfTitanic.loc[(dfTitanic["Survived"] == 1) & (dfTitanic["Pclass"] == 3) & (dfTitanic["Sex"] == "female"), ["Survived"]].count() / dfTitanic.loc[(dfTitanic["Pclass"] == 3) & (dfTitanic["Sex"] == "female"), ["Survived"]].count())
+secondClassMRate = (dfTitanic.loc[(dfTitanic["Survived"] == 1) & (dfTitanic["Pclass"] == 2) & (dfTitanic["Sex"] == "male"), ["Survived"]].count() / dfTitanic.loc[(dfTitanic["Pclass"] == 2) & (dfTitanic["Sex"] == "male"), ["Survived"]].count())
+secondClassFRate = (dfTitanic.loc[(dfTitanic["Survived"] == 1) & (dfTitanic["Pclass"] == 2) & (dfTitanic["Sex"] == "female"), ["Survived"]].count() / dfTitanic.loc[(dfTitanic["Pclass"] == 2) & (dfTitanic["Sex"] == "female"), ["Survived"]].count())
+firstClassMRate = (dfTitanic.loc[(dfTitanic["Survived"] == 1) & (dfTitanic["Pclass"] == 1) & (dfTitanic["Sex"] == "male"), ["Survived"]].count() / dfTitanic.loc[(dfTitanic["Pclass"] == 1) & (dfTitanic["Sex"] == "male"), ["Survived"]].count())
+thirdClassMRate = (dfTitanic.loc[(dfTitanic["Survived"] == 1) & (dfTitanic["Pclass"] == 3) & (dfTitanic["Sex"] == "male"), ["Survived"]].count() / dfTitanic.loc[(dfTitanic["Pclass"] == 3) & (dfTitanic["Sex"] == "male"), ["Survived"]].count())
 dfTiFeDied = dfTitanic.loc[(dfTitanic["Sex"] == "female") & (dfTitanic["Survived"] == 0)]
+dfTiFeSurvived = dfTitanic.loc[(dfTitanic["Sex"] == "female") & (dfTitanic["Survived"] == 1)]
+dfBabyDirt = pd.read_csv('http://www.stat.berkeley.edu/~statlabs/data/babies.data', delim_whitespace=True)
 dfBabies = dfBabyDirt[(dfBabyDirt["bwt"] != 999) & (dfBabyDirt["gestation"] != 999) & (dfBabyDirt["parity"] != 9) & (dfBabyDirt["height"] != 99) & (dfBabyDirt["weight"] != 999) & (dfBabyDirt["smoke"] != 9)]
-dfClean = df.dropna(subset=["STATE", "D", "GENERAL PERCENT"]).copy()
-row["GENERAL PERCENT"] = np.float(row["GENERAL PERCENT"].strip("%").replace(",", "."))
-dfClean = dfClean[["STATE", "D", "CANDIDATE NAME", "GENERAL PERCENT"]]
-district = dfNew.loc[(dfNew["STATE"] == row["STATE"]) & (dfNew["D"] == row["D"])]
-dfRow = row[["STATE", "D"]]
-dfRow["WINNER"] = row["CANDIDATE NAME"]
-dfRow["MARGIN"] = 100
-dfRow["WINPER"] = row["GENERAL PERCENT"]
-dfNew.loc[district.index[0], 'WINPER'] = row["GENERAL PERCENT"]
-dfNew.loc[district.index[0], 'MARGIN'] = WinPer - row["GENERAL PERCENT"]
-dfNew = dfNew.sort_values(by='MARGIN')
-row["CANDIDATE NAME"] = "UNKNOWN"
+medianNSmoke = dfBabies.loc[dfBabies["smoke"]==0]["weight"].median()
+medianSmoke = dfBabies.loc[dfBabies["smoke"]==1]["weight"].median()
+meanSmoke = dfBabies.loc[dfBabies["smoke"]==1]["weight"].mean()
+meanNSmoke = dfBabies.loc[dfBabies["smoke"]==0]["weight"].mean()
+bp = dfBabies.boxplot(column="weight", by="smoke", ax=ax, return_type="dict")
 row["CANDIDATE NAME"] = row["CANDIDATE NAME (Last)"]
+dfClean = dfClean[["STATE", "D", "CANDIDATE NAME", "GENERAL PERCENT"]]
+df = pd.read_csv("2014_election_results.csv")
+row["GENERAL PERCENT"] = np.float(row["GENERAL PERCENT"].strip("%").replace(",", "."))
+dfClean = df.dropna(subset=["STATE", "D", "GENERAL PERCENT"]).copy()
+row["CANDIDATE NAME"] = "UNKNOWN"
 row = dfClean.iloc[i]
+dfNew = pd.DataFrame(columns = ["STATE", "D", "WINNER", "MARGIN", "WINPER"])
+dfRow["MARGIN"] = 100
+dfNew.loc[district.index[0], 'WINPER'] = row["GENERAL PERCENT"]
+dfRow = row[["STATE", "D"]]
+dfNew = dfNew.append(dfRow)
+dfNew = dfNew.sort_values(by='MARGIN')
+dfRow["WINPER"] = row["GENERAL PERCENT"]
+dfRow["WINNER"] = row["CANDIDATE NAME"]
+district = dfNew.loc[(dfNew["STATE"] == row["STATE"]) & (dfNew["D"] == row["D"])]
 row = dfClean.iloc[i]
+dfNew.loc[district.index[0], 'MARGIN'] = WinPer - row["GENERAL PERCENT"]

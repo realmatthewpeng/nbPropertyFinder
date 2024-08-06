@@ -1,26 +1,32 @@
+data = pandas.read_csv(data_path)
 describe = data.describe(include = "all")
+describe_transposed = describe.T
 describe_final = describe_transposed.reset_index()
 dtypes = data.dtypes
+dtypes_dataframe = pandas.DataFrame(dtypes, columns = ["data_type"])
 dtypes_final = dtypes_dataframe.reset_index()
-filled_count_series = data.notnull().sum().astype(int)
-null_count_series = data.isnull().sum().astype(int)
-percent_null = percent_null.reset_index().rename(columns = {0:"null_percent"})
 percent_filled = percent_filled.reset_index().rename(columns = {0:"non_null_percent"})
+percent_null = percent_null.reset_index().rename(columns = {0:"null_percent"})
 filled_count_series = filled_count_series.reset_index().rename(columns = {0:"non_null_counts"})
 null_count_series = null_count_series.reset_index().rename(columns = {0:"null_counts"})
 null_info_dataframe = reduce(lambda left,right: pandas.merge(left,right,on='index'), [percent_null,percent_filled,filled_count_series,null_count_series])
 merged = reduce(lambda left, right: pandas.merge(left, right, on='index', how="left"),[null_info_dataframe, dtypes_final, describe_final])
 merged["row_count"] = totalcount
+merged.loc[index, "unique"] = number_of_uniques
+number_of_uniques = data[feature_name].nunique()
 merged["data_type"] = merged["data_type"].astype(str)
 merged[column] = merged[column].astype(float).round(rounded_places)
-data_no_nulls = data.dropna(how = "any", axis = 0)
+profile_dict[column] = []
+value = dictionary[attribute]
+sub_dictionary = profile_dict[key]
+attribute = keys[0]
 data_no_nulls[column] = data_no_nulls[column].fillna(data_no_nulls[column].mean())
-dtype = data_no_nulls[column].dtype
-data_no_nulls[column] = data_no_nulls[column].astype(str)
-data = pandas.read_csv(data_path)
-describe_transposed = describe.T
-dtypes_dataframe = pandas.DataFrame(dtypes, columns = ["data_type"])
+data_no_nulls = data.dropna(how = "any", axis = 0)
 data_no_nulls = data
+data_no_nulls[column] = data_no_nulls[column].astype(str)
+mask[numpy.triu_indices_from(mask)] = True
 correlation_dataframe = data_no_nulls.corr()
-percent_null =  null_count_series / totalcount
+filled_count_series = data.notnull().sum().astype(int)
+null_count_series = data.isnull().sum().astype(int)
 percent_filled = filled_count_series / totalcount
+percent_null =  null_count_series / totalcount

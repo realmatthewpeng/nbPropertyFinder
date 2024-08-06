@@ -21,19 +21,19 @@
 19,"data[""Pielou""] = """""
 20,"modeling_df = pd.read_csv('data/weather_with_avg_hourly_flight_delay.csv', index_col=False)"
 21,boston = pd.read_csv('marathon/Boston_Marathon_2015_to_2017.csv')
-22,boston_mf=pd.get_dummies(boston['M/F'])
-23,"boston_join=pd.concat([boston, boston_mf], axis=1)"
-24,boston_join['20K Duration'] = boston_join['20K'].apply(time_convert)
-25,boston_join['40K Duration'] = boston_join['40K'].apply(time_convert)
-26,boston_join['15K Duration'] = boston_join['15K'].apply(time_convert)
-27,boston_join['25K Duration'] = boston_join['25K'].apply(time_convert)
-28,boston_join['30K Duration'] = boston_join['30K'].apply(time_convert)
-29,boston_join['5K Duration'] = boston_join['5K'].apply(time_convert)
+22,"boston_join=pd.concat([boston, boston_mf], axis=1)"
+23,boston_mf=pd.get_dummies(boston['M/F'])
+24,"boston_clean=boston_join[['Bib','Age','5K Duration','10K Duration','15K Duration','20K Duration', 'Half Duration', '25K Duration','30K Duration','35K Duration','40K Duration','Official Time Duration', 'Temp (F)', 'F', 'M']]"
+25,boston_join['20K Duration'] = boston_join['20K'].apply(time_convert)
+26,boston_join['40K Duration'] = boston_join['40K'].apply(time_convert)
+27,boston_join['10K Duration'] = boston_join['10K'].apply(time_convert)
+28,boston_join['25K Duration'] = boston_join['25K'].apply(time_convert)
+29,boston_join['Half Duration'] = boston_join['Half'].apply(time_convert)
 30,boston_join['35K Duration'] = boston_join['35K'].apply(time_convert)
-31,"boston_clean=boston_join[['Bib','Age','5K Duration','10K Duration','15K Duration','20K Duration', 'Half Duration', '25K Duration','30K Duration','35K Duration','40K Duration','Official Time Duration', 'Temp (F)', 'F', 'M']]"
+31,boston_join['15K Duration'] = boston_join['15K'].apply(time_convert)
 32,boston_join['Official Time Duration'] = boston_join['Official Time'].apply(time_convert)
-33,boston_join['10K Duration'] = boston_join['10K'].apply(time_convert)
-34,boston_join['Half Duration'] = boston_join['Half'].apply(time_convert)
+33,boston_join['30K Duration'] = boston_join['30K'].apply(time_convert)
+34,boston_join['5K Duration'] = boston_join['5K'].apply(time_convert)
 35,"X_5K = boston_clean[['Bib','Age','Official Time Duration', 'F', 'M', 'Temp (F)']]"
 36,"df2=pd.DataFrame({'Bib':[25000], 'Age':[42],'Official Time Duration':[22175], 'F':[0], 'M':[1],'Temp (F)':[65]})"
 37,"X_nobib = boston_clean[['Age','Official Time Duration', 'F', 'M', 'Temp (F)']]"
@@ -50,9 +50,9 @@
 48,boston_females=boston_clean.loc[boston_clean['F'] == 1]
 49,"X_F40K = boston_females[['Bib', 'Age','Official Time Duration', 'F', 'M', 'Temp (F)', '5K Duration', '10K Duration', '15K Duration', '20K Duration','Half Duration', '25K Duration', '30K Duration', '35K Duration']]"
 50,data = pandas.read_csv(data_path)
-51,"describe = data.describe(include = ""all"")"
+51,describe_final = describe_transposed.reset_index()
 52,describe_transposed = describe.T
-53,describe_final = describe_transposed.reset_index()
+53,"describe = data.describe(include = ""all"")"
 54,dtypes = data.dtypes
 55,"dtypes_dataframe = pandas.DataFrame(dtypes, columns = [""data_type""])"
 56,dtypes_final = dtypes_dataframe.reset_index()
@@ -60,10 +60,10 @@
 58,filled_count_series = data.notnull().sum().astype(int)
 59,percent_filled = filled_count_series / totalcount
 60,percent_null =  null_count_series / totalcount
-61,"percent_filled = percent_filled.reset_index().rename(columns = {0:""non_null_percent""})"
-62,"filled_count_series = filled_count_series.reset_index().rename(columns = {0:""non_null_counts""})"
-63,"percent_null = percent_null.reset_index().rename(columns = {0:""null_percent""})"
-64,"null_count_series = null_count_series.reset_index().rename(columns = {0:""null_counts""})"
+61,"null_count_series = null_count_series.reset_index().rename(columns = {0:""null_counts""})"
+62,"percent_filled = percent_filled.reset_index().rename(columns = {0:""non_null_percent""})"
+63,"filled_count_series = filled_count_series.reset_index().rename(columns = {0:""non_null_counts""})"
+64,"percent_null = percent_null.reset_index().rename(columns = {0:""null_percent""})"
 65,"null_info_dataframe = reduce(lambda left,right: pandas.merge(left,right,on='index'), [percent_null,percent_filled,filled_count_series,null_count_series])"
 66,"merged = reduce(lambda left, right: pandas.merge(left, right, on='index', how=""left""),[null_info_dataframe, dtypes_final, describe_final])"
 67,"merged[""row_count""] = totalcount"
@@ -74,43 +74,43 @@
 72,data_no_nulls[column] = data_no_nulls[column].astype(str)
 73,correlation_dataframe = data_no_nulls.corr()
 74,region_stats = pd.read_csv('cost_earnings_stat_final.csv')
-75,region_mean['earnings_cost_ratio'] = region_mean['earnings6years']/region_mean['tuition_in_state']
-76,grouped_region_stats = region_stats.groupby(['region']).mean()
+75,grouped_region_stats = region_stats.groupby(['region']).mean()
+76,"region_mean = grouped_region_stats.drop(columns=[""school_id""])"
 77,"mean_df_clean = region_mean.drop([0,9])"
-78,"region_mean = grouped_region_stats.drop(columns=[""school_id""])"
-79,"y2 = mean_df_clean[""earnings6years""]"
-80,"y1 = mean_df_clean[""tuition_in_state""]"
+78,region_mean['earnings_cost_ratio'] = region_mean['earnings6years']/region_mean['tuition_in_state']
+79,"y1 = mean_df_clean[""tuition_in_state""]"
+80,"y2 = mean_df_clean[""earnings6years""]"
 81,"y_axis = mean_df_clean[""earnings_cost_ratio""]"
 82,tuition_list = region_stats['tuition_in_state']
-83,region_stats['weighted_growth_to_tuition'] = region_stats['earnings_cost_ratio'] * region_stats['earnings_growth_y6_y10']
-84,"region_stats[""tuition_cost_tier""] = pd.cut(region_stats[""tuition_in_state""], bins, labels=bin_names)"
-85,region_stats['earnings_growth_y6_y10'] = earnings10/earnings6
-86,earnings10 = region_stats['earnings10years']
-87,region_stats['earnings_cost_ratio'] = earnings6/cost
-88,cost = region_stats['tuition_in_state']
-89,earnings6 = region_stats['earnings6years']
+83,earnings6 = region_stats['earnings6years']
+84,earnings10 = region_stats['earnings10years']
+85,region_stats['earnings_cost_ratio'] = earnings6/cost
+86,region_stats['earnings_growth_y6_y10'] = earnings10/earnings6
+87,"region_stats[""tuition_cost_tier""] = pd.cut(region_stats[""tuition_in_state""], bins, labels=bin_names)"
+88,region_stats['weighted_growth_to_tuition'] = region_stats['earnings_cost_ratio'] * region_stats['earnings_growth_y6_y10']
+89,cost = region_stats['tuition_in_state']
 90,"clean_info = region_stats.drop(columns=['school_id', 'tuition_out_state'])"
-91,"df10_18k = clean_info.loc[clean_info[""tuition_cost_tier""] == '10k_18k']"
-92,df0_10k_edit0 = df0_10k[df0_10k.region != 0]
-93,"df18_32 = clean_info.loc[clean_info[""tuition_cost_tier""] == '18k_32k']"
-94,df10_18k_edit = df10_18k[df10_18k.region != 9]
-95,df0_10k_edit9 = df0_10k_edit0[df0_10k_edit0.region != 9]
-96,"df32 = clean_info.loc[clean_info[""tuition_cost_tier""] == 'greater_32k']"
-97,"df0_10k = clean_info.loc[clean_info[""tuition_cost_tier""] == 'less_10k']"
-98,df18_32_grouped = df18_32.groupby(['region']).mean()
+91,df0_10k_edit9 = df0_10k_edit0[df0_10k_edit0.region != 9]
+92,"df0_10k = clean_info.loc[clean_info[""tuition_cost_tier""] == 'less_10k']"
+93,"df10_18k = clean_info.loc[clean_info[""tuition_cost_tier""] == '10k_18k']"
+94,"df18_32 = clean_info.loc[clean_info[""tuition_cost_tier""] == '18k_32k']"
+95,"df32 = clean_info.loc[clean_info[""tuition_cost_tier""] == 'greater_32k']"
+96,df10_18k_edit = df10_18k[df10_18k.region != 9]
+97,df0_10k_edit0 = df0_10k[df0_10k.region != 0]
+98,df10_18k_grouped = df10_18k_edit.groupby(['region']).mean()
 99,df32_grouped = df32.groupby(['region']).mean()
-100,df0_10k_grouped = df0_10k_edit9.groupby(['region']).mean()
-101,df10_18k_grouped = df10_18k_edit.groupby(['region']).mean()
+100,df18_32_grouped = df18_32.groupby(['region']).mean()
+101,df0_10k_grouped = df0_10k_edit9.groupby(['region']).mean()
 102,"table10k = df0_10k_grouped.drop(['tuition_in_state','earnings6years','earnings10years','earnings_cost_ratio','earnings_growth_y6_y10'], axis = 1)"
-103,"y_axis3 = df18_32_grouped[""earnings_cost_ratio""]"
-104,"y_axis4 = df32_grouped[""earnings_cost_ratio""]"
-105,"y_axis2 = df10_18k_grouped[""earnings_cost_ratio""]"
-106,"y_axis1 = df0_10k_grouped[""earnings_cost_ratio""]"
+103,"y_axis4 = df32_grouped[""earnings_cost_ratio""]"
+104,"y_axis1 = df0_10k_grouped[""earnings_cost_ratio""]"
+105,"y_axis3 = df18_32_grouped[""earnings_cost_ratio""]"
+106,"y_axis2 = df10_18k_grouped[""earnings_cost_ratio""]"
 107,"data = pd.read_csv(""../data/prices.csv"")"
 108,"aapl = data[data.symbol == ""AAPL""]"
 109,"dates = aapl[[""date""]]"
-110,"aapl_close = aapl[[""close""]]"
-111,aapl_change = aapl_close.apply(lambda x: np.log(x) - np.log(x.shift(1))) # shift moves dates back by 1.
+110,aapl_change = aapl_close.apply(lambda x: np.log(x) - np.log(x.shift(1))) # shift moves dates back by 1.
+111,"aapl_close = aapl[[""close""]]"
 112,"googl = data[data.symbol == ""GOOGL""]"
 113,"old_df = pd.read_csv('data/School.csv', parse_dates=[1, 2, 3, 7, 8])"
 114,"f18_df = pd.read_csv('data/asana-umass-f18.csv', parse_dates=[1, 2, 3, 8, 9])"
@@ -118,100 +118,100 @@
 116,all_df['Created At DOW'] = all_df['Created At'].dt.dayofweek
 117,all_df['Duration'] = (all_df['Completed At'] - all_df['Created At'])
 118,all_df['Overdue'] = all_df['Completed At'] - all_df['Due Date']
-119,"exam_counts = pd.DataFrame.from_dict({ 'date': list(exam_counts.keys()), 'num': list(exam_counts.values()) })"
-120,exam_counts['date']  = pd.to_datetime(exam_counts['date'])
+119,exam_counts['date']  = pd.to_datetime(exam_counts['date'])
+120,"exam_counts = pd.DataFrame.from_dict({ 'date': list(exam_counts.keys()), 'num': list(exam_counts.values()) })"
 121,county_data = pd.read_csv(file_to_load)
 122,df_county_data = pd.DataFrame(county_data)
-123,state=df_county_data['State']
-124,"county = df_county_data[""County Name""]"
-125,"grad_rate = df_county_data[""Graduation Rate""]"
-126,"pov_rate = df_county_data[""Poverty Rate""]"
-127,"county = df_county_data[""County Name""]"
+123,"county = df_county_data[""County Name""]"
+124,"grad_rate = df_county_data[""Graduation Rate""]"
+125,state=df_county_data['State']
+126,"county = df_county_data[""County Name""]"
+127,"pov_rate = df_county_data[""Poverty Rate""]"
 128,"pov_rate = df_county_data[""Poverty Rate""]"
 129,"grad_rate = df_county_data[""Graduation Rate""]"
-130,"county = df_county_data[""County Name""]"
-131,"pov_rate = df_county_data[""Poverty Rate""]"
-132,"grad_rate = df_county_data[""Graduation Rate""]"
-133,"y = df_county_data[""Graduation Rate""]"
-134,"x = df_county_data[""Poverty Rate""]"
-135,"house_size = df_county_data[""Household Size""]"
-136,"county = df_county_data[""County Name""]"
+130,"grad_rate = df_county_data[""Graduation Rate""]"
+131,"county = df_county_data[""County Name""]"
+132,"pov_rate = df_county_data[""Poverty Rate""]"
+133,"x = df_county_data[""Poverty Rate""]"
+134,"y = df_county_data[""Graduation Rate""]"
+135,"county = df_county_data[""County Name""]"
+136,"house_size = df_county_data[""Household Size""]"
 137,"house_size = df_county_data[""Household Size""]"
 138,"grad_rate = df_county_data[""Graduation Rate""]"
-139,"county = df_county_data[""County Name""]"
-140,"grad_rate = df_county_data[""Graduation Rate""]"
+139,"grad_rate = df_county_data[""Graduation Rate""]"
+140,"county = df_county_data[""County Name""]"
 141,"pov_rate = df_county_data[""Household Size""]"
-142,"y = df_county_data[""Graduation Rate""]"
-143,"x = df_county_data[""Household Size""]"
+142,"x = df_county_data[""Household Size""]"
+143,"y = df_county_data[""Graduation Rate""]"
 144,"house_size = df_county_data[""Unemployment Rate""]"
 145,"county = df_county_data[""County Name""]"
 146,"house_size = df_county_data[""Unemployment Rate""]"
 147,"grad_rate = df_county_data[""Graduation Rate""]"
-148,"county = df_county_data[""County Name""]"
-149,"pov_rate = df_county_data[""Unemployment Rate""]"
-150,"grad_rate = df_county_data[""Graduation Rate""]"
-151,"y = df_county_data[""Graduation Rate""]"
-152,"x = df_county_data[""Unemployment Rate""]"
+148,"grad_rate = df_county_data[""Graduation Rate""]"
+149,"county = df_county_data[""County Name""]"
+150,"pov_rate = df_county_data[""Unemployment Rate""]"
+151,"x = df_county_data[""Unemployment Rate""]"
+152,"y = df_county_data[""Graduation Rate""]"
 153,"house_size = df_county_data[""Median Income""]"
 154,"county = df_county_data[""County Name""]"
-155,"grad_rate = df_county_data[""Graduation Rate""]"
-156,"house_size = df_county_data[""Median Income""]"
-157,"county = df_county_data[""County Name""]"
-158,"pov_rate = df_county_data[""Median Income""]"
-159,"grad_rate = df_county_data[""Graduation Rate""]"
-160,"y = df_county_data[""Graduation Rate""]"
-161,"x = df_county_data[""Median Income""]"
+155,"house_size = df_county_data[""Median Income""]"
+156,"grad_rate = df_county_data[""Graduation Rate""]"
+157,"pov_rate = df_county_data[""Median Income""]"
+158,"grad_rate = df_county_data[""Graduation Rate""]"
+159,"county = df_county_data[""County Name""]"
+160,"x = df_county_data[""Median Income""]"
+161,"y = df_county_data[""Graduation Rate""]"
 162,"house_size = df_county_data[""Speak a language other than English""]"
 163,"county = df_county_data[""County Name""]"
 164,"house_size = df_county_data[""Speak a language other than English""]"
 165,"grad_rate = df_county_data[""Graduation Rate""]"
-166,"county = df_county_data[""County Name""]"
-167,"pov_rate = df_county_data[""Speak a language other than English""]"
-168,"grad_rate = df_county_data[""Graduation Rate""]"
+166,"grad_rate = df_county_data[""Graduation Rate""]"
+167,"county = df_county_data[""County Name""]"
+168,"pov_rate = df_county_data[""Speak a language other than English""]"
 169,"y = df_county_data[""Graduation Rate""]"
 170,"x = df_county_data[""Speak a language other than English""]"
-171,"df_valid = shuffled.iloc[trainsize:(trainsize+validsize), :]"
-172,"df_train = shuffled.iloc[:trainsize, :]"
-173,"df_train = pd.read_csv('data/taxi-train.csv', header=None, names=columns)"
-174,"df_valid = pd.read_csv('data/taxi-valid.csv', header=None, names=columns)"
-175,"df_train = pd.read_csv('./data/taxi-train.csv', header = None, names = CSV_COLUMNS)"
-176,"df_valid = pd.read_csv('./data/taxi-valid.csv', header = None, names = CSV_COLUMNS)"
+171,"df_train = shuffled.iloc[:trainsize, :]"
+172,"df_valid = shuffled.iloc[trainsize:(trainsize+validsize), :]"
+173,"df_valid = pd.read_csv('data/taxi-valid.csv', header=None, names=columns)"
+174,"df_train = pd.read_csv('data/taxi-train.csv', header=None, names=columns)"
+175,"df_valid = pd.read_csv('./data/taxi-valid.csv', header = None, names = CSV_COLUMNS)"
+176,"df_train = pd.read_csv('./data/taxi-train.csv', header = None, names = CSV_COLUMNS)"
 177,"df = pd.DataFrame({'Lab' : pd.Series(['1a', '2-3', '4a', '4b', '4c']),'Method' : pd.Series(['Heuristic Benchmark', 'tf.learn', '+Feature Eng.', '+ Hyperparam', '+ 2m rows']),'RMSE': pd.Series([8.026, 9.4, 8.3, 5.0, 3.03]) })"
 178,"teams_all = pd.DataFrame(teams, columns=cols)"
 179,games_all = pd.DataFrame(da.get_games_year('2010'))
 180,"games = pd.DataFrame(da.get_games_matchup('UCLA', 'Washington'))"
-181,"features_total = pd.concat([features_1, features_2])"
-182,fts = fts[(fts.name_1.notnull()) & (fts.name_2.notnull())]
-183,features_total = features_total[cols]
-184,"fts = pd.merge(pd.merge(games,teams,left_on=(team_a, 'year'),right_on=('name', 'year'),how='left'),teams,left_on=(team_b, 'year'),right_on=('name', 'year'),how='left',suffixes=('_1','_2'))"
-185,fts['value'] = value
-186,"features_2 = make_features(games_all, teams_all, 'team2', 'team1', 0)"
-187,"features_1 = make_features(games_all, teams_all, 'team1', 'team2', 1)"
-188,"fts = pd.merge(t_A_fts, t_B_fts, how='inner', on='year', suffixes=('_1','_2'))"
-189,"fs = make_features_matchup(teams_all, 'Air Force', 'Charleston Southern', 2010)"
+181,fts = fts[(fts.name_1.notnull()) & (fts.name_2.notnull())]
+182,"features_1 = make_features(games_all, teams_all, 'team1', 'team2', 1)"
+183,"fts = pd.merge(pd.merge(games,teams,left_on=(team_a, 'year'),right_on=('name', 'year'),how='left'),teams,left_on=(team_b, 'year'),right_on=('name', 'year'),how='left',suffixes=('_1','_2'))"
+184,"features_total = pd.concat([features_1, features_2])"
+185,"features_2 = make_features(games_all, teams_all, 'team2', 'team1', 0)"
+186,fts['value'] = value
+187,features_total = features_total[cols]
+188,"fs = make_features_matchup(teams_all, 'Air Force', 'Charleston Southern', 2010)"
+189,"fts = pd.merge(t_A_fts, t_B_fts, how='inner', on='year', suffixes=('_1','_2'))"
 190,kag_teams = pd.read_csv('data_files/teams.csv')
-191,kag_seeds = pd.read_csv('data_files/tourney_seeds.csv')
-192,kag_results = pd.read_csv('data_files/tourney_results.csv')
-193,"teams_df = pd.DataFrame(teams, columns=['t_1','id_1','t_2','id_2'])"
-194,"results = pd.merge(teams_df, wt, on=['id_1','id_2'], how='left')"
-195,"teams_combined = pd.merge(pd.merge(kag_seeds[kag_seeds.season==season].sort(columns='team'),kag_teams,left_on='team',right_on='id',how='left'),teams[teams.year==year],left_on='name',right_on='name',how='left',suffixes=('_1', '_2'))"
+191,kag_results = pd.read_csv('data_files/tourney_results.csv')
+192,kag_seeds = pd.read_csv('data_files/tourney_seeds.csv')
+193,"results = pd.merge(teams_df, wt, on=['id_1','id_2'], how='left')"
+194,"teams_combined = pd.merge(pd.merge(kag_seeds[kag_seeds.season==season].sort(columns='team'),kag_teams,left_on='team',right_on='id',how='left'),teams[teams.year==year],left_on='name',right_on='name',how='left',suffixes=('_1', '_2'))"
+195,"teams_df = pd.DataFrame(teams, columns=['t_1','id_1','t_2','id_2'])"
 196,"wt = pd.DataFrame([orderer(t) for t in wt.values], columns=['id_1','id_2','res'])"
-197,"tournament, t_teams, results = create_tournament(teams_mod, kag_teams, kag_seeds, kag_results, 2013, 'R')"
-198,"teams_mod = modify_teams(teams_all, mapper)"
-199,"df[""DiscountPerc""] = (df[""DiscountDiff""]/df[""Original Price""]) * 100"
+197,"teams_mod = modify_teams(teams_all, mapper)"
+198,"tournament, t_teams, results = create_tournament(teams_mod, kag_teams, kag_seeds, kag_results, 2013, 'R')"
+199,"df[""WeekDay""] = DataFrame([get_datetime(val).weekday() for val in df[""Checkin Date""]])"
 200,"df = pd.read_csv(""hotels_data.csv"")"
-201,"df[""DayDiff""] = DataFrame([get_datetime(val) for val in df[""Checkin Date""]]) - DataFrame([get_datetime(val) for val in df[""Snapshot Date""]])"
-202,"df[""WeekDay""] = DataFrame([get_datetime(val).weekday() for val in df[""Checkin Date""]])"
-203,"df[""DiscountDiff""] = df[""Original Price""] - df[""Discount Price""]"
+201,"df[""DiscountDiff""] = df[""Original Price""] - df[""Discount Price""]"
+202,"df[""DayDiff""] = DataFrame([get_datetime(val) for val in df[""Checkin Date""]]) - DataFrame([get_datetime(val) for val in df[""Snapshot Date""]])"
+203,"df[""DiscountPerc""] = (df[""DiscountDiff""]/df[""Original Price""]) * 100"
 204,"df[""Hotel_Count""] = df.groupby('Hotel Name')['Hotel Name'].transform('count')"
 205,most_common_hotels = descending_hotels[descending_hotels['Hotel Name'].isin(df_hotels)]
 206,"descending_hotels = df.sort_values(by=['Hotel_Count'],ascending=False).reset_index()"
-207,most_checkins = descending_most_common_hotels[descending_most_common_hotels['Checkin Date'].isin(common_checkins_list)]
-208,"descending_most_common_hotels = most_common_hotels.sort_values(by=['Checkin_Count'],ascending=False).reset_index()"
-209,"most_common_hotels[""Checkin_Count""] = most_common_hotels.groupby('Checkin Date')['Checkin Date'].transform('count')"
+207,"descending_most_common_hotels = most_common_hotels.sort_values(by=['Checkin_Count'],ascending=False).reset_index()"
+208,"most_common_hotels[""Checkin_Count""] = most_common_hotels.groupby('Checkin Date')['Checkin Date'].transform('count')"
+209,most_checkins = descending_most_common_hotels[descending_most_common_hotels['Checkin Date'].isin(common_checkins_list)]
 210,"new_df =  DataFrame.from_records(combs,columns=[""Hotel Name"",""Checkin Date"",""Discount Code"",""Discount Price""])"
 211,vector = pd.DataFrame.from_records(rows)
-212,"hotels[""cluster""] = clusters"
-213,"hotels = hotels[[0,""cluster""]]"
-214,"hotels[""Count""] = hotels.groupby(""cluster"")[0].transform(""count"")"
-215,hotels = pd.DataFrame.from_records(vector.values)
+212,"hotels = hotels[[0,""cluster""]]"
+213,"hotels[""Count""] = hotels.groupby(""cluster"")[0].transform(""count"")"
+214,hotels = pd.DataFrame.from_records(vector.values)
+215,"hotels[""cluster""] = clusters"

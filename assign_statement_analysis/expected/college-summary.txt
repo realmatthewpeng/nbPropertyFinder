@@ -1,8 +1,11 @@
+old_df = pd.read_csv('data/School.csv', parse_dates=[1, 2, 3, 7, 8])
+f18_df = pd.read_csv('data/asana-umass-f18.csv', parse_dates=[1, 2, 3, 8, 9])
 all_df = pd.concat([old_df, f18_df], verify_integrity=True, ignore_index=True, sort=True)
 all_df['Created At DOW'] = all_df['Created At'].dt.dayofweek
 all_df['Duration'] = (all_df['Completed At'] - all_df['Created At'])
 all_df['Overdue'] = all_df['Completed At'] - all_df['Due Date']
+exams_cal = Calendar(f.readlines())
+exam_date_str = exam.begin.strftime('%Y-%m-%d')
+exam_counts[exam_date_str] = exam_counts.get(exam_date_str, 0) + 1
 exam_counts['date']  = pd.to_datetime(exam_counts['date'])
-old_df = pd.read_csv('data/School.csv', parse_dates=[1, 2, 3, 7, 8])
-f18_df = pd.read_csv('data/asana-umass-f18.csv', parse_dates=[1, 2, 3, 8, 9])
 exam_counts = pd.DataFrame.from_dict({ 'date': list(exam_counts.keys()), 'num': list(exam_counts.values()) })

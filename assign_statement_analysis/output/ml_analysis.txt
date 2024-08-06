@@ -6,5 +6,16 @@ Incorrect Lines:
 
 
 Precision = 1.0
-Recall = 1.0
+Recall = 0.08333333333333333
 
+train_features, test_features, train_outcome, test_outcome = train_test_split(modeling_df.drop(['DATE', 'HourlySkyConditions', 'REPORT_TYPE', 'join_time', 'actual_weather_delay', 'avg_delay'], axis=1),modeling_df.avg_delay,test_size=0.20)
+knn_grid_score = knn_grid.score(test_features, test_outcome)
+knn_best_params = knn_grid.best_params_
+knn_mae = mean_absolute_error(knn_grid.predict(test_features), test_outcome)
+knn_evs = explained_variance_score(knn_grid.predict(test_features), test_outcome)
+pipe_knn = make_pipeline(MinMaxScaler(), # used to normalize data onto a similar scaleSelectPercentile(), # used to filter out features that add noiseKNeighborsRegressor())
+dt_mae = mean_absolute_error(dt_grid.predict(test_features), test_outcome)
+dt_grid_score = dt_grid.score(test_features, test_outcome)
+dt_evs = explained_variance_score(dt_grid.predict(test_features), test_outcome)
+dt_best_params = dt_grid.best_params_
+pipe_dt = make_pipeline(MinMaxScaler(), # used to normalize data onto a similar scaleSelectPercentile(), # used to filter out features that add noiseDecisionTreeRegressor())
