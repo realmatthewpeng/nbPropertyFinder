@@ -23,6 +23,4 @@ athlete['additional_index'] = x
 athelete_gym_scores = athlete[athlete.gym_scores > 0]
 athlete_hang_scores = athlete[athlete.hang > 0]
 athlete_tech_scores = athlete[athlete.tech_scores > 0]
-y = np.vstack(scores)
-x = np.arange(len(athlete))
 athlete_climbing_scores = athlete[athlete.climbing_scores > 0]

@@ -13,8 +13,5 @@ Incorrect Lines:
 
 
 Precision = 1.0
-Recall = 0.7272727272727273
+Recall = 1.0
 
-exams_cal = Calendar(f.readlines())
-exam_date_str = exam.begin.strftime('%Y-%m-%d')
-exam_counts[exam_date_str] = exam_counts.get(exam_date_str, 0) + 1

@@ -16,15 +16,10 @@ merged.loc[index, "unique"] = number_of_uniques
 number_of_uniques = data[feature_name].nunique()
 merged["data_type"] = merged["data_type"].astype(str)
 merged[column] = merged[column].astype(float).round(rounded_places)
-profile_dict[column] = []
-value = dictionary[attribute]
-sub_dictionary = profile_dict[key]
-attribute = keys[0]
 data_no_nulls[column] = data_no_nulls[column].fillna(data_no_nulls[column].mean())
 data_no_nulls = data.dropna(how = "any", axis = 0)
 data_no_nulls = data
 data_no_nulls[column] = data_no_nulls[column].astype(str)
-mask[numpy.triu_indices_from(mask)] = True
 correlation_dataframe = data_no_nulls.corr()
 filled_count_series = data.notnull().sum().astype(int)
 null_count_series = data.isnull().sum().astype(int)

@@ -25,7 +25,7 @@ Incorrect Lines:
 
 
 Precision = 1.0
-Recall = 0.145985401459854
+Recall = 0.14925373134328357
 
 data.loc[i,'Margalef'] = (len(data.iloc[i][4:last][data.iloc[i][4:last]>0])-1)/math.log(sum(data.iloc[i][4:last][data.iloc[i][4:last]>0]))
 river = data.iloc[0]["River"]
@@ -71,7 +71,6 @@ y = segDF["1-lam"]
 x = segDF["Year"]
 segDF = segDF.sort_values('Year')
 data.loc[i,"lam'"] = lam
-lam = num/(N*(N-1))
 y = segDF["lam'"]
 y.name = segment
 segDF = data.loc[data['RiverSeg'] == segment]
@@ -79,7 +78,6 @@ x = segDF["Year"]
 segDF = segDF[segDF["lam'"]>0]
 segDF = segDF.sort_values('Year')
 data.loc[i,"1-lam'"] = 1 - lam
-lam = num/(N*(N-1))
 segDF = segDF.sort_values('Year')
 segDF = data.loc[data['RiverSeg'] == segment]
 x = segDF["Year"]
@@ -123,7 +121,6 @@ x = segDF["Year"]
 segDF = segDF[segDF["lam'"]>0]
 segDF = segDF.sort_values('Year')
 data.loc[i,"N21"] = N2/N1
-N1 = math.exp(swi)
 y.name = segment
 segDF = data.loc[data['RiverSeg'] == segment]
 y = segDF["N21"]

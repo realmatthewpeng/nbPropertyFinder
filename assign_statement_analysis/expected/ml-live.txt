@@ -1,7 +1,6 @@
 trips = bq.Query(afewrecords2, EVERY_N=100000).to_dataframe()
 trips = bq.Query(afewrecords3, EVERY_N=100000).to_dataframe()
 tollrides = trips[trips['tolls_amount'] > 0]
-qc = np.all([\trips['pickup_longitude'] > -78, \trips['pickup_longitude'] < -70, \trips['dropoff_longitude'] > -78, \trips['dropoff_longitude'] < -70, \trips['pickup_latitude'] > 37, \trips['pickup_latitude'] < 45, \trips['dropoff_latitude'] > 37, \trips['dropoff_latitude'] < 45, \trips['passenger_count'] > 0,], axis=0)
 trips = trips_in.copy(deep=True)
 trips = bq.Query(afewrecords3, EVERY_N=10000).to_dataframe()
 trips.fare_amount = trips.fare_amount + trips.tolls_amount
@@ -9,10 +8,8 @@ tripsqc = preprocess(trips)
 df_train = shuffled.iloc[:trainsize, :]
 df_valid = shuffled.iloc[trainsize:(trainsize+validsize), :]
 shuffled = tripsqc.sample(frac=1)
-rate = df_train['fare_amount'].mean() / estimate_distance(df_train).mean()
 df_valid = pd.read_csv('data/taxi-valid.csv', header=None, names=columns)
 df_train = pd.read_csv('data/taxi-train.csv', header=None, names=columns)
 df_valid = pd.read_csv('./data/taxi-valid.csv', header = None, names = CSV_COLUMNS)
 df_train = pd.read_csv('./data/taxi-train.csv', header = None, names = CSV_COLUMNS)
-metrics = model.evaluate(input_fn = make_input_fn(df, 1))
 df = pd.DataFrame({'Lab' : pd.Series(['1a', '2-3', '4a', '4b', '4c']),'Method' : pd.Series(['Heuristic Benchmark', 'tf.learn', '+Feature Eng.', '+ Hyperparam', '+ 2m rows']),'RMSE': pd.Series([8.026, 9.4, 8.3, 5.0, 3.03]) })

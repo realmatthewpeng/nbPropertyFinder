@@ -51,7 +51,6 @@ segDF = segDF.sort_values('Year')
 data["lam'"] = ""
 array = data.iloc[i][4:last]
 data.loc[i,"lam'"] = lam
-lam = num/(N*(N-1))
 y = segDF["lam'"]
 y.name = segment
 segDF = data.loc[data['RiverSeg'] == segment]
@@ -61,7 +60,6 @@ segDF = segDF.sort_values('Year')
 data["1-lam'"] = ""
 array = data.iloc[i][4:last]
 data.loc[i,"1-lam'"] = 1 - lam
-lam = num/(N*(N-1))
 segDF = segDF.sort_values('Year')
 segDF = data.loc[data['RiverSeg'] == segment]
 x = segDF["Year"]
@@ -112,7 +110,6 @@ segDF = segDF[segDF["lam'"]>0]
 segDF = segDF.sort_values('Year')
 data["N21"] = ""
 data.loc[i,"N21"] = N2/N1
-N1 = math.exp(swi)
 y.name = segment
 segDF = data.loc[data['RiverSeg'] == segment]
 y = segDF["N21"]

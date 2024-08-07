@@ -13,7 +13,6 @@ new_df =  DataFrame.from_records(combs,columns=["Hotel Name","Checkin Date","Dis
 most_checkins = most_checkins.append(new_df)
 most_checkins["Discount Price"]= most_checkins.groupby(['Hotel Name','Checkin Date','Discount Code'])["Discount Price"].transform('min')
 checkin_hotel_discount = most_checkins[["Hotel Name","Checkin Date","Discount Code","Discount Price"]].reset_index()
-diff = max(x) - min(x)
 discount_synth = checkin_hotel_discount[checkin_hotel_discount['Discount Price'] == -1 ]
 discount_filtered["Normal"] = discount_filtered_grouped.transform(normalize_data)
 discount_synth["Normal"] = -1
@@ -21,13 +20,7 @@ discount_filtered_grouped = discount_filtered.groupby('Hotel Name')['Discount Pr
 discount_filtered = checkin_hotel_discount[checkin_hotel_discount['Discount Price'] > -1 ]
 normal_dataFrame = discount_synth.append(discount_filtered)
 vector = pd.DataFrame.from_records(rows)
-labels = vector.values[:,0]
-data = vector.values[:,1:160]
-shc = cluster.hierarchy
-Z = shc.linkage(data, method='ward')
 hotels["cluster"] = clusters
 hotels = hotels[[0,"cluster"]]
-clusters = cluster.fit_predict(vector.values[:,1:160])
 hotels = pd.DataFrame.from_records(vector.values)
 hotels["Count"] = hotels.groupby("cluster")[0].transform("count")
-pca_2d = pca.transform(data)

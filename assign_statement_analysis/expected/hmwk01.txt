@@ -13,11 +13,6 @@ dfTiFeDied = dfTitanic.loc[(dfTitanic["Sex"] == "female") & (dfTitanic["Survived
 dfTiFeSurvived = dfTitanic.loc[(dfTitanic["Sex"] == "female") & (dfTitanic["Survived"] == 1)]
 dfBabyDirt = pd.read_csv('http://www.stat.berkeley.edu/~statlabs/data/babies.data', delim_whitespace=True)
 dfBabies = dfBabyDirt[(dfBabyDirt["bwt"] != 999) & (dfBabyDirt["gestation"] != 999) & (dfBabyDirt["parity"] != 9) & (dfBabyDirt["height"] != 99) & (dfBabyDirt["weight"] != 999) & (dfBabyDirt["smoke"] != 9)]
-medianNSmoke = dfBabies.loc[dfBabies["smoke"]==0]["weight"].median()
-medianSmoke = dfBabies.loc[dfBabies["smoke"]==1]["weight"].median()
-meanSmoke = dfBabies.loc[dfBabies["smoke"]==1]["weight"].mean()
-meanNSmoke = dfBabies.loc[dfBabies["smoke"]==0]["weight"].mean()
-bp = dfBabies.boxplot(column="weight", by="smoke", ax=ax, return_type="dict")
 row["CANDIDATE NAME"] = row["CANDIDATE NAME (Last)"]
 dfClean = dfClean[["STATE", "D", "CANDIDATE NAME", "GENERAL PERCENT"]]
 df = pd.read_csv("2014_election_results.csv")

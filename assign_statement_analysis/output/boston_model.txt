@@ -3,17 +3,17 @@ Total number of lines found: 29
 boston = pd.read_csv('marathon/Boston_Marathon_2015_to_2017.csv')
 boston_join=pd.concat([boston, boston_mf], axis=1)
 boston_mf=pd.get_dummies(boston['M/F'])
-boston_clean=boston_join[['Bib','Age','5K Duration','10K Duration','15K Duration','20K Duration', 'Half Duration', '25K Duration','30K Duration','35K Duration','40K Duration','Official Time Duration', 'Temp (F)', 'F', 'M']]
+boston_join['15K Duration'] = boston_join['15K'].apply(time_convert)
 boston_join['20K Duration'] = boston_join['20K'].apply(time_convert)
+boston_join['5K Duration'] = boston_join['5K'].apply(time_convert)
 boston_join['40K Duration'] = boston_join['40K'].apply(time_convert)
+boston_join['Half Duration'] = boston_join['Half'].apply(time_convert)
+boston_join['Official Time Duration'] = boston_join['Official Time'].apply(time_convert)
+boston_clean=boston_join[['Bib','Age','5K Duration','10K Duration','15K Duration','20K Duration', 'Half Duration', '25K Duration','30K Duration','35K Duration','40K Duration','Official Time Duration', 'Temp (F)', 'F', 'M']]
+boston_join['35K Duration'] = boston_join['35K'].apply(time_convert)
+boston_join['30K Duration'] = boston_join['30K'].apply(time_convert)
 boston_join['10K Duration'] = boston_join['10K'].apply(time_convert)
 boston_join['25K Duration'] = boston_join['25K'].apply(time_convert)
-boston_join['Half Duration'] = boston_join['Half'].apply(time_convert)
-boston_join['35K Duration'] = boston_join['35K'].apply(time_convert)
-boston_join['15K Duration'] = boston_join['15K'].apply(time_convert)
-boston_join['Official Time Duration'] = boston_join['Official Time'].apply(time_convert)
-boston_join['30K Duration'] = boston_join['30K'].apply(time_convert)
-boston_join['5K Duration'] = boston_join['5K'].apply(time_convert)
 X_5K = boston_clean[['Bib','Age','Official Time Duration', 'F', 'M', 'Temp (F)']]
 df2=pd.DataFrame({'Bib':[25000], 'Age':[42],'Official Time Duration':[22175], 'F':[0], 'M':[1],'Temp (F)':[65]})
 X_nobib = boston_clean[['Age','Official Time Duration', 'F', 'M', 'Temp (F)']]
@@ -34,29 +34,17 @@ Incorrect Lines:
 
 
 Precision = 1.0
-Recall = 0.5471698113207547
+Recall = 0.7073170731707317
 
-y_5K = boston_clean['5K Duration'].values.reshape(-1, 1)
 X_train_5K, X_test_5K, y_train_5K, y_test_5K = train_test_split(X_5K, y_5K, random_state=29)
 X_train_nobib, X_test_nobib, y_train_nobib, y_test_nobib = train_test_split(X_nobib, y_nobib, random_state=29)
-y_nobib = boston_clean['5K Duration'].values.reshape(-1, 1)
 X_train_10K, X_test_10K, y_train_10K, y_test_10K = train_test_split(X_10K, y_10K, random_state=29)
-y_10K = boston_clean['10K Duration'].values.reshape(-1, 1)
-y_15K = boston_clean['15K Duration'].values.reshape(-1, 1)
 X_train_15K, X_test_15K, y_train_15K, y_test_15K = train_test_split(X_15K, y_15K, random_state=29)
-y_20K = boston_clean['20K Duration'].values.reshape(-1, 1)
 X_train_20K, X_test_20K, y_train_20K, y_test_20K = train_test_split(X_20K, y_20K, random_state=29)
-y_Half = boston_clean['Half Duration'].values.reshape(-1, 1)
 X_train_Half, X_test_Half, y_train_Half, y_test_Half = train_test_split(X_Half, y_Half, random_state=29)
 X_train_25K, X_test_25K, y_train_25K, y_test_25K = train_test_split(X_25K, y_25K, random_state=29)
-y_25K = boston_clean['25K Duration'].values.reshape(-1, 1)
 X_train_30K, X_test_30K, y_train_30K, y_test_30K = train_test_split(X_30K, y_30K, random_state=29)
-y_30K = boston_clean['30K Duration'].values.reshape(-1, 1)
 X_train_35K, X_test_35K, y_train_35K, y_test_35K = train_test_split(X_35K, y_35K, random_state=29)
-y_35K = boston_clean['35K Duration'].values.reshape(-1, 1)
-y_40K = boston_clean['40K Duration'].values.reshape(-1, 1)
 X_train_40K, X_test_40K, y_train_40K, y_test_40K = train_test_split(X_40K, y_40K, random_state=29)
 X_train_Final, X_test_Final, y_train_Final, y_test_Final = train_test_split(X_Final, y_Final, random_state=29)
-y_Final = boston_clean['Official Time Duration'].values.reshape(-1, 1)
-y_F40K = boston_females['40K Duration'].values.reshape(-1, 1)
 X_train_F40K, X_test_F40K, y_train_F40K, y_test_F40K = train_test_split(X_F40K, y_F40K, random_state=29)

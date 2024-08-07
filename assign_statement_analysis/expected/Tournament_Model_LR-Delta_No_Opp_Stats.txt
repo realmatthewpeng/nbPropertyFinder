@@ -12,11 +12,6 @@ test_games['pred_win_prob'] = pred_probs
 predictions = pd.Series(y_pred, index=y.index)
 test_games = tourney_comp_ratings[tourney_comp_ratings.index.isin(X.index)].copy()
 test_games['predicted_result'] = predictions
-important_features = utils.display_important_features(classifier.coef_[0], X,0)
-model_stats = utils.save_model_stats(classifier,X,y,model_stats)
-model_stats = utils.save_model_stats(classifier,X.drop(columns=drop_list),y,model_stats)
-least_important_label = important_features[-1][0]
-least_important_label = important_features[-1][0]
 summary_data = file_utils.read_summary_team_data(summary_team_file)
 teams = file_utils.read_team_meta_data(team_meta_data_file)
 tourney_data = file_utils.read_tournament_results(tournament_data_file,start_tournament)
@@ -40,33 +35,13 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 X_train = X_train.copy()
 X_test[numeric_features] = scaler.transform(X_test[numeric_features])
 X_train[numeric_features] = scaler.transform(X_train[numeric_features])
-prediction_probabilities = logreg.predict_proba(X_test)
-train_std = np.std(train_scores, axis=1)
 X_copy = X.copy()
-test_mean = np.mean(test_scores, axis=1)
 X_copy[numeric_features] = scaler.transform(X_copy[numeric_features])
 train_sizes, train_scores, test_scores = learning_curve(logreg,X_copy,y,# Number of folds in cross-validationcv=10,# Evaluation metricscoring='accuracy',# Use all computer coresn_jobs=-1,# 50 different sizes of the training settrain_sizes=np.linspace(0.01, 1.0, 50))
-train_mean = np.mean(train_scores, axis=1)
-test_std = np.std(test_scores, axis=1)
-scores = cross_val_score(logreg, X_copy,y, cv=10, scoring='accuracy')
-model_stats = eliminate_features_logistic_regression(logreg, X_copy,y)
-accuracy = value['accuracy']
-log_loss_val = value['log_loss']
-max_cross_val = cross_val
-cross_val = value['cross_validation']
-max_accuracy = accuracy
-min_log_loss = log_loss_val
-log_hash = key
-accuracy_hash = key
-cross_hash = key
-model_features =model_stats[cross_hash]['labels']
-cross_val_scores = cross_val_score(logreg, X,y, cv=10, scoring='accuracy')
 X_test[numeric_model_features] = scaler.transform(X_test[numeric_model_features])
 X_train, X_test, y_train, y_test = train_test_split(X_model, y, test_size=0.2, random_state= 5)
 X_train[numeric_model_features] = scaler.transform(X_train[numeric_model_features])
 X_model = X[model_features].copy()
-cross_validation_average = cross_val_scores.mean()
-prediction_probabilities = logreg.predict_proba(X_test)
 X_test = X_test.copy()
 X_train = X_train.copy()
 missed_predictions = get_missed_predictions(tourney_comp_ratings, model_features, numeric_model_features,prediction_probabilities, X_test, y_test, y_pred)
@@ -76,11 +51,9 @@ feature_copy = feature_data[feature_data['season_t'] == test_year].copy()
 feature_copy[numeric_model_features] = scaler.transform(feature_copy[numeric_model_features])
 y_season = tourney_comp_ratings[tourney_comp_ratings['season_t']== test_year]['game_result']
 X_season = feature_copy[model_features]
-prediction_probabilities = logreg.predict_proba(X_season)
 missed_predictions = get_missed_predictions(tourney_comp_ratings, model_features, numeric_model_features,prediction_probabilities,X_season,y_season,y_pred_season)
 plot_missed_predictions_df = missed_predictions[['game_index','features','model_features']]
 plot_missed_predictions_df = pd.melt(plot_missed_predictions_df, id_vars='game_index', var_name= 'Features Supporting Outcome')
-log_loss_result = utils.compute_log_loss(y_season.values, prediction_probabilities[:,1] )
 tourney_games = tourney_comp_ratings[tourney_comp_ratings.index.isin(X_season.index)].copy()
 tourney_games['predicted'] = y_pred_season
 predictions_counter_seed = tourney_games[cond_1 | cond_2]

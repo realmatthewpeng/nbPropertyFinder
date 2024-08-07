@@ -1,9 +1,9 @@
 Total number of lines found: 24
 
 data = pandas.read_csv(data_path)
+describe = data.describe(include = "all")
 describe_final = describe_transposed.reset_index()
 describe_transposed = describe.T
-describe = data.describe(include = "all")
 dtypes = data.dtypes
 dtypes_dataframe = pandas.DataFrame(dtypes, columns = ["data_type"])
 dtypes_final = dtypes_dataframe.reset_index()
@@ -11,17 +11,17 @@ null_count_series = data.isnull().sum().astype(int)
 filled_count_series = data.notnull().sum().astype(int)
 percent_filled = filled_count_series / totalcount
 percent_null =  null_count_series / totalcount
-null_count_series = null_count_series.reset_index().rename(columns = {0:"null_counts"})
-percent_filled = percent_filled.reset_index().rename(columns = {0:"non_null_percent"})
 filled_count_series = filled_count_series.reset_index().rename(columns = {0:"non_null_counts"})
+percent_filled = percent_filled.reset_index().rename(columns = {0:"non_null_percent"})
+null_count_series = null_count_series.reset_index().rename(columns = {0:"null_counts"})
 percent_null = percent_null.reset_index().rename(columns = {0:"null_percent"})
 null_info_dataframe = reduce(lambda left,right: pandas.merge(left,right,on='index'), [percent_null,percent_filled,filled_count_series,null_count_series])
 merged = reduce(lambda left, right: pandas.merge(left, right, on='index', how="left"),[null_info_dataframe, dtypes_final, describe_final])
 merged["row_count"] = totalcount
 merged["data_type"] = merged["data_type"].astype(str)
 merged[column] = merged[column].astype(float).round(rounded_places)
-data_no_nulls = data.dropna(how = "any", axis = 0)
 data_no_nulls = data
+data_no_nulls = data.dropna(how = "any", axis = 0)
 data_no_nulls[column] = data_no_nulls[column].astype(str)
 correlation_dataframe = data_no_nulls.corr()
 
@@ -29,13 +29,8 @@ Incorrect Lines:
 
 
 Precision = 1.0
-Recall = 0.75
+Recall = 0.8888888888888888
 
 merged.loc[index, "unique"] = number_of_uniques
 number_of_uniques = data[feature_name].nunique()
-profile_dict[column] = []
-value = dictionary[attribute]
-sub_dictionary = profile_dict[key]
-attribute = keys[0]
 data_no_nulls[column] = data_no_nulls[column].fillna(data_no_nulls[column].mean())
-mask[numpy.triu_indices_from(mask)] = True

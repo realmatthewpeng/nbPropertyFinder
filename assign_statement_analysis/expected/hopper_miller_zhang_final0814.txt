@@ -31,18 +31,7 @@ y_cat = data_cat[[target]]
 data_cat = data[data['AnimalType'] == 'Cat']
 data_dog = data[data['AnimalType'] == 'Dog']
 y_dog = data_dog[[target]]
-self.cols = cols
-self.hashing = hashing
 data = X[self.cols]
-self.cols = cols
-continuous_pipe_dog = Pipeline(steps=[('Scale', MyScaler(continuous['dog']))])
-union_dog = FeatureUnion([('Discrete', discrete_pipe_dog), ('Continuous', continuous_pipe_dog)])
-discrete_pipe_cat = Pipeline(steps=[('Vectorizer', MyVectorizer(cols=discrete['cat'], hashing=None))])
-union_cat = FeatureUnion([('Discrete', discrete_pipe_cat), ('Continuous', continuous_pipe_cat)])
-continuous_pipe_cat = Pipeline(steps=[('Scale', MyScaler(continuous['cat']))])
-discrete_pipe_dog = Pipeline(steps=[('Vectorizer', MyVectorizer(cols=discrete['dog'], hashing=None))])
-cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
-tick_marks = np.arange(len(classes))
 X_train_feature = X_train
 X_train_feature = X_train_feature.drop('Female_Unknown', 1)
 X_dev_feature = X_dev_feature.drop('Intact_Unknown', 1)
