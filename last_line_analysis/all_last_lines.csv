@@ -1,0 +1,272 @@
+,category,source
+0,NO_PRINT,dfTiDirt = pd.read_csv('titanic_data.csv')
+1,NO_PRINT,"dfTitanic = dfTiDirt.dropna(subset=[""Survived"", ""Pclass"", ""Age"", ""Sex""]).copy()"
+2,PRINT,"print(""First Class Fraction: {0:.4f}\nSecond Class Fraction: {1:.4f}\nThird Class Fraction: {2:.4f}"".format(firstClassRate[""Survived""], secondClassRate[""Survived""], thirdClassRate[""Survived""]))"
+3,PRINT,"print(""First Class Male Fraction: {0:.4f} \t First Class Female Fraction {1:.4f}\nSecond Class Male Fraction: {2:.4f} \t Second Class Female Fraction {3:.4f}\nThird Class Male Fraction: {4:.4f} \t Third Class Female Fraction {5:.4f}"".format(firstClassMRate[""Survived""], firstClassFRate[""Survived""], secondClassMRate[""Survived""], secondClassFRate[""Survived""], thirdClassMRate[""Survived""], thirdClassFRate[""Survived""]))"
+4,REDUCTION,"print(dfTitanic[""Age""].describe())"
+5,PRINT,"print(""Survived Female Mean Age: {0:2.2f}  Median Age: {1:2.2f}\nDied Female Mean Age: {2:2.2f} \t Median Age: {3:2.2f}"".format(dfTiFeSurvived[""Age""].mean(), dfTiFeSurvived[""Age""].median(), dfTiFeDied[""Age""].mean(), dfTiFeDied[""Age""].median()))"
+6,NO_PRINT,"dfBabyDirt = pd.read_csv('http://www.stat.berkeley.edu/~statlabs/data/babies.data', delim_whitespace=True)"
+7,NO_PRINT,"dfBabies = dfBabyDirt[(dfBabyDirt[""bwt""] != 999) & (dfBabyDirt[""gestation""] != 999) & (dfBabyDirt[""parity""] != 9) & (dfBabyDirt[""height""] != 99) & (dfBabyDirt[""weight""] != 999) & (dfBabyDirt[""smoke""] != 9)]"
+8,PRINT,"print(""Mean Smoker: {0:2.2f} \t Median Smoker: {1:2.2f}\nMean Non-Smoker: {2:2.2f}  Median Non-Smoker: {3:2.2f}"".format(meanSmoke, medianSmoke, meanNSmoke, medianNSmoke))"
+9,REDUCTION,display(data.describe())
+10,PRINT,display(samples - data.mean().round())
+11,PRINT,display(samples - data.median().round())
+12,PRINT,"samples.plot(kind='bar', figsize=(10, 6))"
+13,IMPLICIT SAMPLE,samples_percentage
+14,PRINT,print(score)
+15,STOP_PRINT,"pd.scatter_matrix(data, alpha = 0.3, figsize = (14,8), diagonal = 'kde');"
+16,STOP_PRINT,"pd.scatter_matrix(log_data, alpha = 0.3, figsize = (14,8), diagonal = 'kde');"
+17,PRINT,display(log_samples)
+18,STOP_PRINT,"pd.scatter_matrix(good_data, alpha = 0.3, figsize = (14,8), diagonal = 'kde');"
+19,NO_PRINT,"pca_results = rs.pca_results(good_data, pca)"
+20,PRINT,"display(pd.DataFrame(np.round(pca_samples, 4), columns = pca_results.index.values))"
+21,NO_PRINT,"reduced_data = pd.DataFrame(reduced_data, columns = ['Dimension 1', 'Dimension 2'])"
+22,STOP_PRINT,"pd.scatter_matrix(reduced_data, alpha = 0.8, figsize = (9,5), diagonal = 'kde');"
+23,PRINT,"display(pd.DataFrame(np.round(pca_samples, 4), columns = ['Dimension 1', 'Dimension 2']))"
+24,PRINT,"print(""{} => {}"".format(n_clusters, score))"
+25,PRINT,display(true_centers)
+26,NO_PRINT,"output = input(""Please provide a full-path output directory:"")"
+27,NO_PRINT,"data = pd.read_csv(inputFile,header=0)"
+28,NO_PRINT,last = len(data.columns)
+29,SAMPLE,data.iloc[0:5]
+30,NO_PRINT,"data[""Margalef""] = """""
+31,SAMPLE,data.iloc[0:5]
+32,NO_PRINT,segments = data.RiverSeg.unique()
+33,NO_PRINT,"river = data.iloc[0][""River""]"
+34,NO_PRINT,"data[""SWI_2""] = """""
+35,SAMPLE,data.iloc[0:5]
+36,NO_PRINT,"data[""SWI_e""] = """""
+37,SAMPLE,data.iloc[0:5]
+38,NO_PRINT,"data[""SWI_10""] = """""
+39,SAMPLE,data.iloc[0:5]
+40,NO_PRINT,"data[""lam""] = """""
+41,SAMPLE,data.iloc[0:5]
+42,NO_PRINT,"data[""1-lam""] = """""
+43,SAMPLE,data.iloc[0:5]
+44,NO_PRINT,"data[""lam'""] = """""
+45,SAMPLE,data.iloc[0:5]
+46,NO_PRINT,"data[""1-lam'""] = """""
+47,SAMPLE,data.iloc[0:5]
+48,NO_PRINT,"data[""N1""] = """""
+49,SAMPLE,data.iloc[0:5]
+50,NO_PRINT,"data[""N2""] = """""
+51,SAMPLE,data.iloc[0:5]
+52,NO_PRINT,"data[""N_Inf""] = """""
+53,SAMPLE,data.iloc[0:5]
+54,NO_PRINT,"data[""N10""] = """""
+55,SAMPLE,data.iloc[0:5]
+56,NO_PRINT,"data[""N10'""] = """""
+57,SAMPLE,data.iloc[0:5]
+58,NO_PRINT,"data[""N21""] = """""
+59,SAMPLE,data.iloc[0:5]
+60,NO_PRINT,"data[""N21'""] = """""
+61,SAMPLE,data.iloc[0:5]
+62,NO_PRINT,"data[""Pielou""] = """""
+63,SAMPLE,data.iloc[0:5]
+64,PRINT,"data.to_csv(output + ""\\"" + river + ""_biodiv.csv"")"
+65,NO_PRINT,"modeling_df = pd.read_csv('data/weather_with_avg_hourly_flight_delay.csv', index_col=False)"
+66,PRINT,print(list(train_features))
+67,NO_PRINT,"knn_evs = explained_variance_score(knn_grid.predict(test_features), test_outcome)"
+68,NO_PRINT,"dt_evs = explained_variance_score(dt_grid.predict(test_features), test_outcome)"
+69,PRINT,print('Decision Explained Variance Score: ' + str(dt_evs))
+70,PRINT,print('Best Decision Tree hyperparameters: ' + str(dt_best_params) + '\n')
+71,PRINT,boston.columns
+72,SAMPLE,boston_join.head()
+73,PRINT,boston_join.columns
+74,PRINT,boston_clean.columns
+75,PRINT,"print(X_5K.shape, y_5K.shape)"
+76,SAMPLE,X_train_5K.head()
+77,PRINT,"model_5K.fit(X_train_5K, y_train_5K)"
+78,NO_PRINT,predictions_5K = model_5K.predict(X_test_5K)
+79,PRINT,print(predictions_5K)
+80,PRINT,model_5K.predict(df2)
+81,PRINT,boston_r2.append(r2)
+82,PRINT,"print(f""MSE: {MSE}, R2: {r2}"")"
+83,PRINT,"print(f""MSE: {MSE}, R2: {r2}"")"
+84,PRINT,"print(f""MSE: {MSE}, R2: {r2}"")"
+85,PRINT,"print(f""MSE: {MSE}, R2: {r2}"")"
+86,IMPLICIT SAMPLE,predictions_10K
+87,PRINT,boston_r2.append(r2)
+88,PRINT,boston_r2.append(r2)
+89,PRINT,boston_r2.append(r2)
+90,PRINT,boston_r2.append(r2)
+91,PRINT,boston_r2.append(r2)
+92,PRINT,boston_r2.append(r2)
+93,PRINT,boston_r2.append(r2)
+94,PRINT,boston_r2.append(r2)
+95,PRINT,boston_r2.append(r2)
+96,PRINT,boston_clean.columns
+97,IMPLICIT SAMPLE,boston_mse
+98,IMPLICIT SAMPLE,boston_r2
+99,IMPLICIT SAMPLE,boston_residuals_df
+100,IMPLICIT SAMPLE,boston_females
+101,IMPLICIT SAMPLE,boston_residuals_df
+102,PRINT,"print(""Timestamp set to: {}"".format(timestamp))"
+103,PRINT,"print(""Dataframe has {} features and {} records"".format(data.shape[1], data.shape[0]))"
+104,PRINT,"print(""Dataframe feature names: {}"".format(list(data.columns)))"
+105,PRINT,"print(""Export path set to '{}'"".format(exportpath))"
+106,PRINT,"print(""Header spacing char set to '{}'"".format(header_spacing_char))"
+107,NO_PRINT,non_identity_type = 'scatter'
+108,NO_PRINT,describe_final = describe_transposed.reset_index()
+109,IMPLICIT SAMPLE,describe_final
+110,NO_PRINT,dtypes = data.dtypes
+111,NO_PRINT,"dtypes_dataframe = pandas.DataFrame(dtypes, columns = [""data_type""])"
+112,NO_PRINT,dtypes_final = dtypes_dataframe.reset_index()
+113,SAMPLE,dtypes_final.head()
+114,NO_PRINT,totalcount = data.shape[0]
+115,NO_PRINT,percent_filled = filled_count_series / totalcount
+116,NO_PRINT,"null_count_series = null_count_series.reset_index().rename(columns = {0:""null_counts""})"
+117,NO_PRINT,"null_info_dataframe = reduce(lambda left,right: pandas.merge(left,right,on='index'), [percent_null,percent_filled,filled_count_series,null_count_series])"
+118,SAMPLE,null_info_dataframe.head()
+119,NO_PRINT,"merged = reduce(lambda left, right: pandas.merge(left, right, on='index', how=""left""),[null_info_dataframe, dtypes_final, describe_final])"
+120,PRINT,"merged.drop([""count""], axis = 1, inplace = True)"
+121,SAMPLE,merged.head()
+122,NO_PRINT,"merged[""data_type""] = merged[""data_type""].astype(str)"
+123,NO_PRINT,profile_dict = {}
+124,PRINT,fileobj.close()
+125,PRINT,"merged.to_csv(exportpath + ""profile.csv"", index = False)"
+126,NO_PRINT,column_number = 0
+127,NO_PRINT,response_json = response.json()
+128,SAMPLE,region_stats.head()
+129,REDUCTION,"region_stats.groupby(""region"").size()"
+130,IMPLICIT SAMPLE,mean_df_clean
+131,IMPLICIT SAMPLE,quartile_bins
+132,NO_PRINT,region_stats['weighted_growth_to_tuition'] = region_stats['earnings_cost_ratio'] * region_stats['earnings_growth_y6_y10']
+133,NO_PRINT,"clean_info = region_stats.drop(columns=['school_id', 'tuition_out_state'])"
+134,NO_PRINT,"df32 = clean_info.loc[clean_info[""tuition_cost_tier""] == 'greater_32k']"
+135,NO_PRINT,df32_grouped = df32.groupby(['region']).mean()
+136,NO_PRINT,weighted_growth32k = [worthit for worthit in df32_grouped['weighted_growth_to_tuition']]
+137,PRINT,table10k.rename(columns={'weighted_growth_to_tuition':'Worth-It Ratio'})
+138,IMPLICIT SAMPLE,y_axis1
+139,IMPLICIT SAMPLE,weighted_growth10k
+140,NO_PRINT,"__version__ = ""0.0.1"""
+141,PRINT,"plotly.tools.set_credentials_file(username='srjit', api_key='lpKtXjzR7LBaqHwlxFQp')"
+142,NO_PRINT,"data = pd.read_csv(""../data/prices.csv"")"
+143,SAMPLE,"data[data.symbol == ""FB""].head()"
+144,SAMPLE,data.symbol.unique()[:50]
+145,NO_PRINT,"googl = data[data.symbol == ""GOOGL""]"
+146,PRINT,"cf.set_config_file(world_readable=True, offline=True)"
+147,NO_PRINT,"semester_names = {'f16': 'Fall 16','s17': 'Spring 17','f17': 'Fall 17','s18': 'Spring 18','f18': 'Fall 18','s19': 'Spring 19','f19': 'Fall 19','s20': 'Spring 20',}"
+148,NO_PRINT,"old_df = pd.read_csv('data/School.csv', parse_dates=[1, 2, 3, 7, 8])"
+149,NO_PRINT,"f18_df = pd.read_csv('data/asana-umass-f18.csv', parse_dates=[1, 2, 3, 8, 9])"
+150,SAMPLE,all_df.head()
+151,NO_PRINT,all_df['Created At DOW'] = all_df['Created At'].dt.dayofweek
+152,NO_PRINT,all_df['Duration'] = (all_df['Completed At'] - all_df['Created At'])
+153,PRINT,"axes[1].axis(""off"")"
+154,NO_PRINT,all_df['Overdue'] = all_df['Completed At'] - all_df['Due Date']
+155,PRINT,"axes[1, 1].axis(""off"")"
+156,NO_PRINT,"with open('data/Exams_2alvmakoou6sa9ks0roaq79nic@group.calendar.google.com.ics', 'r') as f:exams_cal = Calendar(f.readlines())"
+157,NO_PRINT,exam_counts['date']  = pd.to_datetime(exam_counts['date'])
+158,NO_PRINT,county_data = pd.read_csv(file_to_load)
+159,IMPLICIT SAMPLE,df_county_data
+160,IMPLICIT SAMPLE,lines
+161,PRINT,"print(""Household Size:      "" + ""{:.4f}"".format(corr_hh))"
+162,PRINT,"warnings.simplefilter(action='ignore', category=FutureWarning)"
+163,SAMPLE,trips[:10]
+164,NO_PRINT,"ax = sns.regplot(x=""trip_distance"", y=""fare_amount"", fit_reg=False, ci=None, truncate=True, data=trips)"
+165,NO_PRINT,"ax = sns.regplot(x=""trip_distance"", y=""fare_amount"", fit_reg=False, ci=None, truncate=True, data=trips)"
+166,SAMPLE,tollrides[tollrides['pickup_datetime'] == '2012-09-05 15:45:00']
+167,REDUCTION,trips.describe()
+168,REDUCTION,tripsqc.describe()
+169,NO_PRINT,"df_valid = shuffled.iloc[trainsize:(trainsize+validsize), :]"
+170,REDUCTION,df_train.describe()
+171,REDUCTION,df_valid.describe()
+172,NO_PRINT,"df_valid = pd.read_csv('./data/taxi-valid.csv', header = None, names = CSV_COLUMNS)"
+173,PRINT,"model.train(input_fn = make_input_fn(df_train, num_epochs = 10))"
+174,NO_PRINT,REGION = 'us-central1' 
+175,NO_PRINT,os.environ['TFVERSION'] = '1.8'
+176,PRINT,print('RMSE = {}'.format(np.sqrt(74)))
+177,PRINT,TensorBoard().start(OUTDIR)
+178,NO_PRINT,data['OrderedBreed'] = data.Breed.apply(reorder)
+179,NO_PRINT,X_dev[continuous] = ss.transform(X_dev[continuous])
+180,PRINT,"animal_type.plot(kind='bar',color='#34ABD8',rot=0)"
+181,PRINT,"outcome_type.plot(kind='bar',color='#34ABD8',rot=0)"
+182,PRINT,show(p)
+183,PRINT,show(p)
+184,PRINT,show(p)
+185,PRINT,"data.hist(column=""ConvertedAge"", bins=25)"
+186,PRINT,show(p)
+187,PRINT,"print(""Unique Breeds"" , (data.OrderedBreed.value_counts() > 0).sum())"
+188,PRINT,show(p)
+189,NO_PRINT,"X_cat_train, X_cat_dev, y_cat_train, y_cat_dev = train_test_split(X_cat, y_cat, random_state=2)"
+190,NO_PRINT,"class MyVectorizer(BaseEstimator, TransformerMixin):def __init__(self, cols, hashing=None):""""""args:cols: a list of column names of the categorical variableshashing:If None, then vectorization is a simple one-hot-encoding.If an integer, then hashing is the number of features in the output.""""""self.cols = colsself.hashing = hashingdef fit(self, X, y=None):data = X[self.cols]# Choose a vectorizerif self.hashing is None:self.myvec = DictVectorizer(sparse=False)else:self.myvec = FeatureHasher(n_features = self.hashing)self.myvec.fit(X[self.cols].to_dict(orient='records'))return selfdef transform(self, X):# Vectorize Inputif self.hashing is None:return pd.DataFrame(self.myvec.transform(X[self.cols].to_dict(orient='records')),columns = self.myvec.feature_names_)else:return pd.DataFrame(self.myvec.transform(X[self.cols].to_dict(orient='records')).toarray())"
+191,NO_PRINT,"class MyScaler():def __init__(self, cols):self.cols = colsdef fit(self, X, y=None):self.ss = StandardScaler()self.ss.fit(X[self.cols])return selfdef transform(self, X):return self.ss.transform(X[self.cols])"
+192,NO_PRINT,"union_cat = FeatureUnion([('Discrete', discrete_pipe_cat), ('Continuous', continuous_pipe_cat)])"
+193,PRINT,"model.fit(np.array(X_train), y_train_hot, epochs=10, batch_size=32)"
+194,PRINT,"model2.fit(np.array(X_train_feature), y_train_hot, epochs=10, batch_size=32)"
+195,PRINT,"model3.fit(np.array(X_train_dog), y_train_hot, epochs=10, batch_size=32)"
+196,PRINT,"model4.fit(np.array(X_train_cat), y_train_hot, epochs=10, batch_size=32)"
+197,NO_PRINT,feature_dictionary = utils.Feature_Dictionary()
+198,NO_PRINT,stop_tournament = 2017
+199,SAMPLE,summary_data.head()
+200,REDUCTION,summary_data['season'].describe()
+201,REDUCTION,tourney_data.describe()
+202,SAMPLE,tourney_data.head()
+203,SAMPLE,tourney_comp_ratings[tourney_comp_ratings.isnull().any(axis=1)]
+204,SAMPLE,tourney_comp_ratings.head()
+205,REDUCTION,tourney_comp_ratings.describe()
+206,SAMPLE,feature_data.head()
+207,REDUCTION,X['season_t'].describe()
+208,IMPLICIT SAMPLE,feature_list
+209,SAMPLE,X_train.head()
+210,NO_PRINT,X_test[numeric_features] = scaler.transform(X_test[numeric_features])
+211,SAMPLE,X_train.head()
+212,PRINT,"print(""Intercept "", logreg.intercept_)"
+213,NO_PRINT,y_pred = logreg.predict(X_test)
+214,PRINT,"print(""Log loss= "",log_loss(y_test, prediction_probabilities))"
+215,REDUCTION,print(scores.mean())
+216,NO_PRINT,"model_stats = eliminate_features_logistic_regression(logreg, X_copy,y)"
+217,PRINT,print('Log Loss at Max Cross Validation= {0:6.4f} '.format( model_stats[cross_hash]['log_loss'] ))
+218,PRINT,print(model_features)
+219,IMPLICIT SAMPLE,numeric_model_features
+220,IMPLICIT SAMPLE,dropped_features
+221,NO_PRINT,"missed_predictions = get_missed_predictions(tourney_comp_ratings, model_features, numeric_model_features,prediction_probabilities, X_test, y_test, y_pred)"
+222,IMPLICIT SAMPLE,missed_predictions
+223,PRINT,"m_plot.figure.set_size_inches(20,6)"
+224,SAMPLE,missed_predictions[missed_predictions['game_index']==201]
+225,SAMPLE,feature_copy.head()
+226,SAMPLE,feature_copy.head()
+227,PRINT,X_season.shape
+228,PRINT,"print(""Log loss= "",log_loss(y_season, prediction_probabilities))"
+229,NO_PRINT,"missed_predictions = get_missed_predictions(tourney_comp_ratings, model_features, numeric_model_features,prediction_probabilities,X_season,y_season,y_pred_season)"
+230,IMPLICIT SAMPLE,missed_predictions
+231,PRINT,"m_plot.figure.set_size_inches(20,6)"
+232,SAMPLE,missed_predictions[missed_predictions['game_index']==1024]
+233,IMPLICIT SAMPLE,log_loss_result
+234,SAMPLE,"prediction_probabilities[:,1]"
+235,IMPLICIT SAMPLE,y_pred_season
+236,IMPLICIT SAMPLE,tourney_games
+237,SAMPLE,tourney_games.head()
+238,SAMPLE,"predictions_counter_seed[['round','seed_t','team_t','seed_o','team_o','game_result','predicted','win_pts','lose_pts']]"
+239,SAMPLE,"correct_counter_predictions[['round','seed_t','team_t','seed_o','team_o','game_result','predicted','win_pts','lose_pts']]"
+240,SAMPLE,"wrong_counter_predictions[['round','seed_t','team_t','seed_o','team_o','game_result','predicted','win_pts','lose_pts']]"
+241,PRINT,"print(""Number of correct counter seed predictions= "", len(correct_counter_predictions.index))"
+242,NO_PRINT,sessions['date'] = pd.to_datetime(sessions.date)
+243,PRINT,sessions.columns
+244,NO_PRINT,sessions['yoga_scores'] = yoga_scores
+245,NO_PRINT,sunshine_sessions = sessions[sessions.monkey == 'sunshine']
+246,SAMPLE,"doripa.tail()[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']]"
+247,REDUCTION,"doripa[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']].max()"
+248,SAMPLE,"sunshine_sessions.tail()[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']]"
+249,REDUCTION,"sunshine_sessions[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']].max()"
+250,PRINT,"doripa[['total', 'total6', 'scores']].corr()"
+251,PRINT,doripa['total'].corr(doripa['total6'])
+252,PRINT,doripa['total'].corr(doripa['scores'])
+253,PRINT,doripa['scores'].corr(doripa['total6'])
+254,SAMPLE,sunshine_sessions.corr()['scores']
+255,PRINT,doripa.corr()['scores'].sort_values()
+256,PRINT,teams_all[teams_all.name== 'Boise St.'].sort()
+257,IMPLICIT SAMPLE,games_all
+258,PRINT,features_total.iloc[0].tolist()
+259,IMPLICIT SAMPLE,fs
+260,NO_PRINT,kag_results = pd.read_csv('data_files/tourney_results.csv')
+261,SAMPLE,results[results.res.notnull()]
+262,IMPLICIT SAMPLE,ll
+263,IMPLICIT SAMPLE,df
+264,NO_PRINT,most_common_hotels = descending_hotels[descending_hotels['Hotel Name'].isin(df_hotels)]
+265,NO_PRINT,most_checkins = descending_most_common_hotels[descending_most_common_hotels['Checkin Date'].isin(common_checkins_list)]
+266,NO_PRINT,most_checkins = most_checkins.append(new_df)
+267,NO_PRINT,"checkin_hotel_discount = most_checkins[[""Hotel Name"",""Checkin Date"",""Discount Code"",""Discount Price""]].reset_index()"
+268,IMPLICIT SAMPLE,normal_dataFrame
+269,NO_PRINT,vector = pd.DataFrame.from_records(rows)
+270,IMPLICIT SAMPLE,hotels

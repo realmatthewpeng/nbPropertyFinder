@@ -1,0 +1,271 @@
+{'category': 'NO_PRINT', 'source': "dfTiDirt = pd.read_csv('titanic_data.csv')"}
+{'category': 'NO_PRINT', 'source': 'dfTitanic = dfTiDirt.dropna(subset=["Survived", "Pclass", "Age", "Sex"]).copy()'}
+{'category': 'PRINT', 'source': 'print("First Class Fraction: {0:.4f}\\nSecond Class Fraction: {1:.4f}\\nThird Class Fraction: {2:.4f}".format(firstClassRate["Survived"], secondClassRate["Survived"], thirdClassRate["Survived"]))'}
+{'category': 'PRINT', 'source': 'print("First Class Male Fraction: {0:.4f} \\t First Class Female Fraction {1:.4f}\\nSecond Class Male Fraction: {2:.4f} \\t Second Class Female Fraction {3:.4f}\\nThird Class Male Fraction: {4:.4f} \\t Third Class Female Fraction {5:.4f}".format(firstClassMRate["Survived"], firstClassFRate["Survived"], secondClassMRate["Survived"], secondClassFRate["Survived"], thirdClassMRate["Survived"], thirdClassFRate["Survived"]))'}
+{'category': 'REDUCTION', 'source': 'print(dfTitanic["Age"].describe())'}
+{'category': 'PRINT', 'source': 'print("Survived Female Mean Age: {0:2.2f}  Median Age: {1:2.2f}\\nDied Female Mean Age: {2:2.2f} \\t Median Age: {3:2.2f}".format(dfTiFeSurvived["Age"].mean(), dfTiFeSurvived["Age"].median(), dfTiFeDied["Age"].mean(), dfTiFeDied["Age"].median()))'}
+{'category': 'NO_PRINT', 'source': "dfBabyDirt = pd.read_csv('http://www.stat.berkeley.edu/~statlabs/data/babies.data', delim_whitespace=True)"}
+{'category': 'NO_PRINT', 'source': 'dfBabies = dfBabyDirt[(dfBabyDirt["bwt"] != 999) & (dfBabyDirt["gestation"] != 999) & (dfBabyDirt["parity"] != 9) & (dfBabyDirt["height"] != 99) & (dfBabyDirt["weight"] != 999) & (dfBabyDirt["smoke"] != 9)]'}
+{'category': 'PRINT', 'source': 'print("Mean Smoker: {0:2.2f} \\t Median Smoker: {1:2.2f}\\nMean Non-Smoker: {2:2.2f}  Median Non-Smoker: {3:2.2f}".format(meanSmoke, medianSmoke, meanNSmoke, medianNSmoke))'}
+{'category': 'REDUCTION', 'source': 'display(data.describe())'}
+{'category': 'PRINT', 'source': 'display(samples - data.mean().round())'}
+{'category': 'PRINT', 'source': 'display(samples - data.median().round())'}
+{'category': 'PRINT', 'source': "samples.plot(kind='bar', figsize=(10, 6))"}
+{'category': 'IMPLICIT SAMPLE', 'source': 'samples_percentage'}
+{'category': 'PRINT', 'source': 'print(score)'}
+{'category': 'STOP_PRINT', 'source': "pd.scatter_matrix(data, alpha = 0.3, figsize = (14,8), diagonal = 'kde');"}
+{'category': 'STOP_PRINT', 'source': "pd.scatter_matrix(log_data, alpha = 0.3, figsize = (14,8), diagonal = 'kde');"}
+{'category': 'PRINT', 'source': 'display(log_samples)'}
+{'category': 'STOP_PRINT', 'source': "pd.scatter_matrix(good_data, alpha = 0.3, figsize = (14,8), diagonal = 'kde');"}
+{'category': 'NO_PRINT', 'source': 'pca_results = rs.pca_results(good_data, pca)'}
+{'category': 'PRINT', 'source': 'display(pd.DataFrame(np.round(pca_samples, 4), columns = pca_results.index.values))'}
+{'category': 'NO_PRINT', 'source': "reduced_data = pd.DataFrame(reduced_data, columns = ['Dimension 1', 'Dimension 2'])"}
+{'category': 'STOP_PRINT', 'source': "pd.scatter_matrix(reduced_data, alpha = 0.8, figsize = (9,5), diagonal = 'kde');"}
+{'category': 'PRINT', 'source': "display(pd.DataFrame(np.round(pca_samples, 4), columns = ['Dimension 1', 'Dimension 2']))"}
+{'category': 'PRINT', 'source': 'print("{} => {}".format(n_clusters, score))'}
+{'category': 'PRINT', 'source': 'display(true_centers)'}
+{'category': 'NO_PRINT', 'source': 'output = input("Please provide a full-path output directory:")'}
+{'category': 'NO_PRINT', 'source': 'data = pd.read_csv(inputFile,header=0)'}
+{'category': 'NO_PRINT', 'source': 'last = len(data.columns)'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'NO_PRINT', 'source': 'data["Margalef"] = ""'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'NO_PRINT', 'source': 'segments = data.RiverSeg.unique()'}
+{'category': 'NO_PRINT', 'source': 'river = data.iloc[0]["River"]'}
+{'category': 'NO_PRINT', 'source': 'data["SWI_2"] = ""'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'NO_PRINT', 'source': 'data["SWI_e"] = ""'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'NO_PRINT', 'source': 'data["SWI_10"] = ""'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'NO_PRINT', 'source': 'data["lam"] = ""'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'NO_PRINT', 'source': 'data["1-lam"] = ""'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'NO_PRINT', 'source': 'data["lam\'"] = ""'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'NO_PRINT', 'source': 'data["1-lam\'"] = ""'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'NO_PRINT', 'source': 'data["N1"] = ""'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'NO_PRINT', 'source': 'data["N2"] = ""'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'NO_PRINT', 'source': 'data["N_Inf"] = ""'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'NO_PRINT', 'source': 'data["N10"] = ""'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'NO_PRINT', 'source': 'data["N10\'"] = ""'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'NO_PRINT', 'source': 'data["N21"] = ""'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'NO_PRINT', 'source': 'data["N21\'"] = ""'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'NO_PRINT', 'source': 'data["Pielou"] = ""'}
+{'category': 'SAMPLE', 'source': 'data.iloc[0:5]'}
+{'category': 'PRINT', 'source': 'data.to_csv(output + "\\\\" + river + "_biodiv.csv")'}
+{'category': 'NO_PRINT', 'source': "modeling_df = pd.read_csv('data/weather_with_avg_hourly_flight_delay.csv', index_col=False)"}
+{'category': 'PRINT', 'source': 'print(list(train_features))'}
+{'category': 'NO_PRINT', 'source': 'knn_evs = explained_variance_score(knn_grid.predict(test_features), test_outcome)'}
+{'category': 'NO_PRINT', 'source': 'dt_evs = explained_variance_score(dt_grid.predict(test_features), test_outcome)'}
+{'category': 'PRINT', 'source': "print('Decision Explained Variance Score: ' + str(dt_evs))"}
+{'category': 'PRINT', 'source': "print('Best Decision Tree hyperparameters: ' + str(dt_best_params) + '\\n')"}
+{'category': 'PRINT', 'source': 'boston.columns'}
+{'category': 'SAMPLE', 'source': 'boston_join.head()'}
+{'category': 'PRINT', 'source': 'boston_join.columns'}
+{'category': 'PRINT', 'source': 'boston_clean.columns'}
+{'category': 'PRINT', 'source': 'print(X_5K.shape, y_5K.shape)'}
+{'category': 'SAMPLE', 'source': 'X_train_5K.head()'}
+{'category': 'PRINT', 'source': 'model_5K.fit(X_train_5K, y_train_5K)'}
+{'category': 'NO_PRINT', 'source': 'predictions_5K = model_5K.predict(X_test_5K)'}
+{'category': 'PRINT', 'source': 'print(predictions_5K)'}
+{'category': 'PRINT', 'source': 'model_5K.predict(df2)'}
+{'category': 'PRINT', 'source': 'boston_r2.append(r2)'}
+{'category': 'PRINT', 'source': 'print(f"MSE: {MSE}, R2: {r2}")'}
+{'category': 'PRINT', 'source': 'print(f"MSE: {MSE}, R2: {r2}")'}
+{'category': 'PRINT', 'source': 'print(f"MSE: {MSE}, R2: {r2}")'}
+{'category': 'PRINT', 'source': 'print(f"MSE: {MSE}, R2: {r2}")'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'predictions_10K'}
+{'category': 'PRINT', 'source': 'boston_r2.append(r2)'}
+{'category': 'PRINT', 'source': 'boston_r2.append(r2)'}
+{'category': 'PRINT', 'source': 'boston_r2.append(r2)'}
+{'category': 'PRINT', 'source': 'boston_r2.append(r2)'}
+{'category': 'PRINT', 'source': 'boston_r2.append(r2)'}
+{'category': 'PRINT', 'source': 'boston_r2.append(r2)'}
+{'category': 'PRINT', 'source': 'boston_r2.append(r2)'}
+{'category': 'PRINT', 'source': 'boston_r2.append(r2)'}
+{'category': 'PRINT', 'source': 'boston_r2.append(r2)'}
+{'category': 'PRINT', 'source': 'boston_clean.columns'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'boston_mse'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'boston_r2'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'boston_residuals_df'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'boston_females'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'boston_residuals_df'}
+{'category': 'PRINT', 'source': 'print("Timestamp set to: {}".format(timestamp))'}
+{'category': 'PRINT', 'source': 'print("Dataframe has {} features and {} records".format(data.shape[1], data.shape[0]))'}
+{'category': 'PRINT', 'source': 'print("Dataframe feature names: {}".format(list(data.columns)))'}
+{'category': 'PRINT', 'source': 'print("Export path set to \'{}\'".format(exportpath))'}
+{'category': 'PRINT', 'source': 'print("Header spacing char set to \'{}\'".format(header_spacing_char))'}
+{'category': 'NO_PRINT', 'source': "non_identity_type = 'scatter'"}
+{'category': 'NO_PRINT', 'source': 'describe_final = describe_transposed.reset_index()'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'describe_final'}
+{'category': 'NO_PRINT', 'source': 'dtypes = data.dtypes'}
+{'category': 'NO_PRINT', 'source': 'dtypes_dataframe = pandas.DataFrame(dtypes, columns = ["data_type"])'}
+{'category': 'NO_PRINT', 'source': 'dtypes_final = dtypes_dataframe.reset_index()'}
+{'category': 'SAMPLE', 'source': 'dtypes_final.head()'}
+{'category': 'NO_PRINT', 'source': 'totalcount = data.shape[0]'}
+{'category': 'NO_PRINT', 'source': 'percent_filled = filled_count_series / totalcount'}
+{'category': 'NO_PRINT', 'source': 'null_count_series = null_count_series.reset_index().rename(columns = {0:"null_counts"})'}
+{'category': 'NO_PRINT', 'source': "null_info_dataframe = reduce(lambda left,right: pandas.merge(left,right,on='index'), [percent_null,percent_filled,filled_count_series,null_count_series])"}
+{'category': 'SAMPLE', 'source': 'null_info_dataframe.head()'}
+{'category': 'NO_PRINT', 'source': 'merged = reduce(lambda left, right: pandas.merge(left, right, on=\'index\', how="left"),[null_info_dataframe, dtypes_final, describe_final])'}
+{'category': 'PRINT', 'source': 'merged.drop(["count"], axis = 1, inplace = True)'}
+{'category': 'SAMPLE', 'source': 'merged.head()'}
+{'category': 'NO_PRINT', 'source': 'merged["data_type"] = merged["data_type"].astype(str)'}
+{'category': 'NO_PRINT', 'source': 'profile_dict = {}'}
+{'category': 'PRINT', 'source': 'fileobj.close()'}
+{'category': 'PRINT', 'source': 'merged.to_csv(exportpath + "profile.csv", index = False)'}
+{'category': 'NO_PRINT', 'source': 'column_number = 0'}
+{'category': 'NO_PRINT', 'source': 'response_json = response.json()'}
+{'category': 'SAMPLE', 'source': 'region_stats.head()'}
+{'category': 'REDUCTION', 'source': 'region_stats.groupby("region").size()'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'mean_df_clean'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'quartile_bins'}
+{'category': 'NO_PRINT', 'source': "region_stats['weighted_growth_to_tuition'] = region_stats['earnings_cost_ratio'] * region_stats['earnings_growth_y6_y10']"}
+{'category': 'NO_PRINT', 'source': "clean_info = region_stats.drop(columns=['school_id', 'tuition_out_state'])"}
+{'category': 'NO_PRINT', 'source': 'df32 = clean_info.loc[clean_info["tuition_cost_tier"] == \'greater_32k\']'}
+{'category': 'NO_PRINT', 'source': "df32_grouped = df32.groupby(['region']).mean()"}
+{'category': 'NO_PRINT', 'source': "weighted_growth32k = [worthit for worthit in df32_grouped['weighted_growth_to_tuition']]"}
+{'category': 'PRINT', 'source': "table10k.rename(columns={'weighted_growth_to_tuition':'Worth-It Ratio'})"}
+{'category': 'IMPLICIT SAMPLE', 'source': 'y_axis1'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'weighted_growth10k'}
+{'category': 'NO_PRINT', 'source': '__version__ = "0.0.1"'}
+{'category': 'PRINT', 'source': "plotly.tools.set_credentials_file(username='srjit', api_key='lpKtXjzR7LBaqHwlxFQp')"}
+{'category': 'NO_PRINT', 'source': 'data = pd.read_csv("../data/prices.csv")'}
+{'category': 'SAMPLE', 'source': 'data[data.symbol == "FB"].head()'}
+{'category': 'SAMPLE', 'source': 'data.symbol.unique()[:50]'}
+{'category': 'NO_PRINT', 'source': 'googl = data[data.symbol == "GOOGL"]'}
+{'category': 'PRINT', 'source': 'cf.set_config_file(world_readable=True, offline=True)'}
+{'category': 'NO_PRINT', 'source': "semester_names = {'f16': 'Fall 16','s17': 'Spring 17','f17': 'Fall 17','s18': 'Spring 18','f18': 'Fall 18','s19': 'Spring 19','f19': 'Fall 19','s20': 'Spring 20',}"}
+{'category': 'NO_PRINT', 'source': "old_df = pd.read_csv('data/School.csv', parse_dates=[1, 2, 3, 7, 8])"}
+{'category': 'NO_PRINT', 'source': "f18_df = pd.read_csv('data/asana-umass-f18.csv', parse_dates=[1, 2, 3, 8, 9])"}
+{'category': 'SAMPLE', 'source': 'all_df.head()'}
+{'category': 'NO_PRINT', 'source': "all_df['Created At DOW'] = all_df['Created At'].dt.dayofweek"}
+{'category': 'NO_PRINT', 'source': "all_df['Duration'] = (all_df['Completed At'] - all_df['Created At'])"}
+{'category': 'PRINT', 'source': 'axes[1].axis("off")'}
+{'category': 'NO_PRINT', 'source': "all_df['Overdue'] = all_df['Completed At'] - all_df['Due Date']"}
+{'category': 'PRINT', 'source': 'axes[1, 1].axis("off")'}
+{'category': 'NO_PRINT', 'source': "with open('data/Exams_2alvmakoou6sa9ks0roaq79nic@group.calendar.google.com.ics', 'r') as f:exams_cal = Calendar(f.readlines())"}
+{'category': 'NO_PRINT', 'source': "exam_counts['date']  = pd.to_datetime(exam_counts['date'])"}
+{'category': 'NO_PRINT', 'source': 'county_data = pd.read_csv(file_to_load)'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'df_county_data'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'lines'}
+{'category': 'PRINT', 'source': 'print("Household Size:      " + "{:.4f}".format(corr_hh))'}
+{'category': 'PRINT', 'source': "warnings.simplefilter(action='ignore', category=FutureWarning)"}
+{'category': 'SAMPLE', 'source': 'trips[:10]'}
+{'category': 'NO_PRINT', 'source': 'ax = sns.regplot(x="trip_distance", y="fare_amount", fit_reg=False, ci=None, truncate=True, data=trips)'}
+{'category': 'NO_PRINT', 'source': 'ax = sns.regplot(x="trip_distance", y="fare_amount", fit_reg=False, ci=None, truncate=True, data=trips)'}
+{'category': 'SAMPLE', 'source': "tollrides[tollrides['pickup_datetime'] == '2012-09-05 15:45:00']"}
+{'category': 'REDUCTION', 'source': 'trips.describe()'}
+{'category': 'REDUCTION', 'source': 'tripsqc.describe()'}
+{'category': 'NO_PRINT', 'source': 'df_valid = shuffled.iloc[trainsize:(trainsize+validsize), :]'}
+{'category': 'REDUCTION', 'source': 'df_train.describe()'}
+{'category': 'REDUCTION', 'source': 'df_valid.describe()'}
+{'category': 'NO_PRINT', 'source': "df_valid = pd.read_csv('./data/taxi-valid.csv', header = None, names = CSV_COLUMNS)"}
+{'category': 'PRINT', 'source': 'model.train(input_fn = make_input_fn(df_train, num_epochs = 10))'}
+{'category': 'NO_PRINT', 'source': "REGION = 'us-central1' "}
+{'category': 'NO_PRINT', 'source': "os.environ['TFVERSION'] = '1.8'"}
+{'category': 'PRINT', 'source': "print('RMSE = {}'.format(np.sqrt(74)))"}
+{'category': 'PRINT', 'source': 'TensorBoard().start(OUTDIR)'}
+{'category': 'NO_PRINT', 'source': "data['OrderedBreed'] = data.Breed.apply(reorder)"}
+{'category': 'NO_PRINT', 'source': 'X_dev[continuous] = ss.transform(X_dev[continuous])'}
+{'category': 'PRINT', 'source': "animal_type.plot(kind='bar',color='#34ABD8',rot=0)"}
+{'category': 'PRINT', 'source': "outcome_type.plot(kind='bar',color='#34ABD8',rot=0)"}
+{'category': 'PRINT', 'source': 'show(p)'}
+{'category': 'PRINT', 'source': 'show(p)'}
+{'category': 'PRINT', 'source': 'show(p)'}
+{'category': 'PRINT', 'source': 'data.hist(column="ConvertedAge", bins=25)'}
+{'category': 'PRINT', 'source': 'show(p)'}
+{'category': 'PRINT', 'source': 'print("Unique Breeds" , (data.OrderedBreed.value_counts() > 0).sum())'}
+{'category': 'PRINT', 'source': 'show(p)'}
+{'category': 'NO_PRINT', 'source': 'X_cat_train, X_cat_dev, y_cat_train, y_cat_dev = train_test_split(X_cat, y_cat, random_state=2)'}
+{'category': 'NO_PRINT', 'source': 'class MyVectorizer(BaseEstimator, TransformerMixin):def __init__(self, cols, hashing=None):"""args:cols: a list of column names of the categorical variableshashing:If None, then vectorization is a simple one-hot-encoding.If an integer, then hashing is the number of features in the output."""self.cols = colsself.hashing = hashingdef fit(self, X, y=None):data = X[self.cols]# Choose a vectorizerif self.hashing is None:self.myvec = DictVectorizer(sparse=False)else:self.myvec = FeatureHasher(n_features = self.hashing)self.myvec.fit(X[self.cols].to_dict(orient=\'records\'))return selfdef transform(self, X):# Vectorize Inputif self.hashing is None:return pd.DataFrame(self.myvec.transform(X[self.cols].to_dict(orient=\'records\')),columns = self.myvec.feature_names_)else:return pd.DataFrame(self.myvec.transform(X[self.cols].to_dict(orient=\'records\')).toarray())'}
+{'category': 'NO_PRINT', 'source': 'class MyScaler():def __init__(self, cols):self.cols = colsdef fit(self, X, y=None):self.ss = StandardScaler()self.ss.fit(X[self.cols])return selfdef transform(self, X):return self.ss.transform(X[self.cols])'}
+{'category': 'NO_PRINT', 'source': "union_cat = FeatureUnion([('Discrete', discrete_pipe_cat), ('Continuous', continuous_pipe_cat)])"}
+{'category': 'PRINT', 'source': 'model.fit(np.array(X_train), y_train_hot, epochs=10, batch_size=32)'}
+{'category': 'PRINT', 'source': 'model2.fit(np.array(X_train_feature), y_train_hot, epochs=10, batch_size=32)'}
+{'category': 'PRINT', 'source': 'model3.fit(np.array(X_train_dog), y_train_hot, epochs=10, batch_size=32)'}
+{'category': 'PRINT', 'source': 'model4.fit(np.array(X_train_cat), y_train_hot, epochs=10, batch_size=32)'}
+{'category': 'NO_PRINT', 'source': 'feature_dictionary = utils.Feature_Dictionary()'}
+{'category': 'NO_PRINT', 'source': 'stop_tournament = 2017'}
+{'category': 'SAMPLE', 'source': 'summary_data.head()'}
+{'category': 'REDUCTION', 'source': "summary_data['season'].describe()"}
+{'category': 'REDUCTION', 'source': 'tourney_data.describe()'}
+{'category': 'SAMPLE', 'source': 'tourney_data.head()'}
+{'category': 'SAMPLE', 'source': 'tourney_comp_ratings[tourney_comp_ratings.isnull().any(axis=1)]'}
+{'category': 'SAMPLE', 'source': 'tourney_comp_ratings.head()'}
+{'category': 'REDUCTION', 'source': 'tourney_comp_ratings.describe()'}
+{'category': 'SAMPLE', 'source': 'feature_data.head()'}
+{'category': 'REDUCTION', 'source': "X['season_t'].describe()"}
+{'category': 'IMPLICIT SAMPLE', 'source': 'feature_list'}
+{'category': 'SAMPLE', 'source': 'X_train.head()'}
+{'category': 'NO_PRINT', 'source': 'X_test[numeric_features] = scaler.transform(X_test[numeric_features])'}
+{'category': 'SAMPLE', 'source': 'X_train.head()'}
+{'category': 'PRINT', 'source': 'print("Intercept ", logreg.intercept_)'}
+{'category': 'NO_PRINT', 'source': 'y_pred = logreg.predict(X_test)'}
+{'category': 'PRINT', 'source': 'print("Log loss= ",log_loss(y_test, prediction_probabilities))'}
+{'category': 'REDUCTION', 'source': 'print(scores.mean())'}
+{'category': 'NO_PRINT', 'source': 'model_stats = eliminate_features_logistic_regression(logreg, X_copy,y)'}
+{'category': 'PRINT', 'source': "print('Log Loss at Max Cross Validation= {0:6.4f} '.format( model_stats[cross_hash]['log_loss'] ))"}
+{'category': 'PRINT', 'source': 'print(model_features)'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'numeric_model_features'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'dropped_features'}
+{'category': 'NO_PRINT', 'source': 'missed_predictions = get_missed_predictions(tourney_comp_ratings, model_features, numeric_model_features,prediction_probabilities, X_test, y_test, y_pred)'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'missed_predictions'}
+{'category': 'PRINT', 'source': 'm_plot.figure.set_size_inches(20,6)'}
+{'category': 'SAMPLE', 'source': "missed_predictions[missed_predictions['game_index']==201]"}
+{'category': 'SAMPLE', 'source': 'feature_copy.head()'}
+{'category': 'SAMPLE', 'source': 'feature_copy.head()'}
+{'category': 'PRINT', 'source': 'X_season.shape'}
+{'category': 'PRINT', 'source': 'print("Log loss= ",log_loss(y_season, prediction_probabilities))'}
+{'category': 'NO_PRINT', 'source': 'missed_predictions = get_missed_predictions(tourney_comp_ratings, model_features, numeric_model_features,prediction_probabilities,X_season,y_season,y_pred_season)'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'missed_predictions'}
+{'category': 'PRINT', 'source': 'm_plot.figure.set_size_inches(20,6)'}
+{'category': 'SAMPLE', 'source': "missed_predictions[missed_predictions['game_index']==1024]"}
+{'category': 'IMPLICIT SAMPLE', 'source': 'log_loss_result'}
+{'category': 'SAMPLE', 'source': 'prediction_probabilities[:,1]'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'y_pred_season'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'tourney_games'}
+{'category': 'SAMPLE', 'source': 'tourney_games.head()'}
+{'category': 'SAMPLE', 'source': "predictions_counter_seed[['round','seed_t','team_t','seed_o','team_o','game_result','predicted','win_pts','lose_pts']]"}
+{'category': 'SAMPLE', 'source': "correct_counter_predictions[['round','seed_t','team_t','seed_o','team_o','game_result','predicted','win_pts','lose_pts']]"}
+{'category': 'SAMPLE', 'source': "wrong_counter_predictions[['round','seed_t','team_t','seed_o','team_o','game_result','predicted','win_pts','lose_pts']]"}
+{'category': 'PRINT', 'source': 'print("Number of correct counter seed predictions= ", len(correct_counter_predictions.index))'}
+{'category': 'NO_PRINT', 'source': "sessions['date'] = pd.to_datetime(sessions.date)"}
+{'category': 'PRINT', 'source': 'sessions.columns'}
+{'category': 'NO_PRINT', 'source': "sessions['yoga_scores'] = yoga_scores"}
+{'category': 'NO_PRINT', 'source': "sunshine_sessions = sessions[sessions.monkey == 'sunshine']"}
+{'category': 'SAMPLE', 'source': "doripa.tail()[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']]"}
+{'category': 'REDUCTION', 'source': "doripa[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']].max()"}
+{'category': 'SAMPLE', 'source': "sunshine_sessions.tail()[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']]"}
+{'category': 'REDUCTION', 'source': "sunshine_sessions[['climbing_scores', 'tech_scores', 'gym_scores', 'hang_scores', 'arc_scores']].max()"}
+{'category': 'PRINT', 'source': "doripa[['total', 'total6', 'scores']].corr()"}
+{'category': 'PRINT', 'source': "doripa['total'].corr(doripa['total6'])"}
+{'category': 'PRINT', 'source': "doripa['total'].corr(doripa['scores'])"}
+{'category': 'PRINT', 'source': "doripa['scores'].corr(doripa['total6'])"}
+{'category': 'SAMPLE', 'source': "sunshine_sessions.corr()['scores']"}
+{'category': 'PRINT', 'source': "doripa.corr()['scores'].sort_values()"}
+{'category': 'PRINT', 'source': "teams_all[teams_all.name== 'Boise St.'].sort()"}
+{'category': 'IMPLICIT SAMPLE', 'source': 'games_all'}
+{'category': 'PRINT', 'source': 'features_total.iloc[0].tolist()'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'fs'}
+{'category': 'NO_PRINT', 'source': "kag_results = pd.read_csv('data_files/tourney_results.csv')"}
+{'category': 'SAMPLE', 'source': 'results[results.res.notnull()]'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'll'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'df'}
+{'category': 'NO_PRINT', 'source': "most_common_hotels = descending_hotels[descending_hotels['Hotel Name'].isin(df_hotels)]"}
+{'category': 'NO_PRINT', 'source': "most_checkins = descending_most_common_hotels[descending_most_common_hotels['Checkin Date'].isin(common_checkins_list)]"}
+{'category': 'NO_PRINT', 'source': 'most_checkins = most_checkins.append(new_df)'}
+{'category': 'NO_PRINT', 'source': 'checkin_hotel_discount = most_checkins[["Hotel Name","Checkin Date","Discount Code","Discount Price"]].reset_index()'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'normal_dataFrame'}
+{'category': 'NO_PRINT', 'source': 'vector = pd.DataFrame.from_records(rows)'}
+{'category': 'IMPLICIT SAMPLE', 'source': 'hotels'}
