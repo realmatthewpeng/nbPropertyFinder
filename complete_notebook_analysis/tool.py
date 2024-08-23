@@ -4,7 +4,12 @@ import ast
 import os
 from operator import itemgetter
 import pandas as pd
-import typeinference.typerinfer_tool as typeinfer
+import sys
+
+typeinferpath = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'typeinference'))
+sys.path.append(typeinferpath)
+
+import typerinfer_tool as typeinfer
 
 class Visitor(ast.NodeVisitor):
 
@@ -122,9 +127,9 @@ class Visitor(ast.NodeVisitor):
         return self.savedLines
 
 TEST_SINGLE_NB = False
-NB_TEST_DIR = "notebooks/"
+NB_TEST_DIR = "../notebooks/"
 NB_EXPECTED_DIR = "expected/"
-TEST_NB = "test.ipynb"
+TEST_NB = "../test.ipynb"
 
 corpus_total_expected = 0
 corpus_total_correct = 0
@@ -138,7 +143,7 @@ def main():
         processNotebook(nb, TEST_NB, "")
     else:
         links = {}
-        with open("notebook_links.txt") as f:
+        with open("../notebook_links.txt") as f:
             for line in f:
                 (notebook, link) = line.split(",")
                 links[notebook] = link
@@ -159,6 +164,9 @@ def main():
             
         print("Precision = " + str(precision))
         print("Recall = " + str(recall))
+        
+        print("Total Found = " + str(corpus_total_found))
+        print("Total Expected = " + str(corpus_total_expected))
 
         # with open("all_data.txt", "w") as f:
         #     for x in range(len(all_data)):

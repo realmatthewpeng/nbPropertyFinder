@@ -5,8 +5,8 @@ from operator import itemgetter
 import pandas as pd
 
 TEST_SINGLE_NB = False
-NB_TEST_DIR = "notebooks/"
-TEST_NB = "test.ipynb"
+NB_TEST_DIR = "../notebooks/"
+TEST_NB = "../test.ipynb"
 
 sample_funcs = ["head", "tail", "loc", "iloc"]
 reduce_funs = ["describe", "mean", "std",

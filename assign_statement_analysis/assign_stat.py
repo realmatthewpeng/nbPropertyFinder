@@ -101,6 +101,8 @@ def main():
         print("Precision = " + str(precision))
         print("Recall = " + str(recall))
         print(f"Found {corpus_total_correct} out of {all_assigns} assignment statements to be DataFrame related.")
+        print(f"Found {corpus_total_expected} out of {all_assigns} assignment statements should be DataFrame related.")
+
 
         # with open("all_data.txt", "w") as f:
         #     for x in range(len(all_data)):
