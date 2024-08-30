@@ -31,3 +31,5 @@ hotels["Count"] = hotels.groupby("cluster")[0].transform("count")
 hotels
 hotels["cluster"] = clusters
 hotels = hotels[[0,"cluster"]]
+df["WeekDay"] = DataFrame([get_datetime(val).weekday() for val in df["Checkin Date"]])
+df["DayDiff"] = DataFrame([get_datetime(val) for val in df["Checkin Date"]]) - DataFrame([get_datetime(val) for val in df["Snapshot Date"]])
