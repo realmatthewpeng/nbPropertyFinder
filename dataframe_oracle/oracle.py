@@ -6,6 +6,7 @@ import nbformat
 
 def main():
     flatten_notebook(nbformat.read("test.ipynb", as_version=4))
+    typecheck_var_assignments()
 
 
 # We need to take a notebook (array of cells) and get:
@@ -16,7 +17,7 @@ def flatten_notebook(nb: nbformat.NotebookNode):
     cell_count = 0
     flat_lineno = 0
     statement_source_to_info = defaultdict(list[tuple[int,int,int]])
-    typecheck_file = open("test.py", "w")
+    flattened_file = open("test.py", "w")
 
     for cell in nb["cells"]:
         if cell["cell_type"] == "code":
@@ -32,8 +33,8 @@ def flatten_notebook(nb: nbformat.NotebookNode):
                     end_r = statement.end_lineno
                     start_c = statement.col_offset
                     end_c = statement.end_col_offset
-
-                    total_lines = start_r - end_r + 1
+                    
+                    total_lines = end_r - start_r + 1
 
                     source_split = [line for line in cell_source.split("\n")]
                     cut = source_split[start_r-1:end_r]
@@ -44,7 +45,7 @@ def flatten_notebook(nb: nbformat.NotebookNode):
                         cut[0] = cut[0][start_c:end_c]
                     statement_source = "\n".join(cut)
 
-                    typecheck_file.write(statement_source + "\n")
+                    flattened_file.write(statement_source + "\n")
 
                     statement_source_to_info[statement_source].append((flat_lineno, cell_count, cell_statement_count))
                     cell_statement_count += 1
@@ -56,11 +57,49 @@ def flatten_notebook(nb: nbformat.NotebookNode):
 
         cell_count += 1
 
-    typecheck_file.close()
+    flattened_file.close()
     print(f"Processed {cell_count} cells.")
     # print(statement_to_info)
 
     return statement_source_to_info
+
+
+def typecheck_var_assignments(flat_nb_source = ""):
+
+    if flat_nb_source == "":
+        with open("test.py", "r") as f:
+            for line in f:
+                flat_nb_source += line
+
+    # print(flat_nb_source)
+    source_tree = ast.parse(flat_nb_source)
+    source_list = flat_nb_source.split("\n")
+
+    typecheck_file = open("test2.py", "w")
+
+    current_lineno = 0
+    for statement in source_tree.body:
+        start_r = statement.lineno
+        end_r = statement.end_lineno
+        total_lines = end_r - start_r + 1
+
+        # TODO: statements within statement body (if, loops). nested bodies?
+
+        for lineno in range(current_lineno, current_lineno+total_lines):
+            typecheck_file.write(source_list[lineno]+"\n")
+
+        # TODO: multiple assigns in one statement
+        if type(statement) == ast.Assign:
+            source_targets: ast.Name = statement.targets[0]
+            target_name = source_targets.id
+
+            typecheck_id = f"__infer_target_line_{current_lineno}"
+            typecheck_file.write(f"{typecheck_id} = {target_name.strip()}")
+            typecheck_file.write(f"\nreveal_type({typecheck_id})\n\n")
+
+        current_lineno += total_lines
+
+    typecheck_file.close()
 
 
 # # Don't actually have to use, just for clarity/readability

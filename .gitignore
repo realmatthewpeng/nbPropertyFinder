@@ -2,6 +2,6 @@
 .ipynb_checkpoints
 .vscode/
 **/output/
-**/test.py
+**/test*.py
 test.py
 .venv
